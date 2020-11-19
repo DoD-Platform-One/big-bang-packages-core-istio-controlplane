@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: jaeger
+  namespace: {{ .Release.Namespace }}
+spec:
+  hosts:
+  - "jaeger.{{ .Values.hostname }}"
+  gateways:
+  - main.{{ .Release.Namespace }}.svc.cluster.local
+  http:
+  - route:
+    - destination:
+        port:
+          number: 16686
+        host: jaeger-query.{{ .Release.Namespace }}.svc.cluster.local

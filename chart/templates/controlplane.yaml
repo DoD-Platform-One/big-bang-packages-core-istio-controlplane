@@ -1,0 +1,96 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: istiocontrolplane
+  namespace: {{ .Release.Namespace }}
+spec:
+  profile: {{ .Values.profile }}
+  hub: {{ .Values.hub }}
+  tag: {{ .Values.tag }}
+
+  components:
+    ingressGateways:
+      - name: istio-ingressgateway
+        namespace: {{ .Release.Namespace }}
+        enabled: true
+        k8s:
+          hpaSpec:
+            minReplicas: {{ .Values.ingressGateway.minReplicas }}
+            maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
+            metrics:
+              - type: Resource
+                resource:
+                  name: cpu
+                  targetAverageUtilization: 60
+            scaleTargetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: istio-ingressgateway
+          strategy:
+            rollingUpdate:
+              maxSurge: 100%
+              maxUnavailable: 25%
+          serviceAnnotations:
+            {{- toYaml .Values.ingressGateway.serviceAnnotations | nindent 14 }}
+      {{- range .Values.extraIngressGateways }}
+      - name: {{ .name }}
+        enabled: true
+        k8s:
+          hpaSpec:
+            minReplicas: {{ .k8s.hpaSpec.minReplicas }}
+            maxReplicas: {{ .k8s.hpaSpec.maxReplicas }}
+            metrics:
+              - type: Resource
+                resource:
+                  name: cpu
+                  targetAverageUtilization: 60
+            scaleTargetRef:
+              apiVersion: apps/v1
+              kind: Deployment
+              name: {{ .name }}
+          strategy:
+            rollingUpdate:
+              maxSurge: 100%
+              maxUnavailable: 25%
+          serviceAnnotations:
+            {{- toYaml .k8s.serviceAnnotations | nindent 14 }}
+  {{- end }}
+
+  addonComponents:
+    kiali:
+      enabled: {{ .Values.kiali.enabled }}
+    tracing:
+      enabled: {{ .Values.tracing.enabled }}
+
+  meshConfig:
+    accessLogFile: /dev/stdout
+
+  values:
+    global:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    kiali:
+      image: {{ .Values.kiali.image.name }}
+      hub: {{ .Values.kiali.image.hub }}
+      tag: {{ .Values.kiali.image.tag }}
+
+      dashboard:
+        auth:
+          strategy: {{ .Values.kiali.dashboard.auth.strategy }}
+
+    sidecarInjectorWebhook:
+      rewriteAppHTTPProbe: true
+
+      neverInjectSelector:
+        - matchExpressions:
+            - key: app.kubernetes.io/component
+              operator: In
+              values: [fluentd-configcheck]
+
+    tracing:
+      jaeger:
+        image: {{ .Values.tracing.image.name }}
+        hub: {{ .Values.tracing.image.hub }}
+        tag: {{ .Values.tracing.image.tag}}
