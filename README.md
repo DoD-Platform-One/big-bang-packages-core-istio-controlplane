@@ -1,3 +1,12 @@
+
+ 
+# Table of Contents
+- [Development](#istio-controlpane)
+- [Prerequisites](#pre-requisites)
+- [IronBank Images](#iron-bank)
+- [Deployment](#deployment)
+- [Istio Metrics](#docs/prometheus.md)
+
 # Istio Controlplane
 
 A simple chart wrapper around `IstioOperator` custom resource.
