@@ -75,10 +75,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.extraGlobalValues }}
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml . | nindent 6 }}
       {{- end }}
     {{- with .Values.extraValues }}
-      {{- toYaml . | nindent 8 }}
+      {{- toYaml . | nindent 4 }}
     {{- end }}
     kiali:
       image: {{ .Values.kiali.image.name }}
