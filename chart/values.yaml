@@ -39,6 +39,15 @@ ingressGateway:
     {}
 #    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 #    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  extraK8sConfig: {}
+# affinity, tolerations, service, ext
+
+extraGlobalValues: {}
+# General escape for all additional global values not covered in the other items
+
+extraValues: {}
+# Escape for any additional configurations to be put in the 'values' section that
+# is not under the key 'global'. Use extraGlobalValues instead.
 
 extraIngressGateways:
   []
@@ -50,6 +59,7 @@ extraIngressGateways:
 #        maxReplicas: 3
 #      serviceAnnotations:
 #        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+
 
 kiali:
   enabled: true
