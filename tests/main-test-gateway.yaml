@@ -1,42 +1,36 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
+  annotations:
+    meta.helm.sh/release-name: istio-system-istio
+    meta.helm.sh/release-namespace: istio-system
+  creationTimestamp: "2020-12-08T01:19:38Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
   name: main
-  namespace: {{ .Release.Namespace }}
+  namespace: istio-operator
+  resourceVersion: "1661"
+  selfLink: /apis/networking.istio.io/v1beta1/namespaces/istio-system/gateways/main
+  uid: 9cfaa8c6-744a-49b3-abc0-b3960153c9b2
 spec:
   selector:
     istio: ingressgateway
   servers:
-  - port:
+  - hosts:
+    - '*'
+    port:
       name: http
-      protocol: HTTP
       number: 80
-    hosts:
-    - "*"
+      protocol: HTTP
     tls:
       httpsRedirect: true
-  - port:
+  - hosts:
+    - '*.bigbang.dev'
+    port:
       name: https
-      protocol: HTTPS
       number: 443
-    hosts:
-    - "*.{{ .Values.hostname }}"
+      protocol: HTTPS
     tls:
-      credentialName: {{ .Values.tls.credentialName }}
-      mode: {{ .Values.tls.mode }}
-  {{- range .Values.extraServers }}
-  - port:
-      {{- if eq .port.name "https" }}
-      {{- fail "The port name must be unique" }}
-      {{- end }}
-      name: {{ required "A valid port name is required!" .port.name }}
-      protocol: {{ .port.protocol | default "HTTPS" }}
-      number: {{ .port.number | default 443 }}
-    {{- range .hosts }}
-    hosts:
-      - {{ tpl . $ | quote }}
-    {{- end }}
-    tls:
-      credentialName: {{ required "A valid credential name is required!" .tls.credentialName }}
-      mode: {{ .tls.mode | default "SIMPLE" }}
-  {{- end }}
+      credentialName: wildcard-cert
+      mode: SIMPLE
