@@ -9,7 +9,7 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: Helm
   name: main
-  namespace: istio-controlplane
+  namespace: istio-system
   resourceVersion: "1661"
   selfLink: /apis/networking.istio.io/v1beta1/namespaces/istio-system/gateways/main
   uid: 9cfaa8c6-744a-49b3-abc0-b3960153c9b2
