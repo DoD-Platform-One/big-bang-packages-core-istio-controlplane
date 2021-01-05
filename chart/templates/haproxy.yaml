@@ -1,0 +1,183 @@
+{{- if .Values.sso.enabled }}
+---
+# Source: haproxy/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: istio-addons-sso-haproxy
+  namespace: {{ .Values.sso.namespace }}
+  labels:
+    helm.sh/chart: haproxy-1.1.1
+    app.kubernetes.io/name: haproxy
+    app.kubernetes.io/instance: istio-addons-sso
+    app.kubernetes.io/version: "2.2.4"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: haproxy/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-addons-sso-haproxy
+  namespace: {{ .Values.sso.namespace }}
+  labels:
+    helm.sh/chart: haproxy-1.1.1
+    app.kubernetes.io/name: haproxy
+    app.kubernetes.io/instance: istio-addons-sso
+    app.kubernetes.io/version: "2.2.4"
+    app.kubernetes.io/managed-by: Helm
+data:
+  haproxy.cfg: |
+  
+    global
+      maxconn 1024
+      daemon
+      log stdout format raw local0 info
+    defaults
+      log global
+      mode http
+      option httplog
+      timeout client 60s
+      timeout connect 60s
+      timeout server 60s
+    frontend fe_main
+      bind :8080
+      acl host_kiali hdr(host) -i kiali.{{ .Values.hostname }}
+      acl host_tracing hdr(host) -i tracing.{{ .Values.hostname }}
+      option forwardfor
+      use_backend kiali_main if host_kiali
+      use_backend tracing_main if host_tracing
+    backend kiali_main
+      mode http
+      server kiali kiali.{{ .Release.Namespace }}.svc.cluster.local:20001
+    backend tracing_main
+      mode http
+      server tracing tracing.{{ .Release.Namespace }}.svc.cluster.local:80
+---
+# Source: haproxy/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-addons-sso-haproxy
+  namespace: {{ .Values.sso.namespace }}
+  labels:
+    helm.sh/chart: haproxy-1.1.1
+    app.kubernetes.io/name: haproxy
+    app.kubernetes.io/instance: istio-addons-sso
+    app.kubernetes.io/version: "2.2.4"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: haproxy
+    app.kubernetes.io/instance: istio-addons-sso
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: http
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: https
+  - name: stat
+    protocol: TCP
+    port: 1024
+    targetPort: stat
+---
+# Source: haproxy/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istio-addons-sso-haproxy
+  namespace: {{ .Values.sso.namespace }}
+  labels:
+    helm.sh/chart: haproxy-1.1.1
+    app.kubernetes.io/name: haproxy
+    app.kubernetes.io/instance: istio-addons-sso
+    app.kubernetes.io/version: "2.2.4"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: haproxy
+      app.kubernetes.io/instance: istio-addons-sso
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: haproxy
+        app.kubernetes.io/instance: istio-addons-sso
+        {{ .Values.sso.selector.key | default "protect" }}: {{ .Values.sso.selector.value | default "keycloak" | quote }}
+      annotations:
+        checksum/environment: 4666beb3a5f7412acda03d86ace72f80948e14d64c320358cd93965b3e751382
+        sidecar.istio.io/inject: "true"
+    spec:
+      serviceAccountName: istio-addons-sso-haproxy
+      terminationGracePeriodSeconds: 60
+      securityContext:
+        {}
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: private-registry
+      volumes:
+        - name: haproxy-config
+          configMap:
+            name: istio-addons-sso-haproxy
+      containers:
+        - name: haproxy
+          image: "registry1.dsop.io/ironbank/opensource/haproxy/haproxy22:v2.2.2"
+          imagePullPolicy: IfNotPresent
+          args:
+            - -f
+            - /usr/local/etc/haproxy/haproxy.cfg
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+            - name: stat
+              containerPort: 1024
+              protocol: TCP
+          resources:
+            null
+          volumeMounts:
+            - name: haproxy-config
+              mountPath: /usr/local/etc/haproxy
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kiali-auth
+  namespace: {{ .Values.sso.namespace }}
+spec:
+  hosts:
+    - "kiali.{{ .Values.hostname }}"
+  gateways:
+  - main.{{ .Release.Namespace }}.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: istio-addons-sso-haproxy
+            port:
+              number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tracing-auth
+  namespace: {{ .Values.sso.namespace }}
+spec:
+  hosts:
+    - "tracing.{{ .Values.hostname }}"
+  gateways:
+  - main.{{ .Release.Namespace }}.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: istio-addons-sso-haproxy
+            port:
+              number: 8080
+{{- end }}
