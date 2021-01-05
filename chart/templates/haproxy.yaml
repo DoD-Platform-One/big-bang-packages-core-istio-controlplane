@@ -97,6 +97,8 @@ metadata:
     app.kubernetes.io/instance: istio-addons-sso
     app.kubernetes.io/version: "2.2.4"
     app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": post-install
 spec:
   replicas: 1
   selector:
