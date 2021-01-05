@@ -14,6 +14,28 @@ spec:
         namespace: {{ .Release.Namespace }}
         enabled: true
         k8s:
+          {{- if .Values.ingressGateway.nodePorts.enabled }}
+          service:
+            type: NodePort
+            ports:
+            {{- range .Values.ingressGateway.nodePorts.ports }}
+            {{- if and (not .name) (ne .name "") }}
+              {{- fail "missing nodePort 'name' field" }}
+            {{- end }}
+            {{- if not .port }}
+              {{- fail "missing nodePort 'port' field" }}
+            {{- end }}
+            {{- if not .nodePort }}
+              {{- fail "missing nodePort 'nodePort' field" }}
+            {{- else if or (lt (int .nodePort) 30000) (gt (int .nodePort) 32767)}}
+              {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
+            {{- end }}
+            - name: {{ .name }}
+              port: {{ .port }}
+              targetPort: {{ .targetPort | default .port }}
+              nodePort: {{ .nodePort }}
+            {{- end }}
+          {{- end }}
           hpaSpec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}

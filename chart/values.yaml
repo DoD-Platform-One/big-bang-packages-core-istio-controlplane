@@ -38,10 +38,29 @@ extraServers:
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
+
   serviceAnnotations:
     {}
 #    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 #    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+
+# Set enabled to 'true', uncomment ports, and update if not using the cloud provider to generate your ELB/NLB.
+# Ensure the nodeports specified match your ELB/NLB in AWS.
+  nodePorts:
+    enabled: false
+  #  ports:
+  #  - name: http2
+  #    port: 8080
+  #    targetPort: 80
+  #    nodePort: 30080
+  #  - name: https
+  #    port: 8443
+  #    targetPort: 443
+  #    nodePort: 30443
+  #  - name: status
+  #    port: 15021
+  #    targetPort: 15021
+  #    nodePort: 31020
 
 extraIngressGateways:
   []
