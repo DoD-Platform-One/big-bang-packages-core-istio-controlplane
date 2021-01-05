@@ -2,6 +2,13 @@
 
 A simple chart wrapper around `IstioOperator` custom resource.
 
+# Table of Contents
+- [Prerequisites](#pre-requisites)
+- [Iron Bank](#iron-bank-istio-controlplane)
+- [Deployment](#deploy-istio-controlplane)
+- [Istio configuration](docs/README.md)
+- [Keycloak configuration](docs/KEYCLOAK.md)
+
 ## Pre-Requisites
 
 * Kubernetes Cluster deployed

@@ -10,6 +10,9 @@ tag: 1.7.3
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 
+monitoring:
+  enabled: true
+
 imagePullSecrets:
   []
 #  - private-registry
@@ -70,3 +73,11 @@ tracing:
     name: all-in-one
     hub: registry1.dsop.io/ironbank/opensource/jaegertracing
     tag: 1.19.2
+
+sso:
+  enabled: false
+
+  namespace: istio-addons-sso
+  selector:
+    key: protect
+    value: keycloak

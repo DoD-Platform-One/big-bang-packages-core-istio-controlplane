@@ -71,12 +71,17 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+    # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
     kiali:
       image: {{ .Values.kiali.image.name }}
       hub: {{ .Values.kiali.image.hub }}
       tag: {{ .Values.kiali.image.tag }}
-
+      {{- if .Values.monitoring.enabled }}
+      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
+      {{- end }}
       dashboard:
+        jaegerURL: https://tracing.{{ .Values.hostname}}
+        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
         auth:
           strategy: {{ .Values.kiali.dashboard.auth.strategy }}
 
