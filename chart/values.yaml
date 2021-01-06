@@ -52,28 +52,23 @@ ingressGateway:
       targetPort: 15021
       name: status-port
       protocol: TCP
-      nodePort: 30080
     - port: 80
       targetPort: 8080
       name: http2
       protocol: TCP
-      nodePort: 30080
     - port: 443
       targetPort: 8443
       name: https
       protocol: TCP
-      nodePort: 30080
     - port: 15012
       targetPort: 15012
       name: tcp-istiod
       protocol: TCP
-      nodePort: 30080
     # This is the port where sni routing happens
     - port: 15443
       targetPort: 15443
       name: tls
       protocol: TCP
-      nodePort: 30080
 
   serviceAnnotations:
     {}
