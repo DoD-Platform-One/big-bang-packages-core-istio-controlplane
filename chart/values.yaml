@@ -10,6 +10,9 @@ tag: 1.7.3
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 
+monitoring:
+  enabled: true
+
 imagePullSecrets:
   []
 #  - private-registry
@@ -35,6 +38,7 @@ extraServers:
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
+
   serviceAnnotations:
     {}
 #    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
@@ -48,6 +52,24 @@ extraGlobalValues: {}
 extraValues: {}
 # Escape for any additional configurations to be put in the 'values' section that
 # is not under the key 'global'. Use extraGlobalValues instead.
+
+# Set enabled to 'true', uncomment ports, and update if not using the cloud provider to generate your ELB/NLB.
+# Ensure the nodeports specified match your ELB/NLB in AWS.
+  nodePorts:
+    enabled: false
+  #  ports:
+  #  - name: http2
+  #    port: 80
+  #    targetPort: 8080
+  #    nodePort: 30080
+  #  - name: https
+  #    port: 443
+  #    targetPort: 8443
+  #    nodePort: 30443
+  #  - name: status
+  #    port: 15021
+  #    targetPort: 15021
+  #    nodePort: 31020
 
 extraIngressGateways:
   []
@@ -80,3 +102,11 @@ tracing:
     name: all-in-one
     hub: registry1.dsop.io/ironbank/opensource/jaegertracing
     tag: 1.19.2
+
+sso:
+  enabled: false
+
+  namespace: istio-addons-sso
+  selector:
+    key: protect
+    value: keycloak

@@ -17,6 +17,27 @@ spec:
           {{- with .Values.ingressGateway.extraK8sConfig  }}
             {{- toYaml . | nindent 10 }}
           {{- end }}
+          {{- if .Values.ingressGateway.nodePorts.enabled }}
+          service:
+            type: NodePort
+            ports:
+            {{- range .Values.ingressGateway.nodePorts.ports }}
+            {{- if and (not .name) (ne .name "") }}
+              {{- fail "missing nodePort 'name' field" }}
+            {{- end }}
+            {{- if not .port }}
+              {{- fail "missing nodePort 'port' field" }}
+            {{- end }}
+            {{- if not .nodePort }}
+              {{- fail "missing nodePort 'nodePort' field" }}
+            {{- else if or (lt (int .nodePort) 30000) (gt (int .nodePort) 32767)}}
+              {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
+            {{- end }}
+            - name: {{ .name }}
+              port: {{ .port }}
+              targetPort: {{ .targetPort | default .port }}
+              nodePort: {{ .nodePort }}
+            {{- end }}
           hpaSpec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
@@ -80,12 +101,17 @@ spec:
     {{- with .Values.extraValues }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
+    # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
     kiali:
       image: {{ .Values.kiali.image.name }}
       hub: {{ .Values.kiali.image.hub }}
       tag: {{ .Values.kiali.image.tag }}
-
+      {{- if .Values.monitoring.enabled }}
+      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
+      {{- end }}
       dashboard:
+        jaegerURL: https://tracing.{{ .Values.hostname}}
+        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
         auth:
           strategy: {{ .Values.kiali.dashboard.auth.strategy }}
 
