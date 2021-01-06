@@ -39,28 +39,44 @@ ingressGateway:
   minReplicas: 1
   maxReplicas: 5
 
+  type: LoadBalancer
+  ports:
+    # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
+    ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
+    # Note that AWS ELB will by default perform health checks on the first port
+    # on this list. Setting this to the health check port will ensure that health
+    # checks always work. https://github.com/istio/istio/issues/12503
+    - port: 15021
+      targetPort: 15021
+      name: status-port
+      protocol: TCP
+      nodePort: 30080
+    - port: 80
+      targetPort: 8080
+      name: http2
+      protocol: TCP
+      nodePort: 30080
+    - port: 443
+      targetPort: 8443
+      name: https
+      protocol: TCP
+      nodePort: 30080
+    - port: 15012
+      targetPort: 15012
+      name: tcp-istiod
+      protocol: TCP
+      nodePort: 30080
+    # This is the port where sni routing happens
+    - port: 15443
+      targetPort: 15443
+      name: tls
+      protocol: TCP
+      nodePort: 30080
+
   serviceAnnotations:
     {}
 #    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 #    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-
-# Set enabled to 'true', uncomment ports, and update if not using the cloud provider to generate your ELB/NLB.
-# Ensure the nodeports specified match your ELB/NLB in AWS.
-  nodePorts:
-    enabled: false
-  #  ports:
-  #  - name: http2
-  #    port: 80
-  #    targetPort: 8080
-  #    nodePort: 30080
-  #  - name: https
-  #    port: 443
-  #    targetPort: 8443
-  #    nodePort: 30443
-  #  - name: status
-  #    port: 15021
-  #    targetPort: 15021
-  #    nodePort: 31020
 
 extraIngressGateways:
   []
