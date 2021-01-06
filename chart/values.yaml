@@ -39,7 +39,9 @@ ingressGateway:
   minReplicas: 1
   maxReplicas: 5
 
+  # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
+
   ports:
     # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
     ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
