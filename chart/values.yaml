@@ -50,12 +50,12 @@ ingressGateway:
     enabled: false
   #  ports:
   #  - name: http2
-  #    port: 8080
-  #    targetPort: 80
+  #    port: 80
+  #    targetPort: 8080
   #    nodePort: 30080
   #  - name: https
-  #    port: 8443
-  #    targetPort: 443
+  #    port: 443
+  #    targetPort: 8443
   #    nodePort: 30443
   #  - name: status
   #    port: 15021
