@@ -11,8 +11,8 @@ tag: 1.7.3
 hostname: bigbang.dev
 
 imagePullSecrets:
-  []
-#  - private-registry
+  
+  - private-registry
 
 tls:
   credentialName: wildcard-cert
