@@ -13,6 +13,6 @@ spec:
   - route:
     - destination:
         port:
-          number: 20001
+          number: {{ .Values.ingress.kiali.port }}
         host: {{ .Values.ingress.kiali.service }}.{{ .Values.ingress.kiali.namespace  | default "{{ .Release.Namespace}}" }}.svc.cluster.local
 {{- end }}
