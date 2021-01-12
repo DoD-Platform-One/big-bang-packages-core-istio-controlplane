@@ -4,9 +4,8 @@ include:
     file: '/templates/package-tests.yml'
 variables:
   DEPENDENCY_REPO: "https://repo1.dsop.io/platform-one/big-bang/apps/core/istio-operator.git"
-  DEPENDENCY_REPO_BRANCH: add-pipeline
+  DEPENDENCY_REPO_BRANCH: main
   ISTIO_GATEWAY_NS: istio-system
   ADD_NAMESPACE: istio-system
-  ADD_DEPENDENCY_NAMESPACE: istio-system
-    
+  ADD_DEPENDENCY_NAMESPACE: istio-operator
    
