@@ -10,6 +10,16 @@ tag: 1.7.3
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 
+ingress:
+  kiali:
+    service: kiali
+    namespace: ""
+    port: ""
+  jaeger:
+    service: tracing
+    namespace: ""
+    port: ""
+
 monitoring:
   enabled: true
 
