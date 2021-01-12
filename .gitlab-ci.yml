@@ -6,7 +6,6 @@ variables:
   DEPENDENCY_REPO: "https://repo1.dsop.io/platform-one/big-bang/apps/core/istio-operator.git"
   DEPENDENCY_REPO_BRANCH: add-pipeline
   ISTIO_GATEWAY_NS: istio-system
-  ADD_NAMESPACE:
-    -  istio-operator
-    -  istio-system
+  ADD_NAMESPACE: ["istio-operator", "istio-system"]
+    
    
