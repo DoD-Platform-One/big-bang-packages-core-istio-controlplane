@@ -7,6 +7,6 @@ variables:
   DEPENDENCY_REPO_BRANCH: add-pipeline
   ISTIO_GATEWAY_NS: istio-system
   ADD_NAMESPACE:
-    - istio-operator
+    - name: istio-operator
     
    
