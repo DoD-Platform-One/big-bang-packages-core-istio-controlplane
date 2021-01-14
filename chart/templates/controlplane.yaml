@@ -17,27 +17,28 @@ spec:
           {{- with .Values.ingressGateway.extraK8sConfig  }}
             {{- toYaml . | nindent 10 }}
           {{- end }}
-          {{- if .Values.ingressGateway.nodePorts.enabled }}
           service:
-            type: NodePort
+            type: {{ .Values.ingressGateway.type }}
             ports:
-            {{- range .Values.ingressGateway.nodePorts.ports }}
-            {{- if and (not .name) (ne .name "") }}
-              {{- fail "missing nodePort 'name' field" }}
-            {{- end }}
-            {{- if not .port }}
-              {{- fail "missing nodePort 'port' field" }}
-            {{- end }}
-            {{- if not .nodePort }}
-              {{- fail "missing nodePort 'nodePort' field" }}
-            {{- else if or (lt (int .nodePort) 30000) (gt (int .nodePort) 32767)}}
-              {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
-            {{- end }}
-            - name: {{ .name }}
-              port: {{ .port }}
-              targetPort: {{ .targetPort | default .port }}
-              nodePort: {{ .nodePort }}
-            {{- end }}
+              {{- range $k, $v := .Values.ingressGateway.ports }}
+              {{- /* Input validation */}}
+              {{- if not $v.name }}
+                {{- fail "missing field 'name' in ports object" }}
+              {{- else if not $v.port }}
+                {{- fail "missing field 'port' in ports object" }}
+              {{- else if eq $.Values.ingressGateway.type "NodePort" }}
+                {{- if not $v.nodePort }}
+                  {{- fail "'nodePort' must be defined when type is NodePort" }}
+                {{- else if or (lt (int $v.nodePort) 30000) (gt (int $v.nodePort) 32767) }}
+                  {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
+                {{- end }}
+              {{- end }}
+              {{- /* Actual port object rendering */}}
+              -
+                {{- range $pk, $pv := $v }}
+                {{ $pk }}: {{ $pv }}
+                {{- end }}
+              {{- end }}
           hpaSpec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
