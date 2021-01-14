@@ -45,6 +45,10 @@ extraServers:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
 
+egressGateway:
+  enabled: false
+  spec: {}
+
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5

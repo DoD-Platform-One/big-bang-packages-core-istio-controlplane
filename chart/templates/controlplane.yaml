@@ -9,6 +9,12 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: {{ .Values.egressGateway.enabled }}
+      {{- with .Values.egressGateway.spec }}
+      {{- toYaml . |  nindent 6 }}
+      {{end }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
