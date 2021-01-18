@@ -13,4 +13,4 @@ spec:
     - destination:
         port:
           number: {{ .Values.ingress.kiali.port | default "20001" }}
-        host: {{ .Values.ingress.kiali.service }}.{{ .Values.ingress.kiali.namespace | default "{{ .Release.Namespace }" }}.svc.cluster.local
+        host: {{ .Values.ingress.kiali.service }}.{{ .Values.ingress.kiali.namespace | default .Release.Namespace }}.svc.cluster.local
