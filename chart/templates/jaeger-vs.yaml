@@ -13,4 +13,4 @@ spec:
     - destination:
         port:
           number: {{ .Values.ingress.jaeger.port | default "80" }}
-        host: {{ .Values.ingress.jaeger.service }}.{{ .Values.ingress.jaeger.namespace | default "{{ .Release.Namespace }}" }}.svc.cluster.local
+        host: {{ .Values.ingress.jaeger.service }}.{{ .Values.ingress.jaeger.namespace | default .Release.Namespace }}.svc.cluster.local
