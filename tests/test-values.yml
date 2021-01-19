@@ -10,6 +10,9 @@ tag: 1.7.3
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 
+monitoring:
+  enabled: true
+
 imagePullSecrets:
   
   - private-registry
@@ -35,6 +38,38 @@ extraServers:
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
+
+  # Only "LoadBalancer" and "NodePort" are allowed
+  type: LoadBalancer
+
+  ports:
+    # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
+    ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
+    # Note that AWS ELB will by default perform health checks on the first port
+    # on this list. Setting this to the health check port will ensure that health
+    # checks always work. https://github.com/istio/istio/issues/12503
+    - port: 15021
+      targetPort: 15021
+      name: status-port
+      protocol: TCP
+    - port: 80
+      targetPort: 8080
+      name: http2
+      protocol: TCP
+    - port: 443
+      targetPort: 8443
+      name: https
+      protocol: TCP
+    - port: 15012
+      targetPort: 15012
+      name: tcp-istiod
+      protocol: TCP
+    # This is the port where sni routing happens
+    - port: 15443
+      targetPort: 15443
+      name: tls
+      protocol: TCP
+
   serviceAnnotations:
     {}
 #    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
@@ -50,7 +85,7 @@ extraIngressGateways:
 #        maxReplicas: 3
 #      serviceAnnotations:
 #        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-Namespace: istio-system
+
 kiali:
   enabled: true
 
@@ -70,3 +105,11 @@ tracing:
     name: all-in-one
     hub: registry1.dsop.io/ironbank/opensource/jaegertracing
     tag: 1.19.2
+
+sso:
+  enabled: false
+
+  namespace: istio-addons-sso
+  selector:
+    key: protect
+    value: keycloak
