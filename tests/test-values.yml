@@ -1,3 +1,115 @@
-istio:
+# The istio profile to use
+profile: default
+
+# The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
+hub: registry1.dsop.io/ironbank/opensource/istio
+
+# The tag to use for the image
+tag: 1.7.3
+
+# The hostname to use for the default gateway
+hostname: bigbang.dev
+
+monitoring:
+  enabled: true
+
+imagePullSecrets:
+  
+  - private-registry
+
+tls:
+  credentialName: wildcard-cert
+  mode: SIMPLE
+
+extraServers:
+  []
+# Example below of complete values capable of being set
+# NOTE: hosts[] is capable of dynamic templating from the .Values context
+#  - port:
+#      name: https-other                          # required: must not be equal to "http"
+#      protocol: HTTPS
+#      number: 443
+#    hosts:
+#      - "*.sub.{{ .Values.hostname }}"
+#    tls:
+#      credentialName: "another-credential"       # required
+#      mode: SIMPLE
+
+ingressGateway:
+  minReplicas: 1
+  maxReplicas: 5
+
+  # Only "LoadBalancer" and "NodePort" are allowed
+  type: LoadBalancer
+
+  ports:
+    # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
+    ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
+    # Note that AWS ELB will by default perform health checks on the first port
+    # on this list. Setting this to the health check port will ensure that health
+    # checks always work. https://github.com/istio/istio/issues/12503
+    - port: 15021
+      targetPort: 15021
+      name: status-port
+      protocol: TCP
+    - port: 80
+      targetPort: 8080
+      name: http2
+      protocol: TCP
+    - port: 443
+      targetPort: 8443
+      name: https
+      protocol: TCP
+    - port: 15012
+      targetPort: 15012
+      name: tcp-istiod
+      protocol: TCP
+    # This is the port where sni routing happens
+    - port: 15443
+      targetPort: 15443
+      name: tls
+      protocol: TCP
+
+  serviceAnnotations:
+    {}
+#    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+
+extraIngressGateways:
+  []
+# Complete example of an additional ingressgateway defined below
+#  - name: private-ingressgateway
+#    k8s:
+#      hpaSpec:
+#        minReplicas: 1
+#        maxReplicas: 3
+#      serviceAnnotations:
+#        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+
+kiali:
+  enabled: true
+
+  image:
+    name: kiali
+    hub: registry1.dsop.io/ironbank/opensource/kiali
+    tag: v1.23.0
+
+  dashboard:
+    auth:
+      strategy: ""
+
+tracing:
+  enabled: true
+
+  image:
+    name: all-in-one
+    hub: registry1.dsop.io/ironbank/opensource/jaegertracing
+    tag: 1.19.2
+
+sso:
   enabled: false
-  gateway: istio-ingressgateway.istio-system.svc.cluster.local
+
+  namespace: istio-addons-sso
+  selector:
+    key: protect
+    value: keycloak
