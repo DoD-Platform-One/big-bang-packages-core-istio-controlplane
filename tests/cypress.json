@@ -5,6 +5,6 @@
   "fixturesFolder": false,
   "env": {
     "kiali_url": "kiali.bigbang.dev",
-    "jaeger_url": "jaeger.bigbang.dev"
+    "jaeger_url": "tracing.bigbang.dev"
   }
 }

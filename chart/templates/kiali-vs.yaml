@@ -1,4 +1,3 @@
-{{- if not .Values.sso.enabled }}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -13,6 +12,5 @@ spec:
   - route:
     - destination:
         port:
-          number: 20001
-        host: kiali.{{ .Release.Namespace }}.svc.cluster.local
-{{- end }}
+          number: {{ .Values.ingress.kiali.port | default "20001" }}
+        host: {{ .Values.ingress.kiali.service }}.{{ .Values.ingress.kiali.namespace | default .Release.Namespace }}.svc.cluster.local

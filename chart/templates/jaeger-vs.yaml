@@ -1,4 +1,3 @@
-{{- if not .Values.sso.enabled }}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -6,13 +5,12 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   hosts:
-  - "jaeger.{{ .Values.hostname }}"
+  - "tracing.{{ .Values.hostname }}"
   gateways:
   - main.{{ .Release.Namespace }}.svc.cluster.local
   http:
   - route:
     - destination:
         port:
-          number: 80
-        host: tracing.{{ .Release.Namespace }}.svc.cluster.local
-{{- end }}
+          number: {{ .Values.ingress.jaeger.port | default "80" }}
+        host: {{ .Values.ingress.jaeger.service }}.{{ .Values.ingress.jaeger.namespace | default .Release.Namespace }}.svc.cluster.local
