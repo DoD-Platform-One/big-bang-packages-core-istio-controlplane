@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+    name: dashboards
+upstream:
+    type: git
+    git:
+        commit: 74a8d16a80064245a7e31cc884cb6e6e02b08777
+        repo: https://github.com/istio/istio
+        directory: /manifests/charts/istio-telemetry/grafana/dashboards
+        ref: 1.7.6
