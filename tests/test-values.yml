@@ -15,7 +15,7 @@ monitoring:
 
 imagePullSecrets:
   
-  - private-registry
+  - private-registry-mil
 
 tls:
   credentialName: wildcard-cert
