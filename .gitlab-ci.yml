@@ -3,8 +3,5 @@ include:
     ref: master
     file: '/templates/package-tests.yml'
 variables:
-  DEPENDENCY_REPO: "https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator.git"
-  DEPENDENCY_REPO_BRANCH: main
   ISTIO_GATEWAY_NS: istio-system
   PROJECT_NAME: istio-system
-  ADD_DEPENDENCY_NAMESPACE: istio-operator
