@@ -23,9 +23,7 @@ ingress:
 monitoring:
   enabled: true
 
-imagePullSecrets:
-  []
-#  - private-registry
+imagePullSecrets: [ ]
 
 tls:
   credentialName: wildcard-cert

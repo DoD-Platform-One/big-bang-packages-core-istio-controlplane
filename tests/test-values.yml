@@ -13,9 +13,7 @@ hostname: bigbang.dev
 monitoring:
   enabled: true
 
-imagePullSecrets:
-  
-  - private-registry-mil
+imagePullSecrets: [ private-registry-mil ]
 
 tls:
   credentialName: wildcard-cert
