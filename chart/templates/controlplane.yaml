@@ -9,11 +9,20 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: {{ .Values.egressGateway.enabled }}
+      {{- with .Values.egressGateway.spec }}
+      {{- toYaml . |  nindent 6 }}
+      {{end }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
         enabled: true
         k8s:
+          {{- with .Values.ingressGateway.extraK8sConfig  }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
           service:
             type: {{ .Values.ingressGateway.type }}
             ports:
@@ -86,13 +95,19 @@ spec:
 
   meshConfig:
     accessLogFile: /dev/stdout
-
+    {{- toYaml .Values.meshConfig |  nindent 4 }}
   values:
     global:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- with .Values.extraGlobalValues }}
+        {{- toYaml . | nindent 6 }}
+      {{- end }}
+    {{- with .Values.extraValues }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
     # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
     kiali:
       image: {{ .Values.kiali.image.name }}

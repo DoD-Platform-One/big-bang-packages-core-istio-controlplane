@@ -23,6 +23,9 @@ ingress:
 monitoring:
   enabled: true
 
+meshConfig: {}
+
+
 imagePullSecrets:
   []
 #  - private-registry

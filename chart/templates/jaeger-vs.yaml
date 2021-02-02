@@ -7,7 +7,7 @@ spec:
   hosts:
   - "tracing.{{ .Values.hostname }}"
   gateways:
-  - main.{{ .Release.Namespace }}.svc.cluster.local
+  - "{{ .Release.Namespace }}/main"
   http:
   - route:
     - destination:
