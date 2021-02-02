@@ -3,6 +3,10 @@ kind: IstioOperator
 metadata:
   name: istiocontrolplane
   namespace: {{ .Release.Namespace }}
+  {{- with .Values.commonLabels }}
+  labels:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   profile: {{ .Values.profile }}
   hub: {{ .Values.hub }}

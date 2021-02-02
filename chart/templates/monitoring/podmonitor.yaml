@@ -8,7 +8,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     monitoring: istio-proxies
-    release: {{ .Release.Name | quote }}
+    {{- with .Values.commonLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   selector:
     matchExpressions:
@@ -46,7 +48,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     monitoring: istio-components
-    release: {{ .Release.Name | quote }}
+    {{- with .Values.commonLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   jobLabel: istio
   targetLabels: [app]
