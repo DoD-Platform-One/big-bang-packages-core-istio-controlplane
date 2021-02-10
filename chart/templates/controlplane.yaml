@@ -12,11 +12,6 @@ spec:
     egressGateways:
     - name: istio-egressgateway
       enabled: true
-      k8s:
-        secretVolumes:
-        - mountPath: /etc/istio/egressgateway-ca-certs
-          name: egressgateway-ca-certs
-          secretName: istio-egressgateway-ca-certs
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
@@ -129,3 +124,15 @@ spec:
         image: {{ .Values.tracing.image.name }}
         hub: {{ .Values.tracing.image.hub }}
         tag: {{ .Values.tracing.image.tag}}
+
+    gateways:
+      enabled: true
+      istio-egressgateway:
+        enabled: true
+        secretVolumes:
+        - name: egressgateway-certs
+          secretName: istio-egressgateway-certs
+          mountPath: /etc/istio/egressgateway-certs
+        - name: egressgateway-ca-certs
+          secretName: istio-egressgateway-ca-certs
+          mountPath: /etc/istio/egressgateway-ca-certs
