@@ -9,6 +9,14 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: true
+      k8s:
+        secretVolumes:
+        - mountPath: /etc/istio/egressgateway-ca-certs
+          name: egressgateway-ca-certs
+          secretName: istio-egressgateway-ca-certs
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
