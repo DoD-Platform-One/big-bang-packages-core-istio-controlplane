@@ -9,6 +9,17 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    {{- if .Values.base.enabled }}
+    base:
+      k8s:
+        resources:
+          limits:
+            cpu: {{ .Values.base.k8s.resources.limits.cpu }}
+            memory: {{ .Values.base.k8s.resources.limits.memory }}
+          requests:
+            cpu: {{ .Values.base.k8s.resources.requests.cpu }}
+            memory: {{ .Values.base.k8s.resources.requests.memory }}
+    {{- end}}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}

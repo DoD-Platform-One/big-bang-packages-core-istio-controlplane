@@ -42,6 +42,17 @@ extraServers:
 #    tls:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
+#
+base:
+  enabled: true
+  k8s:
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2Gi
+      limits:
+        cpu: 600m
+        memory: 3Gi
 
 ingressGateway:
   minReplicas: 1
