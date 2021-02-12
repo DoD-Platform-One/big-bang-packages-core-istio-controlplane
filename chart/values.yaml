@@ -44,7 +44,7 @@ extraServers:
 #      mode: SIMPLE
 #
 base:
-  enabled: true
+  enabled: false
   k8s:
     resources:
       requests:
