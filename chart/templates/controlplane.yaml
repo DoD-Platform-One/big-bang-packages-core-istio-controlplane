@@ -9,6 +9,11 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    {{- if .Values.openshift }}
+    cni:
+      enabled: true
+      namespace: kube-system
+    {{- end  }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
@@ -88,6 +93,22 @@ spec:
     accessLogFile: /dev/stdout
 
   values:
+    {{- if .Values.openshift }}
+    cni:
+      repair:
+        enabled: false
+      image: {{ .Values.cni.image.name }}
+      hub: {{ .Values.cni.image.hub }}
+      tag: {{ .Values.cni.image.tag }}
+      cniBinDir: /var/lib/cni/bin
+      cniConfDir: /etc/cni/multus/net.d
+      chained: false
+      cniConfFileName: "istio-cni.conf"
+      excludeNamespaces:
+       - istio-system
+       - kube-system
+      logLevel: info
+    {{- end }}
     global:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -109,6 +130,10 @@ spec:
 
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
+      {{- if .Values.openshift }}
+      injectedAnnotations:
+        k8s.v1.cni.cncf.io/networks: istio-cni
+      {{- end }}
 
       neverInjectSelector:
         - matchExpressions:
