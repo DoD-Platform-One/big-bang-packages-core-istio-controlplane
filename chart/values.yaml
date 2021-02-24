@@ -10,6 +10,9 @@ tag: 1.7.3
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 
+# Openshift feature switch toggle
+openshift: false
+
 ingress:
   kiali:
     service: kiali
@@ -121,3 +124,9 @@ sso:
   selector:
     key: protect
     value: keycloak
+
+cni:
+  image:
+    name: install-cni-1.7
+    hub: registry1.dsop.io/ironbank/opensource/istio-1.7
+    tag: 1.7.3
