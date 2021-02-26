@@ -91,7 +91,9 @@ spec:
 
   meshConfig:
     accessLogFile: /dev/stdout
-
+    defaultConfig:
+      proxyMetadata:
+        ISTIO_META_ISTIO_VERSION: {{ .Values.tag }}
   values:
     {{- if .Values.openshift }}
     cni:
