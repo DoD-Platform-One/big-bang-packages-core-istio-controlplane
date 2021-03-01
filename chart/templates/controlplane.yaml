@@ -59,13 +59,16 @@ spec:
               maxUnavailable: 25%
           serviceAnnotations:
             {{- toYaml .Values.ingressGateway.serviceAnnotations | nindent 14 }}
-      {{- range .Values.extraIngressGateways }}
-      - name: {{ .name }}
+      {{- range $i := .Values.extraIngressGateways }}
+      - name: {{ $i.name }}
         enabled: true
+        {{- if or $i.k8s $i.service}}
         k8s:
+          {{- if $i.k8s }}
+          {{- if $i.k8s.hpaSpec }} 
           hpaSpec:
-            minReplicas: {{ .k8s.hpaSpec.minReplicas }}
-            maxReplicas: {{ .k8s.hpaSpec.maxReplicas }}
+            minReplicas: {{ $i.k8s.hpaSpec.minReplicas }}
+            maxReplicas: {{ $i.k8s.hpaSpec.maxReplicas }}
             metrics:
               - type: Resource
                 resource:
@@ -74,13 +77,44 @@ spec:
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
-              name: {{ .name }}
+              name: {{ $i.name }}
           strategy:
             rollingUpdate:
               maxSurge: 100%
               maxUnavailable: 25%
+          {{- end }}
+          {{- if $i.k8s.serviceAnnotations }}
           serviceAnnotations:
-            {{- toYaml .k8s.serviceAnnotations | nindent 14 }}
+            {{- toYaml $i.k8s.serviceAnnotations | nindent 14 }}
+          {{- end }}
+          {{- end }}
+          {{- with $i.service }}
+          service:
+            type: {{ .type }}
+            {{- if .ports }}
+            ports:
+              {{- range $k, $v := .ports }}
+              {{- /* Input validation */}}
+              {{- if not $v.name }}
+                {{- fail "missing field 'name' in ports object" }}
+              {{- else if not $v.port }}
+                {{- fail "missing field 'port' in ports object" }}
+              {{- else if eq $i.service.type "NodePort" }}
+                {{- if not $v.nodePort }}
+                  {{- fail "'nodePort' must be defined when type is NodePort" }}
+                {{- else if or (lt (int $v.nodePort) 30000) (gt (int $v.nodePort) 32767) }}
+                  {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
+                {{- end }}
+              {{- end }}
+              {{- /* Actual port object rendering */}}
+              -
+                {{- range $pk, $pv := $v }}
+                {{ $pk }}: {{ $pv }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+            {{- end }}
+          {{- end }}
   {{- end }}
 
   addonComponents:
@@ -120,11 +154,11 @@ spec:
       hub: {{ .Values.kiali.image.hub }}
       tag: {{ .Values.kiali.image.tag }}
       {{- if .Values.monitoring.enabled }}
-      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
+      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc.cluster.local:9090
       {{- end }}
       dashboard:
         jaegerURL: https://tracing.{{ .Values.hostname}}
-        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
+        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc.cluster.local
         auth:
           strategy: {{ .Values.kiali.dashboard.auth.strategy }}
 
