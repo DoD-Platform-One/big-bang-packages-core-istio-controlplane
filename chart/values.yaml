@@ -7,6 +7,9 @@ hub: registry1.dso.mil/ironbank/opensource/istio
 # The tag to use for the image
 tag: 1.7.3
 
+proxy:
+  image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
+
 # The hostname to use for the default gateway
 hostname: bigbang.dev
 

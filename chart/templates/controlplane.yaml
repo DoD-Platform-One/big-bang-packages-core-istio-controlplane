@@ -114,6 +114,14 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.proxy }}
+      {{- if .Values.proxy.image }}
+      proxy:
+        image: {{ .Values.proxy.image }}
+      proxy_init:
+        image: {{ .Values.proxy.image }}
+      {{- end }}
+      {{- end }}
     # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
     kiali:
       image: {{ .Values.kiali.image.name }}
