@@ -98,7 +98,7 @@ extraIngressGateways:
 #        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 
 kiali:
-  enabled: true
+  enabled: false
 
   image:
     name: kiali
