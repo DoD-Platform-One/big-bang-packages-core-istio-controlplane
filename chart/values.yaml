@@ -32,12 +32,8 @@ tls:
   credentialName: wildcard-cert
   mode: SIMPLE
 
-values:
-  global:
-    proxy:
-      image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
-    proxy_init:
-      image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
+proxy:
+  image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
 
 extraServers:
   []

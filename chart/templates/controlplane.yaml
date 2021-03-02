@@ -112,6 +112,12 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if and .Values.proxy .Values.proxy.image }}
+      proxy:
+        image: {{ .Values.proxy.image }}
+      proxy_init:
+        image: {{ .Values.proxy.image }}
+      {{- end }}
 
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
