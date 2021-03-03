@@ -10,7 +10,7 @@ spec:
   - port:
       name: http
       protocol: HTTP
-      number: 80
+      number: 8080
     hosts:
     - "*"
     tls:
@@ -18,7 +18,7 @@ spec:
   - port:
       name: https
       protocol: HTTPS
-      number: 443
+      number: 8443
     hosts:
     - "*.{{ .Values.hostname }}"
     tls:
