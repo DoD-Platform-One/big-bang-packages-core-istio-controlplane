@@ -18,6 +18,8 @@ spec:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
         enabled: true
+        label:
+          {{- toYaml .Values.ingressGateway.labels | default (dict) | nindent 10 }}
         k8s:
           service:
             type: {{ .Values.ingressGateway.type }}
@@ -58,10 +60,18 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           serviceAnnotations:
-            {{- toYaml .Values.ingressGateway.serviceAnnotations | nindent 14 }}
+            {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
+          podAnnotations:
+            {{- .Values.ingressGateway.podAnnotations | default (dict) | toYaml | nindent 12 }}
+          nodeSelector:
+            {{- .Values.ingressGateway.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          tolerations:
+            {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
       - name: {{ $i.name }}
         enabled: true
+        label:
+          {{- $i.labels | default (dict) | toYaml | nindent 10 }}
         k8s:
           service:
             type: {{ $i.type }}
@@ -102,7 +112,13 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           serviceAnnotations:
-            {{- toYaml .k8s.serviceAnnotations | nindent 14 }}
+            {{- .k8s.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
+          podAnnotations:
+            {{- .k8s.podAnnotations | default (dict) | toYaml | nindent 12 }}
+          nodeSelector:
+            {{- .k8s.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          tolerations:
+            {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
   {{- end }}
 
   addonComponents:
