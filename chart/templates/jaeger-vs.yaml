@@ -1,18 +1,30 @@
-{{- if .Values.tracing.enabled }}
+{{- if and .Values.tracing.enabled .Values.istio.jaeger.enabled -}}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: jaeger
   namespace: {{ .Release.Namespace }}
+  {{- if .Values.istio.jaeger.labels }}
+  labels:
+{{ toYaml .Values.istio.jaeger.labels | indent 4 }}
+  {{- end }}
+  {{- if .Values.istio.jaeger.annotations }}
+  annotations:
+{{ toYaml .Values.istio.jaeger.annotations | indent 4 }}
+  {{- end }}
 spec:
-  hosts:
-  - "tracing.{{ .Values.hostname }}"
   gateways:
-  - main.{{ .Release.Namespace }}.svc.cluster.local
+  {{- range .Values.istio.jaeger.gateways }}
+    - {{ . }}
+  {{- end }}
+  hosts: 
+  {{- range .Values.istio.jaeger.hosts }}
+    - {{ tpl . $}}
+  {{- end }}
   http:
   - route:
     - destination:
         port:
-          number: {{ .Values.ingress.jaeger.port | default "80" }}
-        host: {{ .Values.ingress.jaeger.service }}.{{ .Values.ingress.jaeger.namespace | default .Release.Namespace }}.svc.cluster.local
-{{ end }}
+          number: {{ .Values.istio.jaeger.port | default "80" }}
+        host: {{ .Values.istio.jaeger.service }}.{{ .Values.istio.jaeger.namespace | default .Release.Namespace }}.svc.cluster.local
+{{- end }}

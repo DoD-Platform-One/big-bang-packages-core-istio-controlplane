@@ -1,18 +1,30 @@
-{{- if .Values.kiali.enabled }}
+{{- if and .Values.kiali.enabled .Values.istio.kiali.enabled -}}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: kiali
   namespace: {{ .Release.Namespace }}
+  {{- if .Values.istio.kiali.labels }}
+  labels:
+{{ toYaml .Values.istio.kiali.labels | indent 4 }}
+  {{- end }}
+  {{- if .Values.istio.kiali.annotations }}
+  annotations:
+{{ toYaml .Values.istio.kiali.annotations | indent 4 }}
+  {{- end }}
 spec:
-  hosts:
-  - "kiali.{{ .Values.hostname }}"
   gateways:
-  - main.{{ .Release.Namespace }}.svc.cluster.local
+  {{- range .Values.istio.kiali.gateways }}
+    - {{ . }}
+  {{- end }}
+  hosts: 
+  {{- range .Values.istio.kiali.hosts }}
+    - {{ tpl . $}}
+  {{- end }}
   http:
   - route:
     - destination:
         port:
-          number: {{ .Values.ingress.kiali.port | default "20001" }}
-        host: {{ .Values.ingress.kiali.service }}.{{ .Values.ingress.kiali.namespace | default .Release.Namespace }}.svc.cluster.local
-{{ end }}
+          number: {{ .Values.istio.kiali.port | default "20001" }}
+        host: {{ .Values.istio.kiali.service }}.{{ .Values.istio.kiali.namespace | default .Release.Namespace }}.svc.cluster.local
+{{- end }}
