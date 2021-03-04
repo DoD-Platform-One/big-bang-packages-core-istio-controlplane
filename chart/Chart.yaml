@@ -1,3 +1,3 @@
 apiVersion: v2
 name: istio
-version: 1.7.3-bb.9
+version: 1.7.3-bb.10
