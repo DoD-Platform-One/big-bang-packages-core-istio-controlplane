@@ -75,6 +75,11 @@ ingressGateway:
   # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
 
+  labels:
+    # These are the default labels tied to the default gateway
+    app: istio-ingressgateway
+    istio: ingressgateway
+
   ports:
     # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
     ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
@@ -103,10 +108,17 @@ ingressGateway:
       name: tls
       protocol: TCP
 
-  serviceAnnotations:
-    {}
-#    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-#    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
+
+  #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  serviceAnnotations: {}
+
+  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  nodeSelector: {}
+
+  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
 
 extraIngressGateways:
   []
@@ -118,6 +130,8 @@ extraIngressGateways:
 #        maxReplicas: 3
 #      serviceAnnotations:
 #        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#    labels:
+#      app: private-ingressgateway
 
 kiali:
   enabled: true
