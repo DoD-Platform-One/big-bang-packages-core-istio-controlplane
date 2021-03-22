@@ -164,5 +164,5 @@ sso:
 cni:
   image:
     name: install-cni-1.7
-    hub: registry1.dsop.io/ironbank/opensource/istio-1.7
+    hub: registry1.dso.mil/ironbank/opensource/istio-1.7
     tag: 1.7.3
