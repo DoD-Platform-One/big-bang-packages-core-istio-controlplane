@@ -9,6 +9,32 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    pilot:
+      k8s:
+{{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
+        hpaSpec:
+          maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
+          minReplicas: {{ .Values.istiod.hpaSpec.minReplicas }}
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: istiod
+          metrics:
+{{ toYaml .Values.istiod.hpaSpec.metrics | indent 10 }}
+{{- end }}
+        replicaCount: {{ .Values.istiod.replicaCount }}
+        resources:
+{{ toYaml .Values.istiod.resources | indent 10 }}
+        strategy:
+{{ toYaml .Values.istiod.strategy | indent 10 }}
+        serviceAnnotations:
+          {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
+        podAnnotations:
+          {{- .Values.istiod.podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .Values.istiod.nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
     {{- if .Values.openshift }}
     cni:
       enabled: true
@@ -126,8 +152,6 @@ spec:
   {{- end }}
 
   addonComponents:
-    kiali:
-      enabled: {{ .Values.kiali.enabled }}
     tracing:
       enabled: {{ .Values.tracing.enabled }}
 
@@ -164,19 +188,6 @@ spec:
         image: {{ .Values.proxy.image }}
       {{- end }}
       {{- end }}
-    # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
-    kiali:
-      image: {{ .Values.kiali.image.name }}
-      hub: {{ .Values.kiali.image.hub }}
-      tag: {{ .Values.kiali.image.tag }}
-      {{- if .Values.monitoring.enabled }}
-      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
-      {{- end }}
-      dashboard:
-        jaegerURL: "https://{{ tpl (index .Values.istio.jaeger.hosts 0) .}}"
-        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
-        auth:
-          strategy: {{ .Values.kiali.dashboard.auth.strategy }}
 
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
@@ -196,30 +207,3 @@ spec:
         image: {{ .Values.tracing.image.name }}
         hub: {{ .Values.tracing.image.hub }}
         tag: {{ .Values.tracing.image.tag}}
-
-    pilot:
-      k8s:
-{{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
-        hpaSpec:
-          maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
-          minReplicas: {{ .Values.istiod.hpaSpec.minReplicas }}
-          scaleTargetRef:
-            apiVersion: apps/v1
-            kind: Deployment
-            name: istiod
-          metrics:
-{{ toYaml .Values.istiod.hpaSpec.metrics | indent 10 }}
-{{- end }}
-        replicaCount: {{ .Values.istiod.replicaCount }}
-        resources:
-{{ toYaml .Values.istiod.resources | indent 10 }}
-        strategy:
-{{ toYaml .Values.istiod.strategy | indent 10 }}
-        serviceAnnotations:
-          {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
-        podAnnotations:
-          {{- .Values.istiod.podAnnotations | default (dict) | toYaml | nindent 10 }}
-        nodeSelector:
-          {{- .Values.istiod.nodeSelector | default (dict) | toYaml | nindent 10 }}
-        tolerations:
-          {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}

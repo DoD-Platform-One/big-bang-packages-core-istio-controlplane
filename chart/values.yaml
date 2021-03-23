@@ -16,19 +16,6 @@ openshift: false
 ## A little odd to have `.Values.istio` inside the `isito` chart, 
 ##bbut keeping it this way for consistency with other bigbang package charts.
 istio:
-  # DEPRECATED: moving to https://repo1.dso.mil/platform-one/big-bang/apps/sandbox/kiali
-  kiali:
-    # Toggle vs creation
-    enabled: true
-    annotations: {}
-    labels: {}
-    gateways:
-      - istio-system/main
-    hosts:
-      - kiali.{{ .Values.hostname }}
-    service: kiali
-    namespace: ""
-    port: ""
   jaeger:
     # Toggle vs creation
     enabled: true
@@ -167,18 +154,6 @@ extraIngressGateways:
        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
    labels:
      app: private-ingressgateway
-
-kiali:
-  enabled: true
-
-  image:
-    name: kiali
-    hub: registry1.dso.mil/ironbank/opensource/kiali
-    tag: v1.23.0
-
-  dashboard:
-    auth:
-      strategy: ""
 
 tracing:
   enabled: true
