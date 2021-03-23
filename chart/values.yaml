@@ -13,23 +13,6 @@ hostname: bigbang.dev
 # Openshift feature switch toggle
 openshift: false
 
-## A little odd to have `.Values.istio` inside the `isito` chart, 
-##bbut keeping it this way for consistency with other bigbang package charts.
-istio:
-  jaeger:
-    # Toggle vs creation
-    enabled: true
-    annotations: {}
-    labels: {}
-    gateways:
-      - istio-system/main
-    hosts:
-      - tracing.{{ .Values.hostname }}
-    service: tracing
-    namespace: ""
-    port: ""
-
-
 monitoring:
   enabled: true
 
@@ -154,14 +137,6 @@ extraIngressGateways:
        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
    labels:
      app: private-ingressgateway
-
-tracing:
-  enabled: true
-
-  image:
-    name: all-in-one
-    hub: registry1.dso.mil/ironbank/opensource/jaegertracing
-    tag: 1.19.2
 
 sso:
   enabled: false

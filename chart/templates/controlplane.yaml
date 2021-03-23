@@ -151,10 +151,6 @@ spec:
             {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
   {{- end }}
 
-  addonComponents:
-    tracing:
-      enabled: {{ .Values.tracing.enabled }}
-
   meshConfig:
     accessLogFile: /dev/stdout
 
@@ -201,9 +197,3 @@ spec:
             - key: app.kubernetes.io/component
               operator: In
               values: [fluentd-configcheck]
-
-    tracing:
-      jaeger:
-        image: {{ .Values.tracing.image.name }}
-        hub: {{ .Values.tracing.image.hub }}
-        tag: {{ .Values.tracing.image.tag}}
