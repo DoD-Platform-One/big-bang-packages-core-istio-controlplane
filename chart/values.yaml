@@ -3,12 +3,9 @@ profile: default
 
 # The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio
-
 # The tag to use for the image
-tag: 1.7.3
+tag: 1.8.4
 
-proxy:
-  image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
 
 # The hostname to use for the default gateway
 hostname: bigbang.dev
@@ -19,6 +16,7 @@ openshift: false
 ## A little odd to have `.Values.istio` inside the `isito` chart, 
 ##bbut keeping it this way for consistency with other bigbang package charts.
 istio:
+  # DEPRECATED: moving to https://repo1.dso.mil/platform-one/big-bang/apps/sandbox/kiali
   kiali:
     # Toggle vs creation
     enabled: true
@@ -68,10 +66,42 @@ extraServers:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
 
+# istiod / pilot configuration
+istiod:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  hpaSpec:
+    maxReplicas: 3
+    minReplicas: 1
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          targetAverageUtilization: 60
+  strategy: {}
+  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
+
+  #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  serviceAnnotations: {}
+
+  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  nodeSelector: {}
+
+  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
+
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
-
+  scaleMetrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 60
   # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
 
@@ -121,17 +151,22 @@ ingressGateway:
   tolerations: []
 
 extraIngressGateways:
-  []
+  # []
 # Complete example of an additional ingressgateway defined below
-#  - name: private-ingressgateway
-#    k8s:
-#      hpaSpec:
-#        minReplicas: 1
-#        maxReplicas: 3
-#      serviceAnnotations:
-#        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-#    labels:
-#      app: private-ingressgateway
+ - name: private-ingressgateway
+   k8s:
+     hpaSpec:
+       minReplicas: 1
+       maxReplicas: 3
+       metrics:
+         - type: Resource
+           resource:
+             name: cpu
+             targetAverageUtilization: 80
+     serviceAnnotations:
+       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+   labels:
+     app: private-ingressgateway
 
 kiali:
   enabled: true
@@ -163,6 +198,6 @@ sso:
 
 cni:
   image:
-    name: install-cni-1.7
-    hub: registry1.dsop.io/ironbank/opensource/istio-1.7
-    tag: 1.7.3
+    name: install-cni-1.8
+    hub: registry1.dsop.io/ironbank/opensource/istio-1.8
+    tag: 1.8.4

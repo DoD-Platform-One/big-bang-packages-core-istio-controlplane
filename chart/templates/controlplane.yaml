@@ -47,10 +47,7 @@ spec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
             metrics:
-              - type: Resource
-                resource:
-                  name: cpu
-                  targetAverageUtilization: 60
+{{ toYaml .Values.ingressGateway.scaleMetrics | indent 12 }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
@@ -95,18 +92,25 @@ spec:
                 {{ $pk }}: {{ $pv }}
                 {{- end }}
               {{- end }}
+          {{- if $i.k8s.hpaSpec }}
           hpaSpec:
             minReplicas: {{ $i.k8s.hpaSpec.minReplicas }}
             maxReplicas: {{ $i.k8s.hpaSpec.maxReplicas }}
             metrics:
+{{- if $i.k8s.hpaSpec.metrics }}
+{{ toYaml $i.k8s.hpaSpec.metrics | indent 12 }}
+{{- else }}
+{{- /* default metrics, backwards compatible */}}
               - type: Resource
                 resource:
                   name: cpu
                   targetAverageUtilization: 60
+{{- end }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
               name: {{ $i.name }}
+          {{- end }}
           strategy:
             rollingUpdate:
               maxSurge: 100%
@@ -192,3 +196,30 @@ spec:
         image: {{ .Values.tracing.image.name }}
         hub: {{ .Values.tracing.image.hub }}
         tag: {{ .Values.tracing.image.tag}}
+
+    pilot:
+      k8s:
+{{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
+        hpaSpec:
+          maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
+          minReplicas: {{ .Values.istiod.hpaSpec.minReplicas }}
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: istiod
+          metrics:
+{{ toYaml .Values.istiod.hpaSpec.metrics | indent 10 }}
+{{- end }}
+        replicaCount: {{ .Values.istiod.replicaCount }}
+        resources:
+{{ toYaml .Values.istiod.resources | indent 10 }}
+        strategy:
+{{ toYaml .Values.istiod.strategy | indent 10 }}
+        serviceAnnotations:
+          {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
+        podAnnotations:
+          {{- .Values.istiod.podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .Values.istiod.nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
