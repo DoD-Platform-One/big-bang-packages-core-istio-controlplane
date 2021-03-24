@@ -31,18 +31,6 @@ istio:
     service: kiali
     namespace: ""
     port: ""
-  jaeger:
-    # Toggle vs creation
-    enabled: true
-    annotations: {}
-    labels: {}
-    gateways:
-      - istio-system/main
-    hosts:
-      - tracing.{{ .Values.hostname }}
-    service: tracing
-    namespace: ""
-    port: ""
 
 
 monitoring:
@@ -146,8 +134,13 @@ kiali:
       strategy: ""
 
 tracing:
-  enabled: true
-
+  enabled: false
+  address: jaeger-collector.jaeger.svc
+  port: 9411
+  # how to access tracing for users. Provided as link in kiali
+  externalAddress: https://tracing.{{ .Values.hostname }}
+  # percent of traces to send to jaeger
+  sampling: 10
   image:
     name: all-in-one
     hub: registry1.dso.mil/ironbank/opensource/jaegertracing
