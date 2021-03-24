@@ -125,10 +125,15 @@ spec:
     kiali:
       enabled: {{ .Values.kiali.enabled }}
     tracing:
-      enabled: {{ .Values.tracing.enabled }}
+      enabled: false
 
   meshConfig:
     accessLogFile: /dev/stdout
+    enableTracing: {{ .Values.tracing.enabled }}
+    defaultConfig:
+      tracing:
+        sampling: {{ .Values.tracing.sampling }}
+      zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
 
   values:
     {{- if .Values.openshift }}
@@ -156,10 +161,14 @@ spec:
       {{- if .Values.proxy.image }}
       proxy:
         image: {{ .Values.proxy.image }}
+
       proxy_init:
         image: {{ .Values.proxy.image }}
       {{- end }}
       {{- end }}
+      tracer:
+        zipkin:
+          address: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
     # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
     kiali:
       image: {{ .Values.kiali.image.name }}
@@ -169,7 +178,7 @@ spec:
       prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
       {{- end }}
       dashboard:
-        jaegerURL: "https://{{ tpl (index .Values.istio.jaeger.hosts 0) .}}"
+        jaegerURL: {{tpl .Values.tracing.externalAddress $ }}
         grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
         auth:
           strategy: {{ .Values.kiali.dashboard.auth.strategy }}
@@ -186,9 +195,3 @@ spec:
             - key: app.kubernetes.io/component
               operator: In
               values: [fluentd-configcheck]
-
-    tracing:
-      jaeger:
-        image: {{ .Values.tracing.image.name }}
-        hub: {{ .Values.tracing.image.hub }}
-        tag: {{ .Values.tracing.image.tag}}
