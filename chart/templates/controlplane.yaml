@@ -148,6 +148,9 @@ spec:
       logLevel: info
     {{- end }}
     global:
+      {{- if .Values.imagePullPolicy }}
+      imagePullPolicy: {{ .Values.imagePullPolicy }}
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
