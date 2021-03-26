@@ -125,7 +125,7 @@ spec:
     kiali:
       enabled: {{ .Values.kiali.enabled }}
     tracing:
-      enabled: false
+      enabled: {{ .Values.tracing.enabled }}
 
   meshConfig:
     accessLogFile: /dev/stdout
