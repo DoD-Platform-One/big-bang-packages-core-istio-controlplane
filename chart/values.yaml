@@ -121,22 +121,22 @@ ingressGateway:
   tolerations: []
 
 extraIngressGateways:
-  # []
+ []
 # Complete example of an additional ingressgateway defined below
- - name: private-ingressgateway
-   k8s:
-     hpaSpec:
-       minReplicas: 1
-       maxReplicas: 3
-       metrics:
-         - type: Resource
-           resource:
-             name: cpu
-             targetAverageUtilization: 80
-     serviceAnnotations:
-       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-   labels:
-     app: private-ingressgateway
+# - name: private-ingressgateway
+#   k8s:
+#     hpaSpec:
+#       minReplicas: 1
+#       maxReplicas: 3
+#       metrics:
+#         - type: Resource
+#           resource:
+#             name: cpu
+#            targetAverageUtilization: 80
+#     serviceAnnotations:
+#       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#   labels:
+#     app: private-ingressgateway
 
 sso:
   enabled: false
