@@ -15,6 +15,10 @@ pilot:
 ingressGateway:
   nodeSelector:
     node-type: istio
+# If using CNI / on Openshift you can also customize those values
+cni:
+  nodeSelector:
+    node-type: istio
 ```
 
 ## Values for Affinity
@@ -42,6 +46,17 @@ ingressGateway:
             operator: In
             values:
             - istio
+# If using CNI / on Openshift you can also customize those values
+cni:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: node-type
+            operator: In
+            values:
+            - istio
 ```
 
 ## Values for Anti-Affinity
@@ -58,6 +73,15 @@ pilot:
             matchLabels:
               dont-schedule-with: istio
 ingressGateway:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels:
+              dont-schedule-with: istio
+# If using CNI / on Openshift you can also customize those values
+cni:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
