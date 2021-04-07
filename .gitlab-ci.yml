@@ -1,7 +1,7 @@
 include:
   - project: 'platform-one/big-bang/pipeline-templates/pipeline-templates'
-    ref: "1.0.0"
+    ref: master
     file: '/templates/package-tests.yml'
 variables:
-  ISTIO_GATEWAY_NS: istio-system
-  PROJECT_NAME: istio-system
+  PACKAGE_NAMESPACE: istio-system
+  PACKAGE_HELM_NAME: istio

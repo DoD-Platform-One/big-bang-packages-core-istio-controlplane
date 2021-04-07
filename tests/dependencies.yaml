@@ -1,3 +1,5 @@
-istiooperator:
-  git: "https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator.git"
-  namespace: "istio-operator"
+istio-operator:
+  git:
+    repo: "https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator.git"
+    tag: "1.7.0-bb.1"
+  namespace: istio-operator
