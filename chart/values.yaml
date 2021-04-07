@@ -105,6 +105,9 @@ ingressGateway:
   #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
   nodeSelector: {}
 
+  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+
   #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
 
@@ -154,8 +157,26 @@ sso:
     key: protect
     value: keycloak
 
+pilot:
+  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
+  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  nodeSelector: {}
+  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
+
 cni:
   image:
     name: install-cni-1.7
     hub: registry1.dso.mil/ironbank/opensource/istio-1.7
     tag: 1.7.3
+  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
+  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  nodeSelector: {}
+  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []

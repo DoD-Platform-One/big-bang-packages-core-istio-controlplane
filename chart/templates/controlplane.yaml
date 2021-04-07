@@ -9,11 +9,34 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    {{- with .Values.pilot }}
+    pilot:
+      k8s:
+        podAnnotations:
+          {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .tolerations | default (list) | toYaml | nindent 10 }}
+        affinity:
+          {{- .affinity | default (dict) | toYaml | nindent 10 }}
+    {{- end }}
     {{- if .Values.openshift }}
+    {{- with .Values.cni }}
     cni:
       enabled: true
       namespace: kube-system
-    {{- end  }}
+      k8s:
+        podAnnotations:
+          {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .tolerations | default (list) | toYaml | nindent 10 }}
+        affinity:
+          {{- .affinity | default (dict) | toYaml | nindent 10 }}
+    {{- end }}
+    {{- end }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
@@ -65,6 +88,8 @@ spec:
             {{- .Values.ingressGateway.podAnnotations | default (dict) | toYaml | nindent 12 }}
           nodeSelector:
             {{- .Values.ingressGateway.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          affinity:
+            {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
@@ -119,6 +144,8 @@ spec:
             {{- .k8s.nodeSelector | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
+          affinity:
+            {{- .k8s.affinity | default (dict) | toYaml | nindent 12 }}
   {{- end }}
 
   addonComponents:
