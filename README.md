@@ -2,6 +2,8 @@
 
 A simple chart wrapper around `IstioOperator` custom resource.
 
+#### _This is a mirror of a government repo hosted on [Repo1](https://repo1.dso.mil/) by [DoD Platform One](http://p1.dso.mil/).  Please direct all code changes, issues and comments to https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-controlplane_
+
 # Table of Contents
 - [Prerequisites](#pre-requisites)
 - [Iron Bank](#iron-bank-istio-controlplane)

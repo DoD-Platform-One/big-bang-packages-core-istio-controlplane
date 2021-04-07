@@ -153,6 +153,11 @@ spec:
 
   meshConfig:
     accessLogFile: /dev/stdout
+    enableTracing: {{ .Values.tracing.enabled }}
+    defaultConfig:
+      tracing:
+        sampling: {{ .Values.tracing.sampling }}
+      zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
 
   values:
     {{- if .Values.openshift }}
@@ -172,6 +177,9 @@ spec:
       logLevel: info
     {{- end }}
     global:
+      {{- if .Values.imagePullPolicy }}
+      imagePullPolicy: {{ .Values.imagePullPolicy }}
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -180,10 +188,16 @@ spec:
       {{- if .Values.proxy.image }}
       proxy:
         image: {{ .Values.proxy.image }}
+
       proxy_init:
         image: {{ .Values.proxy.image }}
       {{- end }}
       {{- end }}
+      {{ if .Values.tracing.enabled }}
+      tracer:
+        zipkin:
+          address: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
+      {{ end }}
 
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true

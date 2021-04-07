@@ -6,6 +6,11 @@ hub: registry1.dso.mil/ironbank/opensource/istio-1.8
 # The tag to use for the image
 tag: 1.8.4
 
+tracing:
+  enabled: true
+  address: jaeger-collector.jaeger.svc
+  port:  9411
+  sampling: 10
 
 # The hostname to use for the default gateway
 hostname: bigbang.dev
