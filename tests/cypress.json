@@ -4,7 +4,7 @@
   "supportFile": false,
   "fixturesFolder": false,
   "env": {
-    "kiali_url": "kiali.bigbang.dev",
-    "jaeger_url": "tracing.bigbang.dev"
+    "kiali_url": "https://kiali.bigbang.dev",
+    "jaeger_url": "https://tracing.bigbang.dev"
   }
 }
