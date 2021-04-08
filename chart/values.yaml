@@ -59,13 +59,13 @@ extraServers:
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
-  resources:
-    limits:
-      cpu: 1.5
-      memory: 3Gi
-    requests:
-      cpu: 500m
-      memory: 1Gi
+  resources: {}
+#    limits:
+#      cpu: 1.5
+#      memory: 3Gi
+#    requests:
+#      cpu: 500m
+#      memory: 1Gi
   # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
 
