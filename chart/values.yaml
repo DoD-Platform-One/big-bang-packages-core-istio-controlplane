@@ -48,6 +48,9 @@ istiod:
     requests:
       cpu: 500m
       memory: 2Gi
+    limits:
+      cpu: 500m
+      memory: 2Gi
   hpaSpec:
     maxReplicas: 3
     minReplicas: 1
@@ -96,11 +99,11 @@ ingressGateway:
       name: status-port
       protocol: TCP
     - port: 80
-      targetPort: 8080
+      targetPort: 80
       name: http2
       protocol: TCP
     - port: 443
-      targetPort: 8443
+      targetPort: 443
       name: https
       protocol: TCP
     - port: 15012
