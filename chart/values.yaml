@@ -115,6 +115,7 @@ ingressGateway:
   tolerations: []
 
 extraIngressGateways:
+  []
 # Complete example of an additional ingressgateway defined below
 #  - name: private-ingressgateway
 #    k8s:
