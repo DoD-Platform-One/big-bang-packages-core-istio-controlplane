@@ -1,0 +1,2 @@
+imagePullSecrets:
+  - private-registry-mil
