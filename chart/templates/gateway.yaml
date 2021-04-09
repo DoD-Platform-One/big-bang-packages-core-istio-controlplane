@@ -39,4 +39,4 @@ spec:
     - "*.{{ .Values.hostname }}"
     tls:
       credentialName: {{ .Values.tls.credentialName }}
-      mode: {{ .Values.tls.mode }}}}
+      mode: {{ .Values.tls.mode }}
