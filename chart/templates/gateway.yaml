@@ -15,6 +15,15 @@ spec:
     - "*"
     tls:
       httpsRedirect: true
+  - port:
+      name: https
+      protocol: HTTPS
+      number: 8443
+    hosts:
+    - "*.{{ .Values.hostname }}"
+    tls:
+      credentialName: {{ .Values.tls.credentialName }}
+      mode: {{ .Values.tls.mode }}
   {{- range .Values.extraServers }}
   - port:
       {{- if eq .port.name "https" }}
@@ -31,12 +40,3 @@ spec:
       credentialName: {{ required "A valid credential name is required!" .tls.credentialName }}
       mode: {{ .tls.mode | default "SIMPLE" }}
   {{- end }}
-  - port:
-      name: https
-      protocol: HTTPS
-      number: 8443
-    hosts:
-    - "*.{{ .Values.hostname }}"
-    tls:
-      credentialName: {{ .Values.tls.credentialName }}
-      mode: {{ .Values.tls.mode }}
