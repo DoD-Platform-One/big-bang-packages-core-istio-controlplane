@@ -69,7 +69,7 @@ spec:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
       - name: {{ $i.name }}
-        namespace: {{ .Release.Namespace }}
+        namespace: {{ $.Release.Namespace }}
         enabled: true
         label:
           {{- toYaml $i.labels | default (dict) | nindent 10 }}
