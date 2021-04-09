@@ -12,7 +12,7 @@ spec:
       protocol: HTTP
       number: 8080
     hosts:
-    - "keycloak.bigbang.dev"
+    - "keycloak.test.bigbang.dev"
     tls:
       httpsRedirect: true
   - port:
@@ -20,6 +20,6 @@ spec:
       protocol: HTTPS
       number: 8443
     hosts:
-    - "keycloak.bigbang.dev"
+    - "keycloak.test.bigbang.dev"
     tls:
       mode: PASSTHROUGH
