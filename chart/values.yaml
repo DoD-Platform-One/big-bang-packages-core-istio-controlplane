@@ -138,29 +138,18 @@ ingressGateway:
 extraIngressGateways:
  []
 # Complete example of an additional ingressgateway defined below
-<<<<<<< HEAD
-# - name: private-ingressgateway
-#   k8s:
-#     hpaSpec:
-#       minReplicas: 1
-#       maxReplicas: 3
-#       metrics:
-#         - type: Resource
-#           resource:
-#             name: cpu
-#            targetAverageUtilization: 80
-#     serviceAnnotations:
-#       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-#   labels:
-#     app: private-ingressgateway
-=======
 #  - name: private-ingressgateway
 #    k8s:
 #      hpaSpec:
 #        minReplicas: 1
 #        maxReplicas: 3
 #      serviceAnnotations:
-#        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#        service.beta.kubernetes.io/aws-load-balancer-internal: "true
+#       metrics:
+#         - type: Resource
+#           resource:
+#             name: cpu
+#            targetAverageUtilization: 80
 #      resources:
 #        limits:
 #          cpu: 1.5
@@ -195,7 +184,6 @@ tracing:
     name: all-in-one
     hub: registry1.dso.mil/ironbank/opensource/jaegertracing
     tag: 1.19.2
->>>>>>> origin/main
 
 sso:
   enabled: false
