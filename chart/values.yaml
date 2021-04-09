@@ -80,6 +80,13 @@ ingressGateway:
       resource:
         name: cpu
         targetAverageUtilization: 60
+  resources: {}
+#    limits:
+#      cpu: 1.5
+#      memory: 3Gi
+#    requests:
+#      cpu: 500m
+#      memory: 1Gi
   # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
 
@@ -131,6 +138,7 @@ ingressGateway:
 extraIngressGateways:
  []
 # Complete example of an additional ingressgateway defined below
+<<<<<<< HEAD
 # - name: private-ingressgateway
 #   k8s:
 #     hpaSpec:
@@ -145,6 +153,49 @@ extraIngressGateways:
 #       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 #   labels:
 #     app: private-ingressgateway
+=======
+#  - name: private-ingressgateway
+#    k8s:
+#      hpaSpec:
+#        minReplicas: 1
+#        maxReplicas: 3
+#      serviceAnnotations:
+#        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#      resources:
+#        limits:
+#          cpu: 1.5
+#          memory: 3Gi
+#        requests:
+#          cpu: 500m
+#          memory: 1Gi
+#    labels:
+#      app: private-ingressgateway
+
+kiali:
+  enabled: true
+
+  image:
+    name: kiali
+    hub: registry1.dso.mil/ironbank/opensource/kiali
+    tag: v1.23.0
+
+  dashboard:
+    auth:
+      strategy: ""
+
+tracing:
+  enabled: false
+  address: jaeger-collector.jaeger.svc
+  port: 9411
+  # how to access tracing for users. Provided as link in kiali
+  externalAddress: https://tracing.{{ .Values.hostname }}
+  # percent of traces to send to jaeger
+  sampling: 10
+  image:
+    name: all-in-one
+    hub: registry1.dso.mil/ironbank/opensource/jaegertracing
+    tag: 1.19.2
+>>>>>>> origin/main
 
 sso:
   enabled: false
