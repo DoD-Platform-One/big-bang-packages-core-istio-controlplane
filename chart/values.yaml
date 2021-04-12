@@ -10,8 +10,11 @@ tag: 1.7.3
 proxy:
   image: registry1.dso.mil/ironbank/opensource/istio-1.7/proxyv2-1.7:1.7.7
 
-# The hostname to use for the default gateway
-hostname: bigbang.dev
+# The domain to use for the default gateway
+domain: bigbang.dev
+
+# The hostnames to use in the default gateway instead of `*.domain`
+hostnames: []
 
 # Openshift feature switch toggle
 openshift: false
@@ -27,7 +30,7 @@ istio:
     gateways:
       - istio-system/main
     hosts:
-      - kiali.{{ .Values.hostname }}
+      - kiali.{{ .Values.domain | default .Values.hostname }}
     service: kiali
     namespace: ""
     port: ""
@@ -51,7 +54,7 @@ extraServers:
 #      protocol: HTTPS
 #      number: 443
 #    hosts:
-#      - "*.sub.{{ .Values.hostname }}"
+#      - "*.sub.{{ .Values.domain | default .Values.hostname }}"
 #    tls:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
@@ -138,7 +141,7 @@ tracing:
   address: jaeger-collector.jaeger.svc
   port: 9411
   # how to access tracing for users. Provided as link in kiali
-  externalAddress: https://tracing.{{ .Values.hostname }}
+  externalAddress: https://tracing.{{ .Values.domain | default .Values.hostname }}
   # percent of traces to send to jaeger
   sampling: 10
   image:
