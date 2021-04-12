@@ -20,7 +20,11 @@ spec:
       protocol: HTTPS
       number: 8443
     hosts:
-    - "*.{{ .Values.hostname }}"
+      {{- if .Values.hostnames }}
+        {{- .Values.hostnames | toYaml | nindent 6 }}
+      {{- else }}
+        - "*.{{ .Values.hostname }}"
+      {{- end }}
     tls:
       credentialName: {{ .Values.tls.credentialName }}
       mode: {{ .Values.tls.mode }}
