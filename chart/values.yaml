@@ -15,6 +15,9 @@ domain: bigbang.dev
 
 # The hostnames to use in the default gateway instead of `*.domain`
 hostnames: []
+  # - host1.bigbang.dev
+  # - host2.bigbang.dev
+  # - host3.bigbang.dev
 
 # Openshift feature switch toggle
 openshift: false
