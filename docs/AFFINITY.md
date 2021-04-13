@@ -6,10 +6,10 @@ It is good to have a basic knowledge of node affinity and available options to y
 
 ## Values for NodeSelector
 
-The `nodeSelector` value can be set at the `pilot` and `ingressGateway` levels to do basic node selection for deployments. See the below example for an example to schedule pods to only nodes with the label `node-type` equal to `istio`:
+The `nodeSelector` value can be set at the `istiod` and `ingressGateway` levels to do basic node selection for deployments. See the below example for an example to schedule pods to only nodes with the label `node-type` equal to `istio`:
 
 ```yaml
-pilot:
+istiod:
   nodeSelector:
     node-type: istio
 ingressGateway:
@@ -26,7 +26,7 @@ cni:
 The `affinity` value at the same levels should be used to specify affinity. The format to include follows what you'd specify at a pod/deployment level. See the example below for scheduling the operator pods only to nodes with the label `node-type` equal to `istio`:
 
 ```yaml
-pilot:
+istiod:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -64,7 +64,7 @@ cni:
 The `affinity` value at the same levels can be set in the same way to schedule pods based on anti-affinity. See the below example to schedule pods to not be present on the nodes that already have pods with the `dont-schedule-with: istio` label:
 
 ```yaml
-pilot:
+istiod:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
