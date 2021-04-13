@@ -20,13 +20,13 @@ spec:
             kind: Deployment
             name: istiod
           metrics:
-{{ toYaml .Values.istiod.hpaSpec.metrics | indent 12 }}
+            {{- toYaml .Values.istiod.hpaSpec.metrics | nindent 12 }}
 {{- end }}
         replicaCount: {{ .Values.istiod.replicaCount }}
         resources:
-{{ toYaml .Values.istiod.resources | indent 10 }}
+          {{- toYaml .Values.istiod.resources | nindent 10 }}
         strategy:
-{{ toYaml .Values.istiod.strategy | indent 10 }}
+          {{- toYaml .Values.istiod.strategy | nindent 10 }}
         serviceAnnotations:
           {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
         podAnnotations:
