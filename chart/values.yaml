@@ -198,3 +198,10 @@ cni:
     name: install-cni-1.8
     hub: registry1.dsop.io/ironbank/opensource/istio-1.8
     tag: 1.8.4
+
+# global istiooperator values:
+
+meshConfig: {}
+
+values:
+  global: {}

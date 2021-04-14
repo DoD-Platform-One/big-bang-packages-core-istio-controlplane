@@ -162,6 +162,9 @@ spec:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
       zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
+    {{- if .Values.meshConfig }}
+    {{- toYaml .Values.meshConfig | nindent 4 }}
+    {{- end }}
 
   values:
     {{- if .Values.openshift }}
@@ -171,14 +174,14 @@ spec:
       image: {{ .Values.cni.image.name }}
       hub: {{ .Values.cni.image.hub }}
       tag: {{ .Values.cni.image.tag }}
-      cniBinDir: /var/lib/cni/bin
-      cniConfDir: /etc/cni/multus/net.d
+      cniBinDir: {{ .Values.cni.binDir | default "/var/lib/cni/bin" }}
+      cniConfDir: {{ .Values.cni.confDir | default "/etc/cni/multus/net.d" }}
       chained: false
-      cniConfFileName: "istio-cni.conf"
+      cniConfFileName: {{ .Values.cni.confFileName | default "istio-cni.conf" }}
       excludeNamespaces:
        - istio-system
        - kube-system
-      logLevel: info
+      logLevel: {{ .Values.cni.logLevel | default "info" }}
     {{- end }}
     global:
       {{- if .Values.imagePullPolicy }}
@@ -188,21 +191,14 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.proxy }}
-      {{- if .Values.proxy.image }}
-      proxy:
-        image: {{ .Values.proxy.image }}
-
-      proxy_init:
-        image: {{ .Values.proxy.image }}
-      {{- end }}
-      {{- end }}
-      {{ if .Values.tracing.enabled }}
+      {{- if .Values.tracing.enabled }}
       tracer:
         zipkin:
           address: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
       {{ end }}
-
+      {{- if .Values.values.global }}
+      {{- toYaml .Values.values.global | nindent 6 }}
+      {{- end }}
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
