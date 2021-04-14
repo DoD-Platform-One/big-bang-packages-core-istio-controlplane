@@ -20,26 +20,39 @@ spec:
             kind: Deployment
             name: istiod
           metrics:
-{{ toYaml .Values.istiod.hpaSpec.metrics | indent 10 }}
+            {{- toYaml .Values.istiod.hpaSpec.metrics | nindent 12 }}
 {{- end }}
         replicaCount: {{ .Values.istiod.replicaCount }}
         resources:
-{{ toYaml .Values.istiod.resources | indent 10 }}
+          {{- toYaml .Values.istiod.resources | nindent 10 }}
         strategy:
-{{ toYaml .Values.istiod.strategy | indent 10 }}
+          {{- toYaml .Values.istiod.strategy | nindent 10 }}
         serviceAnnotations:
           {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
         podAnnotations:
           {{- .Values.istiod.podAnnotations | default (dict) | toYaml | nindent 10 }}
         nodeSelector:
           {{- .Values.istiod.nodeSelector | default (dict) | toYaml | nindent 10 }}
+        affinity:
+          {{- .Values.istiod.affinity | default (dict) | toYaml | nindent 10 }}
         tolerations:
           {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
     {{- if .Values.openshift }}
+    {{- with .Values.cni }}
     cni:
       enabled: true
       namespace: kube-system
-    {{- end  }}
+      k8s:
+        podAnnotations:
+          {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .tolerations | default (list) | toYaml | nindent 10 }}
+        affinity:
+          {{- .affinity | default (dict) | toYaml | nindent 10 }}
+    {{- end }}
+    {{- end }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
@@ -90,6 +103,8 @@ spec:
             {{- .Values.ingressGateway.podAnnotations | default (dict) | toYaml | nindent 12 }}
           nodeSelector:
             {{- .Values.ingressGateway.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          affinity:
+            {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
@@ -151,6 +166,8 @@ spec:
             {{- .k8s.podAnnotations | default (dict) | toYaml | nindent 12 }}
           nodeSelector:
             {{- .k8s.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          affinity:
+            {{- .k8s.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
   {{- end }}
