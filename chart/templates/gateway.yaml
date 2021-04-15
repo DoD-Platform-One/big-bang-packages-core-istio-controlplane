@@ -20,11 +20,11 @@ spec:
       protocol: HTTPS
       number: 8443
     hosts:
-      {{- if .Values.hostnames }}
-        {{- .Values.hostnames | toYaml | nindent 6 }}
-      {{- else }}
-        - "*.{{ .Values.domain | default .Values.hostname }}"
-      {{- end }}
+    {{- if .Values.gateway.hosts }}
+      {{- .Values.gateway.hosts | toYaml | nindent 6 }}
+    {{- else }}
+      - "*.{{ .Values.domain | default .Values.hostname }}"
+    {{- end }}
     tls:
       credentialName: {{ .Values.tls.credentialName }}
       mode: {{ .Values.tls.mode }}

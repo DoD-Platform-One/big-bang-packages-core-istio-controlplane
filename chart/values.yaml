@@ -13,12 +13,6 @@ proxy:
 # The domain to use for the default gateway
 domain: bigbang.dev
 
-# The hostnames to use in the default gateway instead of `*.domain`
-hostnames: []
-  # - host1.bigbang.dev
-  # - host2.bigbang.dev
-  # - host3.bigbang.dev
-
 # Openshift feature switch toggle
 openshift: false
 
@@ -44,6 +38,14 @@ monitoring:
 
 imagePullSecrets: [ ]
 
+gateway:
+  # Sets the default hosts to match for HTTPS using the tls mode below 
+  hosts: [] # Defaults to "*.{{ .Values.domain }}"
+  # Examples:
+  # - *.admin.bigbang.dev
+  # - myapp.bigbang.dev
+
+# Sets the default gateway TLS mode for HTTPS
 tls:
   credentialName: wildcard-cert
   mode: SIMPLE
