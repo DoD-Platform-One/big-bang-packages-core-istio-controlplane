@@ -67,7 +67,13 @@ extraServers:
 ingressGateway:
   minReplicas: 1
   maxReplicas: 5
-
+  resources: {}
+#    limits:
+#      cpu: 1.5
+#      memory: 3Gi
+#    requests:
+#      cpu: 500m
+#      memory: 1Gi
   # Only "LoadBalancer" and "NodePort" are allowed
   type: LoadBalancer
 
@@ -126,6 +132,13 @@ extraIngressGateways:
 #        maxReplicas: 3
 #      serviceAnnotations:
 #        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+#      resources:
+#        limits:
+#          cpu: 1.5
+#          memory: 3Gi
+#        requests:
+#          cpu: 500m
+#          memory: 1Gi
 #    labels:
 #      app: private-ingressgateway
 

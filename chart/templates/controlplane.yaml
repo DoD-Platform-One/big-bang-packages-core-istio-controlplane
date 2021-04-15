@@ -59,6 +59,8 @@ spec:
             rollingUpdate:
               maxSurge: 100%
               maxUnavailable: 25%
+          resources:
+{{ toYaml .Values.ingressGateway.resources | indent 12 }}
           serviceAnnotations:
             {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
@@ -112,6 +114,8 @@ spec:
             rollingUpdate:
               maxSurge: 100%
               maxUnavailable: 25%
+          resources:
+            {{ toYaml .k8s.resources | nindent 12 }}
           serviceAnnotations:
             {{- .k8s.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
