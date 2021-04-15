@@ -23,7 +23,7 @@ spec:
     {{- if .Values.gateway.hosts }}
       {{- .Values.gateway.hosts | toYaml | nindent 6 }}
     {{- else }}
-      - "*.{{ .Values.domain | default .Values.hostname }}"
+      - "*.{{ .Values.hostname | default .Values.domain }}"
     {{- end }}
     tls:
       credentialName: {{ .Values.tls.credentialName }}

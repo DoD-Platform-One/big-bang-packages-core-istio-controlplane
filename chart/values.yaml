@@ -27,7 +27,7 @@ istio:
     gateways:
       - istio-system/main
     hosts:
-      - kiali.{{ .Values.domain | default .Values.hostname }}
+      - kiali.{{ .Values.hostname | default .Values.domain }}
     service: kiali
     namespace: ""
     port: ""
@@ -59,7 +59,7 @@ extraServers:
 #      protocol: HTTPS
 #      number: 443
 #    hosts:
-#      - "*.sub.{{ .Values.domain | default .Values.hostname }}"
+#      - "*.sub.{{ .Values.hostname | default .Values.domain }}"
 #    tls:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
@@ -159,7 +159,7 @@ tracing:
   address: jaeger-collector.jaeger.svc
   port: 9411
   # how to access tracing for users. Provided as link in kiali
-  externalAddress: https://tracing.{{ .Values.domain | default .Values.hostname }}
+  externalAddress: https://tracing.{{ .Values.hostname | default .Values.domain }}
   # percent of traces to send to jaeger
   sampling: 10
   image:
