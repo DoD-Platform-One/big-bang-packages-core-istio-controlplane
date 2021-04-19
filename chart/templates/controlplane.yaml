@@ -86,7 +86,7 @@ spec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
             metrics:
-{{ toYaml .Values.ingressGateway.scaleMetrics | indent 12 }}
+              {{- toYaml .Values.ingressGateway.scaleMetrics | nindent 12 }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
@@ -96,7 +96,7 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           resources:
-{{ toYaml .Values.ingressGateway.resources | indent 12 }}
+            {{- toYaml .Values.ingressGateway.resources | indent 12 }}
           serviceAnnotations:
             {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
@@ -141,15 +141,15 @@ spec:
             minReplicas: {{ $i.k8s.hpaSpec.minReplicas }}
             maxReplicas: {{ $i.k8s.hpaSpec.maxReplicas }}
             metrics:
-{{- if $i.k8s.hpaSpec.metrics }}
-{{ toYaml $i.k8s.hpaSpec.metrics | indent 12 }}
-{{- else }}
-{{- /* default metrics, backwards compatible */}}
+              {{ if $i.k8s.hpaSpec.metrics }}
+              {{- toYaml $i.k8s.hpaSpec.metrics | indent 12 }}
+              {{ else }}
+              {{- /* default metrics, backwards compatible */}}
               - type: Resource
                 resource:
                   name: cpu
                   targetAverageUtilization: 60
-{{- end }}
+            {{- end }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
@@ -160,7 +160,7 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           resources:
-            {{ toYaml .k8s.resources | nindent 12 }}
+            {{- toYaml .k8s.resources | nindent 12 }}
           serviceAnnotations:
             {{- .k8s.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
