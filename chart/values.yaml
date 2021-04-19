@@ -12,8 +12,8 @@ tracing:
   port:  9411
   sampling: 10
 
-# The hostname to use for the default gateway
-hostname: bigbang.dev
+# The domain to use for the default gateway
+domain: bigbang.dev
 
 # Openshift feature switch toggle
 openshift: false
@@ -23,6 +23,14 @@ monitoring:
 
 imagePullSecrets: [ ]
 
+gateway:
+  # Sets the default hosts to match for HTTPS using the tls mode below 
+  hosts: [] # Defaults to "*.{{ .Values.domain }}"
+  # Examples:
+  # - *.admin.bigbang.dev
+  # - myapp.bigbang.dev
+
+# Sets the default gateway TLS mode for HTTPS
 tls:
   credentialName: wildcard-cert
   mode: SIMPLE
@@ -36,7 +44,7 @@ extraServers:
 #      protocol: HTTPS
 #      number: 443
 #    hosts:
-#      - "*.sub.{{ .Values.hostname }}"
+#      - "*.sub.{{ .Values.hostname | default .Values.domain }}"
 #    tls:
 #      credentialName: "another-credential"       # required
 #      mode: SIMPLE
@@ -183,7 +191,7 @@ tracing:
   address: jaeger-collector.jaeger.svc
   port: 9411
   # how to access tracing for users. Provided as link in kiali
-  externalAddress: https://tracing.{{ .Values.hostname }}
+  externalAddress: https://tracing.{{ .Values.hostname | default .Values.domain }}
   # percent of traces to send to jaeger
   sampling: 10
   image:

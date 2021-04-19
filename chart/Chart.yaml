@@ -1,3 +1,7 @@
 apiVersion: v2
 name: istio
+<<<<<<< HEAD
 version: 1.8.4-bb.0
+=======
+version: 1.7.3-bb.15
+>>>>>>> origin/main

@@ -109,9 +109,10 @@ spec:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
       - name: {{ $i.name }}
+        namespace: {{ $.Release.Namespace }}
         enabled: true
         label:
-          {{- $i.labels | default (dict) | toYaml | nindent 10 }}
+          {{- toYaml $i.labels | default (dict) | nindent 10 }}
         k8s:
           service:
             type: {{ $i.type }}

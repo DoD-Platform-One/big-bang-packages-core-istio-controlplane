@@ -20,7 +20,11 @@ spec:
       protocol: HTTPS
       number: 443
     hosts:
-    - "*.{{ .Values.hostname }}"
+    {{- if .Values.gateway.hosts }}
+      {{- .Values.gateway.hosts | toYaml | nindent 6 }}
+    {{- else }}
+      - "*.{{ .Values.hostname | default .Values.domain }}"
+    {{- end }}
     tls:
       credentialName: {{ .Values.tls.credentialName }}
       mode: {{ .Values.tls.mode }}
@@ -37,6 +41,8 @@ spec:
       - {{ tpl . $ | quote }}
     {{- end }}
     tls:
-      credentialName: {{ required "A valid credential name is required!" .tls.credentialName }}
+      {{- if .tls.credentialName }}
+      credentialName: {{ .tls.credentialName | quote }}
+      {{- end }}
       mode: {{ .tls.mode | default "SIMPLE" }}
   {{- end }}
