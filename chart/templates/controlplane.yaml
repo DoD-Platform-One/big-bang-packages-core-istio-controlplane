@@ -9,11 +9,50 @@ spec:
   tag: {{ .Values.tag }}
 
   components:
+    pilot:
+      k8s:
+{{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
+        hpaSpec:
+          maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
+          minReplicas: {{ .Values.istiod.hpaSpec.minReplicas }}
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: istiod
+          metrics:
+            {{- toYaml .Values.istiod.hpaSpec.metrics | nindent 12 }}
+{{- end }}
+        replicaCount: {{ .Values.istiod.replicaCount }}
+        resources:
+          {{- toYaml .Values.istiod.resources | nindent 10 }}
+        strategy:
+          {{- toYaml .Values.istiod.strategy | nindent 10 }}
+        serviceAnnotations:
+          {{- .Values.istiod.serviceAnnotations | default (dict) | toYaml | nindent 10 }}
+        podAnnotations:
+          {{- .Values.istiod.podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .Values.istiod.nodeSelector | default (dict) | toYaml | nindent 10 }}
+        affinity:
+          {{- .Values.istiod.affinity | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
     {{- if .Values.openshift }}
+    {{- with .Values.cni }}
     cni:
       enabled: true
       namespace: kube-system
-    {{- end  }}
+      k8s:
+        podAnnotations:
+          {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
+        nodeSelector:
+          {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
+        tolerations:
+          {{- .tolerations | default (list) | toYaml | nindent 10 }}
+        affinity:
+          {{- .affinity | default (dict) | toYaml | nindent 10 }}
+    {{- end }}
+    {{- end }}
     ingressGateways:
       - name: istio-ingressgateway
         namespace: {{ .Release.Namespace }}
@@ -47,10 +86,7 @@ spec:
             minReplicas: {{ .Values.ingressGateway.minReplicas }}
             maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
             metrics:
-              - type: Resource
-                resource:
-                  name: cpu
-                  targetAverageUtilization: 60
+              {{- toYaml .Values.ingressGateway.scaleMetrics | nindent 12 }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
@@ -60,13 +96,15 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           resources:
-{{ toYaml .Values.ingressGateway.resources | indent 12 }}
+            {{- toYaml .Values.ingressGateway.resources | indent 12 }}
           serviceAnnotations:
             {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
             {{- .Values.ingressGateway.podAnnotations | default (dict) | toYaml | nindent 12 }}
           nodeSelector:
             {{- .Values.ingressGateway.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          affinity:
+            {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
       {{- range $i := .Values.extraIngressGateways }}
@@ -98,39 +136,42 @@ spec:
                 {{ $pk }}: {{ $pv }}
                 {{- end }}
               {{- end }}
+          {{- if $i.k8s.hpaSpec }}
           hpaSpec:
             minReplicas: {{ $i.k8s.hpaSpec.minReplicas }}
             maxReplicas: {{ $i.k8s.hpaSpec.maxReplicas }}
             metrics:
+              {{ if $i.k8s.hpaSpec.metrics }}
+              {{- toYaml $i.k8s.hpaSpec.metrics | indent 12 }}
+              {{ else }}
+              {{- /* default metrics, backwards compatible */}}
               - type: Resource
                 resource:
                   name: cpu
                   targetAverageUtilization: 60
+            {{- end }}
             scaleTargetRef:
               apiVersion: apps/v1
               kind: Deployment
               name: {{ $i.name }}
+          {{- end }}
           strategy:
             rollingUpdate:
               maxSurge: 100%
               maxUnavailable: 25%
           resources:
-            {{ toYaml .k8s.resources | nindent 12 }}
+            {{- toYaml .k8s.resources | nindent 12 }}
           serviceAnnotations:
             {{- .k8s.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
             {{- .k8s.podAnnotations | default (dict) | toYaml | nindent 12 }}
           nodeSelector:
             {{- .k8s.nodeSelector | default (dict) | toYaml | nindent 12 }}
+          affinity:
+            {{- .k8s.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
   {{- end }}
-
-  addonComponents:
-    kiali:
-      enabled: {{ .Values.kiali.enabled }}
-    tracing:
-      enabled: false
 
   meshConfig:
     accessLogFile: /dev/stdout
@@ -139,6 +180,9 @@ spec:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
       zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
+    {{- if .Values.meshConfig }}
+    {{- toYaml .Values.meshConfig | nindent 4 }}
+    {{- end }}
 
   values:
     {{- if .Values.openshift }}
@@ -148,14 +192,14 @@ spec:
       image: {{ .Values.cni.image.name }}
       hub: {{ .Values.cni.image.hub }}
       tag: {{ .Values.cni.image.tag }}
-      cniBinDir: /var/lib/cni/bin
-      cniConfDir: /etc/cni/multus/net.d
+      cniBinDir: {{ .Values.cni.binDir | default "/var/lib/cni/bin" }}
+      cniConfDir: {{ .Values.cni.confDir | default "/etc/cni/multus/net.d" }}
       chained: false
-      cniConfFileName: "istio-cni.conf"
+      cniConfFileName: {{ .Values.cni.confFileName | default "istio-cni.conf" }}
       excludeNamespaces:
        - istio-system
        - kube-system
-      logLevel: info
+      logLevel: {{ .Values.cni.logLevel | default "info" }}
     {{- end }}
     global:
       {{- if .Values.imagePullPolicy }}
@@ -165,32 +209,14 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.proxy }}
-      {{- if .Values.proxy.image }}
-      proxy:
-        image: {{ .Values.proxy.image }}
-
-      proxy_init:
-        image: {{ .Values.proxy.image }}
-      {{- end }}
-      {{- end }}
+      {{- if .Values.tracing.enabled }}
       tracer:
         zipkin:
           address: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
-    # https://istio.io/v1.5/docs/reference/config/installation-options/#kiali-options
-    kiali:
-      image: {{ .Values.kiali.image.name }}
-      hub: {{ .Values.kiali.image.hub }}
-      tag: {{ .Values.kiali.image.tag }}
-      {{- if .Values.monitoring.enabled }}
-      prometheusAddr: http://monitoring-monitoring-kube-prometheus.monitoring.svc:9090
+      {{ end }}
+      {{- if .Values.values.global }}
+      {{- toYaml .Values.values.global | nindent 6 }}
       {{- end }}
-      dashboard:
-        jaegerURL: {{tpl .Values.tracing.externalAddress $ }}
-        grafanaInClusterURL: http://monitoring-monitoring-grafana.monitoring.svc
-        auth:
-          strategy: {{ .Values.kiali.dashboard.auth.strategy }}
-
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
