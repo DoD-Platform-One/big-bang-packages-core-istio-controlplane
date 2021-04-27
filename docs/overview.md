@@ -5,14 +5,14 @@ A service mesh is a dedicated infrastructure layer for making service-to-service
 
 # Benefits of Istio 
 
-* **Observability
+* **Observability**
     * Integrated Jaeger deployment for tracing.
     * Integrated Kiali deployment for service to service traffic visibility.
     * Integrated Prometheus deployment to scrape metrics.
 * **Traffic control**
     * Circuit breaking and retry logic.
     * Canary and Dark releases.
-* Security
+* **Security**
     * More granular fine grained security applied on service to service interaction.
     * Mutual TLS can be applied at a cluster or namespace level.
     * Programming intelligence/security into applications without intrusive    instrumentation using sidecar proxy.
