@@ -210,7 +210,7 @@ sso:
 cni:
   image:
     name: install-cni-1.8
-    hub: registry1.dsop.io/ironbank/opensource/istio-1.8
+    hub: registry1.dso.mil/ironbank/opensource/istio-1.8
     tag: 1.8.4
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
