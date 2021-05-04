@@ -6,6 +6,15 @@ hub: registry1.dso.mil/ironbank/opensource/istio-1.8
 # The tag to use for the image
 tag: 1.8.4
 
+proxy:
+  resources:
+    limits:
+      memory: 1Gi
+      cpu: "2"
+    requests:
+      memory: 128Mi
+      cpu: 100m
+
 tracing:
   enabled: true
   address: jaeger-collector.jaeger.svc

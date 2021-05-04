@@ -217,6 +217,10 @@ spec:
       {{- if .Values.values.global }}
       {{- toYaml .Values.values.global | nindent 6 }}
       {{- end }}
+      {{- with .Values.proxy }}
+      proxy:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
