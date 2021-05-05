@@ -51,8 +51,10 @@ spec:
           {{- .tolerations | default (list) | toYaml | nindent 10 }}
         affinity:
           {{- .affinity | default (dict) | toYaml | nindent 10 }}
-        securityContext:
-          privileged: true
+        containers:
+        - name: install-cni
+          securityContext:
+            privileged: true
     {{- end }}
     {{- end }}
     ingressGateways:
