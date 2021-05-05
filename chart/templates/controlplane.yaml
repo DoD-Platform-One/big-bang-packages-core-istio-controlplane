@@ -40,6 +40,8 @@ spec:
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
     cni:
+      securityContext:
+        privileged: true
       enabled: true
       namespace: kube-system
       k8s:
@@ -51,10 +53,6 @@ spec:
           {{- .tolerations | default (list) | toYaml | nindent 10 }}
         affinity:
           {{- .affinity | default (dict) | toYaml | nindent 10 }}
-        containers:
-        - name: install-cni
-          securityContext:
-            privileged: true
     {{- end }}
     {{- end }}
     ingressGateways:
