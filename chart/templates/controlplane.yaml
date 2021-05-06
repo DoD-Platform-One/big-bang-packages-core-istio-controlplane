@@ -51,6 +51,7 @@ spec:
           {{- .tolerations | default (list) | toYaml | nindent 10 }}
         affinity:
           {{- .affinity | default (dict) | toYaml | nindent 10 }}
+        psp_cluster_role: enabled
         securityContext:
           runAsUser: 0
     {{- end }}
@@ -201,6 +202,9 @@ spec:
       excludeNamespaces:
        - istio-system
        - kube-system
+      psp_cluster_role: enabled
+      securityContext:
+        runAsUser: 0
       logLevel: {{ .Values.cni.logLevel | default "info" }}
     {{- end }}
     global:
