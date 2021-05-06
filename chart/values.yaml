@@ -1,5 +1,5 @@
 # The istio profile to use
-profile: default
+profile: openshift
 
 # The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio-1.8
@@ -16,7 +16,7 @@ tracing:
 domain: bigbang.dev
 
 # Openshift feature switch toggle
-openshift: false
+openshift: true
 
 monitoring:
   enabled: true
