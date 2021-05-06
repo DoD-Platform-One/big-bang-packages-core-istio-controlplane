@@ -220,10 +220,6 @@ cni:
   affinity: {}
   #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
-  #  k8s securityContext https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
-  psp_cluster_role: enabled
-  securityContext:
-    runAsUser: 0
 
 # global istiooperator values:
 meshConfig: {}
