@@ -4,7 +4,7 @@ metadata:
   name: istiocontrolplane
   namespace: {{ .Release.Namespace }}
 spec:
-  profile: {{ .Values.profile }}
+  profile: openshift
   hub: {{ .Values.hub }}
   tag: {{ .Values.tag }}
 
