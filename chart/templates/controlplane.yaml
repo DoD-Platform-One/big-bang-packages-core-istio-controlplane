@@ -52,7 +52,7 @@ spec:
         affinity:
           {{- .affinity | default (dict) | toYaml | nindent 10 }}
         securityContext:
-          {{- .securityContext | default (dict) | toYaml | nindent 10 }}
+          runAsUser: 0
     {{- end }}
     {{- end }}
     ingressGateways:
