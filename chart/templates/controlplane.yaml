@@ -45,18 +45,14 @@ spec:
       k8s:
         podAnnotations:
           {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
-        spec:
-          template:
-            spec:
-              containers: []
-                securityContext:
-                  privileged: true
         nodeSelector:
           {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
         tolerations:
           {{- .tolerations | default (list) | toYaml | nindent 10 }}
         affinity:
           {{- .affinity | default (dict) | toYaml | nindent 10 }}
+        securityContext:
+          {{- .securityContext | default (dict) | toYaml | nindent 10 }}
     {{- end }}
     {{- end }}
     ingressGateways:
