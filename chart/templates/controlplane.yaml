@@ -45,6 +45,8 @@ spec:
       k8s:
         podAnnotations:
           {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
+        podSecurityContext:
+          {{- .podSecurityContext | default (dict) | toYaml | nindent 10 }}
         nodeSelector:
           {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
         tolerations:
