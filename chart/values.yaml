@@ -2,9 +2,9 @@
 profile: openshift
 
 # The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
-hub: registry1.dso.mil/ironbank/opensource/istio-1.8
+hub: istio/install-cni
 # The tag to use for the image
-tag: 1.8.4
+tag: 1.9.0
 
 tracing:
   enabled: true
@@ -209,8 +209,8 @@ sso:
 
 cni:
   image:
-    name: install-cni-1.9
-    hub: gcr.io/istio-testing
+    name: install-cni
+    hub: istio/install-cni
     tag: 1.9.0
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
