@@ -2,7 +2,7 @@
 profile: openshift
 
 # The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
-hub: istio/install-cni
+hub: istio
 # The tag to use for the image
 tag: 1.9.0
 
@@ -210,7 +210,7 @@ sso:
 cni:
   image:
     name: install-cni
-    hub: istio/install-cni
+    hub: istio
     tag: 1.9.0
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
