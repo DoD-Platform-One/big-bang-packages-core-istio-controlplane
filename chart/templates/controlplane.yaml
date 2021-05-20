@@ -96,7 +96,7 @@ spec:
               maxSurge: 100%
               maxUnavailable: 25%
           resources:
-            {{- toYaml .Values.ingressGateway.resources | indent 12 }}
+{{ toYaml .Values.ingressGateway.resources | indent 12 }}
           serviceAnnotations:
             {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
           podAnnotations:
