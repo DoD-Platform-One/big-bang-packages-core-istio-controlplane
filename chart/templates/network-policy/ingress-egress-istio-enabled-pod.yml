@@ -10,13 +10,13 @@ spec:
       - namespaceSelector: {}
         podSelector:
           matchLabels:
-            istio-injection: enabled
+            istio-sidecar.istio.io/inject: true
   egress:
     - to:
       - namespaceSelector: {}
         podSelector:
           matchLabels:
-            istio-injection: enabled
+            istio-sidecar.istio.io/inject: true
   podSelector:
     matchLabels:
       istio: ingressgateway
