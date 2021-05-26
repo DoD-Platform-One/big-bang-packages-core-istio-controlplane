@@ -1,0 +1,27 @@
+{{- if .Values.networkPolicies.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gateway-istio-enabled-pods
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ingress:
+    - from:
+      - namespaceSelector: {}
+        podSelector:
+          matchLabels:
+            istio-injection: enabled
+  egress:
+    - to:
+      - namespaceSelector: {}
+        podSelector:
+          matchLabels:
+            istio-injection: enabled
+  podSelector:
+    matchLabels:
+      istio: ingressgateway
+      operator.istio.io/component: IngressGateways
+  policyTypes:
+    - Ingress
+    - Egress
+{{- end }}
