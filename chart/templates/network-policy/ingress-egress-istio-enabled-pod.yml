@@ -10,13 +10,13 @@ spec:
       - namespaceSelector: {}
         podSelector:
           matchLabels:
-            istio-sidecar.istio.io/inject: true
+            istio-sidecar.istio.io/inject: "true"
   egress:
     - to:
       - namespaceSelector: {}
         podSelector:
           matchLabels:
-            istio-sidecar.istio.io/inject: true
+            istio-sidecar.istio.io/inject: "true"
   podSelector: {}
   policyTypes:
     - Ingress
