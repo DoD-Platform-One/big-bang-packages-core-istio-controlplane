@@ -15,10 +15,7 @@ spec:
       - namespaceSelector:
           matchLabels:
             istio-injection: enabled
-  podSelector:
-    matchLabels:
-      istio: ingressgateway
-      operator.istio.io/component: IngressGateways
+  podSelector: {}
   policyTypes:
     - Ingress
     - Egress

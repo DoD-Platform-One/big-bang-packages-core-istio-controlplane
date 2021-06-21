@@ -17,10 +17,7 @@ spec:
         podSelector:
           matchLabels:
             istio-sidecar.istio.io/inject: true
-  podSelector:
-    matchLabels:
-      istio: ingressgateway
-      operator.istio.io/component: IngressGateways
+  podSelector: {}
   policyTypes:
     - Ingress
     - Egress
