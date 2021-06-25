@@ -107,71 +107,7 @@ spec:
             {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
-      {{- range $i := .Values.extraIngressGateways }}
-      - name: {{ $i.name }}
-        namespace: {{ $.Release.Namespace }}
-        enabled: true
-        label:
-          {{- toYaml $i.labels | default (dict) | nindent 10 }}
-        k8s:
-          service:
-            type: {{ $i.type }}
-            ports:
-              {{- range $k, $v := $i.ports }}
-              {{- /* Input validation */}}
-              {{- if not $v.name }}
-                {{- fail "missing field 'name' in ports object" }}
-              {{- else if not $v.port }}
-                {{- fail "missing field 'port' in ports object" }}
-              {{- else if eq $i.type "NodePort" }}
-                {{- if not $v.nodePort }}
-                  {{- fail "'nodePort' must be defined when type is NodePort" }}
-                {{- else if or (lt (int $v.nodePort) 30000) (gt (int $v.nodePort) 32767) }}
-                  {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
-                {{- end }}
-              {{- end }}
-              {{- /* Actual port object rendering */}}
-              -
-                {{- range $pk, $pv := $v }}
-                {{ $pk }}: {{ $pv }}
-                {{- end }}
-              {{- end }}
-          {{- if $i.k8s.hpaSpec }}
-          hpaSpec:
-            minReplicas: {{ $i.k8s.hpaSpec.minReplicas }}
-            maxReplicas: {{ $i.k8s.hpaSpec.maxReplicas }}
-            metrics:
-              {{ if $i.k8s.hpaSpec.metrics }}
-              {{- toYaml $i.k8s.hpaSpec.metrics | indent 12 }}
-              {{ else }}
-              {{- /* default metrics, backwards compatible */}}
-              - type: Resource
-                resource:
-                  name: cpu
-                  targetAverageUtilization: 60
-            {{- end }}
-            scaleTargetRef:
-              apiVersion: apps/v1
-              kind: Deployment
-              name: {{ $i.name }}
-          {{- end }}
-          strategy:
-            rollingUpdate:
-              maxSurge: 100%
-              maxUnavailable: 25%
-          resources:
-            {{- toYaml .k8s.resources | nindent 12 }}
-          serviceAnnotations:
-            {{- .k8s.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
-          podAnnotations:
-            {{- .k8s.podAnnotations | default (dict) | toYaml | nindent 12 }}
-          nodeSelector:
-            {{- .k8s.nodeSelector | default (dict) | toYaml | nindent 12 }}
-          affinity:
-            {{- .k8s.affinity | default (dict) | toYaml | nindent 12 }}
-          tolerations:
-            {{- .k8s.tolerations | default (list) | toYaml | nindent 12 }}
-  {{- end }}
+        {{ toYaml .Values.extraIngressGateways | nindent 6 }}
 
   meshConfig:
     accessLogFile: /dev/stdout
