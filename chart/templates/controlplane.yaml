@@ -107,7 +107,9 @@ spec:
             {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
           tolerations:
             {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
-        {{ toYaml .Values.extraIngressGateways | nindent 6 }}
+      {{- if .Values.extraIngressGateways }}
+      {{ toYaml .Values.extraIngressGateways | nindent 6 }}
+      {{- end }}
 
   meshConfig:
     accessLogFile: /dev/stdout
