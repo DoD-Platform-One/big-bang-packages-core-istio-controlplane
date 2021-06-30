@@ -1,0 +1,42 @@
+{{/*
+This filter is used as a workaround for https://istio.io/latest/docs/ops/common-problems/network-issues/#404-errors-occur-when-multiple-gateways-configured-with-same-tls-certificate.
+This occurs because of this bug: https://github.com/envoyproxy/envoy/issues/6767.
+By adding the LUA below pre-gateway, we can return a 421 error code instead of a 404 error code when the SNI host is not what we expect.
+For **most** browsers, the 421 error will force it to retry the request without reusing a previous connection.
+
+NOTE: This workaround relies on Envoy v1.18.x and above, which is included in istio/proxyv2 1.10.x and above
+*/}}
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: misdirected-request
+  namespace: istio-system
+spec:
+  configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: envoy.lua
+          typed_config:
+              "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
+              inlineCode: |
+                function envoy_on_request(request_handle)
+                  local streamInfo = request_handle:streamInfo()
+                  if request_handle:streamInfo():requestedServerName() ~= "" then
+                    if (string.sub(request_handle:streamInfo():requestedServerName(), 0, 2) == "*." and not string.find(request_handle:headers():get(":authority"), string.sub(request_handle:streamInfo():requestedServerName(), 1))) then
+                      request_handle:respond({[":status"] = "421"}, "Misdirected Request")
+                    end
+                    if (string.sub(request_handle:streamInfo():requestedServerName(), 0, 2) ~= "*." and request_handle:streamInfo():requestedServerName() ~= request_handle:headers():get(":authority")) then
+                      request_handle:respond({[":status"] = "421"}, "Misdirected Request")
+                    end
+                  end
+                end
