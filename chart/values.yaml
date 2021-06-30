@@ -12,13 +12,12 @@ domain: bigbang.dev
 # Openshift feature switch toggle
 openshift: false
 
-monitoring:
-  enabled: true
-
-imagePullSecrets: []
+imagePullSecrets: [ ]
 
 gateway:
-  # Sets the default hosts to match for HTTPS using the tls mode below
+  # Enables default gateway
+  enabled: true
+  # Sets the default hosts to match for HTTPS using the tls mode below 
   hosts: [] # Defaults to "*.{{ .Values.domain }}"
   # Examples:
   # - *.admin.bigbang.dev
@@ -166,38 +165,12 @@ extraIngressGateways: []
 #    labels:
 #      app: private-ingressgateway
 
-kiali:
-  enabled: true
-
-  image:
-    name: kiali
-    hub: registry1.dso.mil/ironbank/opensource/kiali
-    tag: v1.23.0
-
-  dashboard:
-    auth:
-      strategy: ""
-
 tracing:
   enabled: false
   address: jaeger-collector.jaeger.svc
   port: 9411
-  # how to access tracing for users. Provided as link in kiali
-  externalAddress: https://tracing.{{ .Values.hostname | default .Values.domain }}
   # percent of traces to send to jaeger
   sampling: 10
-  image:
-    name: all-in-one
-    hub: registry1.dso.mil/ironbank/opensource/jaegertracing
-    tag: 1.19.2
-
-sso:
-  enabled: false
-
-  namespace: istio-addons-sso
-  selector:
-    key: protect
-    value: keycloak
 
 cni:
   image:
