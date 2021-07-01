@@ -64,20 +64,7 @@ spec:
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
       k8s:
-      {{- range $key, $value := $values.k8s }}
-        {{ $key }}:
-        {{- if not (or (kindIs "map" $value) (kindIs "slice" $value)) }}
-          {{- print " " }}{{ $value }}
-        {{- else }}
-          {{- toYaml $value | nindent 10 }}
-          {{- if eq $key "hpaSpec" }}
-          scaleTargetRef:
-            apiVersion: apps/v1
-            kind: Deployment
-            name: {{ $name }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- toYaml (merge $values.k8s (dict "hpaSpec" (dict "scaleTargetRef" (dict "apiVersion" "apps/v1" "kind" "Deployment" "name" $name)))) | nindent 8 }}
         strategy:
           rollingUpdate:
             maxSurge: 100%
