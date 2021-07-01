@@ -75,7 +75,9 @@ istiod:
   #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
 
+# Default ingress gateway
 ingressGateway:
+  name: "istio-ingressgateway"
   minReplicas: 1
   maxReplicas: 5
   scaleMetrics:
@@ -141,29 +143,63 @@ ingressGateway:
   #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
 
-extraIngressGateways: []
-# Complete example of an additional ingressgateway defined below
-#  - name: private-ingressgateway
-#    k8s:
-#      hpaSpec:
-#        minReplicas: 1
-#        maxReplicas: 3
-#      serviceAnnotations:
-#        service.beta.kubernetes.io/aws-load-balancer-internal: "true
-#       metrics:
-#         - type: Resource
-#           resource:
-#             name: cpu
-#            targetAverageUtilization: 80
-#      resources:
-#        limits:
-#          cpu: 1.5
-#          memory: 3Gi
-#        requests:
-#          cpu: 500m
-#          memory: 1Gi
-#    labels:
-#      app: private-ingressgateway
+extraIngressGateways: {}
+  # Complete example of an additional ingressgateway defined below
+  # The following items are automatically set for every ingress gateway:
+  # - enabled: true (if you want to disable the IGW, comment it out or set the name to an empty map.
+  # - label: "app: {name of ingress gateway}"
+  # - k8s.hpaSpec.scaleTargetRef: automatically targets the ingress gateway deployment
+  # - k8s.strategy.rollingUpdate.maxSurge: 100%
+  # - k8s.strategy.rollingUpdate.maxUnavailable: 25%
+  # private-istio-ingressgateway:  # This becomes the name
+  #   extraLabels: {} # Automatic labels: - app: {ingress gateway name}
+  #   k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
+  #     hpaSpec:  # scaleTargetRef is automatically set
+  #       minReplicas: 1
+  #       maxReplicas: 5
+  #       metrics:
+  #       - type: Resource
+  #         resource:
+  #           name: cpu
+  #           targetAverageUtilization: 60
+  #     resources: {}
+  #       # requests:
+  #       #   cpu: 500m
+  #       #   memory: 1Gi
+  #       # limits:
+  #       #   cpu: 1.5
+  #       #   memory: 3Gi
+  #     otherstuff: true
+  #     service:
+  #       type: "LoadBalancer" # or "NodePort"
+  #       ports: # Pulled from Istio gateway defaults (https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml)
+  #       # AWS ELB will by default perform health checks on the first port on this list. https://github.com/istio/istio/issues/12503
+  #       - port: 15021
+  #         targetPort: 15021
+  #         name: status-port
+  #         protocol: TCP
+  #       - port: 80
+  #         targetPort: 8080
+  #         name: http2
+  #         protocol: TCP
+  #       - port: 443
+  #         targetPort: 8443
+  #         name: https
+  #         protocol: TCP
+  #       - port: 15012
+  #         targetPort: 15012
+  #         name: tcp-istiod
+  #         protocol: TCP
+  #       # SNI Routing port
+  #       - port: 15443
+  #         targetPort: 15443
+  #         name: tls
+  #         protocol: TCP
+  #     podAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  #     serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  #     nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  #     affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+  #     tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
 tracing:
   enabled: false
