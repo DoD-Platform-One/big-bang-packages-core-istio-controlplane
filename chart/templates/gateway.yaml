@@ -1,100 +1,21 @@
-{{- if .Values.gateway.enabled }}
-apiVersion: networking.istio.io/v1beta1
-kind: Gateway
-metadata:
-  name: main
-  namespace: {{ .Release.Namespace }}
-spec:
-  selector:
-    istio: ingressgateway
-  servers:
-  - port:
-      name: http
-      protocol: HTTP
-      number: 8080
-    hosts:
-    - "*"
-    tls:
-      httpsRedirect: true
-  - port:
-      name: https
-      protocol: HTTPS
-      number: 8443
-    hosts:
-    {{- if .Values.gateway.hosts }}
-      {{- .Values.gateway.hosts | toYaml | nindent 6 }}
-    {{- else }}
-      - "*.{{ .Values.hostname | default .Values.domain }}"
-    {{- end }}
-    tls:
-      credentialName: {{ .Values.tls.credentialName }}
-      mode: {{ .Values.tls.mode }}
-  {{- range .Values.extraServers }}
-  - port:
-      {{- if eq .port.name "https" }}
-      {{- fail "The port name must be unique" }}
-      {{- end }}
-      name: {{ required "A valid port name is required!" .port.name }}
-      protocol: {{ .port.protocol | default "HTTPS" }}
-      number: {{ .port.number | default 443 }}
-    {{- range .hosts }}
-    hosts:
-      - {{ tpl . $ | quote }}
-    {{- end }}
-    tls:
-      {{- if .tls.credentialName }}
-      credentialName: {{ .tls.credentialName | quote }}
-      {{- end }}
-      mode: {{ .tls.mode | default "SIMPLE" }}
-  {{- end }}
-{{- end }}
-
-{{- range .Values.gateway.extragateways }}
+{{- range $name, $values := .Values.gateways }}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: {{ .name }}
+  name: {{ $name }}
   namespace: {{ $.Release.Namespace }}
 spec:
   selector:
-    {{ .ingressGatewaySelector }}
+    {{- $values.selector | default (dict) | toYaml | nindent 4 }}
   servers:
-  - port:
-      name: http
-      protocol: HTTP
-      number: 8080
-    hosts:
+  - hosts:
     - "*"
+    port:
+      name: http
+      number: 8080
+      protocol: HTTP
     tls:
       httpsRedirect: true
-  - port:
-      name: https
-      protocol: HTTPS
-      number: 8443
-    hosts:
-    {{- .hosts | toYaml | nindent 6 }}
-    tls:
-      {{- if .tls.credentialName }}
-      credentialName: {{ .tls.credentialName }}
-      {{- end }}
-      mode: {{ default "SIMPLE" .tls.mode }}
-  {{- range .extraServers }}
-  - port:
-      {{- if eq .port.name "https" }}
-      {{- fail "The port name must be unique" }}
-      {{- end }}
-      name: {{ required "A valid port name is required!" .port.name }}
-      protocol: {{ .port.protocol | default "HTTPS" }}
-      number: {{ .port.number | default 443 }}
-    {{- range .hosts }}
-    hosts:
-      - {{ tpl . $ | quote }}
-    {{- end }}
-    tls:
-      {{- if .tls.credentialName }}
-      credentialName: {{ .tls.credentialName | quote }}
-      {{- end }}
-      mode: {{ .tls.mode | default "SIMPLE" }}
-  {{- end }}
+    {{- tpl (toYaml $values.servers) $ | nindent 2 }}
 {{- end }}

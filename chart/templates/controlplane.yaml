@@ -54,62 +54,35 @@ spec:
     {{- end }}
     {{- end }}
     ingressGateways:
-      - name: istio-ingressgateway
-        namespace: {{ .Release.Namespace }}
-        enabled: true
-        label:
-          {{- toYaml .Values.ingressGateway.labels | default (dict) | nindent 10 }}
-        k8s:
-          service:
-            type: {{ .Values.ingressGateway.type }}
-            ports:
-              {{- range $k, $v := .Values.ingressGateway.ports }}
-              {{- /* Input validation */}}
-              {{- if not $v.name }}
-                {{- fail "missing field 'name' in ports object" }}
-              {{- else if not $v.port }}
-                {{- fail "missing field 'port' in ports object" }}
-              {{- else if eq $.Values.ingressGateway.type "NodePort" }}
-                {{- if not $v.nodePort }}
-                  {{- fail "'nodePort' must be defined when type is NodePort" }}
-                {{- else if or (lt (int $v.nodePort) 30000) (gt (int $v.nodePort) 32767) }}
-                  {{- fail "nodePort value outside of acceptable range (30000-32767)" }}
-                {{- end }}
-              {{- end }}
-              {{- /* Actual port object rendering */}}
-              -
-                {{- range $pk, $pv := $v }}
-                {{ $pk }}: {{ $pv }}
-                {{- end }}
-              {{- end }}
-          hpaSpec:
-            minReplicas: {{ .Values.ingressGateway.minReplicas }}
-            maxReplicas: {{ .Values.ingressGateway.maxReplicas }}
-            metrics:
-              {{- toYaml .Values.ingressGateway.scaleMetrics | nindent 12 }}
-            scaleTargetRef:
-              apiVersion: apps/v1
-              kind: Deployment
-              name: istio-ingressgateway
-          strategy:
-            rollingUpdate:
-              maxSurge: 100%
-              maxUnavailable: 25%
-          resources:
-            {{- toYaml .Values.ingressGateway.resources | nindent 12 }}
-          serviceAnnotations:
-            {{- .Values.ingressGateway.serviceAnnotations | default (dict) | toYaml | nindent 12 }}
-          podAnnotations:
-            {{- .Values.ingressGateway.podAnnotations | default (dict) | toYaml | nindent 12 }}
-          nodeSelector:
-            {{- .Values.ingressGateway.nodeSelector | default (dict) | toYaml | nindent 12 }}
-          affinity:
-            {{- .Values.ingressGateway.affinity | default (dict) | toYaml | nindent 12 }}
-          tolerations:
-            {{- .Values.ingressGateway.tolerations | default (list) | toYaml | nindent 12 }}
-      {{- if .Values.extraIngressGateways }}
-      {{ toYaml .Values.extraIngressGateways | nindent 6 }}
+    {{- range $name, $values := .Values.ingressGateways }}
+    - name: {{ $name }}
+      namespace: {{ $.Release.Namespace }}
+      enabled: true
+      label:
+        app: {{ $name }}
+        {{- if $values.extraLabels }}
+          {{- toYaml $values.extraLabels | nindent 8 }}
+        {{- end }}
+      k8s:
+      {{- range $key, $value := $values.k8s }}
+        {{ $key }}:
+        {{- if not (or (kindIs "map" $value) (kindIs "slice" $value)) }}
+          {{- print " " }}{{ $value }}
+        {{- else }}
+          {{- toYaml $value | nindent 10 }}
+          {{- if eq $key "hpaSpec" }}
+          scaleTargetRef:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: {{ $name }}
+          {{- end }}
+        {{- end }}
       {{- end }}
+        strategy:
+          rollingUpdate:
+            maxSurge: 100%
+            maxUnavailable: 25%
+    {{- end }}
 
   meshConfig:
     accessLogFile: /dev/stdout

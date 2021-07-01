@@ -12,147 +12,70 @@ domain: bigbang.dev
 # Openshift feature switch toggle
 openshift: false
 
-imagePullSecrets: [ ]
+imagePullSecrets: []
 
-gateway:
-  # Enables default gateway
-  enabled: true
-  # Sets the default hosts to match for HTTPS using the tls mode below 
-  hosts: [] # Defaults to "*.{{ .Values.domain }}"
-  # Examples:
-  # - *.admin.bigbang.dev
-  # - myapp.bigbang.dev
+# Ingress gateways
+# The following items are automatically set for every ingress gateway:
+# - enabled: true (if you want to disable the IGW, comment it out or set the name to an empty map.
+# - label: "app: {name of ingress gateway}"
+# - k8s.hpaSpec.scaleTargetRef: automatically targets the ingress gateway deployment
+# - k8s.strategy.rollingUpdate.maxSurge: 100%
+# - k8s.strategy.rollingUpdate.maxUnavailable: 25%
+ingressGateways:
+  istio-ingressgateway:  # This becomes the name
+    extraLabels: # Automatic labels: 'app: {ingress gateway name}'
+      istio: ingressgateway
+    k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
+      testString: "deleteme"
+      hpaSpec:  # scaleTargetRef is automatically set
+        minReplicas: 1
+        maxReplicas: 5
+        metrics:
+        - type: Resource
+          resource:
+            name: cpu
+            targetAverageUtilization: 60
+      resources: {}
+        # requests:
+        #   cpu: 500m
+        #   memory: 1Gi
+        # limits:
+        #   cpu: 1.5
+        #   memory: 3Gi
+      service:
+        type: "LoadBalancer" # or "NodePort"
+        ports: # Pulled from Istio gateway defaults (https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml)
+        # AWS ELB will by default perform health checks on the first port on this list. https://github.com/istio/istio/issues/12503
+        - port: 15021
+          targetPort: 15021
+          name: status-port
+          protocol: TCP
+        - port: 80
+          targetPort: 8080
+          name: http2
+          protocol: TCP
+        - port: 443
+          targetPort: 8443
+          name: https
+          protocol: TCP
+        - port: 15012
+          targetPort: 15012
+          name: tcp-istiod
+          protocol: TCP
+        # SNI Routing port
+        - port: 15443
+          targetPort: 15443
+          name: tls
+          protocol: TCP
+      podAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+      affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+      tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
-# Sets the default gateway TLS mode for HTTPS
-tls:
-  credentialName: wildcard-cert
-  mode: SIMPLE
-
-extraServers: []
-# Example below of complete values capable of being set
-# NOTE: hosts[] is capable of dynamic templating from the .Values context
-#  - port:
-#      name: https-other                          # required: must not be equal to "http"
-#      protocol: HTTPS
-#      number: 443
-#    hosts:
-#      - "*.sub.{{ .Values.hostname | default .Values.domain }}"
-#    tls:
-#      credentialName: "another-credential"       # required
-#      mode: SIMPLE
-
-# istiod / pilot configuration
-istiod:
-  replicaCount: 1
-  resources:
-    requests:
-      cpu: 500m
-      memory: 2Gi
-    limits:
-      cpu: 500m
-      memory: 2Gi
-  hpaSpec:
-    maxReplicas: 3
-    minReplicas: 1
-    metrics:
-      - type: Resource
-        resource:
-          name: cpu
-          targetAverageUtilization: 60
-  strategy: {}
-  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations: {}
-
-  #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  serviceAnnotations: {}
-
-  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  nodeSelector: {}
-
-  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
-  affinity: {}
-
-  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-  tolerations: []
-
-# Default ingress gateway
-ingressGateway:
-  name: "istio-ingressgateway"
-  minReplicas: 1
-  maxReplicas: 5
-  scaleMetrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 60
-  resources: {}
-  #    limits:
-  #      cpu: 1.5
-  #      memory: 3Gi
-  #    requests:
-  #      cpu: 500m
-  #      memory: 1Gi
-  # Only "LoadBalancer" and "NodePort" are allowed
-  type: LoadBalancer
-
-  labels:
-    # These are the default labels tied to the default gateway
-    app: istio-ingressgateway
-    istio: ingressgateway
-
-  ports:
-    # NOTE: Below are ripped directly from istio gateway helm chart defaults: https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml
-    ## You can add custom gateway ports in user values overrides, but it must include those ports since helm replaces.
-    # Note that AWS ELB will by default perform health checks on the first port
-    # on this list. Setting this to the health check port will ensure that health
-    # checks always work. https://github.com/istio/istio/issues/12503
-    - port: 15021
-      targetPort: 15021
-      name: status-port
-      protocol: TCP
-    - port: 80
-      targetPort: 8080
-      name: http2
-      protocol: TCP
-    - port: 443
-      targetPort: 8443
-      name: https
-      protocol: TCP
-    - port: 15012
-      targetPort: 15012
-      name: tcp-istiod
-      protocol: TCP
-    # This is the port where sni routing happens
-    - port: 15443
-      targetPort: 15443
-      name: tls
-      protocol: TCP
-
-  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations: {}
-
-  #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  serviceAnnotations: {}
-
-  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  nodeSelector: {}
-
-  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
-  affinity: {}
-
-  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-  tolerations: []
-
-extraIngressGateways: {}
-  # Complete example of an additional ingressgateway defined below
-  # The following items are automatically set for every ingress gateway:
-  # - enabled: true (if you want to disable the IGW, comment it out or set the name to an empty map.
-  # - label: "app: {name of ingress gateway}"
-  # - k8s.hpaSpec.scaleTargetRef: automatically targets the ingress gateway deployment
-  # - k8s.strategy.rollingUpdate.maxSurge: 100%
-  # - k8s.strategy.rollingUpdate.maxUnavailable: 25%
+  # # Complete example of an additional ingressgateway defined below
   # private-istio-ingressgateway:  # This becomes the name
-  #   extraLabels: {} # Automatic labels: - app: {ingress gateway name}
+  #   extraLabels: {} # Automatic labels: 'app: {ingress gateway name}'
   #   k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
   #     hpaSpec:  # scaleTargetRef is automatically set
   #       minReplicas: 1
@@ -200,6 +123,71 @@ extraIngressGateways: {}
   #     nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
   #     affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
   #     tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+
+
+# See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec
+gateways:
+  main: # This becomes the name of the gateway
+    selector:
+      app: "istio-ingressgateway"
+    servers:  # HTTP redirect to HTTPS is automatically added
+    - hosts:
+      - "*.{{ .Values.domain }}"
+      port:
+        name: https
+        number: 8443
+        protocol: HTTPS
+      tls:
+        credentialName: ""
+        mode: "SIMPLE"
+  # # Example of adding additional gateways
+  # private:
+  #   selector:
+  #     app: "private-istio-ingressgateway"
+  #   servers:
+  #   - hosts:
+  #     - "mypackage.{{ .Values.domain }}"
+  #     port:
+  #       name: http2
+  #       number: 8443
+  #       protocol: HTTPS
+  #     tls:
+  #       credentialName: "some-secret"
+  #       mode: "SIMPLE"
+
+# istiod / pilot configuration
+istiod:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+    limits:
+      cpu: 500m
+      memory: 2Gi
+  hpaSpec:
+    maxReplicas: 3
+    minReplicas: 1
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          targetAverageUtilization: 60
+  strategy: {}
+  #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  podAnnotations: {}
+
+  #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  serviceAnnotations: {}
+
+  #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  nodeSelector: {}
+
+  #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+
+  #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
 
 tracing:
   enabled: false
