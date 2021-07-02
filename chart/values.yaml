@@ -23,6 +23,7 @@ imagePullSecrets: []
 # - k8s.strategy.rollingUpdate.maxUnavailable: 25%
 ingressGateways:
   istio-ingressgateway:  # This becomes the name
+    enabled: true
     extraLabels: # Automatic labels: 'app: {ingress gateway name}'
       istio: ingressgateway
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec

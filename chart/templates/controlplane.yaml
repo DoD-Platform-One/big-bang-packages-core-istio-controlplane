@@ -57,7 +57,7 @@ spec:
     {{- range $name, $values := .Values.ingressGateways }}
     - name: {{ $name }}
       namespace: {{ $.Release.Namespace }}
-      enabled: true
+      enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
         {{- if $values.extraLabels }}
