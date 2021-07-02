@@ -26,7 +26,6 @@ ingressGateways:
     extraLabels: # Automatic labels: 'app: {ingress gateway name}'
       istio: ingressgateway
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
-      testString: "deleteme"
       hpaSpec:  # scaleTargetRef is automatically set
         minReplicas: 1
         maxReplicas: 5
@@ -92,7 +91,6 @@ ingressGateways:
   #       # limits:
   #       #   cpu: 1.5
   #       #   memory: 3Gi
-  #     otherstuff: true
   #     service:
   #       type: "LoadBalancer" # or "NodePort"
   #       ports: # Pulled from Istio gateway defaults (https://github.com/istio/istio/blob/master/manifests/charts/gateways/istio-ingress/values.yaml)
