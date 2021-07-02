@@ -6,7 +6,9 @@ metadata:
   namespace: "{{ .Release.Namespace }}"
 spec:
   ingress:
-    - {}
+    - from:
+      - ipBlock:
+          cidr: 0.0.0.0/0
   podSelector:
     matchLabels:
       istio: ingressgateway

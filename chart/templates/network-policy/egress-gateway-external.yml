@@ -6,7 +6,11 @@ metadata:
   namespace: "{{ .Release.Namespace }}"
 spec:
   egress:
-    - {}
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+          except:
+          - 169.254.169.254/32
   podSelector:
     matchLabels:
       istio: egressgateway
