@@ -59,16 +59,11 @@ spec:
       namespace: {{ $.Release.Namespace }}
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
-        app: {{ $name }}
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
       k8s:
-      {{- toYaml (merge $values.k8s (dict "hpaSpec" (dict "scaleTargetRef" (dict "apiVersion" "apps/v1" "kind" "Deployment" "name" $name)))) | nindent 8 }}
-        strategy:
-          rollingUpdate:
-            maxSurge: 100%
-            maxUnavailable: 25%
+        {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
 
   meshConfig:
