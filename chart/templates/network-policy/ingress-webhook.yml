@@ -14,7 +14,7 @@ spec:
       - ipBlock:
           cidr: 0.0.0.0/0
       ports:
-        - port: 443
+        - port: 15017
           protocol: TCP
   policyTypes:
     - Ingress
