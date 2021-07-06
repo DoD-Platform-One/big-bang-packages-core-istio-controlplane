@@ -22,7 +22,7 @@ At a minimum, a secret holding the wildcard TLS certificate for the domain needs
 
 To create additional ingress gateways (or replace the default), the following `values.yaml` configuration can be used.  Under the `k8s` section, any parameters listed in the [Istio Operator documentation](https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec) can be added.
 
-> To remove the default gateway, set `istio-ingressgateway: null` in your `values.yaml`
+> To remove the default ingress gateway, set `istio-ingressgateway: null` in your `values.yaml`
 
 ```yaml
 ingressGateways:
@@ -50,11 +50,14 @@ ingressGateways:
 
 ## Additional Gateways
 
-Additional gateways can be added to Istio by using the following configuration in your `values.yaml`.  
+Additional gateways can be added to Istio by using the following configuration in your `values.yaml`.
+
 - `selector` should be used to select which `IngressGateway` to use
 - HTTP redirect is automatically included in every gateway
 - The TLS credentials must be created separately in a secret and referenced in the `tls.credentialName` field
 - Hosts should not overlap between Gateways unless the Ingress Gateways are completely isolated (e.g. different IPs or different Ports)
+
+> To remove the default gateway, set `main: null` in your `values.yaml`
 
 ```yaml
 # See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec
