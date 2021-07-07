@@ -60,6 +60,13 @@ spec:
         label:
           {{- toYaml .Values.ingressGateway.labels | default (dict) | nindent 10 }}
         k8s:
+          {{- if .Values.ingressGateway.env }}
+          env:
+            {{- range .Values.ingressGateway.k8s.env }}
+            - name: {{ .name }}
+              value: {{ .value }}
+              {{- end }}
+          {{- end }}
           service:
             type: {{ .Values.ingressGateway.type }}
             ports:

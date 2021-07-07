@@ -24,7 +24,7 @@ monitoring:
 imagePullSecrets: [ ]
 
 gateway:
-  # Sets the default hosts to match for HTTPS using the tls mode below 
+  # Sets the default hosts to match for HTTPS using the tls mode below
   hosts: [] # Defaults to "*.{{ .Values.domain }}"
   # Examples:
   # - *.admin.bigbang.dev
@@ -84,6 +84,8 @@ istiod:
   tolerations: []
 
 ingressGateway:
+  k8s:
+    env: {}
   minReplicas: 1
   maxReplicas: 5
   scaleMetrics:
@@ -227,3 +229,6 @@ meshConfig: {}
 values:
   global: {}
 
+env:
+  - name: KUBE_NAMESPACE
+    value: NAMESPACE
