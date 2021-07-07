@@ -59,10 +59,10 @@ spec:
         enabled: true
         label:
           {{- toYaml .Values.ingressGateway.labels | default (dict) | nindent 10 }}
-       {{- if .Values.ingressGateway.k8s.env }}
         k8s:
-        {{- range $k, $v := .Values.ingressGateway.k8s.env }}
+        {{- if .Values.ingressGateway.k8s.env }}
           env:
+            {{- range $k, $v := .Values.ingressGateway.k8s.env }}
              {{- if not $k.name }}
                {{- fail "missing field 'name' in env object" }}
             {{- else if not $v.value }}
