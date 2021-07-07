@@ -62,15 +62,19 @@ spec:
         k8s:
         {{- if .Values.ingressGateway.k8s.env }}
           env:
-            {{- range $k, $v := .Values.ingressGateway.k8s.env }}
-             {{- if not $k.name }}
-               {{- fail "missing field 'name' in env object" }}
-            {{- else if not $v.value }}
-               {{- fail "missing field 'value' in env object" }}
-            {{- end }}
-            - name: {{ .name }}
-              value: {{ .value }}
+            {{- range $k, $v := .Value.ingressGateway.k8s.env }}
+              {{- /* Input validation */}}
+              {{- if not $v.name }}
+                {{- fail "missing field 'name' in env object" }}
+              {{- else if not $v.value }}
+                {{- fail "missing field 'value' in env object" }}
               {{- end }}
+              {{- /* Actual env object rendering */}}
+            -
+              {{- range $pk, $pv := $v }}
+              {{ $pk }}: {{ $pv }}
+              {{- end }}
+            {{- end }}
           {{- end }}
           service:
             type: {{ .Values.ingressGateway.type }}
@@ -129,14 +133,18 @@ spec:
           {{- if $i.k8s.env }}
           env:
             {{- range $k, $v := $i.k8s.env }}
-            {{- if not $k.name }}
-              {{- fail "missing field 'name' in env object" }}
-            {{- else if not $v.value }}
-              {{- fail "missing field 'value' in env object" }}
-            {{- end }}
-            - name: {{ .name }}
-              value: {{ .value }}
+              {{- /* Input validation */}}
+              {{- if not $v.name }}
+                {{- fail "missing field 'name' in env object" }}
+              {{- else if not $v.value }}
+                {{- fail "missing field 'value' in env object" }}
               {{- end }}
+              {{- /* Actual env object rendering */}}
+            -
+              {{- range $pk, $pv := $v }}
+              {{ $pk }}: {{ $pv }}
+              {{- end }}
+            {{- end }}
           {{- end }}
           service:
             type: {{ $i.type }}
