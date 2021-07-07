@@ -15,7 +15,6 @@ spec:
   podSelector:
     matchLabels:
       istio: egressgateway
-      operator.istio.io/component: EgressGateways
   policyTypes:
     - Egress
 {{- end }}

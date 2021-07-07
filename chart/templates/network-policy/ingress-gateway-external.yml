@@ -12,7 +12,6 @@ spec:
   podSelector:
     matchLabels:
       istio: ingressgateway
-      operator.istio.io/component: IngressGateways
   policyTypes:
     - Ingress
 {{- end }}
