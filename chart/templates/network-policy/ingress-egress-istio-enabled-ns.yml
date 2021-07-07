@@ -12,9 +12,7 @@ spec:
             istio-injection: enabled
   egress:
     - to:
-      - namespaceSelector:
-          matchLabels:
-            istio-injection: enabled
+      - namespaceSelector: {}
   podSelector: {}
   policyTypes:
     - Ingress
