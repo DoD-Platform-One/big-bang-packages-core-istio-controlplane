@@ -85,7 +85,7 @@ istiod:
 
 ingressGateway:
   k8s:
-    env: {}
+    env: {} # this is for istio specific envvars https://istio.io/latest/docs/reference/commands/pilot-discovery/#envvars
   minReplicas: 1
   maxReplicas: 5
   scaleMetrics:
