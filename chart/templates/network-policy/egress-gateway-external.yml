@@ -2,6 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
+  # Note: This is not used currently since we don't have an egress gateway
   name: egress-gateway-allow-external-traffic
   namespace: "{{ .Release.Namespace }}"
 spec:
