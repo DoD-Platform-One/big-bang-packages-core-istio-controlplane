@@ -126,6 +126,18 @@ spec:
         label:
           {{- toYaml $i.labels | default (dict) | nindent 10 }}
         k8s:
+          {{- if $i.k8s.env }}
+          env:
+            {{- range $k, $v := $i.k8s.env }}
+            {{- if not $k.name }}
+              {{- fail "missing field 'name' in env object" }}
+            {{- else if not $v.value }}
+              {{- fail "missing field 'value' in env object" }}
+            {{- end }}
+            - name: {{ .name }}
+              value: {{ .value }}
+              {{- end }}
+          {{- end }}
           service:
             type: {{ $i.type }}
             ports:
