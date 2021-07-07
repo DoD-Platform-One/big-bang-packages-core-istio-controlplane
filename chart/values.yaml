@@ -229,6 +229,3 @@ meshConfig: {}
 values:
   global: {}
 
-env:
-  - name: KUBE_NAMESPACE
-    value: NAMESPACE
