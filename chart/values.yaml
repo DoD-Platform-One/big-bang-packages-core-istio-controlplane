@@ -74,7 +74,7 @@ gateways:
         number: 8443
         protocol: HTTPS
       tls:
-        credentialName: ""
+        credentialName: "wildcard-cert"
         mode: "SIMPLE"
   # # Example of adding additional gateways
   # private:
