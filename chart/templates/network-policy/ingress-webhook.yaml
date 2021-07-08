@@ -12,7 +12,9 @@ spec:
     - from:
       - ipBlock:
           cidr: 0.0.0.0/0
-      # Need to determine what port(s) are needed here
+      ports:
+      - port: 15017
+        protocol: TCP
   policyTypes:
     - Ingress
 {{- end }}
