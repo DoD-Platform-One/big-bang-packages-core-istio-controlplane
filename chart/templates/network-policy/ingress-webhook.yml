@@ -8,7 +8,6 @@ spec:
   podSelector:
     matchLabels:
       app: istiod
-      istio: pilot
   ingress:
     - from:
       - ipBlock:

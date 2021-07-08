@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: gateway-istio-enabled-ns
+  name: ingress-injection-enabled-ns
   namespace: "{{ .Release.Namespace }}"
 spec:
   ingress:
@@ -10,10 +10,12 @@ spec:
       - namespaceSelector:
           matchLabels:
             istio-injection: enabled
-  egress:
-    - to:
-      - namespaceSelector: {}
-  podSelector: {}
+      ports:
+        - port: 15012
+          protocol: TCP
+  podSelector:
+    matchLabels:
+      app: istiod
   policyTypes:
     - Ingress
     - Egress

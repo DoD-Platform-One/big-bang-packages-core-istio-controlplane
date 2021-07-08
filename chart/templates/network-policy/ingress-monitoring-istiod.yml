@@ -19,7 +19,6 @@ spec:
   podSelector:
     matchLabels:
       app: istiod
-      istio: pilot
   policyTypes:
     - Ingress
 {{- end }}
