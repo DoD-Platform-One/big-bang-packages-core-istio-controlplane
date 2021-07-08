@@ -12,6 +12,7 @@ spec:
     - from:
       - ipBlock:
           cidr: 0.0.0.0/0
+      # Need to determine what port(s) are needed here
   policyTypes:
     - Ingress
 {{- end }}
