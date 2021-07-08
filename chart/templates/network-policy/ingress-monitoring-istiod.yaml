@@ -1,22 +1,24 @@
-{{- if .Values.networkPolicies.enabled }}
+{{- if and .Values.networkPolicies.enabled .Values.monitoring.enabled}}
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-injection-enabled-ns
+  name: ingress-metric-scraping
   namespace: "{{ .Release.Namespace }}"
 spec:
   ingress:
     - from:
       - namespaceSelector:
           matchLabels:
-            istio-injection: enabled
+            app.kubernetes.io/name: monitoring
+        podSelector:
+          matchLabels:
+            app: prometheus
       ports:
-        - port: 15012
+        - port: 15014
           protocol: TCP
   podSelector:
     matchLabels:
-      app: istiod
+      istio: pilot
   policyTypes:
     - Ingress
-    - Egress
 {{- end }}

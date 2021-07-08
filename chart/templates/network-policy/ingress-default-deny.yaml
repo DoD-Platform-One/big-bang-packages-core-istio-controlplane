@@ -2,16 +2,11 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-gateway-allow-external-traffic
+  name: ingress-default-deny
   namespace: "{{ .Release.Namespace }}"
 spec:
-  ingress:
-    - from:
-      - ipBlock:
-          cidr: 0.0.0.0/0
-  podSelector:
-    matchLabels:
-      istio: ingressgateway
+  podSelector: {}
   policyTypes:
     - Ingress
+  ingress: []
 {{- end }}

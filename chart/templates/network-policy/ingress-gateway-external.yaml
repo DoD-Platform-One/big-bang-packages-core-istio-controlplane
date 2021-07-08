@@ -2,17 +2,16 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-allow-webhook-api
-  namespace: {{ .Release.Namespace }}
+  name: ingress-external-traffic-to-gateway
+  namespace: "{{ .Release.Namespace }}"
 spec:
-  podSelector:
-    matchLabels:
-      app: istiod
   ingress:
     - from:
       - ipBlock:
           cidr: 0.0.0.0/0
-      # Need to determine what port(s) are needed here
+  podSelector:
+    matchLabels:
+      istio: ingressgateway
   policyTypes:
     - Ingress
 {{- end }}
