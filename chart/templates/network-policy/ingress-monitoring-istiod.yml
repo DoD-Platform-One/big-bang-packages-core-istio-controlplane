@@ -7,12 +7,12 @@ metadata:
 spec:
   ingress:
     - from:
-        - namespaceSelector:
-            matchLabels:
-              app.kubernetes.io/name: monitoring
-          podSelector:
-            matchLabels:
-              app: prometheus
+      - namespaceSelector:
+          matchLabels:
+            app.kubernetes.io/name: monitoring
+        podSelector:
+          matchLabels:
+            app: prometheus
       ports:
         - port: 15014
           protocol: TCP
