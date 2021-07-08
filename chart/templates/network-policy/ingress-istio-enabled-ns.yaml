@@ -15,7 +15,7 @@ spec:
           protocol: TCP
   podSelector:
     matchLabels:
-      istio: pilot
+      app: istiod
   policyTypes:
     - Ingress
     - Egress
