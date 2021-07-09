@@ -1,2 +1,5 @@
 imagePullSecrets:
-  - private-registry-mil
+  - private-registry
+
+networkPolicies:
+  enabled: true

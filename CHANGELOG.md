@@ -2,6 +2,10 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.4-bb.3]
+### Added
+- Added network policies for istio
+
 ## [1.8.4-bb.2]
 ### Fixed
 - fixed bug with indentation when providing resources to istio ingressgateways
@@ -20,4 +24,3 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Jaeger+Kiali VirtualServices pointing directly to the UIs will be skipped when "sso.enabled: true"
 - Jaeger+Kiali VirtualServices pull in their configs from the "ingress" designation so VirtualServices can be customized.
-
