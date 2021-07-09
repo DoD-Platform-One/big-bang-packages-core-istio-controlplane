@@ -60,6 +60,7 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
+        istio: ingressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
