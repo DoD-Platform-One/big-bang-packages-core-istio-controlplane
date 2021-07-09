@@ -1,0 +1,20 @@
+{{- if .Values.networkPolicies.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  # Note: This is not used currently since we don't have an egress gateway
+  name: egress-gateway-traffic-to-external
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  egress:
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+          except:
+          - 169.254.169.254/32
+  podSelector:
+    matchLabels:
+      istio: egressgateway
+  policyTypes:
+    - Egress
+{{- end }}
