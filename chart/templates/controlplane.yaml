@@ -54,6 +54,9 @@ spec:
     {{- end }}
     {{- end }}
     ingressGateways:
+    {{- if .Values.ingressgateway }}
+    {{- required "`ingressgateway` value has been deprecated.  Please use the new format in the `ingressGateways` value." "" }}
+    {{- end }}
     {{- range $name, $values := .Values.ingressGateways }}
     - name: {{ $name }}
       namespace: {{ $.Release.Namespace }}
