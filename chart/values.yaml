@@ -172,7 +172,7 @@ kiali:
   image:
     name: kiali
     hub: registry1.dso.mil/ironbank/opensource/kiali
-    tag: v1.36.1
+    tag: v1.23.0
 
   dashboard:
     auth:
@@ -189,7 +189,7 @@ tracing:
   image:
     name: all-in-one
     hub: registry1.dso.mil/ironbank/opensource/jaegertracing
-    tag: 1.24.0
+    tag: 1.19.2
 
 sso:
   enabled: false
