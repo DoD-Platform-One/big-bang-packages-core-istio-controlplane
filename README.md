@@ -9,6 +9,7 @@ A simple chart wrapper around `IstioOperator` custom resource.
 - [Prerequisites](#pre-requisites)
 - [Iron Bank](#iron-bank-istio-controlplane)
 - [Deployment](#deploy-istio-controlplane)
+- [Ingress](./docs/ingress.md)
 
 ## Pre-Requisites
 
