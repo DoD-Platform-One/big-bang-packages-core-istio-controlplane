@@ -21,7 +21,7 @@ Install Helm
 
 https://helm.sh/docs/intro/install/
 
-This chart requires the Istio Operator to be deployed beforehand via [BigBang](). Place the chart into the existing "istio-system" namespace as described below.
+This chart requires the Istio Operator to be deployed beforehand.  You can use [BigBang]() or the standalone [istio-operator](https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator) chart. Place the chart into the "istio-system" namespace as described below.
 
 ## Iron Bank
 
