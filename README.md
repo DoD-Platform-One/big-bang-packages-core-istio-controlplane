@@ -21,7 +21,7 @@ Install Helm
 
 https://helm.sh/docs/intro/install/
 
-This chart requires the Istio Operator to be deployed beforehand.  You can use BigBang or the standalone [istio-operator](https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator) chart.
+This chart requires the Istio Operator to be deployed beforehand.  You can use [BigBang]() or the standalone [istio-operator](https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator) chart. Place the chart into the "istio-system" namespace as described below.
 
 ## Iron Bank
 
@@ -32,5 +32,5 @@ You can `pull` the registry1 image(s) [here](https://registry1.dso.mil/harbor/pr
 ```shell
 git clone https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-controlplane.git
 cd istio-controlplane
-helm install istio-controlplane chart
+helm install istio-controlplane chart -n istio-system
 ```
