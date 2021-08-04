@@ -2,9 +2,9 @@
 profile: default
 
 # The hub to use for the image (note: the image is built as ".Values.hub/<component>:.Values.tag"
-hub: registry1.dso.mil/ironbank/opensource/istio-1.8
+hub: registry1.dso.mil/ironbank/opensource/istio
 # The tag to use for the image
-tag: 1.8.4
+tag: 1.9.7
 
 # The domain to use for the default gateway
 domain: bigbang.dev
@@ -138,9 +138,9 @@ tracing:
 
 cni:
   image:
-    name: install-cni-1.8
-    hub: registry1.dso.mil/ironbank/opensource/istio-1.8
-    tag: 1.8.4
+    name: install-cni
+    hub: registry1.dso.mil/ironbank/opensource/istio/install-cni
+    tag: 1.9.7
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
