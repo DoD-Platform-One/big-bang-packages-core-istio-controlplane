@@ -13,7 +13,11 @@ spec:
             istio.io/rev: {{ .Values.revision }}
             {{- else }}
             istio-injection: enabled
-            {{- end }}
+      {{- if not (eq .Values.revision "") }}
+      - namespaceSelector:
+          matchLabels:
+            istio.io/rev: {{ .Values.revision }}
+      {{- end }}
       ports:
         - port: 15012
           protocol: TCP
