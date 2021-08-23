@@ -27,13 +27,13 @@ ingressGateways:
     extraLabels: {} # Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway`
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
-      resources: {}
-        # requests:
-        #   cpu: 500m
-        #   memory: 1Gi
-        # limits:
-        #   cpu: 1.5
-        #   memory: 3Gi
+      resources:
+        requests:
+          cpu: 1.5
+          memory: 2Gi
+        limits:
+          cpu: 1.5
+          memory: 2Gi
       service:
         type: "LoadBalancer" # or "NodePort"
         # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
