@@ -115,6 +115,39 @@ spec:
       {{- if .Values.values.global }}
       {{- toYaml .Values.values.global | nindent 6 }}
       {{- end }}
+      proxy:
+        image: proxyv2
+        clusterDomain: "cluster.local"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 100m
+            memory: 128Mi
+        logLevel: warning
+        componentLogLevel: "misc:error"
+        privileged: false
+        enableCoreDump: false
+        statusPort: 15020
+        readinessInitialDelaySeconds: 1
+        readinessPeriodSeconds: 2
+        readinessFailureThreshold: 30
+        includeIPRanges: "*"
+        excludeIPRanges: ""
+        excludeOutboundPorts: ""
+        excludeInboundPorts: ""
+        autoInject: enabled
+        tracer: "zipkin"
+      proxy_init:
+        image: proxyv2
+        resources:
+          limits:
+            cpu: 10m
+            memory: 10Mi
+          requests:
+            cpu: 10m
+            memory: 10Mi
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
