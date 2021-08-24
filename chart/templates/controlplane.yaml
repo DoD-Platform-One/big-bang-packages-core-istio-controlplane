@@ -70,16 +70,15 @@ spec:
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
-    proxy:
-      enabled: true
-      namespace: {{ $.Release.Namespace }}
-      k8s:
-        podAnnotations: 
-          sidecar.istio.io/proxyCPU: "150m"
-          sidecar.istio.io/proxyCPULimit: "150m"
-          sidecar.istio.io/proxyMemory: "128Mi"
-          sidecar.istio.io/proxyMemoryLimit: "128Mi"
-
+    # proxy:
+    #   enabled: true
+    #   namespace: {{ $.Release.Namespace }}
+    #   k8s:
+    #     podAnnotations: 
+    #       sidecar.istio.io/proxyCPU: "150m"
+    #       sidecar.istio.io/proxyCPULimit: "150m"
+    #       sidecar.istio.io/proxyMemory: "128Mi"
+    #       sidecar.istio.io/proxyMemoryLimit: "128Mi"
 
   meshConfig:
     accessLogFile: /dev/stdout
