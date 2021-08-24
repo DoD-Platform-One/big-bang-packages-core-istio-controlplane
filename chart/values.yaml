@@ -115,7 +115,11 @@ istiod:
           targetAverageUtilization: 60
   strategy: {}
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations: {} 
+  podAnnotations: 
+     sidecar.istio.io/proxyCPU: 150m
+     sidecar.istio.io/proxyCPULimit: 150m
+     sidecar.istio.io/proxyMemory: 128Mi
+     sidecar.istio.io/proxyMemoryLimit: 128Mi
 
   #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   serviceAnnotations: {}

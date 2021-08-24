@@ -1,0 +1,3551 @@
+{
+  "Name": "Automatic Istio Sidecar Injection",
+  "Description": "Namespaces must have automatic Istio Sidecar injection enabled.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "labels": [
+      {
+        "allowedRegex": "^enabled",
+        "key": "istio-injection"
+      }
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/requiredlabels",
+  "Docs": "https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#injection",
+  "Related": "https://istio.io/latest/docs/reference/config/networking/sidecar/",
+  "TotalViolations": 10,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "you must provide labels: {\"istio-injection\"}",
+      "name": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "you must provide labels: {\"istio-injection\"}",
+      "name": "kube-public"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "you must provide labels: {\"istio-injection\"}",
+      "name": "kube-node-lease"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "you must provide labels: {\"istio-injection\"}",
+      "name": "bigbang"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "you must provide labels: {\"istio-injection\"}",
+      "name": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "Label <istio-injection: disabled> does not satisfy allowed regex: ^enabled",
+      "name": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "Label <istio-injection: disabled> does not satisfy allowed regex: ^enabled",
+      "name": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "Label <istio-injection: disabled> does not satisfy allowed regex: ^enabled",
+      "name": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "Label <istio-injection: disabled> does not satisfy allowed regex: ^enabled",
+      "name": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Namespace",
+      "message": "Label <istio-injection: disabled> does not satisfy allowed regex: ^enabled",
+      "name": "istio-system"
+    }
+  ]
+}
+{
+  "Name": "Required Labels",
+  "Description": "Containers must have the specified labels.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "labels": [
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/name"
+      },
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/instance"
+      },
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/version"
+      },
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/component"
+      },
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/part-of"
+      },
+      {
+        "allowedRegex": "",
+        "key": "app.kubernetes.io/managed-by"
+      }
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/requiredlabels",
+  "Docs": "https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/",
+  "TotalViolations": 32,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\"}",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\"}",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/version\"}",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "you must provide labels: {\"app.kubernetes.io/component\", \"app.kubernetes.io/instance\", \"app.kubernetes.io/managed-by\", \"app.kubernetes.io/name\", \"app.kubernetes.io/part-of\", \"app.kubernetes.io/version\"}",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Deny Service Account Default",
+  "Description": "Pods are not allowed to use default SA.",
+  "Version": "v3.5.1",
+  "Source": "Unspecified",
+  "Docs": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#use-the-default-service-account-to-access-the-api-server",
+  "Related": "https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#serviceaccount-admission-controller",
+  "TotalViolations": 1,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Default Service Account is not allowed for pod keycloak-postgresql-0 in namespace keycloak",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    }
+  ]
+}
+{
+  "Name": "Privilege Escalation",
+  "Description": "Containers must not allow escalaton of privileges.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/allow-privilege-escalation",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1",
+  "Related": "https://en.wikipedia.org/wiki/Privilege_escalation",
+  "TotalViolations": 33,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: velero",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: velero-plugin-for-aws",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: manager",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: kibana",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elastic-internal-init-config",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: kube-state-metrics",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: prometheus",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: config-reloader",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: fluent-bit",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: alertmanager",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: config-reloader",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: fluent-bit",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: fluent-bit",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: fluent-bit",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: grafana-sc-dashboard",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: grafana",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: grafana-sc-datasources",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: jaeger-jaeger-jaeger-operator",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: twistlock-console",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: keycloak-postgresql",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: nexus-repository-manager",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: keycloak",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: jaeger",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elasticsearch",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elasticsearch",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elasticsearch",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Privilege escalation container is not allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "SELinux",
+  "Description": "Containers may only use the SELnux options specified.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedSELinuxOptions": []
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/selinux",
+  "Docs": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#assign-selinux-labels-to-a-container",
+  "Related": "https://en.wikipedia.org/wiki/Security-Enhanced_Linux",
+  "TotalViolations": 0
+}
+{
+  "Name": "External IPs",
+  "Description": "Services may only contain specified external IPs.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedIPs": []
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/externalip",
+  "Docs": "https://kubernetes.io/docs/concepts/services-networking/service/#external-ips",
+  "TotalViolations": 0
+}
+{
+  "Name": "Host Filesystem Paths",
+  "Description": "Containers may only map volumes to the host node at the specified paths.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedHostPaths": []
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/host-filesystem",
+  "Docs": "https://kubernetes.io/docs/concepts/storage/volumes/#hostpath",
+  "TotalViolations": 16,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log\", \"type\": \"\"}, \"name\": \"varlog\"} is not allowed, pod: logging-fluent-bit-w6r8f. Allowed path: []",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/lib/docker/containers\", \"type\": \"\"}, \"name\": \"varlibdockercontainers\"} is not allowed, pod: logging-fluent-bit-w6r8f. Allowed path: []",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/etc/machine-id\", \"type\": \"File\"}, \"name\": \"etcmachineid\"} is not allowed, pod: logging-fluent-bit-w6r8f. Allowed path: []",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log/flb-storage/\", \"type\": \"DirectoryOrCreate\"}, \"name\": \"flb-storage\"} is not allowed, pod: logging-fluent-bit-w6r8f. Allowed path: []",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log\", \"type\": \"\"}, \"name\": \"varlog\"} is not allowed, pod: logging-fluent-bit-vbv5d. Allowed path: []",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/lib/docker/containers\", \"type\": \"\"}, \"name\": \"varlibdockercontainers\"} is not allowed, pod: logging-fluent-bit-vbv5d. Allowed path: []",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/etc/machine-id\", \"type\": \"File\"}, \"name\": \"etcmachineid\"} is not allowed, pod: logging-fluent-bit-vbv5d. Allowed path: []",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log/flb-storage/\", \"type\": \"DirectoryOrCreate\"}, \"name\": \"flb-storage\"} is not allowed, pod: logging-fluent-bit-vbv5d. Allowed path: []",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log\", \"type\": \"\"}, \"name\": \"varlog\"} is not allowed, pod: logging-fluent-bit-42hth. Allowed path: []",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/lib/docker/containers\", \"type\": \"\"}, \"name\": \"varlibdockercontainers\"} is not allowed, pod: logging-fluent-bit-42hth. Allowed path: []",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/etc/machine-id\", \"type\": \"File\"}, \"name\": \"etcmachineid\"} is not allowed, pod: logging-fluent-bit-42hth. Allowed path: []",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log/flb-storage/\", \"type\": \"DirectoryOrCreate\"}, \"name\": \"flb-storage\"} is not allowed, pod: logging-fluent-bit-42hth. Allowed path: []",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log\", \"type\": \"\"}, \"name\": \"varlog\"} is not allowed, pod: logging-fluent-bit-pxsjg. Allowed path: []",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/lib/docker/containers\", \"type\": \"\"}, \"name\": \"varlibdockercontainers\"} is not allowed, pod: logging-fluent-bit-pxsjg. Allowed path: []",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/etc/machine-id\", \"type\": \"File\"}, \"name\": \"etcmachineid\"} is not allowed, pod: logging-fluent-bit-pxsjg. Allowed path: []",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "HostPath volume {\"hostPath\": {\"path\": \"/var/log/flb-storage/\", \"type\": \"DirectoryOrCreate\"}, \"name\": \"flb-storage\"} is not allowed, pod: logging-fluent-bit-pxsjg. Allowed path: []",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "SysCtls",
+  "Description": "Containers must not use specified sysctls.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "forbiddenSysctls": [
+      "*"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/forbidden-sysctls",
+  "Docs": "https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#setting-sysctls-for-a-pod",
+  "Related": "https://man7.org/linux/man-pages/man8/sysctl.8.html",
+  "TotalViolations": 0
+}
+{
+  "Name": "Unique Ingress Hosts",
+  "Description": "Ingress hosts must be unique.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/uniqueingresshost",
+  "Docs": "https://kubernetes.io/docs/concepts/services-networking/ingress/",
+  "TotalViolations": 0
+}
+{
+  "Name": "Proc Mount",
+  "Description": "Containers may only use the specified ProcMount types.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "procMount": "Default"
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/proc-mount",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1",
+  "TotalViolations": 0
+}
+{
+  "Name": "Probes",
+  "Description": "Container must have specified probes and probe types.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "probeTypes": [
+      "tcpSocket",
+      "httpGet",
+      "exec"
+    ],
+    "probes": [
+      "readinessProbe",
+      "livenessProbe"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/requiredprobes",
+  "Docs": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
+  "Related": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes",
+  "TotalViolations": 27,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <istio-operator> in your <Pod> <istio-operator-5f6cfb6d5b-zc4wq> has no <readinessProbe>",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <istio-operator> in your <Pod> <istio-operator-5f6cfb6d5b-zc4wq> has no <livenessProbe>",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <velero> in your <Pod> <velero-velero-8675454d6f-bmntn> has no <readinessProbe>",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <velero> in your <Pod> <velero-velero-8675454d6f-bmntn> has no <livenessProbe>",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <manager> in your <Pod> <elastic-operator-0> has no <readinessProbe>",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <manager> in your <Pod> <elastic-operator-0> has no <livenessProbe>",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <kibana> in your <Pod> <logging-ek-kb-6fb679b5dd-fppqv> has no <livenessProbe>",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <kube-prometheus-stack> in your <Pod> <monitoring-monitoring-kube-operator-6f5759d4db-d2dbm> has no <readinessProbe>",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <kube-prometheus-stack> in your <Pod> <monitoring-monitoring-kube-operator-6f5759d4db-d2dbm> has no <livenessProbe>",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <opa-collector> in your <Pod> <opa-collector-689d87d98-8qtmh> has no <readinessProbe>",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <opa-collector> in your <Pod> <opa-collector-689d87d98-8qtmh> has no <livenessProbe>",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <prometheus> in your <Pod> <prometheus-monitoring-monitoring-kube-prometheus-0> has no <livenessProbe>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <config-reloader> in your <Pod> <prometheus-monitoring-monitoring-kube-prometheus-0> has no <readinessProbe>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <config-reloader> in your <Pod> <prometheus-monitoring-monitoring-kube-prometheus-0> has no <livenessProbe>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <config-reloader> in your <Pod> <alertmanager-monitoring-monitoring-kube-alertmanager-0> has no <readinessProbe>",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <config-reloader> in your <Pod> <alertmanager-monitoring-monitoring-kube-alertmanager-0> has no <livenessProbe>",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <grafana-sc-dashboard> in your <Pod> <monitoring-monitoring-grafana-77fc445454-zkdd2> has no <readinessProbe>",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <grafana-sc-dashboard> in your <Pod> <monitoring-monitoring-grafana-77fc445454-zkdd2> has no <livenessProbe>",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <operator> in your <Pod> <kiali-kiali-kiali-operator-577b74d96-8hmvh> has no <readinessProbe>",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <operator> in your <Pod> <kiali-kiali-kiali-operator-577b74d96-8hmvh> has no <livenessProbe>",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <jaeger-jaeger-jaeger-operator> in your <Pod> <jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67> has no <readinessProbe>",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <jaeger-jaeger-jaeger-operator> in your <Pod> <jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67> has no <livenessProbe>",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <twistlock-console> in your <Pod> <twistlock-console-65c7694cb-fqvvs> has no <readinessProbe>",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <twistlock-console> in your <Pod> <twistlock-console-65c7694cb-fqvvs> has no <livenessProbe>",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <elasticsearch> in your <Pod> <logging-ek-es-data-0> has no <livenessProbe>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <elasticsearch> in your <Pod> <logging-ek-es-data-1> has no <livenessProbe>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container <elasticsearch> in your <Pod> <logging-ek-es-master-0> has no <livenessProbe>",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Taints and Tolerations",
+  "Description": "Container must be configured according to specified taint and toleration rules.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowGlobalToleration": false,
+    "restrictedTaint": {
+      "effect": "NoSchedule",
+      "key": "privileged",
+      "value": "true"
+    }
+  },
+  "Source": "https://github.com/stackrox/blog-examples/tree/master/code/opa-gatekeeper-taint-tolerations",
+  "Docs": "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/",
+  "Related": "https://www.openshift.com/blog/better-kubernetes-security-with-open-policy-agent-opa-part-2",
+  "TotalViolations": 0
+}
+{
+  "Name": "Istio Sidecar in Containers",
+  "Description": "Containers must have Istio Sidecar injection enabled.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "annotations": [
+      {
+        "disallowedRegex": "^false",
+        "key": "sidecar.istio.io/inject"
+      }
+    ]
+  },
+  "Source": "Unspecified",
+  "Docs": "https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#injection",
+  "Related": "https://istio.io/latest/docs/reference/config/networking/sidecar/",
+  "TotalViolations": 0
+}
+{
+  "Name": "Host Network Ports",
+  "Description": "Container images may only use host ports that are specified.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "hostNetwork": false
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/host-network-ports",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hosts-namespaces",
+  "Related": "https://kubernetes.io/docs/concepts/policy/pod-security-policy/#host-namespaces",
+  "TotalViolations": 0
+}
+{
+  "Name": "Image Repositories",
+  "Description": "Container images must be pulled from the specified repositories.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "exemptContainers": [],
+    "repos": [
+      "registry1.dso.mil",
+      "registry.dso.mil"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/allowedrepos",
+  "Docs": "https://kubernetes.io/docs/concepts/containers/images/",
+  "TotalViolations": 0
+}
+{
+  "Name": "Ingress on HTTPS Only",
+  "Description": "Ingress must only allow HTTPS connections.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/httpsonly",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/#IngressSpec",
+  "Related": "https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-xlb#disabling_http",
+  "TotalViolations": 0
+}
+{
+  "Name": "Resource Ratio",
+  "Description": "Container resource limits to requests ratio must not be higher than specified.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "ratio": "2"
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/containerresourceratios",
+  "Docs": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+  "TotalViolations": 19,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kube-state-metrics> cpu limit <100m> is higher than the maximum allowed ratio of <2>",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <opa-collector> cpu limit <600m> is higher than the maximum allowed ratio of <2>",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <opa-collector> memory limit <2Gi> is higher than the maximum allowed ratio of <2>",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <prometheus> cpu limit <300m> is higher than the maximum allowed ratio of <2>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <prometheus> memory limit <1500Mi> is higher than the maximum allowed ratio of <2>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource requests",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource requests",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource requests",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource requests",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <nexus-repository-manager> has no resource limits",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak> cpu limit <500m> is higher than the maximum allowed ratio of <2>",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak> memory limit <1Gi> is higher than the maximum allowed ratio of <2>",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> cpu limit <4> is higher than the maximum allowed ratio of <2>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> cpu limit <4> is higher than the maximum allowed ratio of <2>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> cpu limit <2> is higher than the maximum allowed ratio of <2>",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Volume Types",
+  "Description": "Containers may only use the specified volume types in volume mounts.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "volumes": [
+      "configMap",
+      "emptyDir",
+      "projected",
+      "secret",
+      "downwardAPI",
+      "persistentVolumeClaim"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/volumes",
+  "Docs": "https://kubernetes.io/docs/concepts/storage/volumes/#volume-types",
+  "TotalViolations": 0
+}
+{
+  "Name": "Unique Service Selector",
+  "Description": "Services must have unique selectors within a namespace.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/uniqueserviceselector",
+  "Docs": "https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
+  "Related": "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
+  "TotalViolations": 50,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <twistlock-console-65c7694cb-fqvvs> in namespace <twistlock>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <source-controller-5fdb69cc66-zmdmv> in namespace <flux-system>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <notification-controller-65dffcb7-9kwsx> in namespace <flux-system>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <helm-controller-6c67b58f78-z68tg> in namespace <flux-system>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <kustomize-controller-d689c6688-7ftpn> in namespace <flux-system>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <elastic-operator-0> in namespace <eck-operator>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-es-data-0> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-fluent-bit-vbv5d> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-fluent-bit-w6r8f> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-es-master-0> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-es-data-1> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-kb-6fb679b5dd-fppqv> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <opa-collector-689d87d98-8qtmh> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-fluent-bit-42hth> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-fluent-bit-pxsjg> in namespace <logging>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-prometheus-node-exporter-7c6fb> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-prometheus-node-exporter-4md9s> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <prometheus-monitoring-monitoring-kube-prometheus-0> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <alertmanager-monitoring-monitoring-kube-alertmanager-0> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-kube-operator-6f5759d4db-d2dbm> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-prometheus-node-exporter-pfxrs> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-grafana-77fc445454-zkdd2> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <monitoring-monitoring-prometheus-node-exporter-wmzcz> in namespace <monitoring>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <nexus-repository-manager-8cb6f55fb-qp6pf> in namespace <nexus-repository-manager>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <keycloak-0> in namespace <keycloak>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <keycloak-postgresql-0> in namespace <keycloak>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <kiali-kiali-kiali-operator-577b74d96-8hmvh> in namespace <kiali>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67> in namespace <jaeger>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-855f748464-kb52h> in namespace <jaeger>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <istio-operator-5f6cfb6d5b-zc4wq> in namespace <istio-operator>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <velero-velero-8675454d6f-bmntn> in namespace <velero>",
+      "name": "kubernetes",
+      "namespace": "default"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <webhook-receiver> in namespace <flux-system>",
+      "name": "notification-controller",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <notification-controller> in namespace <flux-system>",
+      "name": "webhook-receiver",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-es-http> in namespace <logging>",
+      "name": "logging-ek-es-transport",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <logging-ek-es-transport> in namespace <logging>",
+      "name": "logging-ek-es-http",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <keycloak-http> in namespace <keycloak>",
+      "name": "keycloak-headless",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <keycloak-headless> in namespace <keycloak>",
+      "name": "keycloak-http",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector> in namespace <jaeger>",
+      "name": "jaeger-collector-headless",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-query> in namespace <jaeger>",
+      "name": "jaeger-collector-headless",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-agent> in namespace <jaeger>",
+      "name": "jaeger-collector-headless",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector-headless> in namespace <jaeger>",
+      "name": "jaeger-collector",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-query> in namespace <jaeger>",
+      "name": "jaeger-collector",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-agent> in namespace <jaeger>",
+      "name": "jaeger-collector",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-agent> in namespace <jaeger>",
+      "name": "jaeger-query",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector-headless> in namespace <jaeger>",
+      "name": "jaeger-query",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector> in namespace <jaeger>",
+      "name": "jaeger-query",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector-headless> in namespace <jaeger>",
+      "name": "jaeger-agent",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-collector> in namespace <jaeger>",
+      "name": "jaeger-agent",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Service",
+      "message": "same selector as service <jaeger-query> in namespace <jaeger>",
+      "name": "jaeger-agent",
+      "namespace": "jaeger"
+    }
+  ]
+}
+{
+  "Name": "Privilged Containers",
+  "Description": "Containers must not run as privileged.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/privileged-containers",
+  "Docs": "https://kubernetes.io/docs/concepts/workloads/pods/#privileged-mode-for-containers",
+  "TotalViolations": 0
+}
+{
+  "Name": "Read-only Root Filesystem",
+  "Description": "Containers must have read-only root filesystems.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/read-only-root-filesystem",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1",
+  "TotalViolations": 30,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: velero",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: velero-plugin-for-aws",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: manager",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: kibana",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elastic-internal-init-config",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: kube-state-metrics",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: node-exporter",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: prometheus",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: config-reloader",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: alertmanager",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: config-reloader",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: grafana-sc-dashboard",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: grafana",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: grafana-sc-datasources",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: operator",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: jaeger-jaeger-jaeger-operator",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: keycloak-postgresql",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: nexus-repository-manager",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: keycloak",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: pgchecker",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: jaeger",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elasticsearch",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elasticsearch",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elasticsearch",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "only read-only root filesystem container is allowed: elastic-internal-init-filesystem",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Host Namespace",
+  "Description": "Containers must not share the host's namespaces",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/host-namespaces",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hosts-namespaces",
+  "Related": "https://kubernetes.io/docs/concepts/policy/pod-security-policy/#host-namespaces",
+  "TotalViolations": 0
+}
+{
+  "Name": "Resource Limits",
+  "Description": "Containers must have cpu / memory limits and the values must be below the specified maximum.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "cpu": "2000m",
+    "exemptContainers": [
+      ""
+    ],
+    "memory": "4G"
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/containerlimits",
+  "Docs": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+  "TotalViolations": 10,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> has no resource limits",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <nexus-repository-manager> has no resource limits",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> memory limit <4Gi> is higher than the maximum allowed of <4G>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> cpu limit <4> is higher than the maximum allowed of <2000m>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> memory limit <4Gi> is higher than the maximum allowed of <4G>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> cpu limit <4> is higher than the maximum allowed of <2000m>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> memory limit <4Gi> is higher than the maximum allowed of <4G>",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Banned Image Tags",
+  "Description": "Container Images cannot use specified tags",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "tags": [
+      "latest"
+    ]
+  },
+  "Source": "Unspecified",
+  "Docs": "https://kubernetes.io/docs/concepts/containers/images/#image-names",
+  "TotalViolations": 0
+}
+{
+  "Name": "Users and Groups",
+  "Description": "Containers must be run as one of the specified users and groups.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "fsGroup": {
+      "ranges": [
+        {
+          "max": 65535,
+          "min": 1000
+        }
+      ],
+      "rule": "MustRunAs"
+    },
+    "runAsGroup": {
+      "ranges": [
+        {
+          "max": 65535,
+          "min": 1000
+        }
+      ],
+      "rule": "MustRunAs"
+    },
+    "runAsUser": {
+      "rule": "MustRunAsNonRoot"
+    },
+    "supplementalGroups": {
+      "ranges": [
+        {
+          "max": 65535,
+          "min": 1000
+        }
+      ],
+      "rule": "MustRunAs"
+    }
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users",
+  "Docs": "https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1",
+  "Related": "https://wiki.archlinux.org/title/users_and_groups",
+  "TotalViolations": 91,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container istio-operator is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container istio-operator is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero-plugin-for-aws is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero-plugin-for-aws is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero-plugin-for-aws is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container velero-plugin-for-aws is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container manager is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container kibana is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elastic-internal-init-config is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container kube-prometheus-stack is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container node-exporter is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container node-exporter is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container kube-state-metrics is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container node-exporter is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container node-exporter is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container opa-collector is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container opa-collector is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container opa-collector is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container opa-collector is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container prometheus is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container config-reloader is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run as disallowed user 0. Allowed runAsUser: {\"rule\": \"MustRunAsNonRoot\"}",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container alertmanager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container config-reloader is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run as disallowed user 0. Allowed runAsUser: {\"rule\": \"MustRunAsNonRoot\"}",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run as disallowed user 0. Allowed runAsUser: {\"rule\": \"MustRunAsNonRoot\"}",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run as disallowed user 0. Allowed runAsUser: {\"rule\": \"MustRunAsNonRoot\"}",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container fluent-bit is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-dashboard is attempting to run as disallowed group 472. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana is attempting to run as disallowed group 472. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-datasources is attempting to run as disallowed group 472. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-dashboard is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-datasources is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-dashboard is attempting to run as disallowed group 472. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana is attempting to run as disallowed group 472. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container grafana-sc-datasources is attempting to run as disallowed group 472. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container operator is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container operator is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container operator is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger-jaeger-jaeger-operator is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger-jaeger-jaeger-operator is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger-jaeger-jaeger-operator is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger-jaeger-jaeger-operator is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container twistlock-console is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container twistlock-console is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container twistlock-console is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container twistlock-console is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container keycloak-postgresql is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container keycloak-postgresql is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container nexus-repository-manager is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container nexus-repository-manager is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container nexus-repository-manager is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container keycloak is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container keycloak is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container pgchecker is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger is attempting to run without a required securityContext/runAsNonRoot or securityContext/runAsUser != 0",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger is attempting to run without a required securityContext/runAsGroup. Allowed runAsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container jaeger is attempting to run without a required securityContext/fsGroup. Allowed fsGroup: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elasticsearch is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elastic-internal-init-filesystem is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elasticsearch is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elastic-internal-init-filesystem is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elasticsearch is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Container elastic-internal-init-filesystem is attempting to run without a required securityContext/supplementalGroups. Allowed supplementalGroups: {\"ranges\": [{\"max\": 65535, \"min\": 1000}], \"rule\": \"MustRunAs\"}",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Node Ports",
+  "Description": "Services must not use node ports.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/block-nodeport-services",
+  "Docs": "https://kubernetes.io/docs/concepts/services-networking/service/#nodeport",
+  "TotalViolations": 0
+}
+{
+  "Name": "Flex Volume Drivers",
+  "Description": "Containers may only use Flex Volumes with the specified drivers",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedFlexVolumes": []
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/flexvolume-drivers",
+  "Docs": "https://kubernetes.io/docs/concepts/storage/volumes/#flexvolume",
+  "Related": "https://github.com/kubernetes/community/blob/master/contributors/devel/sig-storage/flexvolume.md",
+  "TotalViolations": 0
+}
+{
+  "Name": "Seccomp",
+  "Description": "Containers may only use the specified seccomp profiles.",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedProfiles": [
+      "runtime/default"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/seccomp",
+  "Docs": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-seccomp-profile-for-a-container",
+  "Related": "https://en.wikipedia.org/wiki/Seccomp",
+  "TotalViolations": 42,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: helm-controller-6c67b58f78-z68tg, container: manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: kustomize-controller-d689c6688-7ftpn, container: manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: notification-controller-65dffcb7-9kwsx, container: manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: source-controller-5fdb69cc66-zmdmv, container: manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: istio-operator-5f6cfb6d5b-zc4wq, container: istio-operator, Allowed profiles: [\"runtime/default\"]",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: velero-velero-8675454d6f-bmntn, container: velero, Allowed profiles: [\"runtime/default\"]",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: velero-velero-8675454d6f-bmntn, container: velero-plugin-for-aws, Allowed profiles: [\"runtime/default\"]",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: elastic-operator-0, container: manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-kb-6fb679b5dd-fppqv, container: kibana, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-kb-6fb679b5dd-fppqv, container: elastic-internal-init-config, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-kube-operator-6f5759d4db-d2dbm, container: kube-prometheus-stack, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-prometheus-node-exporter-wmzcz, container: node-exporter, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-prometheus-node-exporter-4md9s, container: node-exporter, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4, container: kube-state-metrics, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-prometheus-node-exporter-pfxrs, container: node-exporter, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-prometheus-node-exporter-7c6fb, container: node-exporter, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: opa-collector-689d87d98-8qtmh, container: opa-collector, Allowed profiles: [\"runtime/default\"]",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: prometheus-monitoring-monitoring-kube-prometheus-0, container: prometheus, Allowed profiles: [\"runtime/default\"]",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: prometheus-monitoring-monitoring-kube-prometheus-0, container: config-reloader, Allowed profiles: [\"runtime/default\"]",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-fluent-bit-w6r8f, container: fluent-bit, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: alertmanager-monitoring-monitoring-kube-alertmanager-0, container: alertmanager, Allowed profiles: [\"runtime/default\"]",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: alertmanager-monitoring-monitoring-kube-alertmanager-0, container: config-reloader, Allowed profiles: [\"runtime/default\"]",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-fluent-bit-vbv5d, container: fluent-bit, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-fluent-bit-42hth, container: fluent-bit, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-fluent-bit-pxsjg, container: fluent-bit, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-grafana-77fc445454-zkdd2, container: grafana-sc-dashboard, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-grafana-77fc445454-zkdd2, container: grafana, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: monitoring-monitoring-grafana-77fc445454-zkdd2, container: grafana-sc-datasources, Allowed profiles: [\"runtime/default\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: kiali-kiali-kiali-operator-577b74d96-8hmvh, container: operator, Allowed profiles: [\"runtime/default\"]",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67, container: jaeger-jaeger-jaeger-operator, Allowed profiles: [\"runtime/default\"]",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: twistlock-console-65c7694cb-fqvvs, container: twistlock-console, Allowed profiles: [\"runtime/default\"]",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: keycloak-postgresql-0, container: keycloak-postgresql, Allowed profiles: [\"runtime/default\"]",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: nexus-repository-manager-8cb6f55fb-qp6pf, container: nexus-repository-manager, Allowed profiles: [\"runtime/default\"]",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: keycloak-0, container: keycloak, Allowed profiles: [\"runtime/default\"]",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: keycloak-0, container: pgchecker, Allowed profiles: [\"runtime/default\"]",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: jaeger-855f748464-kb52h, container: jaeger, Allowed profiles: [\"runtime/default\"]",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-data-0, container: elasticsearch, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-data-0, container: elastic-internal-init-filesystem, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-data-1, container: elasticsearch, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-data-1, container: elastic-internal-init-filesystem, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-master-0, container: elasticsearch, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "Seccomp profile is not allowed, pod: logging-ek-es-master-0, container: elastic-internal-init-filesystem, Allowed profiles: [\"runtime/default\"]",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Image Digests",
+  "Description": "Containers must use images with a digest instead of a tag.",
+  "Version": "v3.5.1",
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/imagedigests",
+  "Docs": "https://kubernetes.io/docs/concepts/configuration/overview/#container-images",
+  "Related": "https://cloud.google.com/architecture/using-container-images",
+  "TotalViolations": 42,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> uses an image without a digest <registry1.dso.mil/ironbank/fluxcd/helm-controller:v0.11.0>",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> uses an image without a digest <registry1.dso.mil/ironbank/fluxcd/kustomize-controller:v0.13.0>",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> uses an image without a digest <registry1.dso.mil/ironbank/fluxcd/notification-controller:v0.15.0>",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> uses an image without a digest <registry1.dso.mil/ironbank/fluxcd/source-controller:v0.14.0>",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <istio-operator> uses an image without a digest <registry1.dso.mil/ironbank/opensource/istio/operator:1.9.7>",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <velero> uses an image without a digest <registry1.dso.mil/ironbank/opensource/velero/velero:v1.6.2>",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <velero-plugin-for-aws> uses an image without a digest <registry1.dso.mil/ironbank/opensource/velero/velero-plugin-for-aws:v1.2.0>",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> uses an image without a digest <registry1.dso.mil/ironbank/elastic/eck-operator/eck-operator:1.6.0>",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kibana> uses an image without a digest <registry1.dso.mil/ironbank/elastic/kibana/kibana:7.12.0>",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <elastic-internal-init-config> uses an image without a digest <registry1.dso.mil/ironbank/elastic/kibana/kibana:7.12.0>",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kube-prometheus-stack> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus-operator/prometheus-operator:v0.46.0>",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.0.1>",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.0.1>",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kube-state-metrics> uses an image without a digest <registry1.dso.mil/ironbank/opensource/coreos/kube-state-metrics:v1.9.8>",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.0.1>",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/node-exporter:v1.0.1>",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <opa-collector> uses an image without a digest <registry1.dso.mil/ironbank/cluster-auditor/opa-collector:0.3.2>",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <prometheus> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/prometheus:v2.25.0>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <config-reloader> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus-operator/prometheus-config-reloader:v0.46.0>",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> uses an image without a digest <registry1.dso.mil/ironbank/opensource/fluent/fluent-bit:1.8.1>",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <alertmanager> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus/alertmanager:v0.21.0>",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <config-reloader> uses an image without a digest <registry1.dso.mil/ironbank/opensource/prometheus-operator/prometheus-config-reloader:v0.46.0>",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> uses an image without a digest <registry1.dso.mil/ironbank/opensource/fluent/fluent-bit:1.8.1>",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> uses an image without a digest <registry1.dso.mil/ironbank/opensource/fluent/fluent-bit:1.8.1>",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> uses an image without a digest <registry1.dso.mil/ironbank/opensource/fluent/fluent-bit:1.8.1>",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <grafana-sc-dashboard> uses an image without a digest <registry1.dso.mil/ironbank/kiwigrid/k8s-sidecar:1.10.6>",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <grafana> uses an image without a digest <registry1.dso.mil/ironbank/opensource/grafana/grafana:7.5.2>",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <grafana-sc-datasources> uses an image without a digest <registry1.dso.mil/ironbank/kiwigrid/k8s-sidecar:1.10.6>",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <operator> uses an image without a digest <registry1.dso.mil/ironbank/opensource/kiali/kiali-operator:v1.37.0>",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <jaeger-jaeger-jaeger-operator> uses an image without a digest <registry1.dso.mil/ironbank/opensource/jaegertracing/jaeger-operator:1.24.0>",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <twistlock-console> uses an image without a digest <registry1.dso.mil/ironbank/twistlock/console/console:21.04.439>",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak-postgresql> uses an image without a digest <registry.dso.mil/platform-one/big-bang/apps/security-tools/keycloak/postgresql:11.8.0-debian-10-r61>",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <nexus-repository-manager> uses an image without a digest <registry1.dso.mil/ironbank/sonatype/nexus/nexus:3.29.0-02>",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak> uses an image without a digest <registry.dso.mil/platform-one/big-bang/apps/security-tools/keycloak/keycloak-ib:14.0.0-1.0.4-1>",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <pgchecker> uses an image without a digest <registry.dso.mil/platform-one/big-bang/apps/security-tools/keycloak/busybox:1.32>",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <jaeger> uses an image without a digest <registry1.dso.mil/ironbank/opensource/jaegertracing/all-in-one:1.24.0>",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <elastic-internal-init-filesystem> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <elastic-internal-init-filesystem> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "initContainer <elastic-internal-init-filesystem> uses an image without a digest <registry1.dso.mil/ironbank/elastic/elasticsearch/elasticsearch:7.13.4>",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
+{
+  "Name": "Linux Capabilities",
+  "Description": "Containers may only use specified Linux capabilities",
+  "Version": "v3.5.1",
+  "Parameters": {
+    "allowedCapabilities": [],
+    "requiredDropCapabilities": [
+      "all"
+    ]
+  },
+  "Source": "https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/capabilities",
+  "Docs": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
+  "Related": "https://man7.org/linux/man-pages/man7/capabilities.7.html",
+  "TotalViolations": 42,
+  "Violations": [
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "helm-controller-6c67b58f78-z68tg",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "kustomize-controller-d689c6688-7ftpn",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "notification-controller-65dffcb7-9kwsx",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "source-controller-5fdb69cc66-zmdmv",
+      "namespace": "flux-system"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <istio-operator> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "istio-operator-5f6cfb6d5b-zc4wq",
+      "namespace": "istio-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <velero> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <velero-plugin-for-aws> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "velero-velero-8675454d6f-bmntn",
+      "namespace": "velero"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "elastic-operator-0",
+      "namespace": "eck-operator"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kibana> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <elastic-internal-init-config> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-kb-6fb679b5dd-fppqv",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kube-prometheus-stack> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-kube-operator-6f5759d4db-d2dbm",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-wmzcz",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-4md9s",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <kube-state-metrics> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-kube-state-metrics-7b55c5d967-t76q4",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-pfxrs",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <node-exporter> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-prometheus-node-exporter-7c6fb",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <opa-collector> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "opa-collector-689d87d98-8qtmh",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <prometheus> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <config-reloader> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "prometheus-monitoring-monitoring-kube-prometheus-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-fluent-bit-w6r8f",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <alertmanager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <config-reloader> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "alertmanager-monitoring-monitoring-kube-alertmanager-0",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-fluent-bit-vbv5d",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-fluent-bit-42hth",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <fluent-bit> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-fluent-bit-pxsjg",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <grafana-sc-dashboard> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <grafana> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <grafana-sc-datasources> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "monitoring-monitoring-grafana-77fc445454-zkdd2",
+      "namespace": "monitoring"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <operator> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "kiali-kiali-kiali-operator-577b74d96-8hmvh",
+      "namespace": "kiali"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <jaeger-jaeger-jaeger-operator> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "jaeger-jaeger-jaeger-operator-76f99ff6f4-djv67",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <twistlock-console> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "twistlock-console-65c7694cb-fqvvs",
+      "namespace": "twistlock"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak-postgresql> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "keycloak-postgresql-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <nexus-repository-manager> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "nexus-repository-manager-8cb6f55fb-qp6pf",
+      "namespace": "nexus-repository-manager"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <keycloak> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <pgchecker> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "keycloak-0",
+      "namespace": "keycloak"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <jaeger> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "jaeger-855f748464-kb52h",
+      "namespace": "jaeger"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <elastic-internal-init-filesystem> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-data-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <elastic-internal-init-filesystem> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-data-1",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "container <elasticsearch> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    },
+    {
+      "enforcementAction": "dryrun",
+      "kind": "Pod",
+      "message": "init container <elastic-internal-init-filesystem> is not dropping all required capabilities. Container must drop all of [\"all\"]",
+      "name": "logging-ek-es-master-0",
+      "namespace": "logging"
+    }
+  ]
+}
