@@ -154,8 +154,17 @@ cni:
 meshConfig: {}
 
 values:
-  global: {}
-
+  global: 
+    proxy:
+      image: proxyv2
+      clusterDomain: "cluster.local"
+      resources:
+        requests:
+          cpu: 150m
+          memory: 128Mi
+        limits:
+          cpu: 150m
+          memory: 128Mi
 networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
