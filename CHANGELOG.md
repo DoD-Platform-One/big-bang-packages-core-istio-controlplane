@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Update to Istio 1.10.3
 
+## [1.9.7-bb.1]
+### Added
+- Default configuration to hold application start until istio proxy is ready
+
 ## [1.9.7-bb.0]
 ### Changed
 - Update to Istio 1.9.7
