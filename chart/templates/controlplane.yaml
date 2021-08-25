@@ -78,6 +78,7 @@ spec:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
       zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
+      holdApplicationUntilProxyStarts: true
     {{- if .Values.meshConfig }}
     {{- toYaml .Values.meshConfig | nindent 4 }}
     {{- end }}
