@@ -115,11 +115,11 @@ istiod:
           targetAverageUtilization: 60
   strategy: {}
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations: 
-     sidecar.istio.io/proxyCPU: "150m"
-     sidecar.istio.io/proxyCPULimit: "150m"
-     sidecar.istio.io/proxyMemory: "128Mi"
-     sidecar.istio.io/proxyMemoryLimit: "128Mi"
+  podAnnotations: {}
+     #sidecar.istio.io/proxyCPU: "150m"
+     #sidecar.istio.io/proxyCPULimit: "150m"
+     #sidecar.istio.io/proxyMemory: "128Mi"
+     #sidecar.istio.io/proxyMemoryLimit: "128Mi"
 
   #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   serviceAnnotations: {}
@@ -157,18 +157,17 @@ cni:
 # global istiooperator values:
 meshConfig: {}
 
-values:
-  global: 
-    proxy:
-      image: proxyv2
-      clusterDomain: "cluster.local"
-      resources:
-        requests:
-          cpu: 150m
-          memory: 128Mi
-        limits:
-          cpu: 150m
-          memory: 128Mi
+Values:
+  values:
+    global: 
+      proxy:
+        resources:
+          requests:
+            cpu: 150m
+            memory: 128Mi
+          limits:
+            cpu: 150m
+            memory: 128Mi
 networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
