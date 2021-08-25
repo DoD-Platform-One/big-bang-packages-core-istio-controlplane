@@ -165,8 +165,7 @@ cni:
 # global istiooperator values:
 meshConfig: {}
 
-Values:
-  values:
+values:
     global: 
       proxy:
         resources:
