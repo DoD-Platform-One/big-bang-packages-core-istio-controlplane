@@ -9,7 +9,7 @@ NOTE: This workaround relies on Envoy v1.18.x and above, which is included in is
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: misdirected-request
+  name: misdirected-request{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
   namespace: istio-system
 spec:
   configPatches:
@@ -48,7 +48,7 @@ https://repo1.dso.mil/platform-one/big-bang/bigbang/-/issues/241
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: remove-server-header
+  name: remove-server-header{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
   namespace: istio-system
 spec:
   workloadSelector:

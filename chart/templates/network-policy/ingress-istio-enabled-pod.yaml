@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ingress-istio-injected-pods
+  name: ingress-istio-injected-pods{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
   namespace: "{{ .Release.Namespace }}"
 spec:
   ingress:
@@ -10,7 +10,11 @@ spec:
       - namespaceSelector: {}
         podSelector:
           matchLabels:
+            {{- if not (eq .Values.revision "") }}
+            istio.io/rev: {{ .Values.revision }}
+            {{- else }}
             istio-sidecar.istio.io/inject: "true"
+            {{- end }}
       ports:
         - port: 15012
           protocol: TCP

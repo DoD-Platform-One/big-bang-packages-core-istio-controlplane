@@ -2,6 +2,13 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.2-bb.2]
+
+### Added
+
+- The `revision` value in support of Istio [canary upgrades](https://istio.io/latest/docs/setup/upgrade/canary/).
+  When specified, the revision value is appended to resources names.
+
 ## [1.11.2-bb.1]
 
 ### Added
