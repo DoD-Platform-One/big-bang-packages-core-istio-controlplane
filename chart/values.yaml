@@ -42,7 +42,7 @@ ingressGateways:
         sidecar.istio.io/proxyCPULimit: "150m"
         sidecar.istio.io/proxyMemory: "128Mi"
         sidecar.istio.io/proxyMemoryLimit: "128Mi" # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-      serviceAnnotations:
+      serviceAnnotations: {}
       # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
       nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
