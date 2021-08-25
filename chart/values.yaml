@@ -166,6 +166,7 @@ cni:
 meshConfig: {}
 
 values:
+  values:
     global: 
       proxy:
         resources:
