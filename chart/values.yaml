@@ -143,13 +143,9 @@ cni:
     hub: registry1.dso.mil/ironbank/opensource/istio
     tag: 1.10.3
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations:
-    sidecar.istio.io/proxyCPU: "150m"
-    sidecar.istio.io/proxyCPULimit: "150m"
-    sidecar.istio.io/proxyMemory: "128Mi"
-    sidecar.istio.io/proxyMemoryLimit: "128Mi"
+  podAnnotations: {}
   #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  nodeSelector: 
+  nodeSelector: {}
 
   #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
