@@ -160,19 +160,19 @@ values:
     proxy:
       resources:
         requests:
-          cpu: "150m"
-          memory: "128Mi"
+          cpu: 500m
+          memory: 512Mi
         limits:
-          cpu: "150m"
-          memory: "128Mi"
+          cpu: 500m
+          memory: 512Mi
     proxy_init:
       resources:
         limits:
-          cpu: "150m"
-          memory: "128Mi"
+          cpu: 500m
+          memory: 512Mi
         requests:
-          cpu: "150m"
-          memory: "128Mi"
+          cpu: 500m
+          memory: 512Mi
 networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
