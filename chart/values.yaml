@@ -160,23 +160,23 @@ cni:
 meshConfig: {}
 
 values:
-    global: 
-      proxy:
-        resources:
-          requests:
-            cpu: 150m
-            memory: 128Mi
-          limits:
-            cpu: 150m
-            memory: 128Mi
-      proxy_init:
-        resources:
-          limits:
-            cpu: 150m
-            memory: 128Mi
-          requests:
-            cpu: 150m
-            memory: 128Mi
+  global: 
+    proxy:
+      resources:
+        requests:
+          cpu: "150m"
+          memory: "128Mi"
+        limits:
+          cpu: "150m"
+          memory: "128Mi"
+    proxy_init:
+      resources:
+        limits:
+          cpu: "150m"
+          memory: "128Mi"
+        requests:
+          cpu: "150m"
+          memory: "128Mi"
 networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
