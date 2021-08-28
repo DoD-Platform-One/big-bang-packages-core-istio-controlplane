@@ -29,11 +29,11 @@ ingressGateways:
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
       resources: 
         requests:
-          cpu: 1.5
-          memory: 2Gi
+          cpu: 120m
+          memory: 128Mi
         limits:
-          cpu: 1.5
-          memory: 2Gi
+          cpu: 120m
+          memory: 128Mi
       service:
         type: "LoadBalancer" # or "NodePort"
         # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
