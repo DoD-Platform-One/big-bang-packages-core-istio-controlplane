@@ -42,7 +42,12 @@ ingressGateways:
           sidecar.istio.io/proxyCPU: 150m
           sidecar.istio.io/proxyMemory: 256Mi
           sidecar.istio.io/proxyMemoryLimit: 256Mi
-      serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      
+      serviceAnnotations:  # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+          sidecar.istio.io/proxyCPULimit: 150m
+          sidecar.istio.io/proxyCPU: 150m
+          sidecar.istio.io/proxyMemory: 256Mi
+          sidecar.istio.io/proxyMemoryLimit: 256Mi
       nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
       tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -119,7 +124,11 @@ istiod:
           targetAverageUtilization: 60
   strategy: {}
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations: {}
+  podAnnotations:
+    sidecar.istio.io/proxyCPULimit: 150m
+    sidecar.istio.io/proxyCPU: 150m
+    sidecar.istio.io/proxyMemory: 256Mi
+    sidecar.istio.io/proxyMemoryLimit: 256Mi
 
   #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   serviceAnnotations: {}
