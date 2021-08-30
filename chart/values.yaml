@@ -37,7 +37,11 @@ ingressGateways:
       service:
         type: "LoadBalancer" # or "NodePort"
         # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
-      podAnnotations:  {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      podAnnotations:   # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+          sidecar.istio.io/proxyCPULimit: 150m
+          sidecar.istio.io/proxyCPU: 150m
+          sidecar.istio.io/proxyMemory: 256Mi
+          sidecar.istio.io/proxyMemoryLimit: 256Mi
       serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
       nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
