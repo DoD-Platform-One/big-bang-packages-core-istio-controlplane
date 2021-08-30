@@ -27,27 +27,12 @@ ingressGateways:
     extraLabels: {} # Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway`
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
-      resources: 
-        requests:
-          cpu: 120m
-          memory: 128Mi
-        limits:
-          cpu: 120m
-          memory: 128Mi
+      resources: {}
       service:
         type: "LoadBalancer" # or "NodePort"
         # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
-      podAnnotations:   # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-          sidecar.istio.io/proxyCPULimit: 150m
-          sidecar.istio.io/proxyCPU: 150m
-          sidecar.istio.io/proxyMemory: 256Mi
-          sidecar.istio.io/proxyMemoryLimit: 256Mi
-      
-      serviceAnnotations:  # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-          sidecar.istio.io/proxyCPULimit: 150m
-          sidecar.istio.io/proxyCPU: 150m
-          sidecar.istio.io/proxyMemory: 256Mi
-          sidecar.istio.io/proxyMemoryLimit: 256Mi
+      podAnnotations: {}  # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
       nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
       tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -124,11 +109,7 @@ istiod:
           targetAverageUtilization: 60
   strategy: {}
   #  k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  podAnnotations:
-    sidecar.istio.io/proxyCPULimit: 300m
-    sidecar.istio.io/proxyCPU: 300m
-    sidecar.istio.io/proxyMemory: 512Mi
-    sidecar.istio.io/proxyMemoryLimit: 512Mi
+  podAnnotations: {}
 
   #  k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   serviceAnnotations: {}
