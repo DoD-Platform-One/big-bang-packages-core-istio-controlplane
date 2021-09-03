@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Update to Istio 1.10.4
 
+## [1.10.3-bb.1]
+### Changed
+- Add envoyfilter to remove server response header to prevent information disclosure
+
 ## [1.10.3-bb.0]
 ### Changed
 - Update to Istio 1.10.3
