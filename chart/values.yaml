@@ -28,16 +28,10 @@ ingressGateways:
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
       resources: {}
-        # requests:
-        #   cpu: 500m
-        #   memory: 1Gi
-        # limits:
-        #   cpu: 1.5
-        #   memory: 3Gi
       service:
         type: "LoadBalancer" # or "NodePort"
         # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
-      podAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      podAnnotations: {}  # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
       serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
       nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
@@ -145,6 +139,7 @@ cni:
   podAnnotations: {}
   #  k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
   nodeSelector: {}
+
   #  k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
   #  k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -154,8 +149,23 @@ cni:
 meshConfig: {}
 
 values:
-  global: {}
-
+  global: 
+    proxy:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 100m
+          memory: 256Mi
+    proxy_init:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
 networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
