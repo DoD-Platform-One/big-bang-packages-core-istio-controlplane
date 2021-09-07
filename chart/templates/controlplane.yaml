@@ -74,6 +74,13 @@ spec:
   meshConfig:
     accessLogFile: /dev/stdout
     enableTracing: {{ .Values.tracing.enabled }}
+    {{- if .Values.authservice.enabled }}
+    extensionProviders:
+      - name: "authservice"
+        envoyExtAuthzGrpc:
+          service: "authservice.authservice.svc.cluster.local"
+          port: "10003"
+    {{- end }}
     defaultConfig:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
