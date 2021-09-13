@@ -1,0 +1,20 @@
+{{- if and .Values.networkPolicies.enabled .Values.authservice.enabled}}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: egress-to-sso
+  namespace: {{ .Release.Namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: istiod
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        # ONLY Block requests to cloud metadata IP
+        except:
+        - 169.254.169.254/32
+  policyTypes:
+  - Egress
+{{- end }}
