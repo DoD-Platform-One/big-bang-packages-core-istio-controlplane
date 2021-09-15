@@ -29,7 +29,9 @@ ingressGateways:
   istio-ingressgateway:  # This becomes the name
     enabled: true
     # Labels to use for selecting the ingress gateway from the service
-    extraLabels: {} # Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway`
+    #extraLabels: {} # Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway`
+    extraLabels: 
+      - app: labelfrompackage
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
       resources: {}
