@@ -30,9 +30,7 @@ ingressGateways:
     enabled: true
     # Labels to use for selecting the ingress gateway from the service
     #extraLabels: {} # Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway`
-    extraLabels: 
-      app: istio-ingressgateway
-      frompkg: yes
+    extraLabels: []
     k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
       # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
       resources: {}
@@ -45,27 +43,30 @@ ingressGateways:
       affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
       tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
-  # # Complete example of an additional ingressgateway defined below
-  # private-ingressgateway:  # This becomes the name
-  #   # Labels to use for selecting the ingress gateway from the service
-  #   extraLabels: {} # Automatic labels: 'app: {ingress gateway name}'
-  #   k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
-  #     # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
-  #     resources: {}
-  #       # requests:
-  #       #   cpu: 500m
-  #       #   memory: 1Gi
-  #       # limits:
-  #       #   cpu: 1.5
-  #       #   memory: 3Gi
-  #     service:
-  #       type: "LoadBalancer" # or "NodePort"
-  #       # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
-  #     podAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  #     serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
-  #     nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  #     affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
-  #     tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  # Complete example of an additional ingressgateway defined below
+  private-ingressgateway:  # This becomes the name
+    # Labels to use for selecting the ingress gateway from the service
+    #extraLabels: {} # Automatic labels: 'app: {ingress gateway name}'
+    extraLabels: 
+      app: private-istio-ingressgateway
+      frompkg: yes
+    k8s: # Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
+      # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
+      resources: {}
+        # requests:
+        #   cpu: 500m
+        #   memory: 1Gi
+        # limits:
+        #   cpu: 1.5
+        #   memory: 3Gi
+      service:
+        type: "LoadBalancer" # or "NodePort"
+        # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
+      podAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      serviceAnnotations: {} # https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      nodeSelector: {} # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+      affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+      tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
 # See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec
 gateways:
