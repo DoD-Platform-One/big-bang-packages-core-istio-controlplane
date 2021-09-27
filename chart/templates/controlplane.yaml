@@ -94,7 +94,7 @@ spec:
     {{- if .Values.openshift }}
     cni:
       repair:
-        enabled: false
+        enabled: true
       image: {{ .Values.cni.image.name }}
       hub: {{ .Values.cni.image.hub }}
       tag: {{ .Values.cni.image.tag }}
