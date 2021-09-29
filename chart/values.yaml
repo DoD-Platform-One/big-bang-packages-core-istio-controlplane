@@ -183,3 +183,6 @@ networkPolicies:
   enabled: false
   # See `kubectl cluster-info` and then resolve to IP
   controlPlaneCidr: 0.0.0.0/0
+
+postInstallHook:
+  image: registry1.dso.mil/ironbank/big-bang/base:8.4
