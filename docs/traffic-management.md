@@ -11,7 +11,7 @@ Istio also have some advanced traffic management strategies like circuit breakin
 
 # Additional resources 
 
-The following  additional resources are helpful in understanding traffic management. 
+The following  additional resources are helpful in understanding traffic management:
 
 * [Istio in production - Traffic routing](https://www.youtube.com/watch?v=7cINRP0BFY8)
 * [Istio traffic routing and resiliency ](https://www.youtube.com/watch?v=iLslUy2kTlw)
