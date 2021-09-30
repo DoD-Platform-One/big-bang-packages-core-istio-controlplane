@@ -9,7 +9,14 @@ A simple chart wrapper around `IstioOperator` custom resource.
 - [Prerequisites](#pre-requisites)
 - [Iron Bank](#iron-bank-istio-controlplane)
 - [Deployment](#deploy-istio-controlplane)
+- [Overview](docs/overview.md)
+- [Monitoring Integration](docs/monitoring.md)
+- [Keycloak Integration](docs/keycloak.md)
+- [Node Affinity & Anti-Affinity with Twistlock](docs/affinity.md)
 - [Ingress](./docs/ingress.md)
+- [Security Overview](docs/security.md)
+- [Traffic Management Overview](docs/traffic-management.md)
+- [Troubleshooting](docs/troubleshooting.md)
 
 ## Pre-Requisites
 
