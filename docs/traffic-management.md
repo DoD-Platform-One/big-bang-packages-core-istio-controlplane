@@ -2,7 +2,7 @@ Istio traffic management revolves around handling north-south traffic ( traffic 
 
 The following API resources enable the configuration and adoption of Istio’s traffic management
 
-* [Virtual services ](https://istio.io/latest/docs/reference/config/networking/virtual-service/) which provides routing configuration to services within the mesh. 
+* [Virtual services](https://istio.io/latest/docs/reference/config/networking/virtual-service/) which provide routing configuration to services within the mesh. 
 * [Destination rules](https://istio.io/latest/docs/reference/config/networking/destination-rule/)  which allows you to provide routing to a subset of services and are paired with virtualservices. 
 * [Gateways](https://istio.io/latest/docs/reference/config/networking/gateway/) which are used to manage traffic entering or leaving the service mesh.
 * [Service Entry](https://istio.io/latest/docs/reference/config/networking/service-entry/) which is used to  add  entries into the internal service registry.
