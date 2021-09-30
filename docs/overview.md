@@ -21,6 +21,8 @@ A service mesh is a dedicated infrastructure layer for making service-to-service
 
 # Additional resources 
 
+Please review the BigBang [Architecture Document](https://repo1.dso.mil/platform-one/big-bang/bigbang/-/blob/master/charter/packages/istio/Architecture.md) for more information about its role within BigBang.
+
 The following links provide more insight into the architecture and operations of Istio
 
 * [Let me sketch a mesh for you](https://www.youtube.com/watch?v=U0uoPKzZDEQ&list=PL7wB27eZmdffS-g_xh7X-b0echc_XZMKV&index=4)
