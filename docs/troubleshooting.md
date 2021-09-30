@@ -2,7 +2,7 @@
 
 While working with istio there are a few problems that can be encountered ranging from TLS configuration mistakes to routing rules not affecting traffic flow and a host of other issues. 
 
-Some of the common issies are documented below 
+Some of the common issies are documented below:
 
 * [Traffic Management Problems](https://istio.io/latest/docs/ops/common-problems/network-issues/)
 * [Security Problems](https://istio.io/latest/docs/ops/common-problems/security-issues/)
