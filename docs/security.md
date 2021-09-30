@@ -22,7 +22,7 @@ To get more information on how to configure them , refer to this [link](https://
 
 # Additional resources
 
-The following are addtional resources for learning about istio security. 
+The following are additional resources for learning about istio security. 
 
 * [Improving security with Istio](https://www.youtube.com/watch?v=E0h1rS2D86k)
 * [Istio Auto mTLS and JWT](https://www.youtube.com/watch?v=7_O58efytvM&t=422s)
