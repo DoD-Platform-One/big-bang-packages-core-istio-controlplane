@@ -20,8 +20,9 @@ To get more information on how to configure them , refer to this [link](https://
  More information on how to feaures and configuration of authorization policies is located [here](https://istio.io/latest/docs/tasks/security/authorization/). 
 
 
- # Additional resources
- The following are addtional resources for learning about istio security. 
+# Additional resources
 
- * [Improving security with Istio](https://www.youtube.com/watch?v=E0h1rS2D86k)
- * [Istio Auto mTLS and JWT](https://www.youtube.com/watch?v=7_O58efytvM&t=422s)
+The following are addtional resources for learning about istio security. 
+
+* [Improving security with Istio](https://www.youtube.com/watch?v=E0h1rS2D86k)
+* [Istio Auto mTLS and JWT](https://www.youtube.com/watch?v=7_O58efytvM&t=422s)
