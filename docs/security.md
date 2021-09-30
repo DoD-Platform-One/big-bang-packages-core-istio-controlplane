@@ -17,7 +17,7 @@ To get more information on how to configure them , refer to this [link](https://
 # Authorization 
  Istio is able to provide various levels of access control within the mesh. The levels include mesh wide , namespace wide and a more targeted workload policy. It is able to do this using an [Authorization Policy](https://istio.io/latest/docs/reference/config/security/authorization-policy/). 
 
- More information on how to feaures and configuration of authorization policies is located [here](https://istio.io/latest/docs/tasks/security/authorization/). 
+ More information on features and configuration of authorization policies is located [here](https://istio.io/latest/docs/tasks/security/authorization/). 
 
 
 # Additional resources
