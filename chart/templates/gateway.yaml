@@ -13,13 +13,19 @@ spec:
   selector:
     {{- $values.selector | default (dict) | toYaml | nindent 4 }}
   servers:
+{{- if (dig "redirectHttpToHttps" "enabled" true $values) }}    
   - hosts:
-    - "*"
+{{- range $servers := $values.servers }}
+{{- range $host := $servers.hosts }}
+    - '{{- tpl $host $ }}'
+ {{- end }}
+ {{- end }}
     port:
       name: http
       number: 8080
       protocol: HTTP
     tls:
       httpsRedirect: true
+{{- end }}
     {{- tpl (toYaml $values.servers) $ | nindent 2 }}
 {{- end }}
