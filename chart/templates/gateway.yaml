@@ -18,8 +18,8 @@ spec:
 {{- range $servers := $values.servers }}
 {{- range $host := $servers.hosts }}
     - '{{- tpl $host $ }}'
- {{- end }}
- {{- end }}
+{{- end }}
+{{- end }}
     port:
       name: http
       number: 8080
