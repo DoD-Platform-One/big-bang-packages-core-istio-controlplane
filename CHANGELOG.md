@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Added redirectHttpToHttps value to control the automatic generation of http to https redirects in the gateways
+- Added autoHttpRedirect value to control the automatic generation of http to https redirects in the gateways
 
 ### Changed
 
