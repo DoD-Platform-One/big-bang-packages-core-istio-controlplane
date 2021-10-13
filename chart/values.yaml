@@ -67,7 +67,8 @@ ingressGateways:
 # See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec
 gateways:
   main: # This becomes the name of the gateway
-    autoHttpRedirect: # HTTP redirect to HTTPS is automatically added for all hosts when enabled
+    # Controls default HTTP/8080 server entry with HTTP to HTTPS Redirect. Must add in HTTP server config if disabling.
+    autoHttpRedirect:
       enabled: true
     selector:
       app: "istio-ingressgateway"
