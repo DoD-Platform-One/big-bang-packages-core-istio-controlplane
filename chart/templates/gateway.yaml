@@ -17,7 +17,9 @@ spec:
   - hosts:
 {{- range $servers := $values.servers }}
 {{- range $host := $servers.hosts }}
+{{- if eq $servers.port.protocol "HTTPS" }}
     - '{{- tpl $host $ }}'
+{{- end }}    
 {{- end }}
 {{- end }}
     port:
