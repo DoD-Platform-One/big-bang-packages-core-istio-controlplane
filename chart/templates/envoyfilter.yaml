@@ -30,12 +30,14 @@ spec:
               "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
               inlineCode: |
                 function envoy_on_request(request_handle)
-                  local streamInfo = request_handle:streamInfo()
-                  if request_handle:streamInfo():requestedServerName() ~= "" then
-                    if (string.sub(request_handle:streamInfo():requestedServerName(), 0, 2) == "*." and not string.find(request_handle:headers():get(":authority"), string.sub(request_handle:streamInfo():requestedServerName(), 1))) then
+                  local serverName = request_handle:streamInfo():requestedServerName()
+                  local authority = request_handle:headers():get(":authority")
+                  if serverName ~= "" then
+                    local subdomain = string.sub(serverName, 0, 2)
+                    if (subdomain == "*." and not string.find(authority, string.sub(serverName, 1))) then
                       request_handle:respond({[":status"] = "421"}, "Misdirected Request")
                     end
-                    if (string.sub(request_handle:streamInfo():requestedServerName(), 0, 2) ~= "*." and request_handle:streamInfo():requestedServerName() ~= request_handle:headers():get(":authority")) then
+                    if (subdomain ~= "*." and not string.find(authority, serverName)) then
                       request_handle:respond({[":status"] = "421"}, "Misdirected Request")
                     end
                   end
