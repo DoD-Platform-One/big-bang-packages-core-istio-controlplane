@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   # Note: This is not used currently since we don't have an egress gateway
-  name: egress-gateway-traffic-to-external
+  name: egress-gateway-traffic-to-external{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
   namespace: "{{ .Release.Namespace }}"
 spec:
   egress:

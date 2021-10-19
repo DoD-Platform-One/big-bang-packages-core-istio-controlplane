@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: egress-virtual-services
+  name: egress-virtual-services{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
   namespace: "{{ .Release.Namespace }}"
 spec:
   # Since we don't know what apps may have VS and what ports they are on, allow to all namespaces, any ports

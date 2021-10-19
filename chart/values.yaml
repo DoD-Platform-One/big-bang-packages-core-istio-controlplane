@@ -9,6 +9,9 @@ tag: 1.11.2
 # The domain to use for the default gateway
 domain: bigbang.dev
 
+# revision of the Istio control plane
+revision: ""
+
 # Openshift feature switch toggle
 openshift: false
 
