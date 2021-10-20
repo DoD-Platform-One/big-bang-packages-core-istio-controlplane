@@ -1,0 +1,29 @@
+{{- $deployName := "istiod" }}
+{{- if not (eq .Values.revision "") }}{{- $deployName = printf "%s-%s" $deployName .Values.revision }}{{- end }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: istiod{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}-hook
+  namespace: istio-operator
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+  labels:
+    app.kubernetes.io/name: istio-controlplane
+    app.kubernetes.io/component: "core"
+spec:
+  template:
+    metadata:
+      name: istiod{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}-hook
+      labels:
+        app.kubernetes.io/name: istio-controlplane
+        app.kubernetes.io/component: "core"
+    spec:
+      serviceAccountName: istio-operator
+      restartPolicy: OnFailure
+      containers:
+        - name: hook
+          image: "{{ .Values.postInstallHook.image }}"
+          command: ["kubectl"]
+          args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
