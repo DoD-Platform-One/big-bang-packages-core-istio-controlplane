@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated Istio to 1.11.3
 ### Added
 - `tests/images.txt` for use in package release to include the `install-cni` image
+- Revision support for SSO egress NP
 
 ## [1.11.2-bb.4]
 
