@@ -1,27 +1,61 @@
 {
-    "baseBranches": ["main"],
-    "configWarningReuseIssue": false,
-    "dependencyDashboard": "true",
-    "dependencyDashboardAutoclose": "true",
-    "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
-    "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
-    "draftPR": true,
-    "labels": ["istio","Big Bang Core","Package Sustainment","kind::chore"],
-    "packageRules": [
-      {
-        "matchDatasources": ["docker"],
-        "groupName": "Ironbank",
-        "registryUrls": ["https://registry1.dso.mil"]
-      }
-    ],
-    "regexManagers": [
-      {
-        "fileMatch": ["^chart/values\\.yaml$"],
-        "matchStrings": [
-           "tag:\\s+(?<currentValue>.+)"
-        ],
-        "depNameTemplate": "ironbank/opensource/istio/pilot",
-        "datasourceTemplate": "docker"
-      }
-    ]
-  }
+  "baseBranches": [
+    "main"
+  ],
+  "configWarningReuseIssue": false,
+  "dependencyDashboard": "true",
+  "dependencyDashboardAutoclose": "true",
+  "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
+  "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
+  "dependencyDashboardLabels": ["istio-controlplane","renovate","Package Sustainment"],
+  "draftPR": true,
+  "labels": [
+    "istio",
+    "Big Bang Core",
+    "Package Sustainment",
+    "kind::chore"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "groupName": "Ironbank",
+      "registryUrls": [
+        "https://registry1.dso.mil"
+      ]
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "tag:\\s+(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "ironbank/opensource/istio/pilot",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "tag:\\s+(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "ironbank/opensource/istio/proxyv2",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "tag:\\s+(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "ironbank/opensource/istio/install-cni",
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
