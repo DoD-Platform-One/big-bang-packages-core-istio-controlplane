@@ -30,8 +30,8 @@ spec:
               "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
               inlineCode: |
                 function envoy_on_request(request_handle)
-                  local serverName = request_handle:streamInfo():requestedServerName()
-                  local authority = request_handle:headers():get(":authority")
+                  local serverName = string.gsub(request_handle:streamInfo():requestedServerName(), '%-', '%%0')
+                  local authority = string.gsub(request_handle:headers():get(":authority"), '%-', '%%0')
                   if serverName ~= "" then
                     local subdomain = string.sub(serverName, 0, 2)
                     if (subdomain == "*." and not string.find(authority, string.sub(serverName, 1))) then
