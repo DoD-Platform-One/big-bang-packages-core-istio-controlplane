@@ -34,10 +34,10 @@ spec:
                   local authority = request_handle:headers():get(":authority")
                   if serverName ~= "" then
                     local subdomain = string.sub(serverName, 0, 2)
-                    if (subdomain == "*." and not string.find(authority, string.sub(serverName, 1))) then
+                    if (subdomain == "*." and not string.find(authority, serverName, 1, true)) then
                       request_handle:respond({[":status"] = "421"}, "Misdirected Request")
                     end
-                    if (subdomain ~= "*." and not string.find(authority, serverName)) then
+                    if (subdomain ~= "*." and not string.find(authority, serverName, 1, true)) then
                       request_handle:respond({[":status"] = "421"}, "Misdirected Request")
                     end
                   end
