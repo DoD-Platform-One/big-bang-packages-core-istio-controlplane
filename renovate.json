@@ -4,7 +4,6 @@
   ],
   "configWarningReuseIssue": false,
   "dependencyDashboard": "true",
-  "dependencyDashboardAutoclose": "true",
   "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
   "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
   "draftPR": true,
