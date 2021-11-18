@@ -162,6 +162,7 @@ cni:
 meshConfig: {}
 
 values:
+  imagePullPolicy: Always
   global: 
     proxy:
       resources:
