@@ -10,7 +10,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
   name: misdirected-request
-  namespace: istio-system
+  namespace: jcn1-istio-system
 spec:
   configPatches:
     - applyTo: HTTP_FILTER

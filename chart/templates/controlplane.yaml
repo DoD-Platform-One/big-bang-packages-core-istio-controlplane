@@ -95,7 +95,7 @@ spec:
       chained: false
       cniConfFileName: {{ .Values.cni.confFileName | default "istio-cni.conf" }}
       excludeNamespaces:
-       - istio-system
+       - jcn1-istio-system
        - kube-system
       logLevel: {{ .Values.cni.logLevel | default "info" }}
     {{- end }}
