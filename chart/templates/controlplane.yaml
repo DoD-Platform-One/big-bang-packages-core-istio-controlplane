@@ -5,8 +5,13 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   profile: {{ .Values.profile }}
+  {{- if .Values.enterprise }}
+  hub: {{ .Values.tidHub }}
+  tag: {{ .Values.tidTag }}
+  {{ else }}
   hub: {{ .Values.hub }}
   tag: {{ .Values.tag }}
+  {{- end }}
 {{- if not (eq .Values.revision "") }}
   revision: {{ .Values.revision }}
 {{- end }}
