@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.11.3-bb.1](https://img.shields.io/badge/Version-1.11.3--bb.1-informational?style=flat-square)
+![Version: 1.11.3-bb.2](https://img.shields.io/badge/Version-1.11.3--bb.2-informational?style=flat-square)
 
 ## Learn More
 * [Application Overview](docs/overview.md)
