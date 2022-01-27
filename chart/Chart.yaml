@@ -1,3 +1,5 @@
 apiVersion: v2
 name: istio
-version: 1.11.3-bb.2
+version: 1.11.5-bb.0
+appVersion: 1.11.5
+description: Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
