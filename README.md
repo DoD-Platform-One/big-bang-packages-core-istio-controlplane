@@ -1,6 +1,8 @@
 # istio
 
-![Version: 1.11.3-bb.2](https://img.shields.io/badge/Version-1.11.3--bb.2-informational?style=flat-square)
+![Version: 1.11.5-bb.0](https://img.shields.io/badge/Version-1.11.5--bb.0-informational?style=flat-square) ![AppVersion: 1.11.5](https://img.shields.io/badge/AppVersion-1.11.5-informational?style=flat-square)
+
+Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Learn More
 * [Application Overview](docs/overview.md)
@@ -30,7 +32,7 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` |  |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
-| tag | string | `"1.11.3"` |  |
+| tag | string | `"1.11.5"` |  |
 | domain | string | `"bigbang.dev"` |  |
 | revision | string | `""` |  |
 | openshift | bool | `false` |  |
@@ -76,7 +78,7 @@ helm install istio chart/
 | tracing.sampling | int | `10` |  |
 | cni.image.name | string | `"install-cni"` |  |
 | cni.image.hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
-| cni.image.tag | string | `"1.11.3"` |  |
+| cni.image.tag | string | `"1.11.5"` |  |
 | cni.podAnnotations | object | `{}` |  |
 | cni.nodeSelector | object | `{}` |  |
 | cni.affinity | object | `{}` |  |
@@ -92,7 +94,7 @@ helm install istio chart/
 | values.global.proxy_init.resources.requests.memory | string | `"256Mi"` |  |
 | networkPolicies.enabled | bool | `false` |  |
 | networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` |  |
-| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:8.4"` |  |
+| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:1.0.0"` |  |
 
 ## Contributing
 
