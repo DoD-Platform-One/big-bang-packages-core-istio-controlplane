@@ -55,7 +55,7 @@
       "depNameTemplate": "ironbank/opensource/istio/install-cni",
       "datasourceTemplate": "docker"
     },
-      {
+    {
       "fileMatch": ["^chart/Chart\\.yaml$"],
       "matchStrings": [
         "- Istio:\\s*(?<currentValue>.+)"
