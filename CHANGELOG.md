@@ -4,6 +4,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.11.5-bb.1]
+### Changed
+- Update Chart.yaml to follow new standardization for release automation
+
 ## [1.11.5-bb.0]
 ### Changed
 - Updated to 1.11.5
