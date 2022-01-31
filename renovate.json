@@ -58,7 +58,7 @@
       {
       "fileMatch": ["^chart/Chart\\.yaml$"],
       "matchStrings": [
-        "- istio:\\s*(?<currentValue>.+)"
+        "- Istio:\\s*(?<currentValue>.+)"
       ],
       "depNameTemplate": "ironbank/opensource/istio/pilot",
       "datasourceTemplate": "docker"
