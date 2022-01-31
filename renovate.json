@@ -54,6 +54,14 @@
       ],
       "depNameTemplate": "ironbank/opensource/istio/install-cni",
       "datasourceTemplate": "docker"
+    },
+      {
+      "fileMatch": ["^chart/Chart\\.yaml$"],
+      "matchStrings": [
+        "- istio:\\s*(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "ironbank/opensource/istio/pilot",
+      "datasourceTemplate": "docker"
     }
   ]
 }
