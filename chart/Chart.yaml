@@ -3,3 +3,6 @@ name: istio
 version: 1.11.5-bb.0
 appVersion: 1.11.5
 description: Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
+annotations:
+  bigbang.dev/applicationVersions: |
+    - istio: 1.11.5
