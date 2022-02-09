@@ -1,7 +1,7 @@
 component-definition:
   uuid: 7E3269FC-FE33-49C9-BE88-6C868E21AAE1
   metadata: 
-    title: Isito Controlplane
+    title: Istio Controlplane
     last-modified: '2021-10-19T12:00:00Z'
     version: 20211019
     oscal-version: 1.0.0
@@ -33,13 +33,13 @@ component-definition:
         control-id: ac-3
         description: >-
           Istio RequestAuthentication and AuthorizationPolicies are applied after Authservice. 
-          Istio is configured to only allow acces to applications if they have a valid JWT, 
+          Istio is configured to only allow access to applications if they have a valid JWT, 
           denying access by default. Applications that do not use Authservice do not have these
            policies.
       - uuid: D7717A9B-7604-45EF-8DCF-EE4DF0417F9C
         control-id: ac-4
         description: >-
-          All HTTP(S) connections into the system via Isito ingress gateways and throughout the system with Istio sidecars.
+          All HTTP(S) connections into the system via Istio ingress gateways and throughout the system with Istio sidecars.
       - uuid: 1D1E8705-F6EB-4A21-A24F-1DF7427BA491
         control-id: ac-4.4
         description: >-
@@ -51,7 +51,7 @@ component-definition:
       - uuid: 6109E09A-8279-44AB-8CA4-2051AF895648
         control-id: ac-14
         description: >-
-          Istio RequestAuthentication and AuthorizationPolicies are applied after Authservice. Istio is configured to only allow acces to applications if they have a valid JWT, denying access by default. Applications that do not use Authservice do not have these policies.
+          Istio RequestAuthentication and AuthorizationPolicies are applied after Authservice. Istio is configured to only allow access to applications if they have a valid JWT, denying access by default. Applications that do not use Authservice do not have these policies.
       - uuid: 9B6BA674-E6ED-4FB6-B216-3C8733F36411
         control-id: au-2
         description: >-
@@ -81,7 +81,7 @@ component-definition:
       - uuid: 61615706-5395-4168-8AD0-5C4ACBCC5D7E
         control-id: ia-2
         description: >-
-          Istio RequestAuthentication and AuthorizationPolicies are applied after Authservice. Istio is configured to only allow acces to applications if they have a valid JWT, denying access by default. Applications that do not use Authservice do not have these policies.
+          Istio RequestAuthentication and AuthorizationPolicies are applied after Authservice. Istio is configured to only allow access to applications if they have a valid JWT, denying access by default. Applications that do not use Authservice do not have these policies.
       - uuid: 3004BB1D-0F50-48F1-ABFE-40CC522B1C15
         control-id: ia-4
         description: >-
@@ -93,7 +93,7 @@ component-definition:
   back-matter: 
     resources:
     - uuid: 60826461-D279-468C-9E4B-614FAC44A306
-      title: Isito Operator
+      title: Istio Operator
       rlinks:
       - href: https://github.com/istio/istio/
     - uuid: 41CD9F61-43AB-4220-966A-60F942577C94

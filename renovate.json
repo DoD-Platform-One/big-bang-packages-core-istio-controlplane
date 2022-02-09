@@ -1,18 +1,12 @@
 {
-  "baseBranches": [
-    "main"
-  ],
+  "baseBranches": ["main"],
   "configWarningReuseIssue": false,
-  "dependencyDashboard": "true",
+  "dependencyDashboard": true,
   "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
   "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
   "draftPR": true,
-  "labels": [
-    "istio",
-    "Big Bang Core",
-    "Package Sustainment",
-    "kind::chore"
-  ],
+  "enabledManagers": ["regex"],
+  "labels": ["istio","Big Bang Core","Package Sustainment","kind::chore","renovate"],
   "packageRules": [
     {
       "matchDatasources": [
@@ -61,6 +55,13 @@
         "- Istio:\\s*(?<currentValue>.+)"
       ],
       "depNameTemplate": "ironbank/opensource/istio/pilot",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^tests/images\\.txt$"],
+      "matchStrings": [
+        "s*(?<depName>.+):(?<currentValue>.+)"
+      ],
       "datasourceTemplate": "docker"
     }
   ]
