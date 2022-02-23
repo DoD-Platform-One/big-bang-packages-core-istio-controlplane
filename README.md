@@ -30,71 +30,53 @@ helm install istio chart/
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| profile | string | `"default"` |  |
-| hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
-| tag | string | `"1.11.5"` |  |
-| domain | string | `"bigbang.dev"` |  |
-| revision | string | `""` |  |
-| openshift | bool | `false` |  |
-| imagePullSecrets | list | `[]` |  |
-| monitoring.enabled | bool | `false` |  |
-| authservice.enabled | bool | `false` |  |
-| ingressGateways.istio-ingressgateway.enabled | bool | `true` |  |
-| ingressGateways.istio-ingressgateway.extraLabels | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.resources | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.service.type | string | `"LoadBalancer"` |  |
-| ingressGateways.istio-ingressgateway.k8s.podAnnotations | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.serviceAnnotations | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.nodeSelector | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.affinity | object | `{}` |  |
-| ingressGateways.istio-ingressgateway.k8s.tolerations | list | `[]` |  |
-| gateways.main.autoHttpRedirect.enabled | bool | `true` |  |
-| gateways.main.selector.app | string | `"istio-ingressgateway"` |  |
-| gateways.main.servers[0].hosts[0] | string | `"*.{{ .Values.domain }}"` |  |
-| gateways.main.servers[0].port.name | string | `"https"` |  |
-| gateways.main.servers[0].port.number | int | `8443` |  |
-| gateways.main.servers[0].port.protocol | string | `"HTTPS"` |  |
-| gateways.main.servers[0].tls.credentialName | string | `"wildcard-cert"` |  |
-| gateways.main.servers[0].tls.mode | string | `"SIMPLE"` |  |
-| istiod.replicaCount | int | `1` |  |
-| istiod.resources.requests.cpu | string | `"500m"` |  |
-| istiod.resources.requests.memory | string | `"2Gi"` |  |
-| istiod.resources.limits.cpu | string | `"500m"` |  |
-| istiod.resources.limits.memory | string | `"2Gi"` |  |
-| istiod.hpaSpec.maxReplicas | int | `3` |  |
-| istiod.hpaSpec.minReplicas | int | `1` |  |
-| istiod.hpaSpec.metrics[0].type | string | `"Resource"` |  |
-| istiod.hpaSpec.metrics[0].resource.name | string | `"cpu"` |  |
-| istiod.hpaSpec.metrics[0].resource.targetAverageUtilization | int | `60` |  |
-| istiod.strategy | object | `{}` |  |
-| istiod.podAnnotations | object | `{}` |  |
-| istiod.serviceAnnotations | object | `{}` |  |
-| istiod.nodeSelector | object | `{}` |  |
-| istiod.affinity | object | `{}` |  |
-| istiod.tolerations | list | `[]` |  |
+| profile | string | `"default"` | The istio profile to use |
+| hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag" |
+| tag | string | `"1.11.5"` | The tag to use for all images |
+| domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
+| revision | string | `""` | Revision of the Istio control plane |
+| openshift | bool | `false` | Openshift feature switch toggle |
+| imagePullSecrets | list | `[]` | Pull secrets for images |
+| monitoring | object | `{"enabled":false}` | Big Bang Monitoring interaction controls |
+| monitoring.enabled | bool | `false` | Toggle monitoring on/off (controls networkPolicies) |
+| authservice | object | `{"enabled":false}` | If authservice is enabled, it will be added to extension providers as an external authorization system. https://istio.io/latest/docs/tasks/security/authorization/authz-custom/ |
+| ingressGateways | object | `{"istio-ingressgateway":{"enabled":true,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}}` | Ingress gateways, The following items are automatically set for every ingress gateway: - label: "app: {name of ingress gateway}" |
+| ingressGateways.istio-ingressgateway | object | `{"enabled":true,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}` | This key becomes the name of the ingressGateway |
+| ingressGateways.istio-ingressgateway.extraLabels | object | `{}` | Labels to use for selecting the ingress gateway from the service Automatic labels: 'app: {ingress gateway name}' and `istio: ingressgateway` |
+| ingressGateways.istio-ingressgateway.k8s | object | `{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}` | Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec |
+| ingressGateways.istio-ingressgateway.k8s.service.type | string | `"LoadBalancer"` | "LoadBalancer" or "NodePort" |
+| ingressGateways.istio-ingressgateway.k8s.podAnnotations | object | `{}` | https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| ingressGateways.istio-ingressgateway.k8s.serviceAnnotations | object | `{}` | https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| ingressGateways.istio-ingressgateway.k8s.nodeSelector | object | `{}` | https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
+| ingressGateways.istio-ingressgateway.k8s.affinity | object | `{}` | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
+| ingressGateways.istio-ingressgateway.k8s.tolerations | list | `[]` | https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| gateways | object | `{"main":{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}}` | See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec |
+| gateways.main | object | `{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}` | This key becomes the name of the gateway |
+| gateways.main.autoHttpRedirect | object | `{"enabled":true}` | Controls default HTTP/8080 server entry with HTTP to HTTPS Redirect. Must add in HTTP server config if disabling. |
+| istiod | object | `{"affinity":{},"hpaSpec":{"maxReplicas":3,"metrics":[{"resource":{"name":"cpu","targetAverageUtilization":60},"type":"Resource"}],"minReplicas":1},"nodeSelector":{},"podAnnotations":{},"replicaCount":1,"resources":{"limits":{"cpu":"500m","memory":"2Gi"},"requests":{"cpu":"500m","memory":"2Gi"}},"serviceAnnotations":{},"strategy":{},"tolerations":[]}` | istiod / pilot configuration |
+| istiod.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| istiod.serviceAnnotations | object | `{}` | k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| istiod.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
+| istiod.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
+| istiod.tolerations | list | `[]` | k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
 | tracing.enabled | bool | `false` |  |
 | tracing.address | string | `"jaeger-collector.jaeger.svc"` |  |
 | tracing.port | int | `9411` |  |
-| tracing.sampling | int | `10` |  |
-| cni.image.name | string | `"install-cni"` |  |
+| tracing.sampling | int | `10` | percent of traces to send to jaeger |
 | cni.image.hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
+| cni.image.name | string | `"install-cni"` |  |
 | cni.image.tag | string | `"1.11.5"` |  |
-| cni.podAnnotations | object | `{}` |  |
-| cni.nodeSelector | object | `{}` |  |
-| cni.affinity | object | `{}` |  |
-| cni.tolerations | list | `[]` |  |
+| cni.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| cni.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
+| cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
+| cni.tolerations | list | `[]` | k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
 | meshConfig | object | `{}` |  |
-| values.global.proxy.resources.requests.cpu | string | `"100m"` |  |
-| values.global.proxy.resources.requests.memory | string | `"256Mi"` |  |
-| values.global.proxy.resources.limits.cpu | string | `"100m"` |  |
-| values.global.proxy.resources.limits.memory | string | `"256Mi"` |  |
-| values.global.proxy_init.resources.limits.cpu | string | `"100m"` |  |
-| values.global.proxy_init.resources.limits.memory | string | `"256Mi"` |  |
-| values.global.proxy_init.resources.requests.cpu | string | `"100m"` |  |
-| values.global.proxy_init.resources.requests.memory | string | `"256Mi"` |  |
-| networkPolicies.enabled | bool | `false` |  |
-| networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` |  |
-| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:1.0.0"` |  |
+| values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
+| networkPolicies | object | `{"controlPlaneCidr":"0.0.0.0/0","enabled":false}` | Big Bang NetworkPolicy controls |
+| networkPolicies.enabled | bool | `false` | Toggle ALL NetworkPolicies on/off |
+| networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` | See `kubectl cluster-info` and then resolve to IP |
+| postInstallHook | object | `{"image":"registry1.dso.mil/ironbank/big-bang/base:1.0.0"}` | Big Bang postInstall "readiness" controls |
+| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:1.0.0"` | Image used to run readiness check, requires `kubectl` |
 
 ## Contributing
 
