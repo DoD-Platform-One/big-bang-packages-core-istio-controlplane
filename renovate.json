@@ -24,9 +24,9 @@
         "^chart/values\\.yaml$"
       ],
       "matchStrings": [
-        "tag:\\s+(?<currentValue>.+)"
+        "all images\ntag:\\s+(?<currentValue>.+)"
       ],
-      "depNameTemplate": "ironbank/opensource/istio/pilot",
+      "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/proxyv2",
       "datasourceTemplate": "docker"
     },
     {
@@ -34,27 +34,17 @@
         "^chart/values\\.yaml$"
       ],
       "matchStrings": [
-        "tag:\\s+(?<currentValue>.+)"
+        "install-cni\n\\s+tag:\\s+(?<currentValue>.+)"
       ],
-      "depNameTemplate": "ironbank/opensource/istio/proxyv2",
-      "datasourceTemplate": "docker"
-    },
-    {
-      "fileMatch": [
-        "^chart/values\\.yaml$"
-      ],
-      "matchStrings": [
-        "tag:\\s+(?<currentValue>.+)"
-      ],
-      "depNameTemplate": "ironbank/opensource/istio/install-cni",
+      "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/install-cni",
       "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^chart/Chart\\.yaml$"],
       "matchStrings": [
-        "- Istio:\\s*(?<currentValue>.+)"
+        "- Istio:\\s+(?<currentValue>.+)"
       ],
-      "depNameTemplate": "ironbank/opensource/istio/pilot",
+      "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/pilot",
       "datasourceTemplate": "docker"
     },
     {
