@@ -3,6 +3,11 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.13.1-bb.0]
+### Changed
+- Updated chart to `1.13.1-bb.0` version
+- Updated app version to 1.13.1 in `Chart.yaml`
+
 ## [1.11.5-bb.2]
 ### Changed
 - Updated `renovate.json` to track images in `tests/images.txt`
