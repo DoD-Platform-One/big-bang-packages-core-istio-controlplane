@@ -1,1 +1,1 @@
-registry1.dso.mil/ironbank/opensource/istio/install-cni:1.11.5
+registry1.dso.mil/ironbank/opensource/istio/install-cni:1.13.1

@@ -4,7 +4,7 @@ profile: default
 # -- The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio
 # -- The tag to use for all images
-tag: 1.11.5
+tag: 1.13.1
 
 # -- The domain to use for the default gateway
 domain: bigbang.dev
@@ -156,7 +156,7 @@ cni:
   image:
     hub: registry1.dso.mil/ironbank/opensource/istio
     name: install-cni
-    tag: 1.11.5
+    tag: 1.13.1
   # -- k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
