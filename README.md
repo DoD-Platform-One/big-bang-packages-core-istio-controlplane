@@ -73,7 +73,7 @@ helm install istio chart/
 | meshConfig | object | `{}` |  |
 | values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
 | values.global.proxy | object | `{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}` | Enable the validating webhook to prevent malformed Istio objects in the mesh |
-| values.defaultRevision | string | `"default"` |  |
+| values.defaultRevision | string | `"default"` | Set defaultRevision name, must be non-empty to deploy validating webhook |
 | networkPolicies | object | `{"controlPlaneCidr":"0.0.0.0/0","enabled":false}` | Big Bang NetworkPolicy controls |
 | networkPolicies.enabled | bool | `false` | Toggle ALL NetworkPolicies on/off |
 | networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` | See `kubectl cluster-info` and then resolve to IP |
