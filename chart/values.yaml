@@ -171,7 +171,6 @@ meshConfig: {}
 values:
   # -- Global IstioOperator values
   global: 
-    # -- Enable the validating webhook to prevent malformed Istio objects in the mesh
     proxy:
       resources:
         requests:
