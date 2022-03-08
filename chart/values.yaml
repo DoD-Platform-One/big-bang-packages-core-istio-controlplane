@@ -172,7 +172,6 @@ values:
   # -- Global IstioOperator values
   global: 
     # -- Enable the validating webhook to prevent malformed Istio objects in the mesh
-    configValidation: true
     proxy:
       resources:
         requests:
@@ -189,6 +188,7 @@ values:
         requests:
           cpu: 100m
           memory: 256Mi
+  defaultRevision: "default"
 
 # -- Big Bang NetworkPolicy controls
 networkPolicies:
