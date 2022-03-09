@@ -187,6 +187,8 @@ values:
         requests:
           cpu: 100m
           memory: 256Mi
+  # -- Set defaultRevision name, must be non-empty to deploy validating webhook
+  defaultRevision: "default"
 
 # -- Big Bang NetworkPolicy controls
 networkPolicies:
