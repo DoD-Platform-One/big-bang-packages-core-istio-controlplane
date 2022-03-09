@@ -125,6 +125,7 @@ spec:
       {{- if .Values.values.global }}
       {{- toYaml .Values.values.global | nindent 6 }}
       {{- end }}
+    defaultRevision: {{ .Values.values.defaultRevision }}
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
