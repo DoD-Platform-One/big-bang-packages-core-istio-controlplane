@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.13.1-bb.1](https://img.shields.io/badge/Version-1.13.1--bb.1-informational?style=flat-square) ![AppVersion: 1.13.1](https://img.shields.io/badge/AppVersion-1.13.1-informational?style=flat-square)
+![Version: 1.13.1-bb.2](https://img.shields.io/badge/Version-1.13.1--bb.2-informational?style=flat-square) ![AppVersion: 1.13.1](https://img.shields.io/badge/AppVersion-1.13.1-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -39,6 +39,8 @@ helm install istio chart/
 | imagePullSecrets | list | `[]` | Pull secrets for images |
 | monitoring | object | `{"enabled":false}` | Big Bang Monitoring interaction controls |
 | monitoring.enabled | bool | `false` | Toggle monitoring on/off (controls networkPolicies) |
+| kiali | object | `{"enabled":false}` | Big Bang Kiali interaction controls |
+| kiali.enabled | bool | `false` | Toggle kiali on/off (controls networkPolicies) |
 | authservice | object | `{"enabled":false}` | If authservice is enabled, it will be added to extension providers as an external authorization system. https://istio.io/latest/docs/tasks/security/authorization/authz-custom/ |
 | ingressGateways | object | `{"istio-ingressgateway":{"enabled":true,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}}` | Ingress gateways, The following items are automatically set for every ingress gateway: - label: "app: {name of ingress gateway}" |
 | ingressGateways.istio-ingressgateway | object | `{"enabled":true,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}` | This key becomes the name of the ingressGateway |
