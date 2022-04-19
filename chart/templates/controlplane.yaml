@@ -50,14 +50,7 @@ spec:
       enabled: true
       namespace: kube-system
       k8s:
-        podAnnotations:
-          {{- .podAnnotations | default (dict) | toYaml | nindent 10 }}
-        nodeSelector:
-          {{- .nodeSelector | default (dict) | toYaml | nindent 10 }}
-        tolerations:
-          {{- .tolerations | default (list) | toYaml | nindent 10 }}
-        affinity:
-          {{- .affinity | default (dict) | toYaml | nindent 10 }}
+        {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
     {{- end }}
     ingressGateways:
