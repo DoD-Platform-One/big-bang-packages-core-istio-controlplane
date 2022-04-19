@@ -50,7 +50,7 @@ spec:
       enabled: true
       namespace: kube-system
       k8s:
-        {{- toYaml $values.k8s | nindent 8 }}
+        {{- toYaml .Values.cni.k8s | nindent 8 }}
     {{- end }}
     {{- end }}
     ingressGateways:
