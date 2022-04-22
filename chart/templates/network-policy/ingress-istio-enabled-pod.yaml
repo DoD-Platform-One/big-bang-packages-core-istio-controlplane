@@ -13,7 +13,7 @@ spec:
             {{- if not (eq .Values.revision "") }}
             istio.io/rev: {{ .Values.revision }}
             {{- else }}
-            istio-sidecar.istio.io/inject: "true"
+            sidecar.istio.io/inject: "true"
             {{- end }}
       ports:
         - port: 15012
