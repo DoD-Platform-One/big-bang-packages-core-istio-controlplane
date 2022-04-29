@@ -9,13 +9,14 @@
   "labels": ["istio","Big Bang Core","Package Sustainment","kind::maintenance","renovate"],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
+      "matchDatasources": ["docker"],
       "groupName": "Ironbank",
-      "registryUrls": [
-        "https://registry1.dso.mil"
-      ]
+      "registryUrls": ["https://registry1.dso.mil"],
+      "postUpgradeTasks":  {
+        "commands": [
+          "source $CI_PROJECT_DIR/functions.sh && helm-docs"
+        ],
+        "fileFilters": ["README.md"]
     }
   ],
   "regexManagers": [
