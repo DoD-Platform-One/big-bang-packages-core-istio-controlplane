@@ -11,13 +11,7 @@
     {
       "matchDatasources": ["docker"],
       "groupName": "Ironbank",
-      "registryUrls": ["https://registry1.dso.mil"],
-      "postUpgradeTasks":  {
-        "commands": [
-          "source $CI_PROJECT_DIR/functions.sh && helm-docs"
-        ],
-        "fileFilters": ["README.md"]
-      }
+      "registryUrls": ["https://registry1.dso.mil"]
     }
   ],
   "regexManagers": [
