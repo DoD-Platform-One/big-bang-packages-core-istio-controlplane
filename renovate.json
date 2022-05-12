@@ -1,55 +1,36 @@
 {
-  "baseBranches": ["main"],
-  "configWarningReuseIssue": false,
-  "dependencyDashboard": true,
+  "extends": "local>platform-one/big-bang/pipeline-templates/package-validation#dev-razzle",
   "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
   "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
-  "draftPR": true,
-  "enabledManagers": ["regex"],
-  "labels": ["istio","Big Bang Core","Package Sustainment","kind::maintenance","renovate"],
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "groupName": "Ironbank",
-      "registryUrls": ["https://registry1.dso.mil"]
-    }
-  ],
+  "labels": ["istio", "Big Bang Core", "Package Sustainment", "kind::maintenance", "renovate"],
   "regexManagers": [
     {
-      "fileMatch": [
-        "^chart/values\\.yaml$"
-      ],
-      "matchStrings": [
-        "all images\ntag:\\s+(?<currentValue>.+)"
-      ],
+      "fileMatch": ["^chart/values\\.yaml$"],
+      "matchStrings": ["all images\ntag:\\s+(?<currentValue>.+)"],
       "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/proxyv2",
       "datasourceTemplate": "docker"
     },
     {
-      "fileMatch": [
-        "^chart/values\\.yaml$"
-      ],
-      "matchStrings": [
-        "install-cni\n\\s+tag:\\s+(?<currentValue>.+)"
-      ],
+      "fileMatch": ["^chart/values\\.yaml$"],
+      "matchStrings": ["install-cni\n\\s+tag:\\s+(?<currentValue>.+)"],
       "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/install-cni",
       "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^chart/Chart\\.yaml$"],
-      "matchStrings": [
-        "- Istio:\\s+(?<currentValue>.+)",
-        "appVersion:\\s+(?<currentValue>.+)"
-      ],
+      "matchStrings": ["- Istio:\\s+(?<currentValue>.+)", "appVersion:\\s+(?<currentValue>.+)"],
       "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/pilot",
       "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^tests/images\\.txt$"],
-      "matchStrings": [
-        "s*(?<depName>.+):(?<currentValue>.+)"
-      ],
+      "matchStrings": ["s*(?<depName>.+):(?<currentValue>.+)"],
       "datasourceTemplate": "docker"
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["test-scripts-dir"],
+    "fileFilters": ["README.md"],
+    "executionMode": "update"
+  }
 }
