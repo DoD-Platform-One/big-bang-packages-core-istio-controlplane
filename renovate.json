@@ -1,5 +1,5 @@
 {
-  "extends": "local>platform-one/big-bang/pipeline-templates/package-validation#dev-razzle",
+  "extends": ["local>platform-one/big-bang/pipeline-templates/package-validation#dev-razzle"],
   "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
   "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
   "labels": ["istio", "Big Bang Core", "Package Sustainment", "kind::maintenance", "renovate"],
