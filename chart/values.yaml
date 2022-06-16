@@ -212,4 +212,4 @@ networkPolicies:
 # -- Big Bang postInstall "readiness" controls
 postInstallHook:
   # -- Image used to run readiness check, requires `kubectl`
-  image: registry1.dso.mil/ironbank/big-bang/base:1.0.0
+  image: registry1.dso.mil/ironbank/big-bang/base:1.17.0
