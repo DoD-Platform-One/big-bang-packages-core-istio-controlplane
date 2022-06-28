@@ -12,6 +12,10 @@
       "matchDatasources": ["docker"],
       "groupName": "Ironbank",
       "registryUrls": ["https://registry1.dso.mil"]
+    },
+    {
+      "matchPackageNames": ["registry1.dso.mil/ironbank/big-bang/base"],
+      "allowedVersions": "!/8.4/"
     }
   ],
   "regexManagers": [
@@ -23,6 +27,15 @@
         "all images\ntag:\\s+(?<currentValue>.+)"
       ],
       "depNameTemplate": "registry1.dso.mil/ironbank/opensource/istio/proxyv2",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "image:\\s+(?<depName>.+):(?<currentValue>.+)"
+      ],
       "datasourceTemplate": "docker"
     },
     {
