@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.13.4-bb.2]
+### Changed
+- Update the OSCAL component definition for Istio to include additional NIST 800-53 mappings and explanations.
+
 ## [1.13.4-bb.1]
 ### Changed
 - Updated BB base image to 1.17.0
