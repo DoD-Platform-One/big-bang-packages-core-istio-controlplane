@@ -3,10 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.13.5-bb.0]
+### Changed
+- Updated chart to `1.13.5-bb.0` version
+- Updated images to `1.13.5`
+- Updated app version to 1.13.5 in `Chart.yaml`
+
 ## [1.13.4-bb.3]
 ### Added
-
 - Added tolerations to Jobs
+
 ## [1.13.4-bb.2]
 ### Changed
 - Updated BB base image to 2.0.0
