@@ -22,6 +22,8 @@ spec:
     spec:
       serviceAccountName: istio-operator
       restartPolicy: OnFailure
+      tolerations:
+      {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 8 }}
       containers:
         - name: hook
           image: "{{ .Values.postInstallHook.image }}"
