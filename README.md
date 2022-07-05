@@ -35,7 +35,7 @@ helm install istio chart/
 | tag | string | `"1.13.5"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
-| tidTag | string | `"1.13.2-tetratefips-v0"` |  |
+| tidTag | string | `"1.12.4-tetratefips-v0"` |  |
 | domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
 | revision | string | `""` | Revision of the Istio control plane |
 | openshift | bool | `false` | Openshift feature switch toggle |
