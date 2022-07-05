@@ -31,14 +31,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated images to `1.13.4`
 - Updated app version to 1.13.4 in `Chart.yaml`
 
-## [1.12.4-bb.1]
+## [1.13.2-bb.1]
 ### Changed
 - fix pod selector for NetworkPolicy
 
-## [1.12.4-bb.0]
+## [1.13.2-bb.0]
 ### Changed
-- Updated chart to `1.12.4-bb.0` version
-- Updated app version to 1.12.4 in `Chart.yaml`
+- Updated chart to `1.13.2-bb.0` version
+- Updated app version to 1.13.2 in `Chart.yaml`
 
 ## [1.13.1-bb.3]
 ### Changed
