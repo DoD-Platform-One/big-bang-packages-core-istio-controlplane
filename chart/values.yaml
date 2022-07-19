@@ -91,6 +91,35 @@ ingressGateways:
   #     affinity: {} # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
   #     tolerations: [] # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
+# -- Egress gateways,
+# The following items are automatically set for every egress gateway:
+# - label: "app: {name of egress gateway}"
+egressGateways:
+  # -- This key becomes the name of the egressGateway
+  istio-egressgateway:
+    enabled: false
+    # -- Labels to use for selecting the egress gateway from the service
+    # Automatic labels: 'app: {egress gateway name}' and `istio: egressgateway`
+    extraLabels: {}
+    # -- Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec
+    k8s:
+      # hpaSpec:  By default, HPA is set from 1-5 instances with a target average utilization of 80%
+      resources: {}
+      service:
+        # -- "LoadBalancer" or "NodePort"
+        type: "LoadBalancer"
+        # ports: By default ports 15021 (status), 80, 443, and 15443 (SNI Routing) are setup
+      # -- https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      podAnnotations: {}
+      # -- https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+      serviceAnnotations: {}
+      # -- https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+      nodeSelector: {}
+      # -- https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+      affinity: {}
+      # -- https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+      tolerations: []
+
 # -- See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec
 gateways:
   # -- This key becomes the name of the gateway
