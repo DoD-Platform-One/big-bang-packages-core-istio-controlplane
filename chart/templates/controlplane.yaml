@@ -77,7 +77,20 @@ spec:
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
-
+    egressGateways:
+    {{- range $name, $values := .Values.egressGateways }}
+    - name: {{ $name }}
+      namespace: {{ $.Release.Namespace }}
+      enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
+      label:
+        app: {{ $name }}
+        istio: egressgateway
+        {{- if $values.extraLabels }}
+          {{- toYaml $values.extraLabels | nindent 8 }}
+        {{- end }}
+      k8s:
+        {{- toYaml $values.k8s | nindent 8 }}
+    {{- end }}
   meshConfig:
     accessLogFile: /dev/stdout
     enableTracing: {{ .Values.tracing.enabled }}
