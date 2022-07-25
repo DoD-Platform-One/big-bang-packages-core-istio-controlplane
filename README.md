@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.13.5-bb.1](https://img.shields.io/badge/Version-1.13.5--bb.1-informational?style=flat-square) ![AppVersion: 1.13.5](https://img.shields.io/badge/AppVersion-1.13.5-informational?style=flat-square)
+![Version: 1.13.5-bb.2](https://img.shields.io/badge/Version-1.13.5--bb.2-informational?style=flat-square) ![AppVersion: 1.13.5](https://img.shields.io/badge/AppVersion-1.13.5-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -55,6 +55,16 @@ helm install istio chart/
 | ingressGateways.istio-ingressgateway.k8s.nodeSelector | object | `{}` | https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
 | ingressGateways.istio-ingressgateway.k8s.affinity | object | `{}` | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
 | ingressGateways.istio-ingressgateway.k8s.tolerations | list | `[]` | https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| egressGateways | object | `{"istio-egressgateway":{"enabled":false,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}}` | Egress gateways, The following items are automatically set for every egress gateway: - label: "app: {name of egress gateway}" |
+| egressGateways.istio-egressgateway | object | `{"enabled":false,"extraLabels":{},"k8s":{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}}` | This key becomes the name of the egressGateway |
+| egressGateways.istio-egressgateway.extraLabels | object | `{}` | Labels to use for selecting the egress gateway from the service Automatic labels: 'app: {egress gateway name}' and `istio: egressgateway` |
+| egressGateways.istio-egressgateway.k8s | object | `{"affinity":{},"nodeSelector":{},"podAnnotations":{},"resources":{},"service":{"type":"LoadBalancer"},"serviceAnnotations":{},"tolerations":[]}` | Set any value from https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/#KubernetesResourcesSpec |
+| egressGateways.istio-egressgateway.k8s.service.type | string | `"LoadBalancer"` | "LoadBalancer" or "NodePort" |
+| egressGateways.istio-egressgateway.k8s.podAnnotations | object | `{}` | https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| egressGateways.istio-egressgateway.k8s.serviceAnnotations | object | `{}` | https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
+| egressGateways.istio-egressgateway.k8s.nodeSelector | object | `{}` | https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
+| egressGateways.istio-egressgateway.k8s.affinity | object | `{}` | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
+| egressGateways.istio-egressgateway.k8s.tolerations | list | `[]` | https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
 | gateways | object | `{"main":{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}}` | See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec |
 | gateways.main | object | `{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}` | This key becomes the name of the gateway |
 | gateways.main.autoHttpRedirect | object | `{"enabled":true}` | Controls default HTTP/8080 server entry with HTTP to HTTPS Redirect. Must add in HTTP server config if disabling. |
