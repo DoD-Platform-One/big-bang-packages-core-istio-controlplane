@@ -32,7 +32,7 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag" |
-| tag | string | `"1.14.2"` | The tag to use for all images |
+| tag | string | `"1.13.6"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
 | tidTag | string | `"1.13.5-tetratefips-v0"` |  |
