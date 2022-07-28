@@ -1,4 +1,4 @@
-registry1.dso.mil/ironbank/opensource/istio/install-cni:1.13.5
+registry1.dso.mil/ironbank/opensource/istio/install-cni:1.14.2
 registry1.dso.mil/ironbank/tetrate/istio/istioctl:1.13.5-tetratefips-v0
 registry1.dso.mil/ironbank/tetrate/istio/proxyv2:1.13.5-tetratefips-v0
 registry1.dso.mil/ironbank/tetrate/istio/pilot:1.13.5-tetratefips-v0
