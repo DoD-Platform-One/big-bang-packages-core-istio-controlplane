@@ -2,5 +2,5 @@ istiooperator:
   git:
     repo: "https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-operator.git"
     branch: "33-update"
-    tag: "null"
+    tag: null
   namespace: "istio-operator"
