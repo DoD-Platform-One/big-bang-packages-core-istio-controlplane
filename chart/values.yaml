@@ -138,6 +138,7 @@ gateways:
         protocol: HTTPS
       tls:
         credentialName: "wildcard-cert"
+        minProtocolVersion: TLSV1_2
         mode: "SIMPLE"
   # # Example of adding additional gateways
   # private:
@@ -154,6 +155,7 @@ gateways:
   #       protocol: HTTPS
   #     tls:
   #       credentialName: "some-secret"
+  #       minProtocolVersion: TLSV1_2
   #       mode: "SIMPLE"
 
 # -- istiod / pilot configuration
@@ -179,6 +181,10 @@ istiod:
   podAnnotations: {}
   # -- k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   serviceAnnotations: {}
+    # spec:
+    #   meshConfig:
+    #     meshMTLS:
+    #       minProtocolVersion: TLSV1_2
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
   nodeSelector: {}
   # -- k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity

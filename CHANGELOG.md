@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.13.5-bb.3]
+### Added
+- Added minProtocolVersion: TLSV1_2
+
 ## [1.13.5-bb.2]
 ### Added
 - Added support for egress gateways via values
