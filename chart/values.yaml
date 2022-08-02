@@ -207,7 +207,9 @@ cni:
   # -- k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
 
-meshConfig: {}
+meshConfig: 
+  meshMTLS:
+    minProtocolVersion: TLSV1_2
 
 values:
   # -- Global IstioOperator values
