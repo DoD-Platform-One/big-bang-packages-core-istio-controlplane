@@ -154,7 +154,6 @@ gateways:
   #       protocol: HTTPS
   #     tls:
   #       credentialName: "some-secret"
-  #       minProtocolVersion: TLSV1_2
   #       mode: "SIMPLE"
 
 # -- istiod / pilot configuration
