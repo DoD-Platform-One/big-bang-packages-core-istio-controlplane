@@ -138,7 +138,6 @@ gateways:
         protocol: HTTPS
       tls:
         credentialName: "wildcard-cert"
-        minProtocolVersion: TLSV1_2
         mode: "SIMPLE"
   # # Example of adding additional gateways
   # private:
