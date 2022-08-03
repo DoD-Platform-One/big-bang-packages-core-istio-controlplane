@@ -6,7 +6,7 @@ metadata:
   namespace: "monitoring"
   labels:
     app.kubernetes.io/component: "monitoring"
-    grafana_dasboard: "1"
+    grafana_dashboard: "1"
 data:
   istio-performance-dashboard.json: |
     {{- .Files.Get "dashboards/istio-performance-dashboard.json"  | nindent 4 }}
@@ -20,7 +20,7 @@ metadata:
   namespace: "monitoring"
   labels:
     app.kubernetes.io/component: "monitoring"
-    grafana_dasboard: "1"
+    grafana_dashboard: "1"
 data:
   istio-extension-dashboard.json: |
     {{- .Files.Get "dashboards/istio-extension-dashboard.json" | nindent 4 }}
