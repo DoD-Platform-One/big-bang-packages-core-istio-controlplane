@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: dashboards
+upstream:
+  type: git
+  git:
+    commit: d19a287d37ffde0ba1b4bc0c41da77d23a33d113
+    repo: https://github.com/istio/istio
+    directory: /manifests/addons/dashboards
+    ref: 1.14.2
