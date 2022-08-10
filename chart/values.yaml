@@ -210,6 +210,8 @@ cni:
 meshConfig: 
   meshMTLS:
     minProtocolVersion: TLSV1_2
+  outboundTrafficPolicy:
+    mode: ALLOW_ANY # REGISTRY_ONLY
 
 values:
   # -- Global IstioOperator values
