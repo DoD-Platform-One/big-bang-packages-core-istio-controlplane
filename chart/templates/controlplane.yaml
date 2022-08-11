@@ -150,9 +150,3 @@ spec:
       injectedAnnotations:
         k8s.v1.cni.cncf.io/networks: istio-cni
       {{- end }}
-
-      neverInjectSelector:
-        - matchExpressions:
-            - key: app.kubernetes.io/component
-              operator: In
-              values: [fluentd-configcheck]
