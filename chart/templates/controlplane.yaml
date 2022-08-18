@@ -80,7 +80,7 @@ spec:
         overlays:
           - apiVersion: apps/v1
             kind: Deployment
-            name: istio-ingressgateway
+            name: public-ingressgateway
             patches:
               - path: spec.template.spec.volumes.[name:workload-socket]
                 value:
