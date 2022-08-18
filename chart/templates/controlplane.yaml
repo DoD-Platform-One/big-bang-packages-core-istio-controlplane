@@ -76,6 +76,23 @@ spec:
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
+        {{- if $.Values.spire.enabled }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: istio-ingressgateway
+            patches:
+              - path: spec.template.spec.volumes.[name:workload-socket]
+                value:
+                  name: workload-socket
+                  csi:
+                    driver: "csi.spiffe.io"
+              - path: spec.template.spec.containers.[name:istio-proxy].volumeMounts.[name:workload-socket]
+                value:
+                  name: workload-socket
+                  mountPath: "/run/secrets/workload-spiffe-uds"
+                  readOnly: true
+        {{- end }}
     {{- end }}
     egressGateways:
     {{- range $name, $values := .Values.egressGateways }}
@@ -92,6 +109,9 @@ spec:
         {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
   meshConfig:
+    {{- if .Values.spire.enabled }}
+    trustDomain: {{ .Values.spire.trustDomain }}
+    {{- end }}
     accessLogFile: /dev/stdout
     enableTracing: {{ .Values.tracing.enabled }}
     {{- if .Values.authservice.enabled }}
@@ -145,6 +165,21 @@ spec:
       {{- end }}
     defaultRevision: {{ .Values.values.defaultRevision }}
     sidecarInjectorWebhook:
+      {{- if .Values.spire.enabled }}
+      templates:
+        spire: |
+          spec:
+            containers:
+            - name: istio-proxy
+              volumeMounts:
+              - name: workload-socket
+                mountPath: /run/secrets/workload-spiffe-uds
+                readOnly: true
+            volumes:
+              - name: workload-socket
+                csi:
+                  driver: "csi.spiffe.io"
+      {{- end }}
       rewriteAppHTTPProbe: true
       {{- if .Values.openshift }}
       injectedAnnotations:

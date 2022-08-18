@@ -16,6 +16,10 @@ tidTag: 1.13.5-tetratefips-v0
 # -- The domain to use for the default gateway
 domain: bigbang.dev
 
+spire:
+  enabled: true
+  trustDomain: bigbang.dev
+
 # -- Revision of the Istio control plane
 revision: ""
 
