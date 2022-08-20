@@ -125,7 +125,7 @@ spec:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
       zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
-      holdApplicationUntilProxyStarts: true
+      holdApplicationUntilProxyStarts: false # Issue with SPIRE https://github.com/spiffe/spire/issues/3092
     {{- if .Values.meshConfig }}
     {{- toYaml .Values.meshConfig | nindent 4 }}
     {{- end }}
