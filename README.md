@@ -91,8 +91,9 @@ helm install istio chart/
 | networkPolicies | object | `{"controlPlaneCidr":"0.0.0.0/0","enabled":false}` | Big Bang NetworkPolicy controls |
 | networkPolicies.enabled | bool | `false` | Toggle ALL NetworkPolicies on/off |
 | networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` | See `kubectl cluster-info` and then resolve to IP |
-| postInstallHook | object | `{"containerSecurityContext":{"capabilities":{"drop":["ALL"]}},"image":"registry1.dso.mil/ironbank/big-bang/base:2.0.0","securityContext":{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}}` | Big Bang postInstall "readiness" controls |
 | postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:2.0.0"` | Image used to run readiness check, requires `kubectl` |
+| postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
+| postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
 
 ## Contributing
 
