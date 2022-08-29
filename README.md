@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.14.3-bb.2](https://img.shields.io/badge/Version-1.14.3--bb.2-informational?style=flat-square) ![AppVersion: 1.14.3](https://img.shields.io/badge/AppVersion-1.14.3-informational?style=flat-square)
+![Version: 1.14.3-bb.3](https://img.shields.io/badge/Version-1.14.3--bb.3-informational?style=flat-square) ![AppVersion: 1.14.3](https://img.shields.io/badge/AppVersion-1.14.3-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -91,8 +91,9 @@ helm install istio chart/
 | networkPolicies | object | `{"controlPlaneCidr":"0.0.0.0/0","enabled":false}` | Big Bang NetworkPolicy controls |
 | networkPolicies.enabled | bool | `false` | Toggle ALL NetworkPolicies on/off |
 | networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` | See `kubectl cluster-info` and then resolve to IP |
-| postInstallHook | object | `{"image":"registry1.dso.mil/ironbank/big-bang/base:2.0.0"}` | Big Bang postInstall "readiness" controls |
 | postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:2.0.0"` | Image used to run readiness check, requires `kubectl` |
+| postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
+| postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
 
 ## Contributing
 

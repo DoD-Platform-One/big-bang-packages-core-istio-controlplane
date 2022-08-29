@@ -29,3 +29,7 @@ spec:
           image: "{{ .Values.postInstallHook.image }}"
           command: ["kubectl"]
           args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
+          securityContext:
+            {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
+      securityContext:
+        {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}

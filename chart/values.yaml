@@ -240,7 +240,17 @@ networkPolicies:
   # -- See `kubectl cluster-info` and then resolve to IP
   controlPlaneCidr: 0.0.0.0/0
 
-# -- Big Bang postInstall "readiness" controls
 postInstallHook:
   # -- Image used to run readiness check, requires `kubectl`
   image: registry1.dso.mil/ironbank/big-bang/base:2.0.0
+  # -- Pod security context for readiness check
+  securityContext:
+    fsGroup: 1001
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+  # -- Container security context for readiness check
+  containerSecurityContext:
+    capabilities:
+      drop:
+        - ALL
