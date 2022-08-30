@@ -166,6 +166,9 @@ istiod:
     limits:
       cpu: 500m
       memory: 2Gi
+  env:
+    - name: ENABLE_LEGACY_FSGROUP_INJECTION
+      value: "false"
   hpaSpec:
     maxReplicas: 3
     minReplicas: 1
