@@ -166,10 +166,7 @@ istiod:
     limits:
       cpu: 500m
       memory: 2Gi
-  # specifies env values.  Defaults disable legacy fsgroup injection that forces fsgroup 1337
-  env:
-    - name: ENABLE_LEGACY_FSGROUP_INJECTION
-      value: "false"
+  env: []
   hpaSpec:
     maxReplicas: 3
     minReplicas: 1
