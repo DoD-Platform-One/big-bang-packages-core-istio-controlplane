@@ -14,7 +14,7 @@
       "registryUrls": ["https://registry1.dso.mil"],
       "postUpgradeTasks": {
         "commands": [
-            "bump-chart-yaml",
+            "match-chart-yaml-appversion",
             "regenerate-helm-docs",
             "bump-changelog '- {{{replace 'registry1.dso.mil/' '' depName}}} updated from {{{currentVersion}}} to {{{newVersion}}}'"
         ],
