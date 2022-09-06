@@ -69,6 +69,67 @@ istio-ingressgateway   LoadBalancer   10.104.1.247   34.123.224.92   15021:30045
 ```
 You should see an external IP for the loadblancer. This external IP is the entry point into the cluster and should be mapped to a DNS basedomain like "myenterprise.com". Traffic hitting that domain will now be filtered and proxied to the right backend service. 
 
+To configure this ingress gateway, we will need to create a [gateway](https://istio.io/latest/docs/reference/config/networking/gateway/). An example of a gateway can be seen below 
+
+<details open>
+<summary>Sample Gateway manifest</summary>
+<br>
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: my-gateway
+  namespace: some-config-namespace
+spec:
+  selector:
+    app: my-gateway-controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - uk.bookinfo.com
+    - eu.bookinfo.com
+    tls:
+      httpsRedirect: true # sends 301 redirect for http requests
+  - port:
+      number: 443
+      name: https-443
+      protocol: HTTPS
+    hosts:
+    - uk.bookinfo.com
+    - eu.bookinfo.com
+    tls:
+      mode: SIMPLE # enables HTTPS on this port
+      serverCertificate: /etc/certs/servercert.pem
+      privateKey: /etc/certs/privatekey.pem
+  - port:
+      number: 9443
+      name: https-9443
+      protocol: HTTPS
+    hosts:
+    - "bookinfo-namespace/*.bookinfo.com"
+    tls:
+      mode: SIMPLE # enables HTTPS on this port
+      credentialName: bookinfo-secret # fetches certs from Kubernetes secret
+  - port:
+      number: 9080
+      name: http-wildcard
+      protocol: HTTP
+    hosts:
+    - "*"
+  - port:
+      number: 2379 # to expose internal service via external port 2379
+      name: mongo
+      protocol: MONGO
+    hosts:
+    - "*"
+```
+</details>
+
+This is a [sample](https://istio.io/latest/docs/reference/config/networking/gateway/) from the official docs but the principle is the same.  You use th gateway object to configure the ingress gateway. It serves as a route for traffic hitting the ingress gateway reverse proxy. It is analogous to the [ingress object](https://kubernetes.io/docs/concepts/services-networking/ingress/) in kubernetes , with the ingress gateway being analagous to the [ingress controller](https://docs.nginx.com/nginx-ingress-controller/). 
 ### Canary Deployments 
 
 ## Security using Istio 
