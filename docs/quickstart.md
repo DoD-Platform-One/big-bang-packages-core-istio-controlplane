@@ -67,6 +67,15 @@ kubectl get svc -n istio-system -l istio=ingressgateway
 NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                                                                      AGE
 istio-ingressgateway   LoadBalancer   10.104.1.247   34.123.224.92   15021:30045/TCP,80:30536/TCP,443:30515/TCP,31400:32708/TCP,15443:30053/TCP   9d`
 ```
-You should see an external IP for the loadblancer. 
+You should see an external IP for the loadblancer. This external IP is the entry point into the cluster and should be mapped to a DNS basedomain like "myenterprise.com". Traffic hitting that domain will now be filtered and proxied to the right backend service. 
 
 ### Canary Deployments 
+
+## Security using Istio 
+
+### Authentication 
+ - Request Authentication 
+ - Peer Authentication 
+
+### Authorization 
+- Authorization Policy 
