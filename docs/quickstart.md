@@ -30,4 +30,43 @@ This creates a demo namespace and enables istio proxy injection.
 
 This switches to the demo namespace in the current context. 
 
+`git clone https://github.com/rinormaloku/master-istio.git && cd master-istio`
+
+This clones a repository containing a sample application. 
+
+`kubectl apply -f ./kube`
+
+This will deploy the sample application. Validate the application. 
+```
+k get po -n demo
+NAME                           READY   STATUS    RESTARTS   AGE
+sa-feedback-7d9cfcfcdd-4fw62   2/2     Running   0          12h
+sa-frontend-6968b849b5-6bm2c   2/2     Running   0          12h
+sa-logic-5f89d59554-2vth8      2/2     Running   0          12h
+sa-logic-5f89d59554-wt2mr      2/2     Running   0          12h
+sa-webapp-67d5cbdccb-rnt4n     2/2     Running   0          12h
+```
+
 ## Traffic management 
+Before going into traffic management, it is imperative to understand the various components that aid traffic routing into the cluster 
+* [Virtual services](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services)
+* [Destination Rules](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules)
+* [Gateways](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules)
+* [ServiceEntry](https://istio.io/latest/docs/concepts/traffic-management/#service-entries)
+
+
+### Admitting traffic into the mesh/cluster 
+
+Istio comes with a reverse proxy built on envoy which routes traffic to backend services. This is called an [ingress gateway]() and it acts as an entrypoint into the cluster. It also does loadbalancing and virtual hosting for backend services. From a technical perspective it is simply an envoy proxy (like the sidecar) , that sits at the edge of the cluster and is exposed outside of the cluster by a loadbalancer. 
+
+To verify the ingress gateway is running, issue the command below 
+`kubectl get svc -n istio-system -l istio=ingressgateway`
+
+```
+kubectl get svc -n istio-system -l istio=ingressgateway
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                                                                      AGE
+istio-ingressgateway   LoadBalancer   10.104.1.247   34.123.224.92   15021:30045/TCP,80:30536/TCP,443:30515/TCP,31400:32708/TCP,15443:30053/TCP   9d`
+```
+You should see an external IP for the loadblancer. 
+
+### Canary Deployments 
