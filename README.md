@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.14.3-bb.3](https://img.shields.io/badge/Version-1.14.3--bb.3-informational?style=flat-square) ![AppVersion: 1.14.3](https://img.shields.io/badge/AppVersion-1.14.3-informational?style=flat-square)
+![Version: 1.14.3-bb.4](https://img.shields.io/badge/Version-1.14.3--bb.4-informational?style=flat-square) ![AppVersion: 1.14.3](https://img.shields.io/badge/AppVersion-1.14.3-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -68,7 +68,7 @@ helm install istio chart/
 | gateways | object | `{"main":{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}}` | See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec |
 | gateways.main | object | `{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}` | This key becomes the name of the gateway |
 | gateways.main.autoHttpRedirect | object | `{"enabled":true}` | Controls default HTTP/8080 server entry with HTTP to HTTPS Redirect. Must add in HTTP server config if disabling. |
-| istiod | object | `{"affinity":{},"hpaSpec":{"maxReplicas":3,"metrics":[{"resource":{"name":"cpu","targetAverageUtilization":60},"type":"Resource"}],"minReplicas":1},"nodeSelector":{},"podAnnotations":{},"replicaCount":1,"resources":{"limits":{"cpu":"500m","memory":"2Gi"},"requests":{"cpu":"500m","memory":"2Gi"}},"serviceAnnotations":{},"strategy":{},"tolerations":[]}` | istiod / pilot configuration |
+| istiod | object | `{"affinity":{},"env":[],"hpaSpec":{"maxReplicas":3,"metrics":[{"resource":{"name":"cpu","targetAverageUtilization":60},"type":"Resource"}],"minReplicas":1},"nodeSelector":{},"podAnnotations":{},"replicaCount":1,"resources":{"limits":{"cpu":"500m","memory":"2Gi"},"requests":{"cpu":"500m","memory":"2Gi"}},"serviceAnnotations":{},"strategy":{},"tolerations":[]}` | istiod / pilot configuration |
 | istiod.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | istiod.serviceAnnotations | object | `{}` | k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | istiod.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |

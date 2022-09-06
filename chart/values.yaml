@@ -166,6 +166,7 @@ istiod:
     limits:
       cpu: 500m
       memory: 2Gi
+  env: []
   hpaSpec:
     maxReplicas: 3
     minReplicas: 1

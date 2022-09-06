@@ -18,6 +18,8 @@ spec:
   components:
     pilot:
       k8s:
+        env:
+          {{- toYaml .Values.istiod.env | nindent 10 }}
 {{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
         hpaSpec:
           maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
