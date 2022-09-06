@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ---
 ## [1.14.3-bb.4]
 ### Changed
-- Modified default behavior to DISABLE overriding of `fsGroup`
+- Adds env variable to values which can be used during deployment to modify istio k8s env settings
 
 ## [1.14.3-bb.3]
 ### Changed
