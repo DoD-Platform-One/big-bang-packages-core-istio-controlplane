@@ -75,7 +75,7 @@ To configure this ingress gateway, we will need to create a [gateway](https://is
 <summary>Sample Gateway manifest</summary>
 <br>
 
-```
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -134,9 +134,48 @@ This is a [sample](https://istio.io/latest/docs/reference/config/networking/gate
 
 ## Security using Istio 
 
+Before we go into Istio security, there are a few concepts we need to understand that are key to getting how istio provides microservices security. 
+
+- Authentication - is the ability is the ability to prove "who" you are.  In this case , it is a service or entity providing identification. 
+- Authorization - is the ability to determine "what you can do" . In this case it could be a service or an entity trying to access a service within the mesh. 
+
+An analogy would be having a badge as an employee working in an office.  The badge provides your identity and "athentication" but there are some rooms/offices you may not be "authorized" to access. 
+
 ### Authentication 
- - Request Authentication 
+
  - Peer Authentication 
+ - RequestAuthentication 
+
+Before understanding the concepts above it is imperative to know MTLS.  MTLS simply means Mutual TLS is a type of mutual authentication in which the two parties in a connection authenticate each other using the TLS protocol. So in this case both the client and the server authenticate using x509 certificates. 
+
+Istio has multiple Mtls modes but the most important/used are the PERMISSIVE and STRICT policies. 
+
+Permissive is the default and allows plain text traffic while strict - as the name denotes - only allows mutually authenticated traffic.   Peer authentication is configured using the Peer authentication  custom resource.   Expand the sample below
+
+<details open>
+<summary>Sample Peer Authentication manifest</summary>
+<br>
+
+```yaml
+apiVersion: "security.istio.io/v1beta1"
+kind: "PeerAuthentication"
+metadata:
+  name: "default"
+  namespace: "istio-system"
+spec:
+  mtls:
+    mode: STRICT
+```
+</details>
+
+This manifest ensures strict MTLS across the ENTIRE mesh because of the `namespace: "istio-system"` section. Once it is applied to the istio-system namespace it propagates across the entire mesh.  It is possible to do a narrower scoped application at the namespace level and the applicaiton level via labels. 
+
+ To test , we are going to make calls without peer authentication enabled. 
+
+ Run the following command  
+`kubectl create ns legacy && 
+kubectl -n legacy run workload --image=radial/busyboxplus:curl -- tail -f /dev/null`
+
 
 ### Authorization 
 - Authorization Policy 
