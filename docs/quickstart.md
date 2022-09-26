@@ -178,4 +178,6 @@ kubectl -n legacy run workload --image=radial/busyboxplus:curl -- tail -f /dev/n
 
 
 ### Authorization 
+
+Authorization is the process of determining if an an authenticated subject can perform an action. The envoy proxy which is a sidecar in containers in the mesh is the authorization implementation point. Istio configures this through a custom resource called Ai
 - Authorization Policy 
