@@ -176,6 +176,59 @@ This manifest ensures strict MTLS across the ENTIRE mesh because of the `namespa
 `kubectl create ns legacy && 
 kubectl -n legacy run workload --image=radial/busyboxplus:curl -- tail -f /dev/null`
 
+### Request Authentication 
+In request authentication ( or end user authentication), users are authenticated using [JWTs](https://jwt.io/). These JWTs are typically issue by any OIDC  provider , however because the bigbang stack deploys keycloak , we will use it as our IDP.  For the purpose of this demo we can spin up a keycloak instance [insert details on how to toggle bigbang ] 
+
+Run the following commands 
+```bash
+kubectl create ns keycloak
+kubectl -n keycloak apply -f kube/idp/keycloak.yaml
+
+# wait for the rollout
+kubectl -n keycloak rollout status deploy/keycloak
+```
+Once we install the local keycloak server, we can configure it with the script 
+
+```bash
+# 1. Port forward to the local environment
+kubectl port-forward svc/keycloak -n keycloak  8081:8080 &
+PID=$!
+sleep 2
+
+# 2. Create client and users
+export KEYCLOAK_URL=http://localhost:8081/auth
+
+export KEYCLOAK_TOKEN=$(curl -d "client_id=admin-cli" -d "username=admin" -d "password=admin" -d "grant_type=password" "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" | jq -r .access_token)
+echo $KEYCLOAK_TOKEN
+
+# Create initial token to register the client
+read -r client token <<<$(curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"expiration": 0, "count": 1}' $KEYCLOAK_URL/admin/realms/master/clients-initial-access | jq -r '[.id, .token] | @tsv')
+
+# Register the client
+read -r id secret <<<$(curl -X POST -d "{ \"clientId\": \"sa-frontend\", \"implicitFlowEnabled\": true }" -H "Content-Type:application/json" -H "Authorization: bearer ${token}" ${KEYCLOAK_URL}/realms/master/clients-registrations/default| jq -r '[.id, .secret] | @tsv')
+
+# Add allowed redirect URIs
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X PUT \
+  -H "Content-Type: application/json" -d "{\"serviceAccountsEnabled\": true, \"directAccessGrantsEnabled\": true, \"authorizationServicesEnabled\": true, \"redirectUris\": [\"http://localhost:8080/\"]}" $KEYCLOAK_URL/admin/realms/master/clients/${id}
+
+# Add the group attribute in the JWT returned by Keycloak
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"name": "group", "protocol": "openid-connect", "protocolMapper": "oidc-usermodel-attribute-mapper", "config": {"claim.name": "group", "jsonType.label": "String", "user.attribute": "group", "id.token.claim": "true", "access.token.claim": "true"}}' $KEYCLOAK_URL/admin/realms/master/clients/${id}/protocol-mappers/models
+
+# Add the user type attribute in the JWT returned by Keycloak
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"name": "usertype", "protocol": "openid-connect", "protocolMapper": "oidc-usermodel-attribute-mapper", "config": {"claim.name": "usertype", "jsonType.label": "String", "user.attribute": "usertype", "id.token.claim": "true", "access.token.claim": "true"}}' $KEYCLOAK_URL/admin/realms/master/clients/${id}/protocol-mappers/models
+
+# Create regular user
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"username": "user", "email": "user@acme.com", "enabled": true, "attributes": {"group": "users", "usertype": "regular"}, "credentials": [{"type": "password", "value": "password", "temporary": false}]}' $KEYCLOAK_URL/admin/realms/master/users
+
+# Create beta user
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"username": "beta", "email": "beta@acme.com", "enabled": true, "attributes": {"group": "users", "usertype": "beta"}, "credentials": [{"type": "password", "value": "password", "temporary": false}]}' $KEYCLOAK_URL/admin/realms/master/users
+
+# Create moderator user
+curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: application/json" -d '{"username": "moderator", "email": "moderator@acme.com", "enabled": true, "attributes": {"group": "moderator", "usertype": "regular"}, "credentials": [{"type": "password", "value": "password", "temporary": false}]}' $KEYCLOAK_URL/admin/realms/master/users
+
+# 3. Stop port-forwarding
+kill $PID
+```
 
 ### Authorization 
 
