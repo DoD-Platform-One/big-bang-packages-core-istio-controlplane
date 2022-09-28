@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.15.0-bb.0] - 2022-09-17
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.14.3 to 1.15.0
+- ironbank/opensource/istio/pilot updated from 1.14.3 to 1.15.0
+- ironbank/opensource/istio/proxyv2 updated from 1.14.3 to 1.15.0
+- ironbank/tetrate/istio/install-cni updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/istioctl updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/pilot updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/proxyv2 updated from 1.13.5 to 1.14.3
+
 ## [1.14.3-bb.4]
 ### Changed
 - Adds env variable to values which can be used during deployment to modify istio k8s env settings
