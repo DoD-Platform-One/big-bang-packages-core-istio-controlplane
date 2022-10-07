@@ -11,7 +11,7 @@ tag: 1.15.0
 # Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription
 enterprise: false
 tidHub: registry1.dso.mil/ironbank/tetrate/istio
-tidTag: 1.14.3-tetratefips-v0
+tidTag: 1.14.4-tetratefips-v0
 
 # -- The domain to use for the default gateway
 domain: bigbang.dev
