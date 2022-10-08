@@ -176,6 +176,11 @@ This manifest ensures strict MTLS across the ENTIRE mesh because of the `namespa
 `kubectl create ns legacy && 
 kubectl -n legacy run workload --image=radial/busyboxplus:curl -- tail -f /dev/null`
 
+
+
+( reference upstream docs 
+
+)
 ### Request Authentication 
 In request authentication ( or end user authentication), users are authenticated using [JWTs](https://jwt.io/). These JWTs are typically issue by any OIDC  provider , however because the bigbang stack deploys keycloak , we will use it as our IDP.  For the purpose of this demo we can spin up a keycloak instance [insert details on how to toggle bigbang ] 
 
@@ -229,8 +234,117 @@ curl -H "Authorization: Bearer ${KEYCLOAK_TOKEN}" -X POST -H "Content-Type: appl
 # 3. Stop port-forwarding
 kill $PID
 ```
+For keycloak to be available to endusers , we will have to expose it via the ingress gateway.  Run the following command. 
 
-### Authorization 
+`kubectl apply -f istio/vs-route-ingress-keycloak.yaml`
+
+You can view the details of the virtualservice below 
+
+<details open>
+<summary>Keycloak Virtual Service</summary>
+<br>
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: sa-external-services
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway
+  http:
+  - match:
+    - uri:
+        exact: /
+    - uri:
+        prefix: /static
+    - uri:
+        regex: '^.*\.(ico|png|jpg)$'
+    route:
+    - destination:
+        host: sa-frontend
+        port:
+          number: 80
+  - match:
+    - uri:
+        prefix: /sentiment
+    route:
+    - destination:
+        host: sa-webapp
+        port:
+          number: 80
+  - match:
+    - uri:
+        prefix: /feedback
+    route:
+    - destination:
+        host: sa-feedback
+        port:
+          number: 80
+  - match:
+    - uri:
+        prefix: /auth
+    route:
+    - destination:
+        host: keycloak.keycloak.svc.cluster.local
+        port:
+          number: 8080
+```
+</details>
+
+Looking at the virtual service object , you can see that the uri path with the `/auth` suffix , has a destination of `keycloak.keycloak.svc.cluster.local`. Which is the keycloak server location in the cluster. 
+
+To test this out , we update the deployment to use a rebuilt image with code that references keycloak. 
+
+run the command - 
+
+`kubectl set image deployment/sa-frontend \
+    sa-frontend=rinormaloku/sentiment-analysis-frontend:keycloak`
+
+Having configured keycloak we can now set up request authentication. 
+
+```yaml 
+apiVersion: "security.istio.io/v1beta1"
+kind: "RequestAuthentication"
+metadata:
+  name: "keycloak-request-authn"
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  jwtRules:
+  - issuer: "http://localhost:8080/auth/realms/master" (1)
+    jwksUri: http://keycloak.keycloak.svc:8080/auth/realms/master/protocol/openid-connect/certs (2)
+```
+
+The sample request authentication is shown above. 
+
+From the RequestAuthenication custom resource, you can see the rules under `jwtRules`. 
+- Any token matching the issuer `http://localhost:8080/auth/realms/master` will be authenticated. 
+- Tokens are validated against the JSON Web token Keysets found at the ` http://keycloak.keycloak.svc:8080/auth/realms/master/protocol/openid-connect/certs` uri.
+
+
+Apply the yaml 
+
+`kubectl apply -f istio/security/request-authentication.yaml`. 
+
+It is important to note that The RequestAuthentication resource only authenticates requests containing the JWT. Other requests will be let through. 
+
+Validate by running the command 
+
+```bash
+curl -S http://localhost:8080/sentiment \
+    -H "Content-type: application/json" \
+    -d '{"sentence": "I love yogobella"}'
+```
+
+Requests which have a JWT will have the identity data stored in the connection metadata. The connection metadata are referred to as connection identity or request identity.
+The policies make decisions to admit or reject traffic based on the request identity
+
+## Authorization 
 
 Authorization is the process of determining if an an authenticated subject can perform an action. The envoy proxy which is a sidecar in containers in the mesh is the authorization implementation point. Istio configures this through a custom resource called Ai
 - Authorization Policy 
