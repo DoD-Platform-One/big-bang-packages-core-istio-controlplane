@@ -346,5 +346,59 @@ The policies make decisions to admit or reject traffic based on the request iden
 
 ## Authorization 
 
-Authorization is the process of determining if an an authenticated subject can perform an action. The envoy proxy which is a sidecar in containers in the mesh is the authorization implementation point. Istio configures this through a custom resource called Ai
+Authorization is the process of determining if an an authenticated subject can perform an action. The envoy proxy which is a sidecar in containers in the mesh is the authorization implementation point. Istio configures this through a custom resource called Authorization policy
 - Authorization Policy 
+
+An example is shown below 
+
+<details open>
+<summary>Sample Authorization Policy</summary>
+<br>
+
+```yaml
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-view
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        paths: ["/", "/static*", "/auth*"]
+```
+</details>
+
+This policy enables access , meshwide , to the paths `/` , `/static` and `/auth` which map to the sa-frontend and keycloak services respectively.
+
+Apply the manifest to the cluster .
+
+`kubectl apply -f istio/security/allow-view.yaml`
+
+
+With the policy below, we allow requests from any of the matching requestPrincipals for all paths prefixed with /sentiment.
+
+``` yaml 
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-analysis
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        requestPrincipals: ["*"]
+    to:
+    - operation:
+        paths: ["/sentiment*"]
+```
+For a policy to apply to incoming traffic, it must match both the source and the operation. For example, the above policy will apply and allow traffic only if:
