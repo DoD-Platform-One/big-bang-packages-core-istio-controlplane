@@ -402,3 +402,18 @@ spec:
         paths: ["/sentiment*"]
 ```
 For a policy to apply to incoming traffic, it must match both the source and the operation. For example, the above policy will apply and allow traffic only if:
+
+
+
+
+
+
+
+## Conclusion 
+
+This document is meant to serve as a quickstart to getting up and running with Istio andthe example is taken from [], however to get more detailed information on learning and using istio , the following resources are recommended. 
+
+
+- [Tetrate academy istio training](https://academy.tetrate.io/courses/istio-fundamentals)
+- [Red hat Istio Tutorial](https://redhat-scholars.github.io/istio-tutorial/istio-tutorial/1.9.x/index.html)
+- [ Tetrate Istio Weekly](https://www.youtube.com/watch?v=8X_pSA5eRTY&list=PLm51GPKRAmTnMzTf9N95w_yXo7izg80Jc)
