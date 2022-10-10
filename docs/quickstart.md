@@ -20,7 +20,7 @@ The following pre reqs need to be met
 ## Sample application 
 For practice we shall be using a [sample application](https://github.com/rinormaloku/master-istio.git) called Sentiment Analysis - more information about the application can be found [here](https://www.freecodecamp.org/news/learn-kubernetes-in-under-3-hours-a-detailed-guide-to-orchestrating-containers-114ff420e882)
 
-To install the application , run the following commands
+To install the application, run the following commands
 
 `kubectl create ns demo  && kubectl label ns demo istio-injection=enabled`
 
@@ -57,7 +57,7 @@ Before going into traffic management, it is imperative to understand the various
 
 ### Admitting traffic into the mesh/cluster 
 
-Istio comes with a reverse proxy built on envoy which routes traffic to backend services. This is called an [ingress gateway]() and it acts as an entrypoint into the cluster. It also does loadbalancing and virtual hosting for backend services. From a technical perspective it is simply an envoy proxy (like the sidecar) , that sits at the edge of the cluster and is exposed outside of the cluster by a loadbalancer. 
+Istio comes with a reverse proxy built on envoy which routes traffic to backend services. This is called an [ingress gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/) and it acts as an entrypoint into the cluster. It also does loadbalancing and virtual hosting for backend services. From a technical perspective it is simply an envoy proxy (like the sidecar) , that sits at the edge of the cluster and is exposed outside of the cluster by a loadbalancer. 
 
 To verify the ingress gateway is running, issue the command below 
 `kubectl get svc -n istio-system -l istio=ingressgateway`
@@ -130,7 +130,7 @@ spec:
 </details>
 
 This is a [sample](https://istio.io/latest/docs/reference/config/networking/gateway/) from the official docs but the principle is the same.  You use th gateway object to configure the ingress gateway. It serves as a route for traffic hitting the ingress gateway reverse proxy. It is analogous to the [ingress object](https://kubernetes.io/docs/concepts/services-networking/ingress/) in kubernetes , with the ingress gateway being analagous to the [ingress controller](https://docs.nginx.com/nginx-ingress-controller/). 
-### Canary Deployments 
+
 
 ## Security using Istio 
 
@@ -176,13 +176,8 @@ This manifest ensures strict MTLS across the ENTIRE mesh because of the `namespa
 `kubectl create ns legacy && 
 kubectl -n legacy run workload --image=radial/busyboxplus:curl -- tail -f /dev/null`
 
-
-
-( reference upstream docs 
-
-)
 ### Request Authentication 
-In request authentication ( or end user authentication), users are authenticated using [JWTs](https://jwt.io/). These JWTs are typically issue by any OIDC  provider , however because the bigbang stack deploys keycloak , we will use it as our IDP.  For the purpose of this demo we can spin up a keycloak instance [insert details on how to toggle bigbang ] 
+In request authentication ( or end user authentication), users are authenticated using [JWTs](https://jwt.io/). These JWTs are typically issue by any OIDC  provider , however because the bigbang stack deploys keycloak , we will use it as our IDP. For the purpose of this demo we can spin up a keycloak instance. 
 
 Run the following commands 
 ```bash
@@ -403,9 +398,8 @@ spec:
 ```
 For a policy to apply to incoming traffic, it must match both the source and the operation. For example, the above policy will apply and allow traffic only if:
 
-
-
-
+- It matches the source in the rules. 
+- It matches the paths in the operations. 
 
 
 
@@ -417,3 +411,4 @@ This document is meant to serve as a quickstart to getting up and running with I
 - [Tetrate academy istio training](https://academy.tetrate.io/courses/istio-fundamentals)
 - [Red hat Istio Tutorial](https://redhat-scholars.github.io/istio-tutorial/istio-tutorial/1.9.x/index.html)
 - [ Tetrate Istio Weekly](https://www.youtube.com/watch?v=8X_pSA5eRTY&list=PLm51GPKRAmTnMzTf9N95w_yXo7izg80Jc)
+- [Istio by example](https://istiobyexample.dev/)
