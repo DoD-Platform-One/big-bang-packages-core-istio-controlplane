@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.15.3-bb.0] - 2022-11-01
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.15.0 to 1.15.3
+- ironbank/opensource/istio/pilot updated from 1.15.0 to 1.15.3
+- ironbank/opensource/istio/proxyv2 updated from 1.15.0 to 1.15.3
+- ironbank/tetrate/istio/install-cni updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/istioctl updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/pilot updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/proxyv2 updated from 1.14.4 to 1.15.1
+
 ## [1.15.0-bb.1] - 2022-09-30
 ### Changed
 - ironbank/tetrate/istio/install-cni updated from 1.14.3 to 1.14.4
