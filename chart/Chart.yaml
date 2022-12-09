@@ -13,6 +13,7 @@ annotations:
     - name: proxyv2
       image: registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.15.3
     - name: install-cni
+      condition: openshift
       image: registry1.dso.mil/ironbank/opensource/istio/install-cni:1.15.3
     - name: istioctl-fips
       condition: enterprise
