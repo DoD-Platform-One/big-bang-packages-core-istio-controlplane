@@ -3,9 +3,9 @@ kind: Kptfile
 metadata:
     name: dashboards
 upstream:
-    type: git
-    git:
-        commit: bc21f4628d31fe5380569db6fa0e73517d956a0d
-        repo: https://github.com/istio/istio
-        directory: /manifests/addons/dashboards
-        ref: 1.15.3
+  type: git
+  git:
+    commit: f6d7bf648e571a6a523210d97bde8b489250354b
+    repo: https://github.com/istio/istio
+    directory: /manifests/addons/dashboards
+    ref: 1.16.1
