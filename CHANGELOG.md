@@ -4,8 +4,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 ## [1.16.1-bb.2] - 2023-02-08
-### Chanaged
-- Reverted image tags for tetrate images to 1.16.1-tetratefips-v0
+### Changed
+- Removed tetrate istioctl and install-cni image references
 
 ## [1.16.1-bb.1] - 2023-01-27
 ### Changed
