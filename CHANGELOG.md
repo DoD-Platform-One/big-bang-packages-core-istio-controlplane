@@ -4,7 +4,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.17.1-bb.0] - 2023-04-07
+## [1.17.1-bb.1] - 2023-04-07
 ### Changed
 - Added ability to pass pilot values to IstioOperator resource definition
 
