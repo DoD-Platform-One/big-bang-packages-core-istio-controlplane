@@ -233,6 +233,14 @@ values:
           memory: 256Mi
   # -- Set defaultRevision name, must be non-empty to deploy validating webhook
   defaultRevision: "default"
+  # -- Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml
+  pilot: {}
+    # # For example, include a custom CA certificate for the JWKS URI resolver
+    # jwksResolverExtraRootCA: |
+    #   -----BEGIN CERTIFICATE-----
+    #   ...
+    #   -----END CERTIFICATE-----
+
 
 # -- Big Bang NetworkPolicy controls
 networkPolicies:

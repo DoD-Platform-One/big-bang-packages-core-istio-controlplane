@@ -113,6 +113,10 @@ spec:
     {{- end }}
 
   values:
+    {{- if .Values.values.pilot }}
+    pilot:
+      {{- toYaml .Values.values.pilot | nindent 6 }}
+    {{- end }}
     {{- if .Values.openshift }}
     cni:
       repair:
