@@ -1,4 +1,4 @@
-# How to upgrade the Istio Operator Package chart
+# How to upgrade the Istio ControlPlane Package chart
 1. Checkout the branch that renovate created. This branch will have the image tag updates and typically some other necessary version changes that you will want. You can either work off of this branch or branch off of it.
 1. Update the dashboards via `kpt`. You should be able to run `kpt pkg update chart/dashboards@<version> --strategy force-delete-replace` (ex: `kpt pkg update chart/dashboards@1.14.3 --strategy force-delete-replace`).
 1. Update version references for the Chart. `version` should be `<version>-bb.0` (ex: `1.14.3-bb.0`) and `appVersion` should be `<version>` (ex: `1.14.3`). Also validate that the BB annotation for the main Istio version is updated (leave the Tetrate version as-is unless you are updating those images).

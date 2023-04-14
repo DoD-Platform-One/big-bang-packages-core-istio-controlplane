@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.17.2-bb.0] - 2023-04-11
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.17.1 to 1.17.2
+- ironbank/opensource/istio/pilot updated from 1.17.1 to 1.17.2
+- ironbank/opensource/istio/proxyv2 updated from 1.17.1 to 1.17.2
+
 ## [1.17.1-bb.1] - 2023-04-07
 ### Changed
 - Added ability to pass pilot values to IstioOperator resource definition
