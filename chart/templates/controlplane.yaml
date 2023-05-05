@@ -122,8 +122,13 @@ spec:
       repair:
         enabled: false
       image: {{ .Values.cni.image.name }}
+      {{- if .Values.enterprise }}
+      hub: {{ .Values.tidHub }}
+      tag: {{ .Values.tidTag }}
+      {{ else }}
       hub: {{ .Values.cni.image.hub }}
       tag: {{ .Values.cni.image.tag }}
+      {{- end }}
       cniBinDir: {{ .Values.cni.binDir | default "/var/lib/cni/bin" }}
       cniConfDir: {{ .Values.cni.confDir | default "/etc/cni/multus/net.d" }}
       chained: false
