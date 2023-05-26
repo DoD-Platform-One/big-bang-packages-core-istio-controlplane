@@ -3,6 +3,98 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.17.2-bb.1] - 2023-05-04
+### Changed
+- ironbank/tetrate/istio/install-cni updated from 1.16.1 to 1.17.2
+- ironbank/tetrate/istio/pilot updated from 1.16.1 to 1.17.2
+- ironbank/tetrate/istio/proxyv2 updated from 1.16.1 to 1.17.2
+
+## [1.17.2-bb.0] - 2023-04-11
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.17.1 to 1.17.2
+- ironbank/opensource/istio/pilot updated from 1.17.1 to 1.17.2
+- ironbank/opensource/istio/proxyv2 updated from 1.17.1 to 1.17.2
+
+## [1.17.1-bb.1] - 2023-04-07
+### Changed
+- Added ability to pass pilot values to IstioOperator resource definition
+
+## [1.17.1-bb.0] - 2023-03-01
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.16.2 to 1.17.1
+- ironbank/opensource/istio/pilot updated from 1.16.2 to 1.17.1
+- ironbank/opensource/istio/proxyv2 updated from 1.16.2 to 1.17.1
+
+## [1.16.2-bb.0] - 2023-02-10
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.16.1 to 1.16.2
+- ironbank/opensource/istio/pilot updated from 1.16.1 to 1.16.2
+- ironbank/opensource/istio/proxyv2 updated from 1.16.1 to 1.16.2
+
+## [1.16.1-bb.2] - 2023-02-08
+### Changed
+- Removed tetrate istioctl and install-cni image references
+
+## [1.16.1-bb.1] - 2023-01-27
+### Changed
+- ironbank/tetrate/istio/install-cni updated from 1.15.1 to 1.16.1
+- ironbank/tetrate/istio/istioctl updated from 1.15.1 to 1.16.1
+- ironbank/tetrate/istio/pilot updated from 1.15.1 to 1.16.1
+- ironbank/tetrate/istio/proxyv2 updated from 1.15.1 to 1.16.1
+
+## [1.16.1-bb.0] - 2022-12-17
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.15.3 to 1.16.1
+- ironbank/opensource/istio/pilot updated from 1.15.3 to 1.16.1
+- ironbank/opensource/istio/proxyv2 updated from 1.15.3 to 1.16.1
+
+## [1.15.3-bb.1]
+### Changed
+- Splits the `postInstallHook` image and tag so that they can be maintained separately.
+
+## [1.15.3-bb.0] - 2022-11-01
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.15.0 to 1.15.3
+- ironbank/opensource/istio/pilot updated from 1.15.0 to 1.15.3
+- ironbank/opensource/istio/proxyv2 updated from 1.15.0 to 1.15.3
+- ironbank/tetrate/istio/install-cni updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/istioctl updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/pilot updated from 1.14.4 to 1.15.1
+- ironbank/tetrate/istio/proxyv2 updated from 1.14.4 to 1.15.1
+
+## [1.15.0-bb.1] - 2022-09-30
+### Changed
+- ironbank/tetrate/istio/install-cni updated from 1.14.3 to 1.14.4
+- ironbank/tetrate/istio/istioctl updated from 1.14.3 to 1.14.4
+- ironbank/tetrate/istio/pilot updated from 1.14.3 to 1.14.4
+- ironbank/tetrate/istio/proxyv2 updated from 1.14.3 to 1.14.4
+
+## [1.15.0-bb.0] - 2022-09-17
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.14.3 to 1.15.0
+- ironbank/opensource/istio/pilot updated from 1.14.3 to 1.15.0
+- ironbank/opensource/istio/proxyv2 updated from 1.14.3 to 1.15.0
+- ironbank/tetrate/istio/install-cni updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/istioctl updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/pilot updated from 1.13.5 to 1.14.3
+- ironbank/tetrate/istio/proxyv2 updated from 1.13.5 to 1.14.3
+
+## [1.14.3-bb.4]
+### Changed
+- Adds env variable to values which can be used during deployment to modify istio k8s env settings
+
+## [1.14.3-bb.3]
+### Changed
+- Drop all capabilities + nonroot for hook job
+
+## [1.14.3-bb.2]
+### Changed
+- Added Openshift DNS to networkpolicy egress
+
+## [1.14.3-bb.1]
+### Changed
+- Removed legacy fluentd exception
+
 ## [1.14.3-bb.0]
 ### Changed
 - Updated to 1.14.3 images

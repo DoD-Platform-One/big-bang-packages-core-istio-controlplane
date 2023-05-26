@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.14.3-bb.0](https://img.shields.io/badge/Version-1.14.3--bb.0-informational?style=flat-square) ![AppVersion: 1.14.3](https://img.shields.io/badge/AppVersion-1.14.3-informational?style=flat-square)
+![Version: 1.17.2-bb.1](https://img.shields.io/badge/Version-1.17.2--bb.1-informational?style=flat-square) ![AppVersion: 1.17.2](https://img.shields.io/badge/AppVersion-1.17.2-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -32,10 +32,10 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag" |
-| tag | string | `"1.14.3"` | The tag to use for all images |
+| tag | string | `"1.17.2"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
-| tidTag | string | `"1.13.5-tetratefips-v0"` |  |
+| tidTag | string | `"1.17.2-tetratefips-v0"` |  |
 | domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
 | revision | string | `""` | Revision of the Istio control plane |
 | openshift | bool | `false` | Openshift feature switch toggle |
@@ -68,7 +68,7 @@ helm install istio chart/
 | gateways | object | `{"main":{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}}` | See https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway for spec |
 | gateways.main | object | `{"autoHttpRedirect":{"enabled":true},"selector":{"app":"istio-ingressgateway"},"servers":[{"hosts":["*.{{ .Values.domain }}"],"port":{"name":"https","number":8443,"protocol":"HTTPS"},"tls":{"credentialName":"wildcard-cert","mode":"SIMPLE"}}]}` | This key becomes the name of the gateway |
 | gateways.main.autoHttpRedirect | object | `{"enabled":true}` | Controls default HTTP/8080 server entry with HTTP to HTTPS Redirect. Must add in HTTP server config if disabling. |
-| istiod | object | `{"affinity":{},"hpaSpec":{"maxReplicas":3,"metrics":[{"resource":{"name":"cpu","targetAverageUtilization":60},"type":"Resource"}],"minReplicas":1},"nodeSelector":{},"podAnnotations":{},"replicaCount":1,"resources":{"limits":{"cpu":"500m","memory":"2Gi"},"requests":{"cpu":"500m","memory":"2Gi"}},"serviceAnnotations":{},"strategy":{},"tolerations":[]}` | istiod / pilot configuration |
+| istiod | object | `{"affinity":{},"env":[],"hpaSpec":{"maxReplicas":3,"metrics":[{"resource":{"name":"cpu","targetAverageUtilization":60},"type":"Resource"}],"minReplicas":1},"nodeSelector":{},"podAnnotations":{},"replicaCount":1,"resources":{"limits":{"cpu":"500m","memory":"2Gi"},"requests":{"cpu":"500m","memory":"2Gi"}},"serviceAnnotations":{},"strategy":{},"tolerations":[]}` | istiod / pilot configuration |
 | istiod.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | istiod.serviceAnnotations | object | `{}` | k8s service annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | istiod.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
@@ -80,7 +80,7 @@ helm install istio chart/
 | tracing.sampling | int | `10` | percent of traces to send to jaeger |
 | cni.image.hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
 | cni.image.name | string | `"install-cni"` |  |
-| cni.image.tag | string | `"1.14.3"` |  |
+| cni.image.tag | string | `"1.17.2"` |  |
 | cni.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | cni.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
 | cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
@@ -88,11 +88,14 @@ helm install istio chart/
 | meshConfig.meshMTLS.minProtocolVersion | string | `"TLSV1_2"` |  |
 | values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
 | values.defaultRevision | string | `"default"` | Set defaultRevision name, must be non-empty to deploy validating webhook |
+| values.pilot | object | `{}` | Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml |
 | networkPolicies | object | `{"controlPlaneCidr":"0.0.0.0/0","enabled":false}` | Big Bang NetworkPolicy controls |
 | networkPolicies.enabled | bool | `false` | Toggle ALL NetworkPolicies on/off |
 | networkPolicies.controlPlaneCidr | string | `"0.0.0.0/0"` | See `kubectl cluster-info` and then resolve to IP |
-| postInstallHook | object | `{"image":"registry1.dso.mil/ironbank/big-bang/base:2.0.0"}` | Big Bang postInstall "readiness" controls |
-| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base:2.0.0"` | Image used to run readiness check, requires `kubectl` |
+| postInstallHook.image | string | `"registry1.dso.mil/ironbank/big-bang/base"` | Image used to run readiness check, requires `kubectl` |
+| postInstallHook.tag | string | `"2.0.0"` |  |
+| postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
+| postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
 
 ## Contributing
 

@@ -4,14 +4,14 @@ profile: default
 # -- The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio
 # -- The tag to use for all images
-tag: 1.14.3
+tag: 1.17.2
 
 # -- Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support,
 # validated through the FIPs Boring Crypto module.
 # Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription
 enterprise: false
 tidHub: registry1.dso.mil/ironbank/tetrate/istio
-tidTag: 1.13.5-tetratefips-v0
+tidTag: 1.17.2-tetratefips-v0
 
 # -- The domain to use for the default gateway
 domain: bigbang.dev
@@ -166,6 +166,7 @@ istiod:
     limits:
       cpu: 500m
       memory: 2Gi
+  env: []
   hpaSpec:
     maxReplicas: 3
     minReplicas: 1
@@ -197,7 +198,7 @@ cni:
   image:
     hub: registry1.dso.mil/ironbank/opensource/istio
     name: install-cni
-    tag: 1.14.3
+    tag: 1.17.2
   # -- k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
@@ -232,6 +233,14 @@ values:
           memory: 256Mi
   # -- Set defaultRevision name, must be non-empty to deploy validating webhook
   defaultRevision: "default"
+  # -- Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml
+  pilot: {}
+    # # For example, include a custom CA certificate for the JWKS URI resolver
+    # jwksResolverExtraRootCA: |
+    #   -----BEGIN CERTIFICATE-----
+    #   ...
+    #   -----END CERTIFICATE-----
+
 
 # -- Big Bang NetworkPolicy controls
 networkPolicies:
@@ -240,7 +249,18 @@ networkPolicies:
   # -- See `kubectl cluster-info` and then resolve to IP
   controlPlaneCidr: 0.0.0.0/0
 
-# -- Big Bang postInstall "readiness" controls
 postInstallHook:
   # -- Image used to run readiness check, requires `kubectl`
-  image: registry1.dso.mil/ironbank/big-bang/base:2.0.0
+  image: registry1.dso.mil/ironbank/big-bang/base
+  tag: 2.0.0
+  # -- Pod security context for readiness check
+  securityContext:
+    fsGroup: 1001
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+  # -- Container security context for readiness check
+  containerSecurityContext:
+    capabilities:
+      drop:
+        - ALL

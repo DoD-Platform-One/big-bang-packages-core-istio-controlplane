@@ -18,6 +18,8 @@ spec:
   components:
     pilot:
       k8s:
+        env:
+          {{- toYaml .Values.istiod.env | nindent 10 }}
 {{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
         hpaSpec:
           maxReplicas: {{ .Values.istiod.hpaSpec.maxReplicas }}
@@ -111,13 +113,22 @@ spec:
     {{- end }}
 
   values:
+    {{- if .Values.values.pilot }}
+    pilot:
+      {{- toYaml .Values.values.pilot | nindent 6 }}
+    {{- end }}
     {{- if .Values.openshift }}
     cni:
       repair:
         enabled: false
       image: {{ .Values.cni.image.name }}
+      {{- if .Values.enterprise }}
+      hub: {{ .Values.tidHub }}
+      tag: {{ .Values.tidTag }}
+      {{ else }}
       hub: {{ .Values.cni.image.hub }}
       tag: {{ .Values.cni.image.tag }}
+      {{- end }}
       cniBinDir: {{ .Values.cni.binDir | default "/var/lib/cni/bin" }}
       cniConfDir: {{ .Values.cni.confDir | default "/etc/cni/multus/net.d" }}
       chained: false
@@ -150,9 +161,3 @@ spec:
       injectedAnnotations:
         k8s.v1.cni.cncf.io/networks: istio-cni
       {{- end }}
-
-      neverInjectSelector:
-        - matchExpressions:
-            - key: app.kubernetes.io/component
-              operator: In
-              values: [fluentd-configcheck]

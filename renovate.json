@@ -11,7 +11,15 @@
     {
       "matchDatasources": ["docker"],
       "groupName": "Ironbank",
-      "registryUrls": ["https://registry1.dso.mil"]
+      "registryUrls": ["https://registry1.dso.mil"],
+      "postUpgradeTasks": {
+        "commands": [
+            "match-chart-yaml-appversion",
+            "regenerate-helm-docs",
+            "bump-changelog '- {{{replace 'registry1.dso.mil/' '' depName}}} updated from {{{currentVersion}}} to {{{newVersion}}}'"
+        ],
+        "fileFilters": ["chart/Chart.yaml", "README.md", "CHANGELOG.md"]
+      }
     },
     {
       "matchPackageNames": ["registry1.dso.mil/ironbank/big-bang/base"],
@@ -58,11 +66,36 @@
       "datasourceTemplate": "docker"
     },
     {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "tidTag:\\s+(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^chart/Chart\\.yaml$"],
+      "matchStrings": [
+        "- Tetrate Istio Distro:\\s+(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2",
+      "datasourceTemplate": "docker"
+    },
+    {
       "fileMatch": ["^tests/images\\.txt$"],
       "matchStrings": [
         "s*(?<depName>.+):(?<currentValue>.+)"
       ],
       "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^chart/Chart\\.yaml$"],
+      "matchStrings": [
+        "image:[^\\S\\r\\n]+(?<depName>.+):(?<currentValue>.+)"
+       ],
+       "datasourceTemplate": "docker"
     }
   ]
 }

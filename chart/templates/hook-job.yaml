@@ -26,6 +26,10 @@ spec:
       {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 8 }}
       containers:
         - name: hook
-          image: "{{ .Values.postInstallHook.image }}"
+          image: "{{ .Values.postInstallHook.image }}:{{ .Values.postInstallHook.tag }}"
           command: ["kubectl"]
           args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
+          securityContext:
+            {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
+      securityContext:
+        {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}
