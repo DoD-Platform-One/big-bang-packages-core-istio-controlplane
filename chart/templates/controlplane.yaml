@@ -157,7 +157,8 @@ spec:
     defaultRevision: {{ .Values.values.defaultRevision }}
     sidecarInjectorWebhook:
       rewriteAppHTTPProbe: true
-      {{- if .Values.openshift }}
       injectedAnnotations:
+        readiness.status.sidecar.istio.io/failureThreshold: 90
+      {{- if .Values.openshift }}
         k8s.v1.cni.cncf.io/networks: istio-cni
       {{- end }}
