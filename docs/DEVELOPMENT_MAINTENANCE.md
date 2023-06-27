@@ -15,7 +15,7 @@ Generally the controlplane update should be tested alongside the new operator ve
       git:
         tag: null
         branch: "renovate/ironbank" # Or your branch
-    istiooperator:
+    istioOperator:
       git:
         tag: null
         branch: "renovate/ironbank" # Or your branch

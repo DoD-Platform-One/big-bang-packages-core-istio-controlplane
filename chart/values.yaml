@@ -11,7 +11,7 @@ tag: 1.17.2
 # Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription
 enterprise: false
 tidHub: registry1.dso.mil/ironbank/tetrate/istio
-tidTag: 1.17.2-tetratefips-v0
+tidTag: 1.17.3-tetratefips-v0
 
 # -- The domain to use for the default gateway
 domain: bigbang.dev
@@ -198,7 +198,7 @@ cni:
   image:
     hub: registry1.dso.mil/ironbank/opensource/istio
     name: install-cni
-    tag: 1.17.2
+    tag: 1.17.3
   # -- k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
