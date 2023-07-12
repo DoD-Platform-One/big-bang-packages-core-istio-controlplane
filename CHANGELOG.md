@@ -4,9 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.17.3-bb.1] - 2023-07-06
+## [1.17.3-bb.3] - 2023-07-12
 ### Added
 - Allow user to specify their own `EnvoyFilters`
+
+## [1.17.3-bb.2] - 2023-07-12
+### Changed
+- fix README.md for bb docs compiler job
 
 ## [1.17.3-bb.1] - 2023-06-28
 ### Changed
