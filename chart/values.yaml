@@ -168,8 +168,8 @@ istiod:
       memory: 2Gi
   env: []
   hpaSpec:
-    maxReplicas: 3
-    minReplicas: 1
+    maxReplicas: 10
+    minReplicas: 5
     metrics:
       - type: Resource
         resource:
