@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.18.1-bb.0] - 2023-07-20
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.17.3 to 1.18.1
+- ironbank/opensource/istio/pilot updated from 1.17.3 to 1.18.1
+- ironbank/opensource/istio/proxyv2 updated from 1.17.3 to 1.18.1
+- ironbank/tetrate/istio/install-cni updated from 1.17.3 to 1.18.1
+- ironbank/tetrate/istio/pilot updated from 1.17.3 to 1.18.0
+- ironbank/tetrate/istio/proxyv2 updated from 1.17.3 to 1.18.0
+
 ## [1.17.3-bb.3] - 2023-07-12
 ### Added
 - Allow user to specify their own `EnvoyFilters`
