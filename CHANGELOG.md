@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.18.2-bb.0] - 2023-08-02 
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.18.1 to 1.18.2
+- ironbank/opensource/istio/pilot updated from 1.18.1 to 1.18.2
+- ironbank/opensource/istio/proxyv2 updated from 1.18.1 to 1.18.2
+- ironbank/tetrate/istio/install-cni updated from 1.18.0 to 1.18.2
+- ironbank/tetrate/istio/pilot updated from 1.18.0 to 1.18.2
+- ironbank/tetrate/istio/proxyv2 updated from 1.18.0 to 1.18.2
+- Updated to new HPA value schema
+
 ## [1.18.1-bb.0] - 2023-07-20
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.17.3 to 1.18.1
