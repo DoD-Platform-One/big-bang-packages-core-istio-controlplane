@@ -139,6 +139,7 @@ spec:
       logLevel: {{ .Values.cni.logLevel | default "info" }}
     {{- end }}
     global:
+      autoscalingv2API: true    
       {{- if .Values.imagePullPolicy }}
       imagePullPolicy: {{ .Values.imagePullPolicy }}
       {{- end }}
