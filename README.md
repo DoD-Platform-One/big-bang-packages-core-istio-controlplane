@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.18.2-bb.0](https://img.shields.io/badge/Version-1.18.2--bb.0-informational?style=flat-square) ![AppVersion: 1.18.2](https://img.shields.io/badge/AppVersion-1.18.2-informational?style=flat-square)
+![Version: 1.18.3-bb.0](https://img.shields.io/badge/Version-1.18.3--bb.0-informational?style=flat-square) ![AppVersion: 1.18.2](https://img.shields.io/badge/AppVersion-1.18.2-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -86,6 +86,8 @@ helm install istio chart/
 | cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
 | cni.tolerations | list | `[]` | k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
 | meshConfig.meshMTLS.minProtocolVersion | string | `"TLSV1_2"` |  |
+| meshConfig.defaultConfig.proxyMetadata.ISTIO_META_DNS_CAPTURE | string | `"true"` |  |
+| meshConfig.defaultConfig.proxyMetadata.ISTIO_META_DNS_AUTO_ALLOCATE | string | `"true"` |  |
 | values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
 | values.defaultRevision | string | `"default"` | Set defaultRevision name, must be non-empty to deploy validating webhook |
 | values.pilot | object | `{}` | Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml |
