@@ -4,7 +4,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.18.3-bb.0] - 2023-08-16 
+## [1.18.2-bb.1] - 2023-08-16 
 ### Changed
 - istio control plane default config
 
