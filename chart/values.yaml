@@ -213,6 +213,10 @@ cni:
 meshConfig: 
   meshMTLS:
     minProtocolVersion: TLSV1_2
+  defaultConfig:
+    proxyMetadata:
+      ISTIO_META_DNS_CAPTURE: "true"
+      ISTIO_META_DNS_AUTO_ALLOCATE: "true"
 
 values:
   # -- Global IstioOperator values
