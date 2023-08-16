@@ -210,13 +210,13 @@ cni:
   # -- k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   tolerations: []
 
+# -- Global mesh-wide settings https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#MeshConfig
 meshConfig: 
   meshMTLS:
     minProtocolVersion: TLSV1_2
-  defaultConfig:
-    proxyMetadata:
-      ISTIO_META_DNS_CAPTURE: "true"
-      ISTIO_META_DNS_AUTO_ALLOCATE: "true"
+
+# -- Default Proxy Config for the entire mesh (inserts under meshConfig in IstioOperator resource)
+defaultConfig: {}
 
 values:
   # -- Global IstioOperator values

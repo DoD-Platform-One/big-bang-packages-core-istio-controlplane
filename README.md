@@ -85,9 +85,8 @@ helm install istio chart/
 | cni.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
 | cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
 | cni.tolerations | list | `[]` | k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
-| meshConfig.meshMTLS.minProtocolVersion | string | `"TLSV1_2"` |  |
-| meshConfig.defaultConfig.proxyMetadata.ISTIO_META_DNS_CAPTURE | string | `"true"` |  |
-| meshConfig.defaultConfig.proxyMetadata.ISTIO_META_DNS_AUTO_ALLOCATE | string | `"true"` |  |
+| meshConfig | object | `{"meshMTLS":{"minProtocolVersion":"TLSV1_2"}}` | Global mesh-wide settings https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#MeshConfig |
+| defaultConfig | object | `{}` | Default Proxy Config for the entire mesh (inserts under meshConfig in IstioOperator resource) |
 | values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
 | values.defaultRevision | string | `"default"` | Set defaultRevision name, must be non-empty to deploy validating webhook |
 | values.pilot | object | `{}` | Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml |
