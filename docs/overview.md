@@ -1,4 +1,4 @@
-# Service Mesh and Istio 
+# Service Mesh and Istio - test repo sync
 
 A service mesh is a dedicated infrastructure layer for making service-to-service communication safe, fast, and reliable, at times relying on a container orchestrator or integration with another service discovery system. Service meshes might deploy as a separate layer atop container orchestrators, but don’t require them, as control and data-plane components might be deployed independent of containerized infrastructure. Istio is able to do this using the envoy sidecar proxy which it auto injects into every application pod. 
 
