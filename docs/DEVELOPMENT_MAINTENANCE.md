@@ -20,7 +20,7 @@ Generally the controlplane update should be tested alongside the new operator ve
         tag: null
         branch: "renovate/ironbank" # Or your branch
     ```
-1. Also deploy Jaeger with SSO enabled (use the dev values), Kiali, and Monitoring. These packages both interact with Istio in ways that are helpful to test.
+1. Also deploy Jaeger with SSO enabled (use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml)), Kiali, and Monitoring. These packages both interact with Istio in ways that are helpful to test.
 1. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
 1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
 1. Navigate to Grafana and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
