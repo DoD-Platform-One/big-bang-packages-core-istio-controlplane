@@ -1,20 +1,20 @@
 apiVersion: v2
 name: istio
-version: 1.18.2-bb.1
-appVersion: 1.18.2
+version: 1.19.0-bb.0
+appVersion: 1.19.0
 description: Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 annotations:
   bigbang.dev/applicationVersions: |
-    - Istio: 1.18.2
+    - Istio: 1.19.0
     - Tetrate Istio Distro: 1.18.2
   helm.sh/images: |
     - name: pilot
-      image: registry1.dso.mil/ironbank/opensource/istio/pilot:1.18.2
+      image: registry1.dso.mil/ironbank/opensource/istio/pilot:1.19.0
     - name: proxyv2
-      image: registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.18.2
+      image: registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.19.0
     - name: install-cni
       condition: openshift
-      image: registry1.dso.mil/ironbank/opensource/istio/install-cni:1.18.2
+      image: registry1.dso.mil/ironbank/opensource/istio/install-cni:1.19.0
     - name: install-cni-fips
       condition: enterprise
       image: registry1.dso.mil/ironbank/tetrate/istio/install-cni:1.18.2-tetratefips-v0
