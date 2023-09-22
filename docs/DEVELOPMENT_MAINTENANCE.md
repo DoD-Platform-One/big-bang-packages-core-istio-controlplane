@@ -21,7 +21,7 @@ Generally the controlplane update should be tested alongside the new operator ve
         branch: "renovate/ironbank" # Or your branch
     ```
 1. Also deploy the following:
-- Jaeger with SSO enabled (use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, note that you must disable Tempo to deploy Jaeger in this way. 
+- Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way). 
 - Kiali
 - Monitoring
 These packages all interact with Istio in ways that are helpful to test.
