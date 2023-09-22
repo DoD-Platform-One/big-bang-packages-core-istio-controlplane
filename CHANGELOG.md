@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.19.0-bb.0] - 2023-09-12
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.18.2 to 1.19.0
+- ironbank/opensource/istio/pilot updated from 1.18.2 to 1.19.0
+- ironbank/opensource/istio/proxyv2 updated from 1.18.2 to 1.19.0
+
 ## [1.18.2-bb.1] - 2023-08-16 
 ### Changed
 - istio control plane default config

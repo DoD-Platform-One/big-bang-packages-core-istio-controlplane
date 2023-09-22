@@ -4,7 +4,7 @@ profile: default
 # -- The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio
 # -- The tag to use for all images
-tag: 1.18.2
+tag: 1.19.0
 
 # -- Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support,
 # validated through the FIPs Boring Crypto module.
@@ -200,7 +200,7 @@ cni:
   image:
     hub: registry1.dso.mil/ironbank/opensource/istio
     name: install-cni
-    tag: 1.18.2
+    tag: 1.19.0
   # -- k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
