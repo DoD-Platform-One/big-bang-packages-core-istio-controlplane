@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.19.0-bb.0](https://img.shields.io/badge/Version-1.19.0--bb.0-informational?style=flat-square) ![AppVersion: 1.19.0](https://img.shields.io/badge/AppVersion-1.19.0-informational?style=flat-square)
+![Version: 1.19.0-bb.1](https://img.shields.io/badge/Version-1.19.0--bb.1-informational?style=flat-square) ![AppVersion: 1.19.0](https://img.shields.io/badge/AppVersion-1.19.0-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -37,6 +37,8 @@ helm install istio chart/
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
 | tidTag | string | `"1.18.2-tetratefips-v0"` |  |
 | domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
+| istio.enabled | bool | `false` |  |
+| istio.mtls.mode | string | `"PERMISSIVE"` | STRICT = Allow only mutual TLS traffic, PERMISSIVE = Allow both plain text and mutual TLS traffic |
 | revision | string | `""` | Revision of the Istio control plane |
 | openshift | bool | `false` | Openshift feature switch toggle |
 | imagePullSecrets | list | `[]` | Pull secrets for images |
