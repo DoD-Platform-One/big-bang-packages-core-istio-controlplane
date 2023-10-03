@@ -16,11 +16,10 @@ tidTag: 1.18.2-tetratefips-v0
 # -- The domain to use for the default gateway
 domain: bigbang.dev
 
-istio:
-  mtls:
-    # -- STRICT = Allow only mutual TLS traffic,
-    # PERMISSIVE = Allow both plain text and mutual TLS traffic
-    mode: PERMISSIVE
+mtls:
+  # -- STRICT = Allow only mutual TLS traffic,
+  # PERMISSIVE = Allow both plain text and mutual TLS traffic
+  mode: PERMISSIVE
 
 # -- Revision of the Istio control plane
 revision: ""
