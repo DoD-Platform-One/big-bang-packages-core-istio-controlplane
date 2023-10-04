@@ -5,4 +5,4 @@ metadata:
   namespace: istio-system
 spec:
   mtls:
-    mode: {{ .Values.istio.mtls.mode }}
+    mode: {{ .Values.mtls.mode }}
