@@ -19,7 +19,7 @@ domain: bigbang.dev
 mtls:
   # -- STRICT = Allow only mutual TLS traffic,
   # PERMISSIVE = Allow both plain text and mutual TLS traffic
-  mode: PERMISSIVE
+  mode: STRICT
 
 # -- Revision of the Istio control plane
 revision: ""
