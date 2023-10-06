@@ -322,3 +322,5 @@ postInstallHook:
     capabilities:
       drop:
         - ALL
+
+automountServiceAccountToken: true
