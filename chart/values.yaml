@@ -2,7 +2,7 @@
 profile: default
 
 # -- The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag"
-hub: registry1.dso.mil/ironbank-staging/opensource/istio
+hub: registry1.dso.mil/ironbank/opensource/istio
 # -- The tag to use for all images
 tag: 1.19.1
 
