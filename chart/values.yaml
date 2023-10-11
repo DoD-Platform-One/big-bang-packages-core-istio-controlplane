@@ -205,7 +205,7 @@ cni:
   image:
     hub: registry1.dso.mil/ironbank-staging/opensource/istio
     name: install-cni
-    tag: ibci-2306100
+    tag: ibci-2310330
   # -- k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   podAnnotations: {}
   # -- k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
