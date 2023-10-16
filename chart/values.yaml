@@ -169,8 +169,8 @@ istiod:
       cpu: 500m
       memory: 2Gi
     limits:
-      cpu: 500m
-      memory: 2Gi
+      cpu: 700m
+      memory: 3Gi
   env: []
   hpaSpec:
     maxReplicas: 3
@@ -233,16 +233,16 @@ values:
           cpu: 100m
           memory: 256Mi
         limits:
-          cpu: 100m
-          memory: 256Mi
+          cpu: 200m
+          memory: 512Mi
     proxy_init:
       resources:
         limits:
           cpu: 100m
           memory: 256Mi
         requests:
-          cpu: 100m
-          memory: 256Mi
+          cpu: 200m
+          memory: 512Mi
   # -- Set defaultRevision name, must be non-empty to deploy validating webhook
   defaultRevision: "default"
   # -- Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml

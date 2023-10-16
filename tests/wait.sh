@@ -8,7 +8,7 @@ wait_project() {
       fi
       sleep 5
       timeElapsed=$(($timeElapsed+5))
-      if [[ $timeElapsed -ge 600 ]]; then
+      if [[ $timeElapsed -ge 1000 ]]; then
          exit 1
       fi
    done
