@@ -23,7 +23,7 @@ spec:
           name: istiod
           patches:
           - path: spec.template.spec.automountServiceAccountToken
-            value: false
+            value: true
         env:
           {{- toYaml .Values.istiod.env | nindent 10 }}
 {{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
