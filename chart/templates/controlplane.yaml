@@ -18,6 +18,12 @@ spec:
   components:
     pilot:
       k8s:
+        overlays:
+        - kind: Deployment
+          name: istiod
+          patches:
+          - path: spec.template.spec.automountServiceAccountToken
+            value: false
         env:
           {{- toYaml .Values.istiod.env | nindent 10 }}
 {{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
