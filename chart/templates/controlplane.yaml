@@ -24,7 +24,7 @@ spec:
           patches:
           - path: spec.template.spec.automountServiceAccountToken
             value: true
-        - kind: serviceaccount
+        - kind: ServiceAccount
           name: istiod
           patches:
           - path: automountServiceAccountToken
