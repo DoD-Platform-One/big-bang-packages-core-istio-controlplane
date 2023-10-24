@@ -24,7 +24,7 @@ spec:
       restartPolicy: OnFailure
       tolerations:
       {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 8 }}
-      automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
+      automountServiceAccountToken: true
       containers:
         - name: hook
           image: "{{ .Values.postInstallHook.image }}:{{ .Values.postInstallHook.tag }}"
