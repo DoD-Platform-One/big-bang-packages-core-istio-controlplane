@@ -18,12 +18,12 @@ spec:
   components:
     pilot:
       k8s:
-#       overlays:
-#       - kind: Deployment
-#         name: istiod
-#         patches:
-#         - path: spec.template.spec.automountServiceAccountToken
-#           value: true
+        overlays:
+        - kind: Deployment
+          name: istiod
+          patches:
+          - path: spec.template.spec.automountServiceAccountToken
+            value: true
 #       - kind: ServiceAccount
 #         name: istiod
 #         patches:
