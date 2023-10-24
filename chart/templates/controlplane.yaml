@@ -37,13 +37,13 @@ spec:
         - kind: ServiceAccount
           name: public-ingressgateway-service-account
           patches:
-            - path: automountServiceAccountToken
-              value: false
+          - path: automountServiceAccountToken
+            value: false
         - kind: ServiceAccount
           name: passthrough-ingressgateway-service-account
           patches:
-            - path: automountServiceAccountToken
-              value: false
+          - path: automountServiceAccountToken
+            value: false
         env:
           {{- toYaml .Values.istiod.env | nindent 10 }}
 {{- if and .Values.istiod.hpaSpec.maxReplicas .Values.istiod.hpaSpec.minReplicas }}
