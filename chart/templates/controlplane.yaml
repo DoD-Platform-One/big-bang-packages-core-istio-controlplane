@@ -24,11 +24,11 @@ spec:
           patches:
           - path: spec.template.spec.automountServiceAccountToken
             value: true
-#       - kind: ServiceAccount
-#         name: istiod
-#         patches:
-#         - path: automountServiceAccountToken
-#           value: false
+        - kind: ServiceAccount
+          name: istiod
+          patches:
+          - path: automountServiceAccountToken
+            value: false
 #       - kind: ServiceAccount
 #         name: istio-reader-service-account
 #         patches:
