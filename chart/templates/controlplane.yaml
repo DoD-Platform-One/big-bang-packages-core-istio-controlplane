@@ -29,11 +29,11 @@ spec:
           patches:
           - path: automountServiceAccountToken
             value: false
-        - kind: ServiceAccount
-          name: istio-reader-service-account
-          patches:
-          - path: automountServiceAccountToken
-            value: false
+#       - kind: ServiceAccount
+#         name: istio-reader-service-account
+#         patches:
+#         - path: automountServiceAccountToken
+#           value: false
 #       - kind: ServiceAccount
 #         name: public-ingressgateway-service-account
 #         patches:
