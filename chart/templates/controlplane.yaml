@@ -18,18 +18,18 @@ spec:
   components:
     pilot:
       k8s:
-        overlays:
-        - kind: Deployment
-          name: istiod
-          patches:
-          - path: spec.template.spec.automountServiceAccountToken
-            value: true
-        - kind: ServiceAccount
-          name: istiod
-          patches:
-          - path: automountServiceAccountToken
-            value: false
-        - kind: ServiceAccount
+#       overlays:
+#       - kind: Deployment
+#         name: istiod
+#         patches:
+#         - path: spec.template.spec.automountServiceAccountToken
+#           value: true
+#       - kind: ServiceAccount
+#         name: istiod
+#         patches:
+#         - path: automountServiceAccountToken
+#           value: false
+#       - kind: ServiceAccount
 #         name: istio-reader-service-account
 #         patches:
 #         - path: automountServiceAccountToken
