@@ -34,11 +34,11 @@ spec:
           patches:
           - path: automountServiceAccountToken
             value: false
-        - kind: ServiceAccount
-          name: public-ingressgateway-service-account
-          patches:
-          - path: automountServiceAccountToken
-            value: false
+#       - kind: ServiceAccount
+#         name: public-ingressgateway-service-account
+#         patches:
+#         - path: automountServiceAccountToken
+#           value: false
 #       - kind: ServiceAccount
 #         name: passthrough-ingressgateway-service-account
 #         patches:
