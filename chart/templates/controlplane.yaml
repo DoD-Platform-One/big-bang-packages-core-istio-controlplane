@@ -29,8 +29,13 @@ spec:
           patches:
           - path: automountServiceAccountToken
             value: false
+        - kind: Deployment
+          name: passthrough-ingressgateway
+          patches:
+          - path: spec.template.spec.automountServiceAccountToken
+            value: true
         - kind: ServiceAccount
-          name: istio-reader-service-account
+          name: passthrough-ingressgateway-service-account
           patches:
           - path: automountServiceAccountToken
             value: false
