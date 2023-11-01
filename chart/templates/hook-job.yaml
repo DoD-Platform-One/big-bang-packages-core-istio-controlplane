@@ -13,6 +13,7 @@ metadata:
     app.kubernetes.io/name: istio-controlplane
     app.kubernetes.io/component: "core"
 spec:
+  automountServiceAccountToken: false
   template:
     metadata:
       name: istiod{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}-hook
