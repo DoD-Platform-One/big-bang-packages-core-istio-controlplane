@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.19.3-bb.1] - 2023-11-07
+### Changed
+- ironbank/big-bang/base updated from 2.0.0 to 2.1.0
+
 ## [1.19.3-bb.0] - 2023-10-14
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.19.0 to 1.19.3
