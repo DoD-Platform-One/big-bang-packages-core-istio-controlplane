@@ -1,6 +1,6 @@
 apiVersion: v2
 name: istio
-version: 1.19.3-bb.0
+version: 1.19.3-bb.1
 appVersion: 1.19.3
 description: Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 annotations:
@@ -25,4 +25,4 @@ annotations:
       condition: enterprise
       image: registry1.dso.mil/ironbank/tetrate/istio/pilot:1.19.3-tetratefips-v0
     - name: base
-      image: registry1.dso.mil/ironbank/big-bang/base:2.0.0
+      image: registry1.dso.mil/ironbank/big-bang/base:2.1.0
