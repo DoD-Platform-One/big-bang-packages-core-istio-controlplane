@@ -33,3 +33,12 @@ spec:
             {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
       securityContext:
         {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}
+      resources:
+      {{- if .Values.postInstallHook.resources }}
+        requests:
+          cpu: {{ .Values.postInstallHook.resources.requests.cpu | quote }}
+          memory: {{ .Values.postInstallHook.resources.requests.memory | quote }}
+        limits:
+          cpu: {{ .Values.postInstallHook.resources.limits.cpu | quote }}
+          memory: {{ .Values.postInstallHook.resources.limits.memory | quote }}
+      {{- end }}
