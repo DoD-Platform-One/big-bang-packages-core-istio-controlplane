@@ -39,6 +39,6 @@ spec:
           cpu: {{ .Values.postInstallHook.resources.requests.cpu | quote }}
           memory: {{ .Values.postInstallHook.resources.requests.memory | quote }}
         limits:
-          cpu: {{ .Values.postInstallHook.resources.limits.cpu | quote }}
-          memory: {{ .Values.postInstallHook.resources.limits.memory | quote }}
+          cpu: {{ .Values.postInstallHook.resources.requests.cpu | quote }}
+          memory: {{ .Values.postInstallHook.resources.requests.memory | quote }}
       {{- end }}
