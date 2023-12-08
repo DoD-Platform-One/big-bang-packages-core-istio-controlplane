@@ -4,3 +4,9 @@ imagePullSecrets:
 networkPolicies:
   enabled: true
   controlPlaneCidr: 172.16.0.0/12
+
+postInstallHook:
+  resources:
+    requests:
+      cpu: "2"
+      memory: "2Gi"
