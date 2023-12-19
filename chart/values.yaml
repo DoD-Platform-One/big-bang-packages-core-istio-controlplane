@@ -325,10 +325,10 @@ postInstallHook:
   # resource defaults
   resources:
     requests:
-      cpu: 1
-      memory: 1Gi
+      cpu: "1"
+      memory: "1Gi"
     limits:
-      cpu: 1
-      memory: 1Gi
+      cpu: "1"
+      memory: "1Gi"
 
 
