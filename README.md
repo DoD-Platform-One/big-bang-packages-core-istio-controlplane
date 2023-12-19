@@ -99,6 +99,10 @@ helm install istio chart/
 | postInstallHook.tag | string | `"2.1.0"` |  |
 | postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
 | postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
+| postInstallHook.resources.requests.cpu | string | `"1"` |  |
+| postInstallHook.resources.requests.memory | string | `"1Gi"` |  |
+| postInstallHook.resources.limits.cpu | string | `"1"` |  |
+| postInstallHook.resources.limits.memory | string | `"1Gi"` |  |
 
 ## Contributing
 
