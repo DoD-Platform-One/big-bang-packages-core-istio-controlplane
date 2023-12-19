@@ -3,9 +3,15 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [1.19.4-bb.2] - 2023-11-28
+## [1.19.5-bb.1] - 2023-12-19
 ### Changed
 - Allow Setting resources and limits for the postInstallHook
+
+## [1.19.5-bb.0] - 2023-12-19
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.19.4 to 1.19.5
+- ironbank/opensource/istio/pilot updated from 1.19.4 to 1.19.5
+- ironbank/opensource/istio/proxyv2 updated from 1.19.4 to 1.19.5
 
 ## [1.19.4-bb.1] - 2023-11-28
 ### Changed
