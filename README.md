@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.19.5-bb.1](https://img.shields.io/badge/Version-1.19.5--bb.1-informational?style=flat-square) ![AppVersion: 1.19.5](https://img.shields.io/badge/AppVersion-1.19.5-informational?style=flat-square)
+![Version: 1.19.5-bb.2](https://img.shields.io/badge/Version-1.19.5--bb.2-informational?style=flat-square) ![AppVersion: 1.19.5](https://img.shields.io/badge/AppVersion-1.19.5-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -35,7 +35,7 @@ helm install istio chart/
 | tag | string | `"1.19.5"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
-| tidTag | string | `"1.19.3-tetratefips-v0"` |  |
+| tidTag | string | `"1.19.5-tetratefips-v0"` |  |
 | domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
 | mtls.mode | string | `"STRICT"` | STRICT = Allow only mutual TLS traffic, PERMISSIVE = Allow both plain text and mutual TLS traffic |
 | revision | string | `""` | Revision of the Istio control plane |
@@ -99,10 +99,10 @@ helm install istio chart/
 | postInstallHook.tag | string | `"2.1.0"` |  |
 | postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
 | postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
-| postInstallHook.resources.requests.cpu | string | `"1"` |  |
-| postInstallHook.resources.requests.memory | string | `"1Gi"` |  |
-| postInstallHook.resources.limits.cpu | string | `"1"` |  |
-| postInstallHook.resources.limits.memory | string | `"1Gi"` |  |
+| postInstallHook.resources.requests.cpu | string | `"100m"` |  |
+| postInstallHook.resources.requests.memory | string | `"256Mi"` |  |
+| postInstallHook.resources.limits.cpu | string | `"100m"` |  |
+| postInstallHook.resources.limits.memory | string | `"256Mi"` |  |
 
 ## Contributing
 
