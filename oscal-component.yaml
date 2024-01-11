@@ -620,10 +620,20 @@ component-definition:
       remarks: Route remote accesses through authorized and managed network access control points.
     - uuid: 2d930528-7411-4d4c-a92f-f7aa96e68f10
       title: Lula Validation
-      remarks: Logs of different event types along with the frequency are kept and retained per organization requirements. 
+      remarks: a. Identify the types of events that the system is capable of logging in support of the audit function for organization-defined event types that the system is capable of logging;
+                b. Coordinate the event logging function with other organizational entities requiring audit-related information to guide and inform the selection criteria for events to be logged;
+                c. Specify the following event types for logging within the system; organization-defined event types (subset of the event types defined in AU-2a.) along with the frequency of (or situation requiring) logging for each identified event type;
+                d. Provide a rationale for why the event types selected for logging are deemed to be adequate to support after-the-fact investigations of incidents; and
+                e. Review and update the event types selected for logging organization-defined frequency.
     - uuid: 67eec4e5-73d6-4f68-aa47-5f0e15416b58
       title: Lula Validation
-      remarks: Logs of different event types containing specific data are kept and retained per organization requirements. 
+      remarks:  Ensure that audit records contain information that establishes the following;
+                a. What type of event occurred;
+                b. When the event occurred;
+                c. Where the event occurred;
+                d. Source of the event;
+                e. Outcome of the event; and 
+                f. Identity of any individuals, subjects, or objects/entities associated with the event.
     - uuid: 9a552d2e-31e0-41a6-8d3b-235533294ea0
       title: Lula Validation
       remarks: Logs of event types containing organization-defined additional data are kept and retained per organization requirements.
