@@ -596,25 +596,26 @@ component-definition:
       - href: https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-controlplane
     - uuid: 8eabdd2a-d637-4b00-a215-a953d7feed74
       title: Lula Validation
-      remarks: Is RBAC being implemented?
+      remarks: Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
     - uuid: ca49ac97-487a-446a-a0b7-92b20e2c83cb
       title: Lula Validation
-      remarks: Policies regarding information flow need to be set in place.
+      remarks: Enforce approved authorizations for controlling the flow of information within the system and between connected systems based on organization-defined information flow control policies.
     - uuid: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
       title: Lula Validation
-      remarks: Policies regarding encrypted information flow need to be set in place.
+      remarks: Prevent encrypted information from bypassing organization-defined information flow control mechanisms by Select (one or more); decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; organization-defined procedure or method.
     - uuid: 008e905b-4143-43f1-9211-9835059a1c68
       title: Lula Validation
-      remarks: Policies regarding separate logical and physical information flow need to be set in place.
+      remarks: Separate information flows logically or physically using organization-defined mechanisms and/or techniques to accomplish organization-defined required separations by types of information.
     - uuid: f7b587d2-b44b-42df-a9c0-e4c3d09670da
       title: Lula Validation
-      remarks: Only authorized network access needs to be defined to restrict non-privileged access.
+      remarks: Authorize network access to organization-defined privileged commands only for organization-defined compelling operational needs and document the rationale for such access in the security plan for the system.
     - uuid: 854746a0-3e4d-4939-a2c6-069f9b34d929
       title: Lula Validation
       remarks: Log the execution of privileged functions.
     - uuid: 8841bc08-0b11-43f6-807c-0ec66da9161a
       title: Lula Validation
-      remarks: Extract end-user credentials from requests for authentication and disallow requests without authentication tokens. 
+      remarks:  a. Identify organization-defined user actions that can be performed on the system without identification or authentication consistent with organizational mission and business functions; and
+                b. Document and provide supporting rationale in the security plan for the system, user actions not requiring identification or authentication.
     - uuid: facb4f26-76dc-4f90-855a-9b80a74d5a00
       title: Lula Validation
       remarks: Route remote accesses through authorized and managed network access control points.
@@ -636,23 +637,28 @@ component-definition:
                 f. Identity of any individuals, subjects, or objects/entities associated with the event.
     - uuid: 9a552d2e-31e0-41a6-8d3b-235533294ea0
       title: Lula Validation
-      remarks: Logs of event types containing organization-defined additional data are kept and retained per organization requirements.
+      remarks: Generate audit records containing the following additional information; organization-defined additional information.
     - uuid: d245b381-ffc3-4258-bc8d-a01e7a61d98b
       title: Lula Validation
-      remarks: Logs are retained by Istio and RBAC would need to be implemented to protect the information. 
+      remarks:  a. Protect audit information and audit logging tools from unauthorized access, modification, and deletion; and
+                b. Alert organization-defined personnel or roles upon detection of unauthorized access, modification, or deletion of audit information.
     - uuid: 941583f4-2563-4671-b94c-9b4378d170fa
       title: Lula Validation
-      remarks: Logs are retained by Istio per organizations frequency and will need to be stored in a different physical system or system component.
+      remarks: Store audit records organization-defined frequency in a repository that is part of a physically different system or system component than the system or component being audited.
     - uuid: 9e2f0907-28b0-4438-b196-4a7f3b3c98fa
       title: Lula Validation
-      remarks: Logs are retained by Istio for organizational defined system components and RBAC is implemented to only allow organization-defined personnel/roles.
+      remarks:  a. Provide audit record generation capability for the event types the system is capable of auditing as defined in AU-2a on organization-defined system components;
+                b. Allow organization-defined personnel or roles to select the event types that are to be logged by specific components of the system; and
+                c. Generate audit records for the event types defined in AU-2c that include the audit record content defined in AU-3.
     - uuid: 3df5b81c-dafb-4de1-a120-07f234d66ea5
       title: Lula Validation
-      remarks: Istio is configured with Kubernetes Custom Resources. As such it can be configured as code, and managed by your existing CM-5 conformant code management processes. 
-               RBAC needs to be implemented to enforce physical access and policy to needs to be enforced as well for logical access. 
+      remarks: Define, document, approve, and enforce physical and logical access restrictions associated with changes to the system.
     - uuid: b848d438-58f7-49de-b784-f927acd9f7fa
       title: Lula Validation
-      remarks: Policy needs to be set for the configuration settings for the system that reflects most restrictive secure requirements. Monitor, control and approve changes to the configuration settings in accordance with organizational policies and procedures.
+      remarks:  a. Establish and document configuration settings for components employed within the system that reflect the most restrictive mode consistent with operational requirements using organization-defined common secure configurations;
+                b. Implement the configuration settings;
+                c. Identify, document, and approve any deviations from established configuration settings for organization-defined system components based on organization-defined operational requirements; and
+                d. Monitor and control changes to the configuration settings in accordance with organizational policies and procedures.
     - uuid: 6d46277f-d681-491d-8341-aad6f2ef880e
       title: Lula Validation
       remarks: Update the inventory of system components as part of component installations, removals, and system updates.
