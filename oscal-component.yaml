@@ -676,13 +676,23 @@ component-definition:
               package validate
 
               import future.keywords.every
+              import future.keywords.in
 
               validate {
                 every pod in input.pods {
                   pod.kind == "Pod"
-                  images := pod.spec.containers[_].image
-                  contains(images, "proxyv2")
+                  allowed_pod(pod)
                 }
+              }
+
+              allowed_pod(pod) {
+                images := pod.spec.containers[_].image
+                contains(images, "proxyv2")
+              }
+
+              allowed_pod(pod) {
+                exempt := {"kube-system", "istio-system", "istio-operator", "flux-system", "kyverno"}
+                pod.metadata.namespace in exempt
               }
     - uuid: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
       title: Lula Validation placeholder
