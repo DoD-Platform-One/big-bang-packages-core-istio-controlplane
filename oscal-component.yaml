@@ -49,7 +49,7 @@ component-definition:
             2. Istio supports extracting metadata from each request and forwarding it to an external authentication and authorization server.
                Istio will enforce the verdict returned by this server, and can attach additional metadata returned by the server (e.g., an internal JWT in place of an external API key).
         links:
-          - href: 8eabdd2a-d637-4b00-a215-a953d7feed74
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
             text: Lula Validation
 
@@ -68,7 +68,13 @@ component-definition:
           Egress gateways can audit and limit how traffic flows to external services outside of the information system under control.
         
         links:
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
+            rel: reference
+            text: Lula Validation
           - href: ca49ac97-487a-446a-a0b7-92b20e2c83cb
+            rel: reference
+            text: Lula Validation
+          - href: 1761ac07-80dd-47d2-947e-09f67943b986
             rel: reference
             text: Lula Validation
 
@@ -80,7 +86,7 @@ component-definition:
         links:
           - href: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
 
       - uuid: 366AAE60-AC24-4F48-BF63-4C0EB496CC9E
         control-id: ac-4.21
@@ -95,7 +101,7 @@ component-definition:
         links:
           - href: 008e905b-4143-43f1-9211-9835059a1c68
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
 
       - uuid: CD1315BF-91FE-490A-B6A6-5616690D78A8
         control-id: ac-6.3
@@ -105,7 +111,7 @@ component-definition:
         links:
           - href: f7b587d2-b44b-42df-a9c0-e4c3d09670da
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
 
       - uuid: 3772B5F3-34BC-4EAE-B739-8499F828C2F4
         control-id: ac-6.9
@@ -120,7 +126,7 @@ component-definition:
         links:
           - href: 854746a0-3e4d-4939-a2c6-069f9b34d929
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
 
       - uuid: 6109E09A-8279-44AB-8CA4-2051AF895648
         control-id: ac-14
@@ -135,7 +141,7 @@ component-definition:
         links:
           - href: 8841bc08-0b11-43f6-807c-0ec66da9161a
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
                 
       - uuid: ead87eb9-a436-4ac9-bdde-8d60fd2b6c72
         control-id: ac-17.3
@@ -145,7 +151,7 @@ component-definition:
         links:
           - href: facb4f26-76dc-4f90-855a-9b80a74d5a00
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 9B6BA674-E6ED-4FB6-B216-3C8733F36411
         control-id: au-2
@@ -155,7 +161,7 @@ component-definition:
         links:
           - href: 2d930528-7411-4d4c-a92f-f7aa96e68f10
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: D3CBC898-F938-4FAA-B1B1-2597A69B5600
         control-id: au-3
@@ -174,7 +180,7 @@ component-definition:
         links:
           - href: 67eec4e5-73d6-4f68-aa47-5f0e15416b58
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 630301DB-8730-4107-9E14-A1EEDE351122
         control-id: au-3.1
@@ -187,7 +193,7 @@ component-definition:
         links:
           - href: 9a552d2e-31e0-41a6-8d3b-235533294ea0
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 6F2A603C-D240-47F1-9BED-334000E15011
         control-id: au-9
@@ -202,7 +208,7 @@ component-definition:
         links:
           - href: d245b381-ffc3-4258-bc8d-a01e7a61d98b
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 6F2A603C-D240-47F1-9BED-334000E15011
         control-id: au-9.2
@@ -215,7 +221,7 @@ component-definition:
         links:
           - href: 941583f4-2563-4671-b94c-9b4378d170fa
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 13EC0F18-2696-4407-8478-3AFE839D4764
         control-id: au-12
@@ -230,7 +236,7 @@ component-definition:
         links:
           - href: 9e2f0907-28b0-4438-b196-4a7f3b3c98fa
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: D01F6B2D-F18E-47E9-94DC-95C0B5675E13
         control-id: cm-5
@@ -246,7 +252,7 @@ component-definition:
         links:
           - href: 3df5b81c-dafb-4de1-a120-07f234d66ea5
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 618C16DE-82D0-46FF-9A3A-D260D5F4F654
         control-id: cm-6
@@ -262,7 +268,7 @@ component-definition:
         links:
           - href: b848d438-58f7-49de-b784-f927acd9f7fa
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: AB9189FF-34E2-4D7E-8018-EB346C7AE967
         control-id: cm-8.1
@@ -276,7 +282,7 @@ component-definition:
         links:
           - href: 6d46277f-d681-491d-8341-aad6f2ef880e
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: A740C741-23B4-4ED9-937C-E0276A9B92EE
         control-id: cm-8.2
@@ -286,7 +292,7 @@ component-definition:
         links:
           - href: 57d1aefe-6c9b-4192-8581-73dd369cb589
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 61615706-5395-4168-8AD0-5C4ACBCC5D7E
         control-id: ia-2
@@ -301,7 +307,7 @@ component-definition:
         links:
           - href: 495f4dff-21f1-42c6-8f42-fd73a740e5e4
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 3004BB1D-0F50-48F1-ABFE-40CC522B1C15
         control-id: ia-4
@@ -322,7 +328,7 @@ component-definition:
         links:
           - href: dc3fa293-49ce-427c-ba7a-860fffe34397
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 3FC44715-6068-44E5-9079-641D3FAA6A14
         control-id: ia-7
@@ -336,7 +342,7 @@ component-definition:
         links:
           - href: 8a2df8be-5387-4be9-b98f-95c4b5999c6b
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 82AC8314-BDA8-4A4D-B54D-4A0233563C7C
         control-id: sc-3
@@ -346,7 +352,7 @@ component-definition:
         links:
           - href: 0f605d27-e95f-434b-972f-453c62bd365f
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
                     
       - uuid: 86bc4fb7-f91b-4f2c-b914-65427951018c
         control-id: sc-4
@@ -356,7 +362,7 @@ component-definition:
         links:
           - href: a189f4ae-f3e5-4b05-9321-c7ddf5888725
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: ffe69802-65bf-48bf-a7cd-6cab0cbf43d3
         control-id: sc-5
@@ -366,7 +372,7 @@ component-definition:
         links:
           - href: fb606d63-b214-4ea2-b2c6-67385b9b819f
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 986E0C8B-6956-42AF-804E-FDB366DE6EDC
         control-id: sc-7
@@ -384,7 +390,7 @@ component-definition:
         links:
           - href: e622825a-5b4d-4fb9-9c37-5444b2e5c41b
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: CB84CC94-BBAA-4177-9836-5AD0DE3A9937
         control-id: sc-7.4
@@ -406,7 +412,7 @@ component-definition:
         links:
           - href: 2e98ac3d-5b77-4199-8087-ce0a40e302d1
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: CB84CC94-BBAA-4177-9836-5AD0DE3A9937
         control-id: sc-7.5
@@ -422,7 +428,7 @@ component-definition:
         links:
           - href: 9417e258-3474-4016-9e68-b3eeafcd181c
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 4b930af3-ae84-43ff-b751-448fe1c2eec8
         control-id: sc-7.8
@@ -433,7 +439,7 @@ component-definition:
         links:
           - href: eecac746-c5b9-481f-8c6a-9f19bc35e182
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 5baf367f-d917-4399-80e5-5c77a18a120a
         control-id: sc-7.10
@@ -444,7 +450,7 @@ component-definition:
         links:
           - href: 647f94be-cc16-4873-aa67-6b58ee708003
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 30b49a3e-ad38-441d-8c07-5a9018848a02
         control-id: sc-7.20
@@ -456,7 +462,7 @@ component-definition:
         links:
           - href: d9da625b-806a-4992-a1f7-f26a277a011d
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: c9a1e9bc-3caa-44ce-a300-ecd722487987
         control-id: sc-7.21
@@ -469,7 +475,7 @@ component-definition:
         links:
           - href: bd9ac2a2-a681-41fa-988f-8f9bee06bb68
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: ca307f39-eb42-4df3-9054-4d66130e0118
         control-id: sc-7.25
@@ -482,7 +488,7 @@ component-definition:
         links:
           - href: f78d9ca9-23ad-4044-9f0c-ba9ccaedcafb
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: CB84CC94-BBAA-4177-9836-5AD0DE3A9937
         control-id: sc-8
@@ -495,7 +501,7 @@ component-definition:
         links:
           - href: 1279a202-8151-4ab8-871a-a9b5c989d9ce
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 69415B92-0490-4A14-9E0F-E1EE61951F9C
         control-id: sc-8.1
@@ -508,7 +514,7 @@ component-definition:
         links:
           - href: f955f7c3-b4bd-47b3-b8e7-cc48df0f1a3f
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: c158b75a-cefc-4794-b124-f1e56ff5646d
         control-id: sc-8.2
@@ -521,7 +527,7 @@ component-definition:
         links:
           - href: 618e801a-5447-4d41-81a5-6c1a73bf0dc6
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 169c9ad3-0a6c-46ee-80cd-cd8cef5eca5c
         control-id: sc-10
@@ -531,7 +537,7 @@ component-definition:
         links:
           - href: 1bdbcd07-3377-42c6-b5f5-f0e733e33eea
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: B6B9D143-6936-4C33-BF2A-3C2B1F282B25
         control-id: sc-13
@@ -544,7 +550,7 @@ component-definition:
         links:
           - href: e3ba6c86-9b63-4784-99c1-48ad1060a2f8
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: 625bfdc1-0b20-45f3-919b-91afbac77799
         control-id: sc-23
@@ -557,7 +563,7 @@ component-definition:
         links:
           - href: 885df32b-33b3-4541-98ed-bd54f7777696
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: f972ef8d-1eb0-403b-8db8-e65a4f4e2aaa
         control-id: sc-39
@@ -568,7 +574,7 @@ component-definition:
         links:
           - href: 0b5e3b42-2020-422b-9939-d9c93d009f99
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
       - uuid: e074c939-cd8c-46d0-a851-f3c54fcd5507
         control-id: si-4.22
@@ -582,10 +588,39 @@ component-definition:
         links:
           - href: 0e3de96a-936b-42dc-bea8-7586112ded05
             rel: reference
-            text: Lula Validation
+            text: Lula Validation placeholder
            
   back-matter:
     resources:
+    - uuid: 67456ae8-4505-4c93-b341-d977d90cb125
+      title: Lula Validation
+      rlinks:
+        - href: lula.dev
+      description: >-
+        target:
+          provider: opa
+          domain: kubernetes
+          payload:
+            resources:
+              - name: deployments
+                resourceRule:
+                  Group: apps
+                  Version: v1
+                  Resource: deployments
+                  Namespaces: [istio-system]
+            rego: |
+              package validate
+
+              import future.keywords.every
+
+              validate {
+                every deployment in input.deployments {
+                  deployment.kind == "Deployment"
+                  podsRequired := deployment.status.replicas
+                  podsReady := deployment.status.readyReplicas
+                  podsReady == podsRequired
+                }
+              }
     - uuid: 60826461-D279-468C-9E4B-614FAC44A306
       title: Istio Operator
       rlinks:
@@ -594,40 +629,89 @@ component-definition:
       title: Big Bang Istio Operator package
       rlinks:
       - href: https://repo1.dso.mil/platform-one/big-bang/apps/core/istio-controlplane
-    - uuid: 8eabdd2a-d637-4b00-a215-a953d7feed74
-      title: Lula Validation
-      remarks: Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
     - uuid: ca49ac97-487a-446a-a0b7-92b20e2c83cb
       title: Lula Validation
-      remarks: Enforce approved authorizations for controlling the flow of information within the system and between connected systems based on organization-defined information flow control policies.
-    - uuid: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
+      remarks: Enforce approved authorizations for controlling the flow of information within the system and between connected systems based on organization-defined information flow control policies. This validation ensures all peerAuthentication resources in the cluster should be set to mtls.mode STRICT.
+      description: >-
+        target:
+          provider: opa
+          domain: kubernetes
+          payload:
+            resources:
+              - name: peerAuths
+                resourceRule:
+                  Group: security.istio.io
+                  Version: v1beta1
+                  Resource: peerauthentications
+                  Namespaces: []
+            rego: |
+              package validate
+
+              import future.keywords.every
+
+              validate {
+                every peerAuthentication in input.peerAuths {
+                  mode := peerAuthentication.spec.mtls.mode
+                  mode == "STRICT"
+                }
+              }
+    - uuid: 1761ac07-80dd-47d2-947e-09f67943b986
       title: Lula Validation
+      rlinks:
+        - href: lula.dev
+      remarks: This validation ensures all pods in the cluster - besides allowed exclusions - are istio injected by looking for the sidecar proxy
+      description: >-
+        target:
+          provider: opa
+          domain: kubernetes
+          payload:
+            resources:
+              - name: pods
+                resourceRule:
+                  Group: 
+                  Version: v1
+                  Resource: pods
+                  Namespaces: []
+            rego: |
+              package validate
+
+              import future.keywords.every
+
+              validate {
+                every pod in input.pods {
+                  pod.kind == "Pod"
+                  images := pod.spec.containers[_].image
+                  contains(images, "proxyv2")
+                }
+              }
+    - uuid: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
+      title: Lula Validation placeholder
       remarks: Prevent encrypted information from bypassing organization-defined information flow control mechanisms by Select (one or more); decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; organization-defined procedure or method.
     - uuid: 008e905b-4143-43f1-9211-9835059a1c68
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Separate information flows logically or physically using organization-defined mechanisms and/or techniques to accomplish organization-defined required separations by types of information.
     - uuid: f7b587d2-b44b-42df-a9c0-e4c3d09670da
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Authorize network access to organization-defined privileged commands only for organization-defined compelling operational needs and document the rationale for such access in the security plan for the system.
     - uuid: 854746a0-3e4d-4939-a2c6-069f9b34d929
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Log the execution of privileged functions.
     - uuid: 8841bc08-0b11-43f6-807c-0ec66da9161a
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Identify organization-defined user actions that can be performed on the system without identification or authentication consistent with organizational mission and business functions; and
                 b. Document and provide supporting rationale in the security plan for the system, user actions not requiring identification or authentication.
     - uuid: facb4f26-76dc-4f90-855a-9b80a74d5a00
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Route remote accesses through authorized and managed network access control points.
     - uuid: 2d930528-7411-4d4c-a92f-f7aa96e68f10
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: a. Identify the types of events that the system is capable of logging in support of the audit function for organization-defined event types that the system is capable of logging;
                 b. Coordinate the event logging function with other organizational entities requiring audit-related information to guide and inform the selection criteria for events to be logged;
                 c. Specify the following event types for logging within the system; organization-defined event types (subset of the event types defined in AU-2a.) along with the frequency of (or situation requiring) logging for each identified event type;
                 d. Provide a rationale for why the event types selected for logging are deemed to be adequate to support after-the-fact investigations of incidents; and
                 e. Review and update the event types selected for logging organization-defined frequency.
     - uuid: 67eec4e5-73d6-4f68-aa47-5f0e15416b58
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  Ensure that audit records contain information that establishes the following;
                 a. What type of event occurred;
                 b. When the event occurred;
@@ -636,64 +720,64 @@ component-definition:
                 e. Outcome of the event; and 
                 f. Identity of any individuals, subjects, or objects/entities associated with the event.
     - uuid: 9a552d2e-31e0-41a6-8d3b-235533294ea0
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Generate audit records containing the following additional information; organization-defined additional information.
     - uuid: d245b381-ffc3-4258-bc8d-a01e7a61d98b
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Protect audit information and audit logging tools from unauthorized access, modification, and deletion; and
                 b. Alert organization-defined personnel or roles upon detection of unauthorized access, modification, or deletion of audit information.
     - uuid: 941583f4-2563-4671-b94c-9b4378d170fa
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Store audit records organization-defined frequency in a repository that is part of a physically different system or system component than the system or component being audited.
     - uuid: 9e2f0907-28b0-4438-b196-4a7f3b3c98fa
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Provide audit record generation capability for the event types the system is capable of auditing as defined in AU-2a on organization-defined system components;
                 b. Allow organization-defined personnel or roles to select the event types that are to be logged by specific components of the system; and
                 c. Generate audit records for the event types defined in AU-2c that include the audit record content defined in AU-3.
     - uuid: 3df5b81c-dafb-4de1-a120-07f234d66ea5
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Define, document, approve, and enforce physical and logical access restrictions associated with changes to the system.
     - uuid: b848d438-58f7-49de-b784-f927acd9f7fa
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Establish and document configuration settings for components employed within the system that reflect the most restrictive mode consistent with operational requirements using organization-defined common secure configurations;
                 b. Implement the configuration settings;
                 c. Identify, document, and approve any deviations from established configuration settings for organization-defined system components based on organization-defined operational requirements; and
                 d. Monitor and control changes to the configuration settings in accordance with organizational policies and procedures.
     - uuid: 6d46277f-d681-491d-8341-aad6f2ef880e
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Update the inventory of system components as part of component installations, removals, and system updates.
     - uuid: 57d1aefe-6c9b-4192-8581-73dd369cb589
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Maintain the currency, completeness, accuracy, and availability of the inventory of system components using automated mechanism.
     - uuid: 495f4dff-21f1-42c6-8f42-fd73a740e5e4
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Uniquely identify and authenticate organizational users and associate that unique identification with processes acting on behalf of those users.
     - uuid: dc3fa293-49ce-427c-ba7a-860fffe34397
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: a. Receiving authorization from [Assignment, organization-defined personnel or roles] to assign an individual, group, role, service, or device identifier;
                b. Selecting an identifier that identifies an individual, group, role, service, or device;
                c. Assigning the identifier to the intended individual, group, role, service, or device; and
                d. Preventing reuse of identifiers for [Assignment, organization-defined time period].
     - uuid: 8a2df8be-5387-4be9-b98f-95c4b5999c6b
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Implement mechanisms for authentication to a cryptographic module that meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines for such authentication.
     - uuid: 0f605d27-e95f-434b-972f-453c62bd365f
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Isolate security functions from non-security functions.
     - uuid: a189f4ae-f3e5-4b05-9321-c7ddf5888725
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Prevent unauthorized and unintended information transfer via shared system resources.
     - uuid: fb606d63-b214-4ea2-b2c6-67385b9b819f
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Protect against and limit the effects of the following types of denial-of-service events [Assignment, organization-defined types of denial-of-service events]; and
                 b. Employ the following controls to achieve the denial-of-service objective [Assignment, organization-defined controls by type of denial-of-service event].
     - uuid: e622825a-5b4d-4fb9-9c37-5444b2e5c41b
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks:  a. Monitor and control communications at the external managed interfaces to the system and at key internal managed interfaces within the system;
                 b. Implement sub-networks for publicly accessible system components that are [Selection, physically; logically] separated from internal organizational networks; and
                 c. Connect to external networks or systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security and privacy architecture.
     - uuid: 2e98ac3d-5b77-4199-8087-ce0a40e302d1
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: (a) Implement a managed interface for each external telecommunication service;
                (b) Establish a traffic flow policy for each managed interface;
                (c) Protect the confidentiality and integrity of the information being transmitted across each interface;
@@ -703,44 +787,44 @@ component-definition:
                (g) Publish information to enable remote networks to detect unauthorized control plane traffic from internal networks; and
                (h) Filter unauthorized control plane traffic from external networks.
     - uuid: 9417e258-3474-4016-9e68-b3eeafcd181c
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Deny network communications traffic by default and allow network communications traffic by exception at managed interfaces for defined systems.
     - uuid: eecac746-c5b9-481f-8c6a-9f19bc35e182
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Route organization-defined internal communications traffic to organization-defined external networks through authenticated proxy servers at managed interfaces.
     - uuid: 647f94be-cc16-4873-aa67-6b58ee708003
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Prevent the exfiltration of information and conduct exfiltration tests on an organization-defined frequency.
     - uuid: d9da625b-806a-4992-a1f7-f26a277a011d
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Provide the capability to dynamically isolate organization-defined system components from other system components.
     - uuid: bd9ac2a2-a681-41fa-988f-8f9bee06bb68
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Employ boundary protection mechanisms to isolate organization-defined system components supporting organization-defined missions and/or business functions.
     - uuid: f78d9ca9-23ad-4044-9f0c-ba9ccaedcafb
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Prohibit the direct connection of organization-defined unclassified national security system to an external network without the use of organization-defined boundary protection devices.
     - uuid: 1279a202-8151-4ab8-871a-a9b5c989d9ce
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Protect the confidentiality and integrity of transmitted information.
     - uuid: f955f7c3-b4bd-47b3-b8e7-cc48df0f1a3f
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Implement cryptographic mechanisms to prevent unauthorized disclosure of information and detect changes to information during transmission.
     - uuid: 618e801a-5447-4d41-81a5-6c1a73bf0dc6
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Maintain the confidentiality and integrity of information during preparation for transmission and during reception.
     - uuid: 1bdbcd07-3377-42c6-b5f5-f0e733e33eea
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Terminate the network connection associated with a communications session at the end of the session or after an organization-defined time period of inactivity.
     - uuid: e3ba6c86-9b63-4784-99c1-48ad1060a2f8
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Determine the organization-defined cryptographic uses and implement the cryptography required for each specified cryptographic use by organization-defined types of cryptography for each specified cryptographic use.
     - uuid: 885df32b-33b3-4541-98ed-bd54f7777696
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Protect the authenticity of communications sessions.
     - uuid: 0b5e3b42-2020-422b-9939-d9c93d009f99
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Maintain a separate execution domain for each executing system process.
     - uuid: 0e3de96a-936b-42dc-bea8-7586112ded05
-      title: Lula Validation
+      title: Lula Validation placeholder
       remarks: Detect network services that have not been authorized or approved by organization-defined authorization or approval processes and audit or alert organization-defined personnel or roles when detected.
