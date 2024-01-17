@@ -82,11 +82,13 @@ component-definition:
         control-id: ac-4.4
         description: >-
           All encrypted HTTPS connections are terminated at the Istio ingress gateway.
-
         links:
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
+            rel: reference
+            text: Lula Validation
           - href: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
 
       - uuid: 366AAE60-AC24-4F48-BF63-4C0EB496CC9E
         control-id: ac-4.21
@@ -98,20 +100,21 @@ component-definition:
           Istio policies can provide this separation at the finest grain possible. For example, for HTTP traffic, Istio provides the ability to limit communication per verb and path, as well as based on header values or end-user credentials stored at headers, in addition to controlling traffic with the traditional network five-tuple. 
           Istio enforces the policy at the application instance itself.
 
+          This would be handled by integration with authservice or other similar integration. partially implemented by this package.
         links:
-          - href: 008e905b-4143-43f1-9211-9835059a1c68
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
 
       - uuid: CD1315BF-91FE-490A-B6A6-5616690D78A8
         control-id: ac-6.3
         description: >-
-          Configured with an "admin" gateway to restrict access to applications that only need sysadmin access. 
-
+          Configured with an "admin" gateway to restrict access to applications that only need sysadmin access.
+          Partially implemented by this package supporting the deployment of an "admin"  gateway
         links:
-          - href: f7b587d2-b44b-42df-a9c0-e4c3d09670da
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
 
       - uuid: 3772B5F3-34BC-4EAE-B739-8499F828C2F4
         control-id: ac-6.9
@@ -123,10 +126,12 @@ component-definition:
           As long as the privileged functions are exposed as network endpoints in the information system, Istio will log their use like it logs all other network traffic.
           Logging privileged use outside of the information system like using kubectl to access the cluster directly is outside of the scope of Istio's runtime logging.
 
+          Partially implemented by this package with the requisite privileged functions being required as exposed as network endpoints when applicable. Administrative gateways that expose these privileged endpoints would be required.
+
         links:
-          - href: 854746a0-3e4d-4939-a2c6-069f9b34d929
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
 
       - uuid: 6109E09A-8279-44AB-8CA4-2051AF895648
         control-id: ac-14
@@ -137,28 +142,33 @@ component-definition:
           Istio is configured to extract end-user credentials from requests for authentication (either locally, or forwarding them on to an external authorization service), and to disallow requests without authentication tokens. 
           This is configured using RequestAuthentication and AuthorizationPolicy resources, described at length in AC-4 above.
           Using this, Istio's authorization policy becomes documentation of services that do not require authentication.
-        
+
+          Partially implemented by this package. Requires the configuration of RequestAuthentication and AuthorizationPolicy resources for fully implementation (with context for external authorization service).
         links:
-          - href: 8841bc08-0b11-43f6-807c-0ec66da9161a
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
                 
       - uuid: ead87eb9-a436-4ac9-bdde-8d60fd2b6c72
         control-id: ac-17.3
         description: >-
           Istio routes remote access through correct configuration and managed network access control points.
-        
+
+          Partially implemented by this package and/or not-applicable if there are no remote access services exposed by Istio. 
         links:
-          - href: facb4f26-76dc-4f90-855a-9b80a74d5a00
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
             rel: reference
-            text: Lula Validation placeholder
+            text: Lula Validation
            
       - uuid: 9B6BA674-E6ED-4FB6-B216-3C8733F36411
         control-id: au-2
         description: >-
-          Istio provides access logs for all HTTP network requests, including mission applications.
-        
+          Istio provides access logs for all HTTP network requests, including mission applications. 
+          Fully implemented from Istio context if logging is not set to "none".
         links:
+          - href: 67456ae8-4505-4c93-b341-d977d90cb125
+            rel: reference
+            text: Lula Validation
           - href: 2d930528-7411-4d4c-a92f-f7aa96e68f10
             rel: reference
             text: Lula Validation placeholder
@@ -596,6 +606,7 @@ component-definition:
       title: Lula Validation
       rlinks:
         - href: lula.dev
+      remarks: Validation health check
       description: >-
         target:
           provider: opa
@@ -695,8 +706,44 @@ component-definition:
                 pod.metadata.namespace in exempt
               }
     - uuid: fd071676-6b92-4e1c-a4f0-4c8d2bd55aed
-      title: Lula Validation placeholder
+      title: Lula Validation 
       remarks: Prevent encrypted information from bypassing organization-defined information flow control mechanisms by Select (one or more); decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; organization-defined procedure or method.
+      description: >-
+        target:
+          provider: opa
+          domain: kubernetes
+          payload:
+            resources:
+              - name: gateways
+                resourceRule:
+                  Group: networking.istio.io
+                  Version: v1beta1
+                  Resource: gateways
+                  Namespaces: []
+            rego: |
+              package validate
+
+              import future.keywords.every
+
+              validate {
+                every gateway in input.gateways {
+                  every server in gateway.spec.servers {
+                    allowed_server(server)
+                  }
+                }
+              }
+
+              allowed_server(server) {
+                server.port.protocol == "HTTP"
+                server.tls.httpsRedirect == true
+              }
+
+              allowed_server(server) {
+                server.port.protocol == "HTTPS"
+                server.tls.mode == "SIMPLE"
+              }
+
+
     - uuid: 008e905b-4143-43f1-9211-9835059a1c68
       title: Lula Validation placeholder
       remarks: Separate information flows logically or physically using organization-defined mechanisms and/or techniques to accomplish organization-defined required separations by types of information.
