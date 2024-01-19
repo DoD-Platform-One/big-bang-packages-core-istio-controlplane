@@ -186,6 +186,7 @@ component-definition:
           By default, Envoy sidecars in the mesh emit these logs as text to standard out. However, Envoy can be configured to forward this log data over gRPC to a server that aggregates (and potentially acts on) them. 
           This is called the [Access Log Service (ALS)](https://www.envoyproxy.io/docs/envoy/latest/api-v3/service/accesslog/v3/als.proto).
           These can be augmented by application-specific audit logging, but for many services (and HTTP services especially), the mesh's logs are sufficient to reconstruct an understanding of events to perform an audit.
+          # Fully implements.
         
         links:
           - href: 67eec4e5-73d6-4f68-aa47-5f0e15416b58
@@ -199,6 +200,7 @@ component-definition:
 
           # How does Istio help?
           Istio’s access logs can be configured to produce additional information as needed by the organization.
+          # Fully implements.
         
         links:
           - href: 9a552d2e-31e0-41a6-8d3b-235533294ea0
@@ -214,6 +216,7 @@ component-definition:
           If you’re using Istio to produce audit information (see AU-3, AU-3 (1)), then the logs that Istio produces are subject to AU-9 controls. 
           Protecting the logs that Istio produces is outside of the scope of Istio itself, but integrating your log ingestion and protection system with the logs that Istio produces, you can easily satisfy this requirement.
           Kubernetes RBAC should be configured to allow only specific users access to the log files Envoy produces, ideally no users should have direct access and instead only access logs via the log ingestion system (like Splunk).
+          # Partially implements.
         
         links:
           - href: d245b381-ffc3-4258-bc8d-a01e7a61d98b
@@ -227,6 +230,7 @@ component-definition:
 
           # How does Istio Help?
           See AU-9 above, but in short: ensure that Istio’s logging configuration aligns with your larger log collection pipeline. The log collection pipeline itself should implement the AU-9 controls required by the organization.
+          # Partially implements.
         
         links:
           - href: 941583f4-2563-4671-b94c-9b4378d170fa
@@ -242,6 +246,7 @@ component-definition:
           Istio generates logs for all network traffic - TCP connections, HTTP requests, etc. These events are a subset of all events defined by most organizations in AU-2 a. as worthy of audit. 
           See AU-3 for details of the information that can be generated, and AU-3 (1) for information on customizing it.
           If the only events to be logged per AU-2 a. are network events, then Istio satisfies AU-12 fully for the information system.
+          # Fully implements.
         
         links:
           - href: 9e2f0907-28b0-4438-b196-4a7f3b3c98fa
@@ -258,6 +263,7 @@ component-definition:
           Kubernetes RBAC should be used to control who can change which configuration at runtime.
           BigBang implements CM-5 controls by implementing infrastructure as code practices, configuring Kubernetes RBAC to prevent humans from authoring configuration and allowing only continuous delivery systems (Flux, by default) to author runtime configuration. 
           Since all configuration is managed in this CM-5 conformant way, Istio’s configuration is controlled in a CM-5 conformant way.
+          # Partially implements.
         
         links:
           - href: 3df5b81c-dafb-4de1-a120-07f234d66ea5
@@ -274,6 +280,7 @@ component-definition:
           - NIST SP 800-204A: Building Secure Microservices-based Applications Using Service-Mesh Architecture
           - NIST SP 800-204B: Attribute-based Access Control for Microservices-based Applications using a Service Mesh
           Tetrate helps maintain and periodically audits BigBang’s Istio configurations to ensure they implement best practice defaults.
+          # Partially implements.
         
         links:
           - href: b848d438-58f7-49de-b784-f927acd9f7fa
@@ -288,6 +295,7 @@ component-definition:
           # How does Istio Help?
           Istio’s service inventory is updated continuously from the Kubernetes API server (the information system’s source of truth for what applications are running). 
           Therefore, the inventory is updated when components of the information system are installed or removed. As a result, Istio implements CM-8 (1) for the information system.
+          # Fully implements.
         
         links:
           - href: 6d46277f-d681-491d-8341-aad6f2ef880e
@@ -298,6 +306,7 @@ component-definition:
         control-id: cm-8.2
         description: >-
           Provides an inventory of all workloads (including mission apps) in the service mesh, viewable in Kiali. The inventory is automatically and continuously updated.
+          # Partially implements.
         
         links:
           - href: 57d1aefe-6c9b-4192-8581-73dd369cb589
@@ -313,6 +322,7 @@ component-definition:
           Istio can be used to implement authentication of end-user credentials for applications in the mesh. This is typically configured via Istio’s external authorization service or by validating JWTs on each request (see AC-3).
           If components in the information system are protected by Istio configured to validate end-user credentials, then Istio satisfies the authentication clause IA-2: “[the information system] authenticates organizational users (or processes acting on behalf or organizational users).” 
           Assigning user identities themselves, and ensuring their uniqueness, is out of scope of Istio. (Istio does assign identities to applications or processes running in the information system – see AC-4.)
+          # Fully implements.
         
         links:
           - href: 495f4dff-21f1-42c6-8f42-fd73a740e5e4
@@ -334,6 +344,7 @@ component-definition:
             c. Sent only to correct workloads because Istio authenticates runtime proofs (mainly, the pod’s service account token) in addition to authorizing the identity by checking with the Kubernetes API server.
             d. Service accounts in Kubernetes are unique. However, Kubernetes-level controls (out of the scope of Istio) need to be implemented to ensure that identities are not re-used.
             e. The Kubernetes service account lifecycle is out of scope of Istio. A Kubernetes-level control is need to satisfy this requirement.
+            # Fully implements.
         
         links:
           - href: dc3fa293-49ce-427c-ba7a-860fffe34397
@@ -348,6 +359,7 @@ component-definition:
           # How does Istio Help?
           Istio provides encryption in transit for all applications in the mesh, and can also provide TLS termination at ingress and TLS origination at egress. Tetrate Istio Distribution (TID) is the only FIPS 140-2 Verified Istio distribution that exists. It is available from the Iron Bank.
           When using the TID FIPS builds, all communication between components of the information system is encrypted using FIPS 140-2 verified software.
+          # Partially implements.
         
         links:
           - href: 8a2df8be-5387-4be9-b98f-95c4b5999c6b
@@ -357,7 +369,8 @@ component-definition:
       - uuid: 82AC8314-BDA8-4A4D-B54D-4A0233563C7C
         control-id: sc-3
         description: >-
-          Istio breaks-down services into microservices to isolate security functions from non-security functions. 
+          Istio breaks-down services into microservices to isolate security functions from non-security functions.
+          # Fully implements.
          
         links:
           - href: 0f605d27-e95f-434b-972f-453c62bd365f
@@ -368,6 +381,7 @@ component-definition:
         control-id: sc-4
         description: >-
           Istio can enforce that outbound traffic goes through an Egress Gateway. When combined with a Network Policy, you can enforce all traffic, or some subset, goes through the egress gateway to prevent unauthorized and unintended information transfer via shared system resources.
+          # Fully implements.
         
         links:
           - href: a189f4ae-f3e5-4b05-9321-c7ddf5888725
@@ -378,6 +392,7 @@ component-definition:
         control-id: sc-5
         description: >-
           Istio monitors the egress traffic and enforces all the security policies. Monitoring the egress traffic, enables you to analyze, possibly offline, and detect an attack.
+          # Fully implements.
         
         links:
           - href: fb606d63-b214-4ea2-b2c6-67385b9b819f
@@ -396,6 +411,7 @@ component-definition:
             Istio’s separation should be augmented with network-level separation, e.g. via a CNI plugin, to help implement a defense in depth strategy.
             c. The only ingress into the cluster is via Istio gateways (AC-3), egress is controlled by Istio gateways (AC-4). If all information system components are running in the cluster, this satisfies the needs of SC-7 c. 
             Further, access policy can be applied at both points, as well as at every application instance via Istio’s sidecar. This gives the organization the opportunity to implement more fine-grained controls than is needed by SC-7.
+            # Partially implements.
         
         links:
           - href: e622825a-5b4d-4fb9-9c37-5444b2e5c41b
@@ -418,6 +434,7 @@ component-definition:
             d. Istio must be explicitly configured to allow exceptions, either in AuthorizationPolicy documents controlling runtime access or in resource annotations exempting traffic from Istio’s sidecar. 
             These can be used as supporting documents for SC-7 (4) d., but will need to be augmented with organizational documentation citing specific mission needs and durations.
             e. This is an organizational activity out of the scope of Istio.
+            # Partially implements.
         
         links:
           - href: 2e98ac3d-5b77-4199-8087-ce0a40e302d1
@@ -434,6 +451,7 @@ component-definition:
           Inside of the mesh, and to control egress out to external services, you can author AuthorizationPolicies to limit access. 
           Those policies must be written in the “allow with positive matching” style. 
           Together, Istio implements the SC-7 (5) control on behalf of applications in the mesh.
+          # Partially implements?
         
         links:
           - href: 9417e258-3474-4016-9e68-b3eeafcd181c
@@ -445,6 +463,7 @@ component-definition:
         description: >-
           Istio’s traffic management model relies on the Envoy proxies that are deployed along with the services. 
           All traffic that the mesh services send and receive (data plane traffic) is proxied through Envoy, making it easy to direct and control traffic around the mesh without making any changes to the services.
+          # Fully implements.
         
         links:
           - href: eecac746-c5b9-481f-8c6a-9f19bc35e182
@@ -456,6 +475,7 @@ component-definition:
         description: >-
           Istio can set an alert to detect attempted data exfiltration by a service in the cluster. In this mode, Prometheus can tell you both the source and (attempted) destination workload for the blocked request.
           The Istio System manages the ingress and egress network traffic permitted within your OPA-integrated Istio service mesh. You can specify egress traffic is only allowed to a predefined collection of endpoints to minimize the risk of data exfiltration or to implement microservice API authorization.
+          # Partially implements.
         
         links:
           - href: 647f94be-cc16-4873-aa67-6b58ee708003
@@ -468,6 +488,7 @@ component-definition:
           Locality-weighted load balancing allows administrators to control the distribution of traffic to endpoints based on the localities of where the traffic originates and where it will terminate. 
           These localities are specified using arbitrary labels that designate a hierarchy of localities in {region}/{zone}/{sub-zone} form.
           If the goal of the operator is not to distribute load across zones and regions but rather to restrict the regionality of failover to meet other operational requirements an operator can set a ‘failover’ policy instead of a ‘distribute’ policy.
+          # Fully implements?
         
         links:
           - href: d9da625b-806a-4992-a1f7-f26a277a011d
@@ -480,7 +501,8 @@ component-definition:
           Multi-mesh deployments facilitate division of a system into subsystems with different security and compliance requirements, and facilitate the boundary protection. 
           You put each subsystem into a separate service mesh, preferably on a separate network. You connect the Istio meshes using gateways. The gateways monitor and control cross-mesh traffic at the boundary of each mesh.
           Istio isolation boundaries can run multiple TSB-managed Istio environments within a Kubernetes cluster, or spanning several clusters. 
-          These Istio environments are isolated from each other in terms of service discovery and config distribution. 
+          These Istio environments are isolated from each other in terms of service discovery and config distribution.
+          # Fully implements?
         
         links:
           - href: bd9ac2a2-a681-41fa-988f-8f9bee06bb68
@@ -493,7 +515,8 @@ component-definition:
           All outbound traffic from an Istio-enabled pod is redirected to its sidecar proxy by default, accessibility of URLs outside of the cluster depends on the configuration of the proxy. 
           By default, Istio configures the Envoy proxy to pass through requests for unknown services. Although this provides a convenient way to get started with Istio, configuring stricter control is usually preferable.
           Egress gateways can limit how traffic flows to external services outside of the information system under control.
-          Istio can be configured to extract end-user credentials from requests for authentication (either locally, or forwarding them on to an external authorization service), and to disallow requests without authentication tokens. 
+          Istio can be configured to extract end-user credentials from requests for authentication (either locally, or forwarding them on to an external authorization service), and to disallow requests without authentication tokens.
+          # Fully implements?
         
         links:
           - href: f78d9ca9-23ad-4044-9f0c-ba9ccaedcafb
@@ -506,7 +529,11 @@ component-definition:
           Istio implements with global configuration.
 
           # How does Istio Help?
-          Istio provides encryption in transit (TLS) for all applications in the mesh. This ensures both confidentiality and integrity of communication between applications deployed in the mesh. When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          Istio provides encryption in transit (TLS) for all applications in the mesh. 
+          This ensures both confidentiality and integrity of communication between applications deployed in the mesh. 
+          When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. 
+          When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          # Fully implements?
         
         links:
           - href: 1279a202-8151-4ab8-871a-a9b5c989d9ce
@@ -520,6 +547,7 @@ component-definition:
 
           # How does Istio Help?
           See SC-8 for full details. In short, Istio provides encryption in transit (mutual TLS) for all applications in the mesh. When you’re using TID’s FIPS verified build of Istio, then this encryption also satisfies FIPS 140-2 requirements.
+          # Fully implements?
         
         links:
           - href: f955f7c3-b4bd-47b3-b8e7-cc48df0f1a3f
@@ -532,7 +560,11 @@ component-definition:
           Istio implements with global configuration.
 
           # How does Istio Help?
-          Istio provides encryption in transit (TLS) for all applications in the mesh. This ensures both confidentiality and integrity of communication between applications deployed in the mesh. When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          Istio provides encryption in transit (TLS) for all applications in the mesh. 
+          This ensures both confidentiality and integrity of communication between applications deployed in the mesh. 
+          When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. 
+          When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          # Fully implements?
         
         links:
           - href: 618e801a-5447-4d41-81a5-6c1a73bf0dc6
@@ -543,6 +575,7 @@ component-definition:
         control-id: sc-10
         description: >-
           A timeout for HTTP requests can be specified using a timeout field in a route rule.
+          # Fully implements.
         
         links:
           - href: 1bdbcd07-3377-42c6-b5f5-f0e733e33eea
@@ -555,7 +588,9 @@ component-definition:
           Istio implements with global configuration.
 
           # How does Istio Help?
-          As outlined in the section on SC-8, Istio provides encryption in transit for all applications in the mesh. The Tetrate Istio Distribution’s FIPS Verified build is the only FIPS verified build of Istio and Envoy available, and satisfies requirements for FIPS 140-2 as well as the requirement to use the best available software for the job.
+          As outlined in the section on SC-8, Istio provides encryption in transit for all applications in the mesh. 
+          The Tetrate Istio Distribution’s FIPS Verified build is the only FIPS verified build of Istio and Envoy available, and satisfies requirements for FIPS 140-2 as well as the requirement to use the best available software for the job.
+          # Fully implements?
         
         links:
           - href: e3ba6c86-9b63-4784-99c1-48ad1060a2f8
@@ -568,7 +603,11 @@ component-definition:
           Istio implements with global configuration.
 
           # How does Istio Help?
-          Istio provides encryption in transit (TLS) for all applications in the mesh. This ensures both confidentiality and integrity of communication between applications deployed in the mesh. When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          Istio provides encryption in transit (TLS) for all applications in the mesh. 
+          This ensures both confidentiality and integrity of communication between applications deployed in the mesh. 
+          When you deploy a FIPS verified build of Istio (e.g. from the Tetrate Istio Distribution), that encryption conforms to FIPS 140-2 requirements. 
+          When Istio is configured in STRICT mTLS mode (see AC-4), it implements the SC-8 control for all applications in the mesh.
+          # Fully implements?
         
         links:
           - href: 885df32b-33b3-4541-98ed-bd54f7777696
@@ -580,6 +619,7 @@ component-definition:
         description: >-
           Istio’s authorization features provide mesh-, namespace-, and workload-wide access control for your workloads in the mesh.
           Istio supports trust domain migration for authorization policy. This means if an Istio mesh needs to change its trust domain, the authorization policy doesn’t need to be changed manually.
+          # Fully implements.
         
         links:
           - href: 0b5e3b42-2020-422b-9939-d9c93d009f99
@@ -594,6 +634,7 @@ component-definition:
           # How does Istio Help?
           Istio generates logs for all network traffic - TCP connections, HTTP requests, etc. Can be configured for specific network traffic such as not authorized or approved by a system process or user.
           Network event alerts can be configured by organizations need.
+          # Fully implements.
         
         links:
           - href: 0e3de96a-936b-42dc-bea8-7586112ded05
