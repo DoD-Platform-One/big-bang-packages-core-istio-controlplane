@@ -33,9 +33,14 @@ spec:
 {{- end }}
         replicaCount: {{ .Values.istiod.replicaCount }}
         securityContext:
+          runAsNonRoot: true
+          {{- if .Values.enterprise }}
           runAsGroup: 1337
           runAsUser: 1337
-          runAsNonRoot: true        
+          {{- else }}       
+          runAsGroup: 65532
+          runAsUser: 65532
+          {{- end }}       
         resources:
           {{- toYaml .Values.istiod.resources | nindent 10 }}
         strategy:
