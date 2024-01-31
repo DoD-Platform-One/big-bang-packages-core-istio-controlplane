@@ -35,11 +35,11 @@ spec:
         securityContext:
           runAsNonRoot: true
           {{- if .Values.enterprise }}
-          runAsGroup: 1337
-          runAsUser: 1337
-          {{- else }}       
           runAsGroup: 65532
           runAsUser: 65532
+          {{- else }}       
+          runAsGroup: 1337
+          runAsUser: 1337
           {{- end }}       
         resources:
           {{- toYaml .Values.istiod.resources | nindent 10 }}
