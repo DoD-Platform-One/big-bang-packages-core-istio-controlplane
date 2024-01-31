@@ -32,6 +32,16 @@ spec:
             {{- toYaml .Values.istiod.hpaSpec.metrics | nindent 12 }}
 {{- end }}
         replicaCount: {{ .Values.istiod.replicaCount }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsGroup: 1337
+          runAsUser: 1337
+          runAsNonRoot: true        
         resources:
           {{- toYaml .Values.istiod.resources | nindent 10 }}
         strategy:
