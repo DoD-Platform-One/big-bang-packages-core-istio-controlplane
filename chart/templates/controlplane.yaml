@@ -32,6 +32,10 @@ spec:
             {{- toYaml .Values.istiod.hpaSpec.metrics | nindent 12 }}
 {{- end }}
         replicaCount: {{ .Values.istiod.replicaCount }}
+        securityContext:
+          runAsNonRoot: true
+          runAsGroup: 1337
+          runAsUser: 1337
         resources:
           {{- toYaml .Values.istiod.resources | nindent 10 }}
         strategy:

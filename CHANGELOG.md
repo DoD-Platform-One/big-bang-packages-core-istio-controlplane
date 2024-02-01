@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.19.6-bb.1] - 2024-01-31
+### Added
+- added security context values for pilot pod for kyverno-polices to allow the pilot image
+
 ## [1.19.6-bb.0] - 2024-01-12
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.19.5 to 1.19.6
