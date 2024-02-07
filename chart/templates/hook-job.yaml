@@ -31,6 +31,15 @@ spec:
           args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
           securityContext:
             {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
+          {{- if .Values.postInstallHook.containerResources.resources }}
+          resources:
+            requests:
+              cpu: {{ .Values.postInstallHook.containerResources.resources.requests.cpu | quote }}
+              memory: {{ .Values.postInstallHook.containerResources.resources.requests.memory | quote }}
+            limits:
+              cpu: {{ .Values.postInstallHook.containerResources.resources.requests.cpu | quote }}
+              memory: {{ .Values.postInstallHook.containerResources.resources.requests.memory | quote }}
+          {{- end }}
       securityContext:
         {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}
       {{- if .Values.postInstallHook.resources }}
