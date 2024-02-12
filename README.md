@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.19.6-bb.1](https://img.shields.io/badge/Version-1.19.6--bb.1-informational?style=flat-square) ![AppVersion: 1.19.6](https://img.shields.io/badge/AppVersion-1.19.6-informational?style=flat-square)
+![Version: 1.19.6-bb.2](https://img.shields.io/badge/Version-1.19.6--bb.2-informational?style=flat-square) ![AppVersion: 1.19.6](https://img.shields.io/badge/AppVersion-1.19.6-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -99,10 +99,10 @@ helm install istio chart/
 | postInstallHook.tag | string | `"2.1.0"` |  |
 | postInstallHook.securityContext | object | `{"fsGroup":1001,"runAsGroup":1001,"runAsNonRoot":true,"runAsUser":1001}` | Pod security context for readiness check |
 | postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
-| postInstallHook.resources.requests.cpu | string | `"100m"` |  |
-| postInstallHook.resources.requests.memory | string | `"256Mi"` |  |
-| postInstallHook.resources.limits.cpu | string | `"100m"` |  |
-| postInstallHook.resources.limits.memory | string | `"256Mi"` |  |
+| postInstallHook.containerResources.resources.requests.cpu | string | `"100m"` |  |
+| postInstallHook.containerResources.resources.requests.memory | string | `"256Mi"` |  |
+| postInstallHook.containerResources.resources.limits.cpu | string | `"100m"` |  |
+| postInstallHook.containerResources.resources.limits.memory | string | `"256Mi"` |  |
 
 ## Contributing
 

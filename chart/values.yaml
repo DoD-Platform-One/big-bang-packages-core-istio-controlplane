@@ -322,11 +322,12 @@ postInstallHook:
     capabilities:
       drop:
         - ALL
-  # resource defaults
-  resources:
-    requests:
-      cpu: "100m"
-      memory: "256Mi"
-    limits:
-      cpu: "100m"
-      memory: "256Mi"
+  # Container Resource Requests
+  containerResources:
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
+      limits:
+        cpu: "100m"
+        memory: "256Mi"
