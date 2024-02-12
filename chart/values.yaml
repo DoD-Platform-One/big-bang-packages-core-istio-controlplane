@@ -331,12 +331,3 @@ postInstallHook:
       limits:
         cpu: "100m"
         memory: "256Mi"
-
-  # resource defaults
-  resources:
-    requests:
-      cpu: "100m"
-      memory: "256Mi"
-    limits:
-      cpu: "100m"
-      memory: "256Mi"
