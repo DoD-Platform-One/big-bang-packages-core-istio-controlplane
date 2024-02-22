@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.19.7-bb.0] - 2024-02-13
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.19.6 to 1.19.7
+- ironbank/opensource/istio/pilot updated from 1.19.6 to 1.19.7
+- ironbank/opensource/istio/proxyv2 updated from 1.19.6 to 1.19.7
+- ironbank/tetrate/istio/install-cni updated from 1.20.2 to 1.20.3
+- ironbank/tetrate/istio/pilot updated from 1.20.2 to 1.20.3
+- ironbank/tetrate/istio/proxyv2 updated from 1.20.2 to 1.20.3
+
 ## [1.19.6-bb.2] - 2024-02-12
 ### Added
 - added postInstallHook.containerResources values for hook-job.yaml 
