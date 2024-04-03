@@ -8,4 +8,3 @@ upstream:
     commit: b33f3b3807e100ddbb1f82acc8468d659584fd39
     repo: https://github.com/istio/istio
     directory: /manifests/addons/dashboards
-    ref: master
