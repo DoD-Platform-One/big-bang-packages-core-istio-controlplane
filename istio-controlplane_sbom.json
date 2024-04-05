@@ -1,7 +1,7 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:4da6914f-93eb-4714-85a3-c74b230116aa",
+  "serialNumber": "urn:uuid:fc5d5e9c-66b1-4b5f-adc8-73131f415d0f",
   "version": 1,
   "metadata": {
     "tools": null,
@@ -21,7 +21,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -33,7 +33,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -935,11 +935,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible?package-id=051454e1461f246e",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible?package-id=051454e1461f246e",
           "name": "github.com/docker/cli",
           "version": "v24.0.5\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:cli:v24.0.5\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -985,11 +985,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible?package-id=a64692a536754dd3",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible?package-id=a64692a536754dd3",
           "name": "github.com/docker/distribution",
           "version": "v2.8.2\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:distribution:v2.8.2\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -1035,11 +1035,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible?package-id=abb8ff4264eed224",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible?package-id=abb8ff4264eed224",
           "name": "github.com/docker/docker",
           "version": "v24.0.7\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:docker:v24.0.7\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -1301,11 +1301,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=d9da257325b07f61",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=d9da257325b07f61",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -4075,11 +4075,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=8b185cda2b392cf3",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=8b185cda2b392cf3",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -6923,7 +6923,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -6940,7 +6940,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -7477,7 +7477,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/pilot@1.20.4:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -7489,7 +7489,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -7586,7 +7586,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -7598,7 +7598,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -8496,11 +8496,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible?package-id=55fac9cad410dd18",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible?package-id=55fac9cad410dd18",
           "name": "github.com/docker/cli",
           "version": "v24.0.5\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:cli:v24.0.5\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -8546,11 +8546,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible?package-id=aa367b9a402631b3",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible?package-id=aa367b9a402631b3",
           "name": "github.com/docker/distribution",
           "version": "v2.8.2\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:distribution:v2.8.2\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -8596,11 +8596,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible?package-id=7e08df692f591df1",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible?package-id=7e08df692f591df1",
           "name": "github.com/docker/docker",
           "version": "v24.0.7\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:docker:v24.0.7\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -14031,7 +14031,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -14048,7 +14048,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -14487,7 +14487,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/proxyv2@1.20.4:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -14499,7 +14499,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -14596,7 +14596,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -14608,7 +14608,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -16200,11 +16200,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=1b91b688be29a596",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=1b91b688be29a596",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -16254,11 +16254,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=50e153c247d53f27",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=50e153c247d53f27",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -21270,11 +21270,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=6ce57f62cf795b05",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=6ce57f62cf795b05",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -21320,11 +21320,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=fa525a07cae91aa7",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=fa525a07cae91aa7",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -26790,7 +26790,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -26807,7 +26807,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -27598,7 +27598,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/opensource/istio/install-cni@1.20.4:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -27610,7 +27610,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -27707,7 +27707,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -27719,7 +27719,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -29311,11 +29311,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=f4c51b127153af12",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=f4c51b127153af12",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -29365,11 +29365,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=9521fb54b232874f",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=9521fb54b232874f",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -34381,11 +34381,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=78baf319fa7b4447",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=78baf319fa7b4447",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -34431,11 +34431,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=6229628e7ac049ad",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=6229628e7ac049ad",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -39901,7 +39901,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -39918,7 +39918,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -40709,7 +40709,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -40721,7 +40721,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -40818,7 +40818,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -40830,7 +40830,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -41728,11 +41728,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible?package-id=643528db4bf085d5",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible?package-id=643528db4bf085d5",
           "name": "github.com/docker/cli",
           "version": "v24.0.5\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:cli:v24.0.5\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -41778,11 +41778,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible?package-id=a10696128e27a316",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible?package-id=a10696128e27a316",
           "name": "github.com/docker/distribution",
           "version": "v2.8.2\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:distribution:v2.8.2\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -41828,11 +41828,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible?package-id=e626e77f28865de3",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible?package-id=e626e77f28865de3",
           "name": "github.com/docker/docker",
           "version": "v24.0.7\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:docker:v24.0.7\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -47263,7 +47263,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -47280,7 +47280,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -47719,7 +47719,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -47731,7 +47731,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -47828,7 +47828,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12\u0026package-id=854ccee33785ad46",
           "publisher": "Santiago Vila \u003Csanvila@debian.org\u003E",
           "name": "base-files",
           "version": "12.4\u002Bdeb12u5",
@@ -47840,7 +47840,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:base-files:base-files:12.4\\\u002Bdeb12u5:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/base-files@12.4\u002Bdeb12u5?arch=amd64\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/base-files@12.4%2Bdeb12u5?arch=amd64\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -48742,11 +48742,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible?package-id=47d3eea3e8d06a43",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible?package-id=47d3eea3e8d06a43",
           "name": "github.com/docker/cli",
           "version": "v24.0.5\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:cli:v24.0.5\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/cli@v24.0.5\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/cli@v24.0.5%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -48792,11 +48792,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible?package-id=81095baa351d4226",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible?package-id=81095baa351d4226",
           "name": "github.com/docker/distribution",
           "version": "v2.8.2\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:distribution:v2.8.2\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -48842,11 +48842,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible?package-id=716887b9c000b4c2",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible?package-id=716887b9c000b4c2",
           "name": "github.com/docker/docker",
           "version": "v24.0.7\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:docker:v24.0.7\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/docker@v24.0.7\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/docker@v24.0.7%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -49108,11 +49108,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible?package-id=43796e9330d332bd",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible?package-id=43796e9330d332bd",
           "name": "github.com/evanphx/json-patch",
           "version": "v5.7.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v5.7.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v5.7.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -51882,11 +51882,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=961233620155561d",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=961233620155561d",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -54730,7 +54730,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12\u0026package-id=9bbee5a9c682c997",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "libc6",
           "version": "2.36-9\u002Bdeb12u4",
@@ -54747,7 +54747,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libc6:libc6:2.36-9\\\u002Bdeb12u4:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/libc6@2.36-9\u002Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u4?arch=amd64\u0026upstream=glibc\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -55284,7 +55284,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
+          "bom-ref": "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12\u0026package-id=0554439f25547568",
           "publisher": "GNU Libc Maintainers \u003Cdebian-glibc@lists.debian.org\u003E",
           "name": "tzdata",
           "version": "2024a-0\u002Bdeb12u1",
@@ -55296,7 +55296,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:tzdata:tzdata:2024a-0\\\u002Bdeb12u1:*:*:*:*:*:*:*",
-          "purl": "pkg:deb/debian/tzdata@2024a-0\u002Bdeb12u1?arch=all\u0026distro=debian-12",
+          "purl": "pkg:deb/debian/tzdata@2024a-0%2Bdeb12u1?arch=all\u0026distro=debian-12",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -55387,7 +55387,7 @@
     },
     {
       "type": "container",
-      "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:64d8bbd3f8c7d4a1",
+      "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:f9a20765df4cdefb",
       "name": "registry1.dso.mil/ironbank/big-bang/base",
       "version": "2.1.0",
       "components": [
@@ -55417,7 +55417,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55463,7 +55463,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55513,7 +55513,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55563,7 +55563,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55613,7 +55613,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55663,7 +55663,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55709,7 +55709,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55755,7 +55755,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55809,7 +55809,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55887,7 +55887,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55941,7 +55941,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -55995,7 +55995,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56073,7 +56073,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56151,7 +56151,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56229,7 +56229,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56307,7 +56307,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56401,7 +56401,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56479,7 +56479,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56573,7 +56573,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56667,7 +56667,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56745,7 +56745,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56799,7 +56799,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56877,7 +56877,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56931,7 +56931,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -56985,7 +56985,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57067,7 +57067,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57125,7 +57125,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57203,7 +57203,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57253,7 +57253,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57299,7 +57299,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57349,7 +57349,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57399,7 +57399,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57445,7 +57445,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57491,7 +57491,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57541,7 +57541,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57591,7 +57591,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57641,7 +57641,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57687,7 +57687,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57713,11 +57713,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible?package-id=1ceaf1348bbdadbd",
+          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible?package-id=1ceaf1348bbdadbd",
           "name": "github.com/docker/distribution",
           "version": "v2.8.2\u002Bincompatible",
           "cpe": "cpe:2.3:a:docker:distribution:v2.8.2\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2\u002Bincompatible",
+          "purl": "pkg:golang/github.com/docker/distribution@v2.8.2%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -57737,7 +57737,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57783,7 +57783,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57837,7 +57837,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57859,11 +57859,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/evanphx/json-patch@v4.12.0\u002Bincompatible?package-id=7fbca30f99e1bb90",
+          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/evanphx/json-patch@v4.12.0%2Bincompatible?package-id=7fbca30f99e1bb90",
           "name": "github.com/evanphx/json-patch",
           "version": "v4.12.0\u002Bincompatible",
           "cpe": "cpe:2.3:a:evanphx:json-patch:v4.12.0\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/evanphx/json-patch@v4.12.0\u002Bincompatible",
+          "purl": "pkg:golang/github.com/evanphx/json-patch@v4.12.0%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -57887,7 +57887,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57941,7 +57941,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -57987,7 +57987,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58033,7 +58033,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58083,7 +58083,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58137,7 +58137,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58191,7 +58191,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58245,7 +58245,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58299,7 +58299,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58353,7 +58353,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58403,7 +58403,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58457,7 +58457,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58507,7 +58507,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58553,7 +58553,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58599,7 +58599,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58649,7 +58649,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58699,7 +58699,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58745,7 +58745,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58791,7 +58791,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58837,7 +58837,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58883,7 +58883,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58929,7 +58929,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -58975,7 +58975,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59025,7 +59025,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59071,7 +59071,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59125,7 +59125,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59171,7 +59171,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59217,7 +59217,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59263,7 +59263,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59313,7 +59313,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59363,7 +59363,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59417,7 +59417,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59471,7 +59471,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59517,7 +59517,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59567,7 +59567,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59613,7 +59613,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59659,7 +59659,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59713,7 +59713,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59767,7 +59767,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59817,7 +59817,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59863,7 +59863,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59913,7 +59913,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -59963,7 +59963,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60013,7 +60013,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60039,11 +60039,11 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible?package-id=a868aae6aac4fda9",
+          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible?package-id=a868aae6aac4fda9",
           "name": "github.com/peterbourgon/diskv",
           "version": "v2.0.1\u002Bincompatible",
           "cpe": "cpe:2.3:a:peterbourgon:diskv:v2.0.1\\\u002Bincompatible:*:*:*:*:*:*:*",
-          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1\u002Bincompatible",
+          "purl": "pkg:golang/github.com/peterbourgon/diskv@v2.0.1%2Bincompatible",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -60063,7 +60063,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60109,7 +60109,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60159,7 +60159,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60209,7 +60209,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60255,7 +60255,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60301,7 +60301,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60347,7 +60347,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60393,7 +60393,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60439,7 +60439,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60489,7 +60489,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60535,7 +60535,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60585,7 +60585,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60635,7 +60635,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60693,7 +60693,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60747,7 +60747,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60825,7 +60825,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60919,7 +60919,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -60973,7 +60973,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61031,7 +61031,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61085,7 +61085,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61163,7 +61163,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61241,7 +61241,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61286,7 +61286,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61364,7 +61364,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61410,7 +61410,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61456,7 +61456,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61506,7 +61506,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61552,7 +61552,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61598,7 +61598,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61644,7 +61644,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61694,7 +61694,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61740,7 +61740,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61786,7 +61786,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61836,7 +61836,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61882,7 +61882,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61932,7 +61932,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -61977,7 +61977,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62022,7 +62022,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62071,7 +62071,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62116,7 +62116,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62161,7 +62161,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62234,7 +62234,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62299,7 +62299,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62349,7 +62349,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62403,7 +62403,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62457,7 +62457,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62535,7 +62535,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62613,7 +62613,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62659,7 +62659,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62704,7 +62704,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62749,7 +62749,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62794,7 +62794,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62872,7 +62872,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -62950,7 +62950,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63044,7 +63044,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63154,7 +63154,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63232,7 +63232,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63286,7 +63286,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63340,7 +63340,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63394,7 +63394,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63448,7 +63448,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63502,7 +63502,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63556,7 +63556,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63634,7 +63634,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63712,7 +63712,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63790,7 +63790,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63844,7 +63844,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63898,7 +63898,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -63952,7 +63952,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64006,7 +64006,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64060,7 +64060,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64138,7 +64138,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64192,7 +64192,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64246,7 +64246,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64300,7 +64300,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64354,7 +64354,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64408,7 +64408,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64462,7 +64462,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64516,7 +64516,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64594,7 +64594,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64648,7 +64648,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64702,7 +64702,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64756,7 +64756,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64810,7 +64810,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64864,7 +64864,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64918,7 +64918,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -64972,7 +64972,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65026,7 +65026,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65048,7 +65048,7 @@
         },
         {
           "type": "library",
-          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:rpm/rhel/libstdc\u002B\u002B@11.4.1-2.1.el9?arch=x86_64\u0026upstream=gcc-11.4.1-2.1.el9.src.rpm\u0026distro=rhel-9.3\u0026package-id=67a908dedb55a534",
+          "bom-ref": "registry1.dso.mil/ironbank/big-bang/base@2.1.0:pkg:rpm/rhel/libstdc%2B%2B@11.4.1-2.1.el9?arch=x86_64\u0026upstream=gcc-11.4.1-2.1.el9.src.rpm\u0026distro=rhel-9.3\u0026package-id=67a908dedb55a534",
           "publisher": "Red Hat, Inc.",
           "name": "libstdc\u002B\u002B",
           "version": "11.4.1-2.1.el9",
@@ -65060,7 +65060,7 @@
             }
           ],
           "cpe": "cpe:2.3:a:libstdc\\\u002B\\\u002B:libstdc\\\u002B\\\u002B:11.4.1-2.1.el9:*:*:*:*:*:*:*",
-          "purl": "pkg:rpm/rhel/libstdc\u002B\u002B@11.4.1-2.1.el9?arch=x86_64\u0026upstream=gcc-11.4.1-2.1.el9.src.rpm\u0026distro=rhel-9.3",
+          "purl": "pkg:rpm/rhel/libstdc%2B%2B@11.4.1-2.1.el9?arch=x86_64\u0026upstream=gcc-11.4.1-2.1.el9.src.rpm\u0026distro=rhel-9.3",
           "properties": [
             {
               "name": "syft:package:foundBy",
@@ -65080,7 +65080,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65134,7 +65134,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65188,7 +65188,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65242,7 +65242,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65296,7 +65296,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65350,7 +65350,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65404,7 +65404,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65482,7 +65482,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65536,7 +65536,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65590,7 +65590,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65644,7 +65644,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65722,7 +65722,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65800,7 +65800,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65854,7 +65854,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65908,7 +65908,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -65986,7 +65986,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66064,7 +66064,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66118,7 +66118,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66172,7 +66172,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66226,7 +66226,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66280,7 +66280,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66358,7 +66358,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66440,7 +66440,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66534,7 +66534,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66588,7 +66588,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66642,7 +66642,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66720,7 +66720,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66774,7 +66774,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66828,7 +66828,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -66906,7 +66906,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67000,7 +67000,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67054,7 +67054,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67132,7 +67132,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67226,7 +67226,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67320,7 +67320,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67374,7 +67374,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67444,7 +67444,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67498,7 +67498,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67552,7 +67552,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67630,7 +67630,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67684,7 +67684,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67738,7 +67738,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67816,7 +67816,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67865,7 +67865,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67911,7 +67911,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -67957,7 +67957,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68003,7 +68003,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68065,7 +68065,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68110,7 +68110,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68188,7 +68188,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68237,7 +68237,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68278,7 +68278,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68348,7 +68348,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68402,7 +68402,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68480,7 +68480,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68534,7 +68534,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68612,7 +68612,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68666,7 +68666,7 @@
             },
             {
               "name": "syft:location:0:layerID",
-              "value": "sha256:a5872fa0507da39e27954a6d00868a7cb39b8c57e40151fc25e959275598f565"
+              "value": "sha256:db9ea0d99aa7fa748b3cff5624db8f8c7356ec3fc8186c832a92e69c49307b98"
             },
             {
               "name": "syft:location:0:path",
@@ -68742,7 +68742,7 @@
         "registry1.dso.mil/ironbank/tetrate/istio/install-cni@1.20.4-tetratefips-v0:2f04dae20b322f1c",
         "registry1.dso.mil/ironbank/tetrate/istio/proxyv2@1.20.4-tetratefips-v0:7b558d3bc8dbe952",
         "registry1.dso.mil/ironbank/tetrate/istio/pilot@1.20.4-tetratefips-v0:4cba8a3cc145840c",
-        "registry1.dso.mil/ironbank/big-bang/base@2.1.0:64d8bbd3f8c7d4a1"
+        "registry1.dso.mil/ironbank/big-bang/base@2.1.0:f9a20765df4cdefb"
       ]
     }
   ]
