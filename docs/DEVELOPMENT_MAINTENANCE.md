@@ -28,3 +28,4 @@ Generally the controlplane update should be tested alongside the new operator ve
 1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
 1. Navigate to Grafana and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
 1. Since Kiali interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps). 
+1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md). 
