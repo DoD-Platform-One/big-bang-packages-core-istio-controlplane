@@ -8,7 +8,7 @@
   {{- end }}
 {{- end }}
 
-{{- if eq $sidecarsEnabled false }}
+{{/** if eq $sidecarsEnabled false **/}}
 {{- if not (eq .Values.revision "") }}{{- $deployName = printf "%s-%s" $deployName .Values.revision }}{{- end }}
 apiVersion: batch/v1
 kind: Job
@@ -37,8 +37,13 @@ spec:
       containers:
         - name: hook
           image: "{{ .Values.postInstallHook.image }}:{{ .Values.postInstallHook.tag }}"
+          {{- if (eq $sidecarsEnabled false) }}
           command: ["kubectl"]
           args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
+          {{- else }}
+          command: ["echo"]
+          args: ["Sidecars are enabled, skipping hook"]
+          {{- end }}
           securityContext:
             {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
           {{- if .Values.postInstallHook.containerResources.resources }}
@@ -52,4 +57,4 @@ spec:
           {{- end }}
       securityContext:
         {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}
-{{- end }}
+{{/** end **/}}
