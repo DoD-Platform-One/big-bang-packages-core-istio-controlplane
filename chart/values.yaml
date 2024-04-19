@@ -248,7 +248,7 @@ values:
   pilot:
     env:
     - name: ENABLE_NATIVE_SIDECARS
-      value: "true"
+      value: true
     # # For example, include a custom CA certificate for the JWKS URI resolver
     # jwksResolverExtraRootCA: |
     #   -----BEGIN CERTIFICATE-----
