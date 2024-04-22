@@ -1,14 +1,6 @@
 {{- $deployName := "istiod" }}
+{{- $sidecarsEnabled := dig "pilot" "env" "ENABLE_NATIVE_SIDECARS" false .Values.values }}
 
-{{- $sidecarsEnabled := false }}
-{{- $pilotEnvVars := dig "pilot" "env" list .Values.values }}
-{{- range $envVar := $pilotEnvVars }}
-  {{- if and (eq (dig "name" "" $envVar) "ENABLE_NATIVE_SIDECARS") (eq (dig "value" false $envVar) true) }}
-    {{- $sidecarsEnabled = true }}
-  {{- end }}
-{{- end }}
-
-{{/** if eq $sidecarsEnabled false **/}}
 {{- if not (eq .Values.revision "") }}{{- $deployName = printf "%s-%s" $deployName .Values.revision }}{{- end }}
 apiVersion: batch/v1
 kind: Job
@@ -57,4 +49,3 @@ spec:
           {{- end }}
       securityContext:
         {{- toYaml .Values.postInstallHook.securityContext | nindent 8 }}
-{{/** end **/}}
