@@ -1,5 +1,4 @@
 {{- $deployName := "istiod" }}
-{{- $sidecarsEnabled := dig "pilot" "env" "ENABLE_NATIVE_SIDECARS" false .Values.values }}
 
 {{- if not (eq .Values.revision "") }}{{- $deployName = printf "%s-%s" $deployName .Values.revision }}{{- end }}
 apiVersion: batch/v1
@@ -29,13 +28,8 @@ spec:
       containers:
         - name: hook
           image: "{{ .Values.postInstallHook.image }}:{{ .Values.postInstallHook.tag }}"
-          {{- if (eq $sidecarsEnabled false) }}
           command: ["kubectl"]
           args: ["rollout", "status", {{- printf "deployment/%s" $deployName | quote }}, "-n", "istio-system"]
-          {{- else }}
-          command: ["echo"]
-          args: ["Sidecars are enabled, skipping hook"]
-          {{- end }}
           securityContext:
             {{- toYaml .Values.postInstallHook.containerSecurityContext | nindent 12 }}
           {{- if .Values.postInstallHook.containerResources.resources }}
