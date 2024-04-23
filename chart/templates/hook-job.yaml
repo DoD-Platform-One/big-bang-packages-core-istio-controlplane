@@ -1,5 +1,4 @@
 {{- $deployName := "istiod" }}
-
 {{- if not (eq .Values.revision "") }}{{- $deployName = printf "%s-%s" $deployName .Values.revision }}{{- end }}
 apiVersion: batch/v1
 kind: Job
