@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.20.4-bb.3](https://img.shields.io/badge/Version-1.20.4--bb.3-informational?style=flat-square) ![AppVersion: 1.20.4](https://img.shields.io/badge/AppVersion-1.20.4-informational?style=flat-square)
+![Version: 1.21.1-bb.0](https://img.shields.io/badge/Version-1.21.1--bb.0-informational?style=flat-square) ![AppVersion: 1.21.1](https://img.shields.io/badge/AppVersion-1.21.1-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -34,10 +34,10 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag" |
-| tag | string | `"1.20.4"` | The tag to use for all images |
+| tag | string | `"1.21.1"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
-| tidTag | string | `"1.20.4-tetratefips-v0"` |  |
+| tidTag | string | `"1.21.1-tetratefips-v0"` |  |
 | domain | string | `"bigbang.dev"` | The domain to use for the default gateway |
 | mtls.mode | string | `"STRICT"` | STRICT = Allow only mutual TLS traffic, PERMISSIVE = Allow both plain text and mutual TLS traffic |
 | revision | string | `""` | Revision of the Istio control plane |
@@ -83,7 +83,7 @@ helm install istio chart/
 | tracing.sampling | int | `10` | percent of traces to send to jaeger |
 | cni.image.hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
 | cni.image.name | string | `"install-cni"` |  |
-| cni.image.tag | string | `"1.20.4"` |  |
+| cni.image.tag | string | `"1.21.1"` |  |
 | cni.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | cni.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
 | cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
