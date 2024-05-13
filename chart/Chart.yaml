@@ -2,7 +2,6 @@ apiVersion: v2
 name: istio
 version: 1.21.1-bb.1
 appVersion: 1.21.1
-kubeVersion: ">=1.27.0-0"
 description: Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 annotations:
   bigbang.dev/applicationVersions: |
