@@ -9,7 +9,7 @@
 
 # Testing new Istio ControlPlane version
 
-Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master.
+Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. You will need to run the k3d_dev.sh script with at least the `-a` flag to put keycloak on a separate IP, but it also could be necessary to add the `-b` flag for a larger instance and the `-w` flag to use the Weave CNI instead of the default Flannel CNI.
 
 1. Update your values overrides to point to your branches for both the operator and controlplane:
 
@@ -24,11 +24,51 @@ Generally the controlplane update should be tested alongside the new operator ve
         branch: "renovate/ironbank" # Or your branch
     ```
 
-1. To more thoroughly test Istio, deploy the following:
+To more thoroughly test Istio, deploy the following:
 
 - Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way).
 - Kiali
 - Monitoring
+- Grafana
+
+Example:
+
+```yaml
+# overrides/istio_deploy.yaml
+
+jaeger:
+  enabled: true
+
+monitoring:
+  enabled: true
+
+grafana:
+  enabled: true
+
+kiali:
+  enabled: true
+  values:
+    cr:
+      spec:
+        auth:
+          strategy: "anonymous"
+
+kyvernoPolicies:
+  values:
+    policies:
+      restrict-host-path-mount-pv:
+        validationFailureAction: audit
+```
+
+```sh
+helm upgrade -i bigbang chart/ -n bigbang --create-namespace \
+    -f ./docs/assets/configs/example/policy-overrides-k3d.yaml \
+    -f ../overrides/registry-values.yaml \
+    -f ./chart/ingress-certs.yaml \
+    -f ../overrides/minimal_deploy.yaml \
+    -f ./docs/assets/configs/example/dev-sso-values.yaml \
+    -f ../overrides/istio_deploy.yaml;
+```
 
 1. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
 1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
