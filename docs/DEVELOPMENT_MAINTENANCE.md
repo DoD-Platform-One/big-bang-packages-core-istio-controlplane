@@ -1,4 +1,5 @@
 # How to upgrade the Istio ControlPlane Package chart
+
 1. Checkout the branch that renovate created. This branch will have the image tag updates and typically some other necessary version changes that you will want. You can either work off of this branch or branch off of it.
 1. Update the dashboards via `kpt`. You should be able to run `kpt pkg update chart/dashboards@<version> --strategy force-delete-replace` (ex: `kpt pkg update chart/dashboards@1.14.3 --strategy force-delete-replace`).
 1. Update version references for the Chart. `version` should be `<version>-bb.0` (ex: `1.14.3-bb.0`) and `appVersion` should be `<version>` (ex: `1.14.3`). Also validate that the BB annotation for the main Istio version is updated (leave the Tetrate version as-is unless you are updating those images).
@@ -7,9 +8,11 @@
 1. Open MR (or check the one that Renovate created for you) and validate that the pipeline is successful. Also follow the testing steps below for some manual confirmations.
 
 # Testing new Istio ControlPlane version
+
 Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master.
 
 1. Update your values overrides to point to your branches for both the operator and controlplane:
+
     ```yaml
     istio:
       git:
@@ -20,12 +23,15 @@ Generally the controlplane update should be tested alongside the new operator ve
         tag: null
         branch: "renovate/ironbank" # Or your branch
     ```
+
 1. To more thoroughly test Istio, deploy the following:
-- Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way). 
+
+- Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way).
 - Kiali
 - Monitoring
-3. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
+
+1. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
 1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
 1. Navigate to Grafana and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
-1. Since Kiali interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps). 
-1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md). 
+1. Since Kiali interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps).
+1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md).
