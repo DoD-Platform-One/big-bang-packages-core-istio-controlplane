@@ -9,23 +9,40 @@
 # Testing new Istio ControlPlane version
 Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master.
 
-1. Update your values overrides to point to your branches for both the operator and controlplane:
+1. Update your values overrides to point to your branches for both the operator and controlplane, and enable/disable other apps needed for testing:
     ```yaml
     istio:
       git:
         tag: null
         branch: "renovate/ironbank" # Or your branch
+
     istioOperator:
       git:
         tag: null
         branch: "renovate/ironbank" # Or your branch
+
+    jaeger:
+      enabled: true
+
+    monitoring:
+      enabled: true
+
+    grafana:
+      enabled: true
+
+    kiali:
+      enabled: true
+
+    tempo:
+      enabled: false
     ```
 1. To more thoroughly test Istio, deploy the following:
 - Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way). 
 - Kiali
 - Monitoring
-3. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
-1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
-1. Navigate to Grafana and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
+- Grafana
+3. Navigate to Jaeger (https://tracing.dev.bigbang.mil/) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
+1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for [istio-envoy](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=podMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-envoy%2F0), [istio-operator](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-operator%2F0) and [istio-pilot](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-pilot%2F0).
+1. Navigate to Grafana (https://grafana.dev.bigbang.mil/) and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
 1. Since Kiali interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps). 
 1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md). 

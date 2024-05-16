@@ -5,7 +5,7 @@ metadata:
 upstream:
   type: git
   git:
-    commit: ee6e9f6a314224fd9bcb808ca1d74d1dc66adba8
+    commit: ed90e14d3473bc3fe54f98298eb16664002d14d1
     repo: https://github.com/istio/istio
     directory: /manifests/addons/dashboards
-    ref: 1.21.1
+    ref: 1.21.2
