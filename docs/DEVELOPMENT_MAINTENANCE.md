@@ -9,69 +9,86 @@
 
 # Testing new Istio ControlPlane version
 
-Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. You will need to run the k3d_dev.sh script with at least the `-a` flag to put keycloak on a separate IP, but it also could be necessary to add the `-b` flag for a larger instance and the `-w` flag to use the Weave CNI instead of the default Flannel CNI.
+## Cluster setup
+Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. This assumes you have already:
 
-1. Update your values overrides to point to your branches for both the operator and controlplane:
+⚠️ Always make sure your local bigbang repo is current before deploying.
 
-    ```yaml
-    istio:
-      git:
-        tag: null
-        branch: "renovate/ironbank" # Or your branch
-    istioOperator:
-      git:
-        tag: null
-        branch: "renovate/ironbank" # Or your branch
+1. Exported your Ironbank/Harbor credentials (this can be done in your `~/.bashrc` or `~/.zshrc` file if desired). These specific variables are expected by the `k3d-dev.sh` script when deploying metallb, and are referenced in other commands for consistency:
+    ```
+    export REGISTRY_USERNAME='<your_username>'
+    export REGISTRY_PASSWORD='<your_password>'
+    ```
+1. Exported the path to your local bigbang repo (without a trailing `/`):
+    
+  	⚠️ Note that wrapping your file path in quotes when exporting will break expansion of `~`.
+    ```
+    export BIGBANG_REPO_DIR=<absolute_path_to_local_bigbang_repo>
+    ```
+    e.g.
+    ```
+    export BIGBANG_REPO_DIR=~/repos/bigbang
+    ```
+1. Run the [k3d_dev.sh](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/scripts/developer/k3d-dev.sh) script to deploy a dev cluster (`-a` flag required if deploying a local keycloak):
+
+    For `login.dso.mil` keycloak:
+
+    ```
+    "${BIGBANG_REPO_DIR}/docs/assets/scripts/developer/k3d-dev.sh"
     ```
 
-To more thoroughly test Istio, deploy the following:
+    For local `keycloak.dev.bigbang.mil` keycloak (`-a` deploys instance with a second public IP and metallb):
 
-- Jaeger with SSO enabled. Use the dev sso values for Jaeger [here](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/configs/example/dev-sso-values.yaml). Also, be sure to disable Tempo (necessary to deploy Jaeger in this way).
-- Kiali
-- Monitoring
-- Grafana
+    ```
+    "${BIGBANG_REPO_DIR}/docs/assets/scripts/developer/k3d-dev.sh -a"
+    ```
+1. Exported your kubeconfig:
 
-Example:
+    ```
+    export KUBECONFIG=~/.kube/<your_kubeconfig_file>
+    ```
+    e.g.
+    ```
+    export KUBECONFIG=~/.kube/Sam.Sarnowski-dev-config
+    ```
+1. [Deployed flux to your cluster](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/scripts/install_flux.sh):
+    ```
+    "${BIGBANG_REPO_DIR}/scripts/install_flux.sh -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD}"
+    ```
 
-```yaml
-# overrides/istio_deploy.yaml
+## Deploy Bigbang
+From the root of this repo, run one of the following deploy commands depending on which keycloak you wish to reference:
 
-jaeger:
-  enabled: true
+For `login.dso.mil` keycloak:
+  ```
+  helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
+  --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
+  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
+  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
+  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/docs/assets/configs/example/dev-sso-values.yaml \
+  -f docs/dev-overrides/istio-testing.yaml
+  ```
 
-monitoring:
-  enabled: true
+For local `keycloak.dev.bigbang.mil` keycloak:
+  ```
+  helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
+  --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
+  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
+  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
+  -f docs/dev-overrides/istio-testing-local-keycloak.yaml
+  ```
 
-grafana:
-  enabled: true
+This will deploy the following apps for testing:
 
-kiali:
-  enabled: true
-  values:
-    cr:
-      spec:
-        auth:
-          strategy: "anonymous"
+- Istio and Istio operator
+- Authservice, Jaeger, Kiali and Monitoring (including Grafana), all with SSO enabled
 
-kyvernoPolicies:
-  values:
-    policies:
-      restrict-host-path-mount-pv:
-        validationFailureAction: audit
-```
+## Validation/Testing Steps
 
-```sh
-helm upgrade -i bigbang chart/ -n bigbang --create-namespace \
-    -f ./docs/assets/configs/example/policy-overrides-k3d.yaml \
-    -f ../overrides/registry-values.yaml \
-    -f ./chart/ingress-certs.yaml \
-    -f ../overrides/minimal_deploy.yaml \
-    -f ./docs/assets/configs/example/dev-sso-values.yaml \
-    -f ../overrides/istio_deploy.yaml;
-```
+⚠️ For testing with a local keycloak instance, you will need to manually register or create an account as an admin before proceeding with the below tests.
 
-1. Navigate to Jaeger (tracing.bigbang.dev) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
-1. Navigate to Prometheus and validate that the Istio targets are up (under Status -> Targets). There should be targets for istio-envoy and istio-pilot.
-1. Navigate to Grafana and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
-1. Since Kiali interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps).
-1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md).
+1. Navigate to Jaeger (https://tracing.dev.bigbang.mil/) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
+1. Navigate to Prometheus (also uses Authservice) and validate that the Istio targets are up (under Status -> Targets). There should be targets for [istio-envoy](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=podMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-envoy%2F0), [istio-operator](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-operator%2F0) and [istio-pilot](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-pilot%2F0).
+1. Navigate to Grafana (https://grafana.dev.bigbang.mil/) and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
+1. Since Kiali (https://kiali.dev.bigbang.mil/) interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps). 
+1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md). 
