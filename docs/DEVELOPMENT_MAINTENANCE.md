@@ -9,18 +9,18 @@
 
 # Testing new Istio ControlPlane version
 
+Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master.
+
 ## Cluster setup
 
 ⚠️ Always make sure your local bigbang repo is current before deploying.
 
-Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. This assumes you have already:
-
-1. Exported your Ironbank/Harbor credentials (this can be done in your `~/.bashrc` or `~/.zshrc` file if desired). These specific variables are expected by the `k3d-dev.sh` script when deploying metallb, and are referenced in other commands for consistency:
+1. Export your Ironbank/Harbor credentials (this can be done in your `~/.bashrc` or `~/.zshrc` file if desired). These specific variables are expected by the `k3d-dev.sh` script when deploying metallb, and are referenced in other commands for consistency:
     ```
     export REGISTRY_USERNAME='<your_username>'
     export REGISTRY_PASSWORD='<your_password>'
     ```
-1. Exported the path to your local bigbang repo (without a trailing `/`):
+1. Export the path to your local bigbang repo (without a trailing `/`):
     
   	⚠️ Note that wrapping your file path in quotes when exporting will break expansion of `~`.
     ```
@@ -30,20 +30,20 @@ Generally the controlplane update should be tested alongside the new operator ve
     ```
     export BIGBANG_REPO_DIR=~/repos/bigbang
     ```
-1. Run the [k3d_dev.sh](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/scripts/developer/k3d-dev.sh) script to deploy a dev cluster (`-a` flag required if deploying a local keycloak):
+1. Run the [k3d_dev.sh](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/assets/scripts/developer/k3d-dev.sh) script to deploy a dev cluster (`-a` flag required if deploying a local Keycloak):
 
-    For `login.dso.mil` keycloak:
+    For `login.dso.mil` Keycloak:
 
     ```
     "${BIGBANG_REPO_DIR}/docs/assets/scripts/developer/k3d-dev.sh"
     ```
 
-    For local `keycloak.dev.bigbang.mil` keycloak (`-a` deploys instance with a second public IP and metallb):
+    For local `keycloak.dev.bigbang.mil` Keycloak (`-a` deploys instance with a second public IP and metallb):
 
     ```
     "${BIGBANG_REPO_DIR}/docs/assets/scripts/developer/k3d-dev.sh -a"
     ```
-1. Exported your kubeconfig:
+1. Export your kubeconfig:
 
     ```
     export KUBECONFIG=~/.kube/<your_kubeconfig_file>
@@ -52,15 +52,15 @@ Generally the controlplane update should be tested alongside the new operator ve
     ```
     export KUBECONFIG=~/.kube/Sam.Sarnowski-dev-config
     ```
-1. [Deployed flux to your cluster](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/scripts/install_flux.sh):
+1. [Deploy flux to your cluster](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/scripts/install_flux.sh):
     ```
     "${BIGBANG_REPO_DIR}/scripts/install_flux.sh -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD}"
     ```
 
 ## Deploy Bigbang
-From the root of this repo, run one of the following deploy commands depending on which keycloak you wish to reference:
+From the root of this repo, run one of the following deploy commands depending on which Keycloak you wish to reference:
 
-For `login.dso.mil` keycloak:
+For `login.dso.mil` Keycloak:
   ```
   helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
   --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
@@ -70,7 +70,7 @@ For `login.dso.mil` keycloak:
   -f docs/dev-overrides/istio-testing.yaml
   ```
 
-For local `keycloak.dev.bigbang.mil` keycloak:
+For local `keycloak.dev.bigbang.mil` Keycloak:
   ```
   helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
   --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
@@ -81,12 +81,13 @@ For local `keycloak.dev.bigbang.mil` keycloak:
 
 This will deploy the following apps for testing:
 
-- Istio and Istio operator
-- Authservice, Jaeger, Kiali, Monitoring (including Grafana) and optionally Keycloak, all with SSO enabled
+- Istio, Istio operator and Authservice
+- Jaeger, Kiali and Monitoring (including Grafana), all with SSO enabled
+- Optionall Keycloak
 
 ## Validation/Testing Steps
 
-⚠️ For testing with a local keycloak instance, you will need to manually register or create an account as an admin before proceeding with the below tests.
+⚠️ For testing with a local Keycloak instance, you will need to manually register or create an account as an admin before proceeding with the below tests. For more info please reference the Keycloak [DEVELOPMENT_MAINTENANCE.md](https://repo1.dso.mil/big-bang/product/packages/keycloak/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md).
 
 1. Navigate to Jaeger (https://tracing.dev.bigbang.mil/) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
 1. Navigate to Prometheus (also uses Authservice) and validate that the Istio targets are up (under Status -> Targets). There should be targets for [istio-envoy](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=podMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-envoy%2F0), [istio-operator](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-operator%2F0) and [istio-pilot](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-pilot%2F0).
