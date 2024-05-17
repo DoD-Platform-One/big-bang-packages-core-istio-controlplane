@@ -81,7 +81,7 @@ For local `keycloak.dev.bigbang.mil` keycloak:
 This will deploy the following apps for testing:
 
 - Istio and Istio operator
-- Authservice, Jaeger, Kiali and Monitoring (including Grafana) and optionally Keycloak, all with SSO enabled
+- Authservice, Jaeger, Kiali, Monitoring (including Grafana) and optionally Keycloak, all with SSO enabled
 
 ## Validation/Testing Steps
 
