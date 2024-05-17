@@ -83,7 +83,7 @@ This will deploy the following apps for testing:
 
 - Istio, Istio operator and Authservice
 - Jaeger, Kiali and Monitoring (including Grafana), all with SSO enabled
-- Optionall Keycloak
+- Optionally Keycloak
 
 ## Validation/Testing Steps
 
