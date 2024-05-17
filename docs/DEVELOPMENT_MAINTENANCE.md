@@ -10,9 +10,10 @@
 # Testing new Istio ControlPlane version
 
 ## Cluster setup
-Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. This assumes you have already:
 
 ⚠️ Always make sure your local bigbang repo is current before deploying.
+
+Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master. This assumes you have already:
 
 1. Exported your Ironbank/Harbor credentials (this can be done in your `~/.bashrc` or `~/.zshrc` file if desired). These specific variables are expected by the `k3d-dev.sh` script when deploying metallb, and are referenced in other commands for consistency:
     ```
