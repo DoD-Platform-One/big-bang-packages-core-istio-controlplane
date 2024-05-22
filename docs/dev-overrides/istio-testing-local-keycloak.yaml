@@ -11,17 +11,17 @@
 
 istio:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Use git tags to test against specific branches that are not `main`
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"  # or your branch
 
 istioOperator:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Use git tags to test against specific branches that are not `main`
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"  # or your branch
 
 jaeger:
   enabled: true
