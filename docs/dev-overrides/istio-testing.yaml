@@ -16,14 +16,14 @@ sso:
 
 istio:
   enabled: true
-  # Add git branch or tag information to test against a specific branch or tag instead of using main
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
   # git:
   #   tag: null
   #   branch: "renovate/ironbank"
 
 istioOperator:
   enabled: true
-  # Add git branch or tag information to test against a specific branch or tag instead of using main
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
   # git:
   #   tag: null
   #   branch: "renovate/ironbank"
