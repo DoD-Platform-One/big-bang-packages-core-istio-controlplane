@@ -16,17 +16,17 @@ sso:
 
 istio:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Add git branch or tag information to test against a specific branch or tag instead of using main
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"
 
 istioOperator:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Add git branch or tag information to test against a specific branch or tag instead of using main
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"
 
 jaeger:
   enabled: true
