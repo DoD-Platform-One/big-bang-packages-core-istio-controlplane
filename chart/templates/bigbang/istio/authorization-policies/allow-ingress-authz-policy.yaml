@@ -10,11 +10,5 @@ spec:
     matchLabels:
       istio: ingressgateway
   rules:
-  {{- if .Values.hardened.ingressGateway.authzRules }}
-  {{- range .Values.hardened.ingressGateway.authzRules }}
-  - {{ . }}
-  {{- end }}
-  {{- else }}
-  - {}
-  {{- end }}
+  {{- .Values.hardened.ingressGateway.authzRules | toYaml | nindent 2 }}
 {{- end }}

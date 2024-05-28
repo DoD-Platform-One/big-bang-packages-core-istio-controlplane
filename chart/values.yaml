@@ -353,7 +353,8 @@ hardened:
     principals:
       - cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus
   ingressGateway:
-    authzRules: []
+    authzRules:
+      - {}
 
 sso:
   enabled: false
