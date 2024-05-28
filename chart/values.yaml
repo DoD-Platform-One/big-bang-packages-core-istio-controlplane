@@ -340,3 +340,15 @@ postInstallHook:
       limits:
         cpu: "100m"
         memory: "256Mi"
+
+hardened:
+  enabled: false
+  customAuthorizationPolicies: []
+  # - name: "allow-nothing"
+  #   enabled: true
+  #   spec: {}
+  monitoring:
+    namespaces:
+      - monitoring
+    principals:
+      - cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus
