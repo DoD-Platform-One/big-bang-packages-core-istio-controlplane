@@ -352,6 +352,9 @@ hardened:
       - monitoring
     principals:
       - cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus
+  ingressGateway:
+    allowedIPBlocks:
+      - "0.0.0.0/0"
 
 sso:
   enabled: false

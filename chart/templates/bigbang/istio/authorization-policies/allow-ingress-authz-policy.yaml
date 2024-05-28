@@ -13,5 +13,7 @@ spec:
   - from:
     - source:
         ipBlocks: 
-        - "0.0.0.0/0"
+        {{- range .Values.hardened.allowedIPBlocks }}
+        - {{ . }}
+        {{- end }}
 {{- end }}
