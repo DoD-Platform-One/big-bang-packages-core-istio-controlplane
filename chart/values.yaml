@@ -352,3 +352,6 @@ hardened:
       - monitoring
     principals:
       - cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus
+
+sso:
+  enabled: false
