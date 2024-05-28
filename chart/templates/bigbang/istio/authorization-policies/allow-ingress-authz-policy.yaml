@@ -9,11 +9,10 @@ spec:
   selector:
     matchLabels:
       istio: ingressgateway
+  {{- if .Values.hardened.ingressGateway.authzRules }}
   rules:
-  - from:
-    - source:
-        ipBlocks: 
-        {{- range .Values.hardened.allowedIPBlocks }}
-        - {{ . }}
-        {{- end }}
+  {{- range .Values.hardened.ingressGateway.authzRules }}
+  - {{ . }}
+  {{- end }}
+  {{- end }}
 {{- end }}
