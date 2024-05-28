@@ -12,5 +12,6 @@ spec:
   rules:
   - from:
     - source:
-        ipBlocks: 0.0.0.0/0
+        ipBlocks: 
+        - "0.0.0.0/0"
 {{- end }}
