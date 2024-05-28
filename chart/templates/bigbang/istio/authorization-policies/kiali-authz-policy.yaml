@@ -2,8 +2,8 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: kiali-prometheus-authz-policy
-  namespace: {{ template "kube-prometheus-stack.namespace" . }}
+  name: kiali-authz-policy
+  namespace: {{ .Release.Namespace }}
 spec:
   action: ALLOW
   rules:
