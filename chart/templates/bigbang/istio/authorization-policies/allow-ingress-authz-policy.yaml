@@ -9,10 +9,12 @@ spec:
   selector:
     matchLabels:
       istio: ingressgateway
-  {{- if .Values.hardened.ingressGateway.authzRules }}
   rules:
+  {{- if .Values.hardened.ingressGateway.authzRules }}
   {{- range .Values.hardened.ingressGateway.authzRules }}
   - {{ . }}
   {{- end }}
+  {{- else }}
+  - {}
   {{- end }}
 {{- end }}
