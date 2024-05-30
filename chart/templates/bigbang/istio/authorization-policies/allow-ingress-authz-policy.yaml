@@ -1,0 +1,14 @@
+{{- if and .Values.hardened.enabled -}}
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-ingress-gateway-authz-policy
+  namespace: {{ .Release.Namespace }}
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      istio: ingressgateway
+  rules:
+  {{- .Values.hardened.ingressGateway.authzRules | toYaml | nindent 2 }}
+{{- end }}
