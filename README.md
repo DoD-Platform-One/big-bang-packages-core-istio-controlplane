@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.21.2-bb.0](https://img.shields.io/badge/Version-1.21.2--bb.0-informational?style=flat-square) ![AppVersion: 1.21.2](https://img.shields.io/badge/AppVersion-1.21.2-informational?style=flat-square)
+![Version: 1.21.2-bb.1](https://img.shields.io/badge/Version-1.21.2--bb.1-informational?style=flat-square) ![AppVersion: 1.21.2](https://img.shields.io/badge/AppVersion-1.21.2-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -103,6 +103,10 @@ helm install istio chart/
 | postInstallHook.containerResources.resources.requests.memory | string | `"256Mi"` |  |
 | postInstallHook.containerResources.resources.limits.cpu | string | `"100m"` |  |
 | postInstallHook.containerResources.resources.limits.memory | string | `"256Mi"` |  |
+| hardened.enabled | bool | `false` |  |
+| hardened.customAuthorizationPolicies | list | `[]` |  |
+| hardened.monitoring.namespaces[0] | string | `"monitoring"` |  |
+| hardened.monitoring.principals[0] | string | `"cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus"` |  |
 
 ## Contributing
 

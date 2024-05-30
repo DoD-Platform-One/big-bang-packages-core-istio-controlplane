@@ -1,0 +1,8 @@
+{{- if .Values.hardened.enabled -}}
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-nothing-policy
+  namespace: {{ .Release.Namespace }}
+spec: {}
+{{- end }}
