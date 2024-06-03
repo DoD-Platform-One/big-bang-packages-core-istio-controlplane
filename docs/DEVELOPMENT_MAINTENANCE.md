@@ -21,7 +21,7 @@ Generally the controlplane update should be tested alongside the new operator ve
     export REGISTRY_PASSWORD='<your_password>'
     ```
 1. Export the path to your local bigbang repo (without a trailing `/`):
-    
+
   	⚠️ Note that wrapping your file path in quotes when exporting will break expansion of `~`.
     ```
     export BIGBANG_REPO_DIR=<absolute_path_to_local_bigbang_repo>
@@ -67,6 +67,7 @@ For `login.dso.mil` Keycloak:
   -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
   -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
   -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/docs/assets/configs/example/dev-sso-values.yaml \
+  -f docs/dev-overrides/minimal.yaml \
   -f docs/dev-overrides/istio-testing.yaml
   ```
 
@@ -76,6 +77,7 @@ For local `keycloak.dev.bigbang.mil` Keycloak:
   --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
   -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
   -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
+  -f docs/dev-overrides/minimal.yaml \
   -f docs/dev-overrides/istio-testing-local-keycloak.yaml
   ```
 
@@ -92,5 +94,5 @@ This will deploy the following apps for testing:
 1. Navigate to Jaeger (https://tracing.dev.bigbang.mil/) and validate you are prompted to login with SSO and that the login is successful. This verifies that Authservice is working as an Istio extension.
 1. Navigate to Prometheus (also uses Authservice) and validate that the Istio targets are up (under Status -> Targets). There should be targets for [istio-envoy](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=podMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-envoy%2F0), [istio-operator](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-operator%2F0) and [istio-pilot](https://prometheus.dev.bigbang.mil/targets?search=&scrapePool=serviceMonitor%2Fmonitoring%2Fmonitoring-monitoring-kube-istio-pilot%2F0).
 1. Navigate to Grafana (https://grafana.dev.bigbang.mil/) and validate that the Istio dashboards are present and show some data. You may need to alter filters to pick a workload that has information showing.
-1. Since Kiali (https://kiali.dev.bigbang.mil/) interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps). 
-1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md). 
+1. Since Kiali (https://kiali.dev.bigbang.mil/) interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps).
+1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md).

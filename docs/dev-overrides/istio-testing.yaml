@@ -8,6 +8,7 @@
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/docs/assets/configs/example/dev-sso-values.yaml \
+# -f docs/dev-overrides/minimal.yaml \
 # -f docs/dev-overrides/istio-testing.yaml
 
 sso:
@@ -47,104 +48,6 @@ kiali:
   #       auth:
   #         strategy: "openid"
 
-
-# Many of these are disabled by default, but for clarity turn them off explicitly
-clusterAuditor:
-  enabled: false
-
-gatekeeper:
-  enabled: false
-
-kyverno:
-  enabled: false
-
-kyvernoReporter:
-  enabled: false
-
-kyvernoPolicies:
-  enabled: false
-
-elasticsearchKibana:
-  enabled: false
-
-eckOperator:
-  enabled: false
-
-fluentbit:
-  enabled: false
-
-loki:
-  enabled: false
-
-tempo:
-  enabled: false
-
-promtail:
-  enabled: false
-
-neuvector:
-  enabled: false
-
-twistlock:
-  enabled: false
-
 addons:
-  argocd:
-    enabled: false
-
   authservice:
-    enabled: false
-
-  fortify:
-    enabled: false
-
-  haproxy:
-    enabled: false
-
-  gitlab:
-    enabled: false
-
-  gitlabRunner:
-    enabled: false
-
-  anchore:
-    enabled: false
-
-  sonarqube:
-    enabled: false
-
-  minioOperator:
-    enabled: false
-
-  minio:
-    enabled: false
-
-  mattermostOperator:
-    enabled: false
-
-  mattermost:
-    enabled: false
-
-  nexusRepositoryManager:
-    enabled: false
-
-  velero:
-    enabled: false
-
-  keycloak:
-    enabled: false
-
-  vault:
-    enabled: false
-
-  metricsServer:
-    enabled: false
-
-  harbor:
-    enabled: false
-
-  thanos:
-    enabled: false
-
-  holocron:
-    enabled: false
+    enabled: true
