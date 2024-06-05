@@ -17,6 +17,9 @@ sso:
 
 istio:
   enabled: true
+  ingressGateways:
+    passthrough-ingressgateway:
+      enabled: false
   # Add git branch or tag information to test against a specific branch or tag instead of using `main`
   # git:
   #   tag: null
