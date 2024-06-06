@@ -1,0 +1,24 @@
+{{- if or ( and .Values.kiali.enabled .Values.sso.enabled) (and .Values.kiali.enabled .Values.hardened.enabled) -}}
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: kiali-authz-policy
+  namespace: {{ .Release.Namespace }}
+spec:
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - kiali
+    - source:
+        principals:
+        - cluster.local/ns/kiali/sa/kiali-service-account
+    to:
+    - operation:
+        methods:
+        - GET
+        - POST
+        paths:
+        - /*
+{{- end }}
