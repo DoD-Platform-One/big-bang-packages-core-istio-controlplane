@@ -11,6 +11,40 @@
 
 Generally the controlplane update should be tested alongside the new operator version. Follow the steps below for testing both. You should perform these steps on both a clean install and an upgrade from BB master.
 
+## Branch/Tag Config
+
+If you'd like to install from a specific branch or tag, then the code block under istio needs to be uncommented and used to target your changes.
+
+For example, this would target the `renovate/ironbank` branch.
+
+```
+istio:
+  <other config/labels>
+  ...
+  ...
+
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
+  # Must set the unused label to null
+  git:
+    tag: null
+    branch: "renovate/ironbank"
+```
+
+The istioOperator also needs to be updated.
+
+```
+istioOperator:
+  <other config/labels>
+  ...
+  ...
+
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
+  # Must set the unused label to null
+  git:
+    tag: null
+    branch: "renovate/ironbank"
+```
+
 ## Cluster setup
 
 ⚠️ Always make sure your local bigbang repo is current before deploying.
