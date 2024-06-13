@@ -7,21 +7,24 @@
 # --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
+# -f docs/dev-overrides/minimal.yaml \
 # -f docs/dev-overrides/istio-testing.yaml
 
 istio:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
+  # Must set the unused label to null
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"
 
 istioOperator:
   enabled: true
-  # comment these 3 lines out to test against main
-  git:
-    tag: null
-    branch: "renovate/ironbank"  # or your branch
+  # Add git branch or tag information to test against a specific branch or tag instead of using `main`
+  # Must set the unused label to null
+  # git:
+  #   tag: null
+  #   branch: "renovate/ironbank"
 
 jaeger:
   enabled: true
@@ -48,104 +51,9 @@ kiali:
         auth:
           strategy: "openid"
 
-
-# Many of these are disabled by default, but for clarity turn them off explicitly (except for keycloak)
-clusterAuditor:
-  enabled: false
-
-gatekeeper:
-  enabled: false
-
-kyverno:
-  enabled: false
-
-kyvernoReporter:
-  enabled: false
-
-kyvernoPolicies:
-  enabled: false
-
-elasticsearchKibana:
-  enabled: false
-
-eckOperator:
-  enabled: false
-
-fluentbit:
-  enabled: false
-
-loki:
-  enabled: false
-
-tempo:
-  enabled: false
-
-promtail:
-  enabled: false
-
-neuvector:
-  enabled: false
-
-twistlock:
-  enabled: false
-
 addons:
   keycloak:
     enabled: true
 
-  argocd:
-    enabled: false
-
   authservice:
-    enabled: false
-
-  fortify:
-    enabled: false
-
-  haproxy:
-    enabled: false
-
-  gitlab:
-    enabled: false
-
-  gitlabRunner:
-    enabled: false
-
-  anchore:
-    enabled: false
-
-  sonarqube:
-    enabled: false
-
-  minioOperator:
-    enabled: false
-
-  minio:
-    enabled: false
-
-  mattermostOperator:
-    enabled: false
-
-  mattermost:
-    enabled: false
-
-  nexusRepositoryManager:
-    enabled: false
-
-  velero:
-    enabled: false
-
-  vault:
-    enabled: false
-
-  metricsServer:
-    enabled: false
-
-  harbor:
-    enabled: false
-
-  thanos:
-    enabled: false
-
-  holocron:
-    enabled: false
+    enabled: true
