@@ -110,7 +110,8 @@ spec:
     defaultConfig:
       tracing:
         sampling: {{ .Values.tracing.sampling }}
-      zipkinAddress: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
+        zipkin:
+          address: {{ .Values.tracing.address }}:{{.Values.tracing.port}}
       holdApplicationUntilProxyStarts: true
     {{- if .Values.defaultConfig }}
     {{- toYaml .Values.defaultConfig | nindent 6 }}

@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.22.1-bb.0] - 2024-06-14
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.21.2 to 1.22.1
+- ironbank/opensource/istio/pilot updated from 1.21.2 to 1.22.1
+- ironbank/opensource/istio/proxyv2 updated from 1.21.2 to 1.22.1
+- ironbank/tetrate/istio/install-cni updated from 1.21.2 to 1.22.1
+- ironbank/tetrate/istio/pilot updated from 1.21.2 to 1.22.1
+- ironbank/tetrate/istio/proxyv2 updated from 1.21.2 to 1.22.1
+
 ## [1.21.2-bb.3] - 2024-06-12
 ### Changed
 - Moved the package specific shared istio authorization to their helm charts
