@@ -347,14 +347,6 @@ hardened:
   # - name: "allow-nothing"
   #   enabled: true
   #   spec: {}
-  monitoring:
-    namespaces:
-      - monitoring
-    principals:
-      - cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus
   ingressGateway:
     authzRules:
       - {}
-
-sso:
-  enabled: false
