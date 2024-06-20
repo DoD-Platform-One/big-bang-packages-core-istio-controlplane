@@ -107,6 +107,8 @@ helm install istio chart/
 | hardened.customAuthorizationPolicies | list | `[]` |  |
 | hardened.monitoring.namespaces[0] | string | `"monitoring"` |  |
 | hardened.monitoring.principals[0] | string | `"cluster.local/ns/monitoring/sa/monitoring-monitoring-kube-prometheus"` |  |
+| hardened.ingressGateway.authzRules[0] | object | `{}` |  |
+| sso.enabled | bool | `false` |  |
 
 ## Contributing
 
