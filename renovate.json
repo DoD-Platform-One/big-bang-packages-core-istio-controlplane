@@ -6,7 +6,6 @@
   "dependencyDashboardTitle": "Renovate: Upgrade Istio Control Plane Package Dependencies",
   "draftPR": true,
   "enabledManagers": ["regex"],
-  "prFooter": "Upstream Release Notes: https://github.com/istio/istio/releases",
   "labels": ["istio","Big Bang Core","Package Sustainment","kind::maintenance","renovate"],
   "packageRules": [
     {
