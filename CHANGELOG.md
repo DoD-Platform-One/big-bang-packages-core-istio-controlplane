@@ -3,8 +3,11 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+
 ## [1.22.1-bb.0] - 2024-06-14
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.21.2 to 1.22.1
 - ironbank/opensource/istio/pilot updated from 1.21.2 to 1.22.1
 - ironbank/opensource/istio/proxyv2 updated from 1.21.2 to 1.22.1
@@ -13,19 +16,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.21.2 to 1.22.1
 
 ## [1.21.2-bb.3] - 2024-06-12
+
 ### Changed
+
 - Moved the package specific shared istio authorization to their helm charts
 
 ## [1.21.2-bb.2] - 2024-06-12
+
 ### Changed
-- Revert to correct overwritten dashboard changes 
+
+- Revert to correct overwritten dashboard changes
 
 ## [1.21.2-bb.1] - 2024-05-28
+
 ### Changed
+
 - Added the shared istio authorization policies
 
 ## [1.21.2-bb.0] - 2024-05-16
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.21.1 to 1.21.2
 - ironbank/opensource/istio/pilot updated from 1.21.1 to 1.21.2
 - ironbank/opensource/istio/proxyv2 updated from 1.21.1 to 1.21.2
@@ -34,11 +45,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.21.1 to 1.21.2
 
 ## [1.21.1-bb.1] - 2024-05-13
+
 ### Removed
+
 - Removed native sidecar support because we have to support 1.27.x
 
 ## [1.21.1-bb.0] - 2024-05-03
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.20.4 to 1.21.1
 - ironbank/opensource/istio/pilot updated from 1.20.4 to 1.21.1
 - ironbank/opensource/istio/proxyv2 updated from 1.20.4 to 1.21.1
@@ -47,19 +62,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.20.4 to 1.21.1
 
 ## [1.20.4-bb.3] - 2024-05-02
+
 ### Added
+
 - Added custom network policies
 
 ## [1.20.4-bb.2] - 2024-04-23
+
 ### Added
+
 - Added native sidecar support
 
 ## [1.20.4-bb.1] - 2024-04-04
+
 ### Fixed
+
 - Upgrade new istio dashboards to fix "Prometheus" vs "prometheus" datasource issue
 
 ## [1.20.4-bb.0] - 2024-03-25
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.7 to 1.20.4
 - ironbank/opensource/istio/pilot updated from 1.19.7 to 1.20.4
 - ironbank/opensource/istio/proxyv2 updated from 1.19.7 to 1.20.4
@@ -68,7 +91,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.20.3 to 1.20.4
 
 ## [1.19.7-bb.0] - 2024-02-13
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.6 to 1.19.7
 - ironbank/opensource/istio/pilot updated from 1.19.6 to 1.19.7
 - ironbank/opensource/istio/proxyv2 updated from 1.19.6 to 1.19.7
@@ -77,16 +102,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.20.2 to 1.20.3
 
 ## [1.19.6-bb.2] - 2024-02-12
-### Added
-- added postInstallHook.containerResources values for hook-job.yaml 
 
+### Added
+
+- added postInstallHook.containerResources values for hook-job.yaml
 
 ## [1.19.6-bb.1] - 2024-01-31
+
 ### Added
+
 - added security context values for pilot pod for kyverno-polices to allow the pilot image
 
 ## [1.19.6-bb.0] - 2024-01-12
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.5 to 1.19.6
 - ironbank/opensource/istio/pilot updated from 1.19.5 to 1.19.6
 - ironbank/opensource/istio/proxyv2 updated from 1.19.5 to 1.19.6
@@ -95,37 +125,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.19.5 to 1.20.2
 
 ## [1.19.5-bb.2] - 2023-12-29
+
 ### Changed
+
 - ironbank/tetrate/istio/install-cni updated from 1.19.3 to 1.19.6
 - ironbank/tetrate/istio/pilot updated from 1.19.3 to 1.19.5
 - ironbank/tetrate/istio/proxyv2 updated from 1.19.3 to 1.19.5
 
 ## [1.19.5-bb.1] - 2023-12-19
+
 ### Changed
+
 - Allow Setting resources and limits for the postInstallHook
 
 ## [1.19.5-bb.0] - 2023-12-19
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.4 to 1.19.5
 - ironbank/opensource/istio/pilot updated from 1.19.4 to 1.19.5
 - ironbank/opensource/istio/proxyv2 updated from 1.19.4 to 1.19.5
 
 ## [1.19.4-bb.1] - 2023-11-28
+
 ### Changed
+
 - Updating OSCAL Component file.
 
 ## [1.19.4-bb.0] - 2023-11-15
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.3 to 1.19.4
 - ironbank/opensource/istio/pilot updated from 1.19.3 to 1.19.4
 - ironbank/opensource/istio/proxyv2 updated from 1.19.3 to 1.19.4
 
 ## [1.19.3-bb.1] - 2023-11-07
+
 ### Changed
+
 - ironbank/big-bang/base updated from 2.0.0 to 2.1.0
 
 ## [1.19.3-bb.0] - 2023-10-14
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.19.0 to 1.19.3
 - ironbank/opensource/istio/pilot updated from 1.19.0 to 1.19.3
 - ironbank/opensource/istio/proxyv2 updated from 1.19.0 to 1.19.3
@@ -134,25 +178,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.18.2 to 1.19.3
 
 ## [1.19.0-bb.2] - 2023-10-11
+
 ### Changed
+
 - Modified OSCAL Version for istio and updated to 1.1.1
 
 ## [1.19.0-bb.1] - 2023-10-02
+
 ### Changed
+
 - Enable Istio mTLS (via peerAuthentication) globally on istio-system namespace
 
 ## [1.19.0-bb.0] - 2023-09-12
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.18.2 to 1.19.0
 - ironbank/opensource/istio/pilot updated from 1.18.2 to 1.19.0
 - ironbank/opensource/istio/proxyv2 updated from 1.18.2 to 1.19.0
 
-## [1.18.2-bb.1] - 2023-08-16 
+## [1.18.2-bb.1] - 2023-08-16
+
 ### Changed
+
 - istio control plane default config
 
-## [1.18.2-bb.0] - 2023-08-02 
+## [1.18.2-bb.0] - 2023-08-02
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.18.1 to 1.18.2
 - ironbank/opensource/istio/pilot updated from 1.18.1 to 1.18.2
 - ironbank/opensource/istio/proxyv2 updated from 1.18.1 to 1.18.2
@@ -162,7 +216,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated to new HPA value schema
 
 ## [1.18.1-bb.0] - 2023-07-20
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.17.3 to 1.18.1
 - ironbank/opensource/istio/pilot updated from 1.17.3 to 1.18.1
 - ironbank/opensource/istio/proxyv2 updated from 1.17.3 to 1.18.1
@@ -171,7 +227,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.17.3 to 1.18.0
 
 ## [1.18.1-bb.0] - 2023-07-20
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.17.3 to 1.18.1
 - ironbank/opensource/istio/pilot updated from 1.17.3 to 1.18.1
 - ironbank/opensource/istio/proxyv2 updated from 1.17.3 to 1.18.1
@@ -180,80 +238,110 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.17.3 to 1.18.0
 
 ## [1.17.3-bb.3] - 2023-07-12
+
 ### Added
+
 - Allow user to specify their own `EnvoyFilters`
 
 ## [1.17.3-bb.2] - 2023-07-12
+
 ### Changed
+
 - fix README.md for bb docs compiler job
 
 ## [1.17.3-bb.1] - 2023-06-28
+
 ### Changed
+
 - ironbank/opensource/istio/pilot updated from 1.17.2 to 1.17.3
 - ironbank/opensource/istio/proxyv2 updated from 1.17.2 to 1.17.3
 
 ## [1.17.3-bb.0] - 2023-06-26
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.17.2 to 1.17.3
 - ironbank/tetrate/istio/install-cni updated from 1.17.2 to 1.17.3
 - ironbank/tetrate/istio/pilot updated from 1.17.2 to 1.17.3
 - ironbank/tetrate/istio/proxyv2 updated from 1.17.2 to 1.17.3
 
 ## [1.17.2-bb.1] - 2023-05-26
+
 ### Added
+
 - Added scc for OpenShift
 
 ## [1.17.2-bb.1] - 2023-05-04
+
 ### Changed
+
 - ironbank/tetrate/istio/install-cni updated from 1.16.1 to 1.17.2
 - ironbank/tetrate/istio/pilot updated from 1.16.1 to 1.17.2
 - ironbank/tetrate/istio/proxyv2 updated from 1.16.1 to 1.17.2
 
 ## [1.17.2-bb.0] - 2023-04-11
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.17.1 to 1.17.2
 - ironbank/opensource/istio/pilot updated from 1.17.1 to 1.17.2
 - ironbank/opensource/istio/proxyv2 updated from 1.17.1 to 1.17.2
 
 ## [1.17.1-bb.1] - 2023-04-07
+
 ### Changed
+
 - Added ability to pass pilot values to IstioOperator resource definition
 
 ## [1.17.1-bb.0] - 2023-03-01
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.16.2 to 1.17.1
 - ironbank/opensource/istio/pilot updated from 1.16.2 to 1.17.1
 - ironbank/opensource/istio/proxyv2 updated from 1.16.2 to 1.17.1
 
 ## [1.16.2-bb.0] - 2023-02-10
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.16.1 to 1.16.2
 - ironbank/opensource/istio/pilot updated from 1.16.1 to 1.16.2
 - ironbank/opensource/istio/proxyv2 updated from 1.16.1 to 1.16.2
 
 ## [1.16.1-bb.2] - 2023-02-08
+
 ### Changed
+
 - Removed tetrate istioctl and install-cni image references
 
 ## [1.16.1-bb.1] - 2023-01-27
+
 ### Changed
+
 - ironbank/tetrate/istio/install-cni updated from 1.15.1 to 1.16.1
 - ironbank/tetrate/istio/istioctl updated from 1.15.1 to 1.16.1
 - ironbank/tetrate/istio/pilot updated from 1.15.1 to 1.16.1
 - ironbank/tetrate/istio/proxyv2 updated from 1.15.1 to 1.16.1
 
 ## [1.16.1-bb.0] - 2022-12-17
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.15.3 to 1.16.1
 - ironbank/opensource/istio/pilot updated from 1.15.3 to 1.16.1
 - ironbank/opensource/istio/proxyv2 updated from 1.15.3 to 1.16.1
 
 ## [1.15.3-bb.1]
+
 ### Changed
+
 - Splits the `postInstallHook` image and tag so that they can be maintained separately.
 
 ## [1.15.3-bb.0] - 2022-11-01
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.15.0 to 1.15.3
 - ironbank/opensource/istio/pilot updated from 1.15.0 to 1.15.3
 - ironbank/opensource/istio/proxyv2 updated from 1.15.0 to 1.15.3
@@ -263,14 +351,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.14.4 to 1.15.1
 
 ## [1.15.0-bb.1] - 2022-09-30
+
 ### Changed
+
 - ironbank/tetrate/istio/install-cni updated from 1.14.3 to 1.14.4
 - ironbank/tetrate/istio/istioctl updated from 1.14.3 to 1.14.4
 - ironbank/tetrate/istio/pilot updated from 1.14.3 to 1.14.4
 - ironbank/tetrate/istio/proxyv2 updated from 1.14.3 to 1.14.4
 
 ## [1.15.0-bb.0] - 2022-09-17
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.14.3 to 1.15.0
 - ironbank/opensource/istio/pilot updated from 1.14.3 to 1.15.0
 - ironbank/opensource/istio/proxyv2 updated from 1.14.3 to 1.15.0
@@ -280,126 +372,184 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - ironbank/tetrate/istio/proxyv2 updated from 1.13.5 to 1.14.3
 
 ## [1.14.3-bb.4]
+
 ### Changed
+
 - Adds env variable to values which can be used during deployment to modify istio k8s env settings
 
 ## [1.14.3-bb.3]
+
 ### Changed
+
 - Drop all capabilities + nonroot for hook job
 
 ## [1.14.3-bb.2]
+
 ### Changed
+
 - Added Openshift DNS to networkpolicy egress
 
 ## [1.14.3-bb.1]
+
 ### Changed
+
 - Removed legacy fluentd exception
 
 ## [1.14.3-bb.0]
+
 ### Changed
+
 - Updated to 1.14.3 images
 
 ## [1.14.2-bb.2]
+
 ### Added
+
 - Moved dashboards from monitoring chart into Istio
 
 ## [1.14.2-bb.1]
+
 ### Added
+
 - Added minPRotocolVersion: TLSV1_2
 
 ## [1.14.2-bb.0]
+
 ### Changed
+
 - Updated chart to `1.14.2-bb.0` version
 - Updated images to `1.14.2`
 - Updated app version to 1.14.2 in `Chart.yaml`
 
 ## [1.13.5-bb.2]
+
 ### Added
+
 - Added support for egress gateways via values
 
 ## [1.13.5-bb.1]
+
 ### Changed
+
 - Updated TID images to `1.13.5`
 
 ## [1.13.5-bb.0]
+
 ### Changed
+
 - Updated chart to `1.13.5-bb.0` version
 - Updated images to `1.13.5`
 - Updated app version to 1.13.5 in `Chart.yaml`
 
 ## [1.13.4-bb.4]
+
 ### Changed
+
 - Update the OSCAL component definition for Istio to include additional NIST 800-53 mappings and explanations.
 
 ## [1.13.4-bb.3]
+
 ### Added
+
 - Added tolerations to Jobs
 
 ## [1.13.4-bb.2]
+
 ### Changed
+
 - Updated BB base image to 2.0.0
 
 ## [1.13.4-bb.1]
+
 ### Changed
+
 - Updated BB base image to 1.17.0
 
 ## [1.13.4-bb.0]
+
 ### Changed
+
 - Updated chart to `1.13.4-bb.0` version
 - Updated images to `1.13.4`
 - Updated app version to 1.13.4 in `Chart.yaml`
 
 ## [1.13.2-bb.1]
+
 ### Changed
+
 - fix pod selector for NetworkPolicy
 
 ## [1.13.2-bb.0]
+
 ### Changed
+
 - Updated chart to `1.13.2-bb.0` version
 - Updated app version to 1.13.2 in `Chart.yaml`
 
 ## [1.13.1-bb.3]
+
 ### Changed
+
 - Added TID support
 
 ## [1.13.1-bb.2]
+
 ### Changed
+
 - Added Kiali ingress policy for version scraping
 
 ## [1.13.1-bb.1]
+
 ### Changed
-- Added `values.defaultRevision` to support deployment of validatingWebhook - https://github.com/istio/istio/pull/35694
+
+- Added `values.defaultRevision` to support deployment of validatingWebhook - <https://github.com/istio/istio/pull/35694>
 
 ## [1.13.1-bb.0]
+
 ### Changed
+
 - Updated chart to `1.13.1-bb.0` version
 - Updated app version to 1.13.1 in `Chart.yaml`
 
 ## [1.11.5-bb.2]
+
 ### Changed
+
 - Updated `renovate.json` to track images in `tests/images.txt`
 - fixed typos in `oscal-component.yaml`
 
 ## [1.11.5-bb.1]
+
 ### Changed
+
 - Update Chart.yaml to follow new standardization for release automation
 
 ## [1.11.5-bb.0]
+
 ### Changed
+
 - Updated to 1.11.5
 
 ## [1.11.3-bb.2]
+
 ### Added
+
 - Istio OSCAL component for NIST 800-53 controls
 
 ## [1.11.3-bb.1]
+
 ### Changed
+
 - Fix envoyfilter handling of DNS names with `-`
 
 ## [1.11.3-bb.0]
+
 ### Changed
+
 - Updated Istio to 1.11.3
+
 ### Added
+
 - `tests/images.txt` for use in package release to include the `install-cni` image
 - Revision support for SSO egress NP
 
