@@ -4,11 +4,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.22.2-bb.1] - 2024-07-03
+## [1.22.2-bb.2] - 2024-07-10
 
 ### Added
 
 - Added native sidecar support
+
+## [1.22.2-bb.1] - 2024-07-09
+
+### Changed
+
+- Standardized authorization policy template directory path
 
 ## [1.22.2-bb.0] - 2024-07-01
 

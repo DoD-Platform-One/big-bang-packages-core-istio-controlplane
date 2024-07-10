@@ -1,6 +1,6 @@
 # istio
 
-![Version: 1.22.2-bb.1](https://img.shields.io/badge/Version-1.22.2--bb.1-informational?style=flat-square) ![AppVersion: 1.22.2](https://img.shields.io/badge/AppVersion-1.22.2-informational?style=flat-square)
+![Version: 1.22.2-bb.2](https://img.shields.io/badge/Version-1.22.2--bb.2-informational?style=flat-square) ![AppVersion: 1.22.2](https://img.shields.io/badge/AppVersion-1.22.2-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -13,6 +13,8 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 * Kubernetes Cluster deployed
 * Kubernetes config installed in `~/.kube/config`
 * Helm installed
+
+Kubernetes: `>=1.28.0-0`
 
 Install Helm
 
