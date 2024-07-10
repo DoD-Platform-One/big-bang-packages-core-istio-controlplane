@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Standarized authorization policy template directory
+- Standardized authorization policy template directory path
 
 ## [1.22.2-bb.0] - 2024-07-01
 
