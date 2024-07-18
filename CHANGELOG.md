@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ---
 
 ## [1.22.3-bb.0] - 2024-07-18
+
 ### Changed
+
 - ironbank/opensource/istio/install-cni updated from 1.22.2 to 1.22.3
 - ironbank/opensource/istio/pilot updated from 1.22.2 to 1.22.3
 - ironbank/opensource/istio/proxyv2 updated from 1.22.2 to 1.22.3
