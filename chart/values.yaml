@@ -38,7 +38,7 @@ monitoring:
 # -- Big Bang Kiali interaction controls
 kiali:
   # -- Toggle kiali on/off (controls networkPolicies)
-  enabled: false
+  enabled: true
 
 # -- If authservice is enabled, it will be added to extension providers as an external authorization system.
 # https://istio.io/latest/docs/tasks/security/authorization/authz-custom/
@@ -225,7 +225,7 @@ defaultConfig: {}
 
 values:
   # -- Global IstioOperator values
-  global: 
+  global:
     proxy:
       resources:
         requests:
