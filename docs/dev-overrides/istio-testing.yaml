@@ -48,6 +48,11 @@ grafana:
 
 kiali:
   enabled: true
+  values:
+    cr:
+      spec:
+        auth:
+          strategy: "openid"
 
 addons:
   authservice:
