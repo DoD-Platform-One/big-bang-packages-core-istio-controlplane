@@ -76,7 +76,7 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
-        version: {{ .Chart.AppVersion | quote }}
+        version: {{ .Chart.appVersion | quote }}
         istio: ingressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
@@ -91,7 +91,7 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
-        version: {{ .Chart.AppVersion | quote }}
+        version: {{ .Chart.appVersion | quote }}
         istio: egressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
