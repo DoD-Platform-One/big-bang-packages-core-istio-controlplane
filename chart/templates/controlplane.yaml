@@ -56,7 +56,7 @@ spec:
             name: istiod
             patches:
               - path: "spec.template.metadata.labels.version"
-                values: {{ $.Chart.AppVersion | quote }}
+                values: {{ .Chart.AppVersion | quote }}
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
     cni:
