@@ -76,11 +76,11 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
+        version: {{ .Chart.AppVersion | quote }}
         istio: ingressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
-        {{- include "bigbang.labels" . | nindent 8 }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
@@ -91,11 +91,11 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
+        version: {{ .Chart.AppVersion | quote }}
         istio: egressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
-        {{- include "bigbang.labels" . | nindent 8 }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
     {{- end }}
