@@ -83,13 +83,19 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
-        version: {{ $.Chart.AppVersion | quote }}
         istio: ingressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: {{ $name }}
+            patches:
+              - path: "spec.template.metadata.labels.version"
+                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
     egressGateways:
     {{- range $name, $values := .Values.egressGateways }}
@@ -98,13 +104,19 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
-        version: {{ $.Chart.AppVersion | quote }}
         istio: egressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: {{ $name }}
+            patches:
+              - path: "spec.template.metadata.labels.version"
+                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
   meshConfig:
     accessLogFile: /dev/stdout
