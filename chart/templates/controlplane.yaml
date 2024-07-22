@@ -50,6 +50,13 @@ spec:
           {{- .Values.istiod.affinity | default (dict) | toYaml | nindent 10 }}
         tolerations:
           {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: istiod
+            patches:
+              - path: "spec.template.metadata.labels.version"
+                value: {{ .Chart.AppVersion | quote }}
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
     cni:
@@ -82,6 +89,13 @@ spec:
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: {{ $name }}
+            patches:
+              - path: "spec.template.metadata.labels.version"
+                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
     egressGateways:
     {{- range $name, $values := .Values.egressGateways }}
@@ -96,6 +110,13 @@ spec:
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: {{ $name }}
+            patches:
+              - path: "spec.template.metadata.labels.version"
+                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
   meshConfig:
     accessLogFile: /dev/stdout
