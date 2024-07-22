@@ -4,13 +4,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.22.3-bb.1] - 2024-07-19
+## [1.22.3-bb.1] - 2024-07-22
 
 ### Changed
 
-- Populated `spec.components.pilot.k8s.overlays` in `chart/templates/controlplane.yaml` to set `version` label for istiod
-- Populated `spec.components.ingressGateways.label.version` in `chart/templates/controlplane.yaml` to set `version` label for ingress gateway pods
-- Populated `spec.components.egressGateways.label.version` in `chart/templates/controlplane.yaml` to set `version` label for egress gateway pods
+- Populated `spec.components.pilot.k8s.overlays`, `spec.components.ingressGateways.k8s.overlays` and `spec.components.egressGateways.k8s.overlays` in `chart/templates/controlplane.yaml` to set `version` label for istiod and gateways
 
 ## [1.22.3-bb.0] - 2024-07-18
 
