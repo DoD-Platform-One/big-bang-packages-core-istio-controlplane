@@ -131,7 +131,13 @@ This will deploy the following apps for testing:
 1. Since Kiali (https://kiali.dev.bigbang.mil/) interfaces with Istio for most of its information it is a good idea to validate its functionality. To do this, perform the test steps [here](https://repo1.dso.mil/big-bang/product/packages/kiali/-/blob/main/docs/DEVELOPMENT_MAINTENANCE.md?ref_type=heads#manual-testing-steps).
 1. Once you've confirmed that the package tests above pass, also test your branches against Big Bang per the steps in [this document](https://repo1.dso.mil/big-bang/bigbang/-/blob/master/docs/developer/test-package-against-bb.md).
 
-# Files That Require Integration Testing
+# Integration Testing
+
+Some things aren't tested by the package pipeline, but are tested by the BigBang pipeline. These need to be tested independently if updated:
+
+* Ingress Gateways
+  * Passthrough Ingress Gateway specifically is already in BigBang, but not in the package pipeline.
+* Egress Gateways
 
 ## Instructions for Integration Testing
 
