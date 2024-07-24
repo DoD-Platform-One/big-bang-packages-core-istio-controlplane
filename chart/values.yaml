@@ -246,7 +246,7 @@ values:
   defaultRevision: "default"
   # -- Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml
   pilot:
-    env: []
+    env: {}
       # we have to disable the native sidecars for now
       # "ENABLE_NATIVE_SIDECARS": true
     # # For example, include a custom CA certificate for the JWKS URI resolver
