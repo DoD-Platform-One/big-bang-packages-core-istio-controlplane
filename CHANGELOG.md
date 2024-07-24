@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.22.3-bb.2] - 2024-07-24
+
+### Changed
+
+- Disabling the sidecars again
+
 ## [1.22.3-bb.1] - 2024-07-22
 
 ### Changed
