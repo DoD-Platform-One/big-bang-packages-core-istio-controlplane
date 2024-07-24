@@ -143,7 +143,7 @@ Some things aren't tested by the package pipeline, but are tested by the BigBang
 - ./chart/templates/bigbang/istio/authorizationPolicies/template.yaml
 - ./chart/templates/bigbang/peerAuthentication.yaml
 
-## Istio Operator
+### Istio Operator
 
 - ./chart/templates/bigbang/istio-operator-rolebinding-openshift-scc.yaml
 - ./chart/templates/bigbang/networkpolicies/additional-networkpolicies.yaml
