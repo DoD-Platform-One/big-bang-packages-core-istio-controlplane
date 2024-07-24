@@ -135,9 +135,9 @@ This will deploy the following apps for testing:
 
 Some things aren't tested by the package pipeline, but are tested by the BigBang pipeline. These need to be tested independently if updated:
 
-* Ingress Gateways
-  * Passthrough Ingress Gateway specifically is already in BigBang, but not in the package pipeline.
-* Egress Gateways
+- Ingress Gateways
+  - Passthrough Ingress Gateway specifically is already in BigBang, but not in the package pipeline.
+- Egress Gateways
 
 ## Instructions for Integration Testing
 
