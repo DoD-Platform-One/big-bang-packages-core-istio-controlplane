@@ -8,7 +8,7 @@
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
 # -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
 # -f docs/dev-overrides/minimal.yaml \
-# -f docs/dev-overrides/istio-testing.yaml
+# -f docs/dev-overrides/istio-testing-local-keycloak.yaml
 
 istio:
   enabled: true

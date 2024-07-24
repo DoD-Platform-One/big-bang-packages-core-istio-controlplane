@@ -4,6 +4,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.22.3-bb.1] - 2024-07-22
+
+### Changed
+
+- Populated `spec.components.pilot.k8s.overlays`, `spec.components.ingressGateways.k8s.overlays` and `spec.components.egressGateways.k8s.overlays` in `chart/templates/controlplane.yaml` to set `version` label for istiod and gateways
+
+## [1.22.3-bb.0] - 2024-07-18
+
+### Changed
+
+- ironbank/opensource/istio/install-cni updated from 1.22.2 to 1.22.3
+- ironbank/opensource/istio/pilot updated from 1.22.2 to 1.22.3
+- ironbank/opensource/istio/proxyv2 updated from 1.22.2 to 1.22.3
+- ironbank/tetrate/istio/install-cni updated from 1.22.2 to 1.22.3
+- ironbank/tetrate/istio/pilot updated from 1.22.2 to 1.22.3
+- ironbank/tetrate/istio/proxyv2 updated from 1.22.2 to 1.22.3
+
+## [1.22.2-bb.2] - 2024-07-10
+
+### Added
+
+- Added native sidecar support
+
 ## [1.22.2-bb.1] - 2024-07-09
 
 ### Changed
