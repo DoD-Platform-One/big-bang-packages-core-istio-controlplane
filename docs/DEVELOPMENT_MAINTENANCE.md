@@ -138,6 +138,19 @@ Some things aren't tested by the package pipeline, but are tested by the BigBang
 - Ingress Gateways
   - Passthrough Ingress Gateway specifically is already in BigBang, but not in the package pipeline.
 - Egress Gateways
+- ./chart/templates/bigbang/istio/authorizationPolicies/allow-ingress-authz-policy.yaml
+- ./chart/templates/bigbang/istio/authorizationPolicies/allow-nothing-policy.yaml
+- ./chart/templates/bigbang/istio/authorizationPolicies/template.yaml
+- ./chart/templates/bigbang/peerAuthentication.yaml
+
+## Istio Operator
+
+- ./chart/templates/bigbang/istio-operator-rolebinding-openshift-scc.yaml
+- ./chart/templates/bigbang/networkpolicies/additional-networkpolicies.yaml
+- ./chart/templates/bigbang/networkpolicies/default-deny.yaml
+- ./chart/templates/bigbang/networkpolicies/egress-kube-api.yaml
+- ./chart/templates/bigbang/networkpolicies/ingress-scraping.yaml
+- ./chart/templates/bigbang/openshift-cr-crb-istio-operator.yaml
 
 ## Instructions for Integration Testing
 
