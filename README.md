@@ -11,15 +11,7 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ### Upstream Release Notes
 
-This package has no upstream release note links on file. Please add some to [chart/Chart.yaml](chart/Chart.yaml) under `annotations.bigbang.dev/upstreamReleaseNotesMarkdown`.
-Example:
-
-```yaml
-annotations:
-  bigbang.dev/upstreamReleaseNotesMarkdown: |
-    - [Find our upstream chart's CHANGELOG here](https://link-goes-here/CHANGELOG.md)
-    - [and our upstream application release notes here](https://another-link-here/RELEASE_NOTES.md)
-```
+* [Find upstream chart's release notes and CHANGELOG here](https://kiali.io/news/release-notes/)
 
 ## Learn More
 
