@@ -5,6 +5,10 @@
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
+## Upstream References
+
+* <https://github.com/istio/istio/tree/master/pilot>
+
 ### Upstream Release Notes
 
 This package has no upstream release note links on file. Please add some to [chart/Chart.yaml](chart/Chart.yaml) under `annotations.bigbang.dev/upstreamReleaseNotesMarkdown`.
