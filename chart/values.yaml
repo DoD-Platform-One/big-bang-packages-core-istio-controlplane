@@ -1,7 +1,7 @@
 # -- The istio profile to use
 profile: default
 
-# -- The hub to use for all images, images are built as ".Values.hub/<component>:.Values.tag"
+# -- The hub to use for all images, images are built as ".Values.hub/COMPONENT_NAME:.Values.tag"
 hub: registry1.dso.mil/ironbank/opensource/istio
 # -- The tag to use for all images
 tag: 1.22.3
