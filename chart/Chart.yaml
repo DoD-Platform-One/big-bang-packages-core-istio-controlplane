@@ -36,4 +36,4 @@ annotations:
     - name: base
       image: registry1.dso.mil/ironbank/big-bang/base:2.1.0
   bigbang.dev/upstreamReleaseNotesMarkdown: |
-    - [Find upstream chart's release notes and CHANGELOG here](https://kiali.io/news/release-notes/)
+    - [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
