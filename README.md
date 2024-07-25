@@ -1,8 +1,17 @@
+<!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
 ![Version: 1.22.3-bb.1](https://img.shields.io/badge/Version-1.22.3--bb.1-informational?style=flat-square) ![AppVersion: 1.22.3](https://img.shields.io/badge/AppVersion-1.22.3-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
+
+## Upstream References
+
+* <https://github.com/istio/istio/tree/master/pilot>
+
+### Upstream Release Notes
+
+* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
 
@@ -35,7 +44,7 @@ helm install istio chart/
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
-| hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as `.Values.hub/<component>:.Values.tag` |
+| hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/COMPONENT_NAME:.Values.tag" |
 | tag | string | `"1.22.3"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - <https://www.tetrate.io/tetrate-istio-subscription> |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
@@ -114,3 +123,7 @@ helm install istio chart/
 ## Contributing
 
 Please see the [contributing guide](./CONTRIBUTING.md) if you are interested in contributing.
+
+---
+
+_This file is programatically generated using `helm-docs` and some BigBang-specific templates. The `gluon` repository has [instructions for regenerating package READMEs](https://repo1.dso.mil/big-bang/product/packages/gluon/-/blob/master/docs/bb-package-readme.md)._
