@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.22.3-bb.2] - 2024-08-19
+
+### Changed
+
+- Updating Istio `oscal-component.yaml` to include Lula validations for automated assessment
+
+### Added
+
+- Added `oscal-assessment-results.yaml` as a threshold for automated governance
+
 ## [1.22.3-bb.1] - 2024-07-22
 
 ### Changed

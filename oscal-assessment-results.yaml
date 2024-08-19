@@ -1,0 +1,657 @@
+assessment-results:
+  import-ap:
+    href: ""
+  metadata:
+    last-modified: 2024-08-19T21:10:51.385613524Z
+    oscal-version: 1.1.2
+    published: 2024-08-19T21:10:51.385613524Z
+    remarks: Assessment Results generated from Lula
+    title: '[System Name] Security Assessment Results (SAR)'
+    version: 0.0.1
+  results:
+    - description: Assessment results for performing Validations with Lula version v0.5.1-1-g6601566
+      findings:
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: c8c03abd-244d-4813-a966-3feece1bad6a
+            # Control Implementation
+              Istio implements with service to service and provides authorization policies that require authentication to access any non-public features.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 0daed88b-45f0-4cdd-9653-8bc5655bf7dd
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-14
+            type: objective-id
+          title: 'Validation Result - Control: ac-14'
+          uuid: 16665fe7-599a-4255-b5ac-4a940bcb7916
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 9e158525-96bd-4d4f-a674-7e3eab9aea7a
+            # Control Implementation
+              Istio encrypts all in-mesh communication at runtime using FIPS verified mTLS in addition to ingress and egress gateways for controlling communication.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+            - observation-uuid: 9ea002fa-846a-4dcb-a9da-b5fddc77616d
+          target:
+            status:
+              state: satisfied
+            target-id: ac-4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4'
+          uuid: 3d8b617e-6c5c-49f8-b248-e2ca4873c116
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 6e32feb5-ce43-465f-9422-e3ef3276bf5d
+            # Control Implementation
+              Istio is configured to use ingress and egress gateways to provide logical flow separation.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 7acffe4c-2b28-43df-8115-7ab650df42c8
+            - observation-uuid: 2e0cf390-e4ad-400e-a4ee-b51c1f268b3a
+            - observation-uuid: f3a26b18-fcd9-48f2-b0dd-ebfb38c50828
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-4.21
+            type: objective-id
+          title: 'Validation Result - Control: ac-4.21'
+          uuid: e314cc07-4ff7-4600-8de5-16878e340194
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: c3e13abc-3c19-4f08-a2f8-40fcbef5daa7
+            # Control Implementation
+              All encrypted HTTPS connections are terminated at the Istio ingress gateway.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+            - observation-uuid: 9ea002fa-846a-4dcb-a9da-b5fddc77616d
+          target:
+            status:
+              state: satisfied
+            target-id: ac-4.4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4.4'
+          uuid: 1dc55ac3-448e-450f-ae8f-a55c36b7a8ef
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 0081f95a-3233-4e07-a6cd-95cb1905c318
+            # Control Implementation
+              Configured with an "admin" gateway to restrict access to applications that only need administrative access.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 2e0cf390-e4ad-400e-a4ee-b51c1f268b3a
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-6.3
+            type: objective-id
+          title: 'Validation Result - Control: ac-6.3'
+          uuid: 96b8b981-0390-40f9-80e1-67f2fc5da928
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 6d8a6c80-2844-4bfd-bc9d-0f5a71e5c979
+            # Control Implementation
+              Istio produces logs for all traffic in the information system.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: aa12ff3a-ebef-4028-9a85-6094176cb3b4
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: ac-6.9
+            type: objective-id
+          title: 'Validation Result - Control: ac-6.9'
+          uuid: dff6fa61-adb3-460e-8975-aaf050222d49
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 8f645835-6538-4327-a7aa-453b398f5ef4
+            # Control Implementation
+              Istio provides audit record generation capabilities for a variety of event types, including session, connection, transaction, or activity durations, and the number of bytes received and sent.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: aa12ff3a-ebef-4028-9a85-6094176cb3b4
+          target:
+            status:
+              state: satisfied
+            target-id: au-12
+            type: objective-id
+          title: 'Validation Result - Control: au-12'
+          uuid: 79a4f315-10e9-42dd-8ba4-45513bbb1477
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 88f300a6-aa21-41b4-919d-29ef3e4381bb
+            # Control Implementation
+              Istio logs all Istio event logs within the system's mesh network.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: aa12ff3a-ebef-4028-9a85-6094176cb3b4
+          target:
+            status:
+              state: satisfied
+            target-id: au-2
+            type: objective-id
+          title: 'Validation Result - Control: au-2'
+          uuid: a7e982b1-9ebd-4731-b463-979782f9627a
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 52756a01-6f5c-49b1-8a6b-972b74a01da4
+            # Control Implementation
+              Istio logs all Istio event logs within the system's mesh network.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 5cf5410f-9566-4a2a-8521-2dc01c4843f7
+          target:
+            status:
+              state: satisfied
+            target-id: au-3
+            type: objective-id
+          title: 'Validation Result - Control: au-3'
+          uuid: 26869bb7-af60-4d11-b3ee-008a0bfd8f0e
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 16cc258e-d907-47bb-97d9-4e92677cf075
+            # Control Implementation
+              Istio has been configured to implement event logging within our environment. This includes capturing metrics related to the duration of sessions, connections, transactions, or activities. Specifically, Istio's telemetry features are utilized to capture these metrics, which provide valuable data that can be used to infer the duration of sessions or connections.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 28268c1e-1647-46bf-be71-ecf642145c45
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+            - observation-uuid: 34b570ba-cca7-4247-bbee-42b447c74203
+          target:
+            status:
+              state: satisfied
+            target-id: au-3.1
+            type: objective-id
+          title: 'Validation Result - Control: au-3.1'
+          uuid: f5cedf82-056d-49d6-b634-a7734bc471ba
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 32e53a18-4b64-4a24-935c-11cbac2c62be
+            # Control Implementation
+              Istio enforces logical access restrictions associated with changes to the system. Istio's Role-Based Access Control (RBAC) features are used to define and enforce access controls, ensuring that only approved personnel can make changes to the system.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: ee37ac78-6b24-4183-ba4b-0fc3929c3800
+            - observation-uuid: 5495cb1d-1881-44fa-8d25-500a8d57d546
+          target:
+            status:
+              state: not-satisfied
+            target-id: cm-5
+            type: objective-id
+          title: 'Validation Result - Control: cm-5'
+          uuid: 74c48526-7bb8-49ad-b507-704df5ee0458
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 169c9ad3-0a6c-46ee-80cd-cd8cef5eca5c
+            # Control Implementation
+              Istio is configured to manage network connections associated with specific communication sessions. It can be set up to automatically terminate these connections after periods of inactivity, providing an additional layer of security.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: a4201f43-2947-4145-8ca8-eec272c4076c
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-10
+            type: objective-id
+          title: 'Validation Result - Control: sc-10'
+          uuid: 37d670d7-6700-4a94-858e-b424ca6e2a0e
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 2bf5c525-af5f-4b8b-8349-3f6a91e0aab9
+            # Control Implementation
+              Istio provides encryption in transit for all applications in the mesh, and can also provide TLS termination at ingress and TLS origination at egress.
+              Tetrate Istio Distribution (TID) is the only FIPS 140-2 Verified Istio distribution is in use.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 9ea002fa-846a-4dcb-a9da-b5fddc77616d
+            - observation-uuid: 444e533a-1c4b-49b9-8371-de4fdd542d03
+            - observation-uuid: 62694f36-fa30-48dd-896f-69cefa59bc21
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-13
+            type: objective-id
+          title: 'Validation Result - Control: sc-13'
+          uuid: 1447a2ed-47b4-42ac-9fbb-17fc65a9f184
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 625bfdc1-0b20-45f3-919b-91afbac77799
+            # Control Implementation
+              Istio is configured to protect session authenticity, establishing confidence in the ongoing identities of other parties and the validity of transmitted information. This is achieved through Istio's mutual TLS, which ensures secure communication.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+          target:
+            status:
+              state: satisfied
+            target-id: sc-23
+            type: objective-id
+          title: 'Validation Result - Control: sc-23'
+          uuid: b7331c6e-7b33-427a-8ef8-9268d832ffc8
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 9e2894a3-2452-4f7a-b8a5-f72b89b23c87
+            # Control Implementation
+              Istio breaks-down services into microservices to isolate security functions from non-security functions by using namespaces.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 2e0cf390-e4ad-400e-a4ee-b51c1f268b3a
+            - observation-uuid: f3a26b18-fcd9-48f2-b0dd-ebfb38c50828
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-3
+            type: objective-id
+          title: 'Validation Result - Control: sc-3'
+          uuid: 65db0b8e-078b-4bf5-9514-3b384d713bd6
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: f972ef8d-1eb0-403b-8db8-e65a4f4e2aaa
+            # Control Implementation
+              Istio  is configured to maintain separate execution domains for each executing process. This is achieved through Istio's sidecar proxy design, where each service in the mesh has its own dedicated sidecar proxy to handle its inbound and outbound traffic. This ensures that communication between processes is controlled and one process cannot modify the executing code of another process.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: sc-39
+            type: objective-id
+          title: 'Validation Result - Control: sc-39'
+          uuid: 17265e5d-64b9-4861-8ca6-6aca773ec37e
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 86bc4fb7-f91b-4f2c-b914-65427951018c
+            # Control Implementation
+              Istio enforces outbound traffic goes through an Egress Gateway with a Network Policy.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 47db4e84-13a5-4c4c-b2b1-64137f9cf1f0
+            - observation-uuid: 35fecee4-19af-4bf6-b68d-c68991b4602e
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-4
+            type: objective-id
+          title: 'Validation Result - Control: sc-4'
+          uuid: 79b69fd7-cb05-48cd-9d7c-254f77f1f7fd
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 30b49a3e-ad38-441d-8c07-5a9018848a02
+            # Control Implementation
+              Istio is configured to dynamically isolate certain internal system components when necessary. This is achieved through Istio's network policies, which allow us to partition or separate system components
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: sc-7.20
+            type: objective-id
+          title: 'Validation Result - Control: sc-7.20'
+          uuid: 17f8cad3-f30b-439a-a983-d91d45fe78e2
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: c9a1e9bc-3caa-44ce-a300-ecd722487987
+            # Control Implementation
+               Istio is configured to isolate system components that perform different mission or business functions. This is achieved through Istio's network policies and mutual TLS, which allow us to control information flows and provide enhanced protection.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: sc-7.21
+            type: objective-id
+          title: 'Validation Result - Control: sc-7.21'
+          uuid: 6070ba5d-4b90-4d67-9e9c-65428413dce6
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 85df9e6c-3d94-4c60-9a20-8c481831f1e0
+            # Control Implementation
+              Istio is configured to provide managed interfaces for external telecommunication services, establish traffic flow policies, and protect the confidentiality and integrity of transmitted information. It also prevents unauthorized exchange of control plane traffic and filters unauthorized control plane traffic.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 01e8faf2-1f5f-43d7-92ec-840161617098
+            - observation-uuid: 0daed88b-45f0-4cdd-9653-8bc5655bf7dd
+            - observation-uuid: f3a26b18-fcd9-48f2-b0dd-ebfb38c50828
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-7.4
+            type: objective-id
+          title: 'Validation Result - Control: sc-7.4'
+          uuid: f4ed341d-fbe4-46b7-a3ec-04e472c3e546
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 4b930af3-ae84-43ff-b751-448fe1c2eec8
+            # Control Implementation
+               is configured to route internal communications traffic to external networks through authenticated proxy servers at managed interfaces, using its Egress Gateway.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 35fecee4-19af-4bf6-b68d-c68991b4602e
+            - observation-uuid: e730f87d-b76f-4983-85d3-6aa61236fb9a
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-7.8
+            type: objective-id
+          title: 'Validation Result - Control: sc-7.8'
+          uuid: eb1278fd-861c-447b-9feb-12fa50afd25a
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 7548b4ee-e4a3-4e3c-a34b-95eccad45f92
+            # Control Implementation
+              Istio is configured to protect the confidentiality and integrity of transmitted information across both internal and external networks. This is achieved through Istio's mutual TLS, which encrypts service-to-service communication, ensuring that data in transit is not exposed to the possibility of interception and modification.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: sc-8
+            type: objective-id
+          title: 'Validation Result - Control: sc-8'
+          uuid: 409858e1-47a6-4ac8-bdbc-9a2d0f0b330e
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: 69415B92-0490-4A14-9E0F-E1EE61951F9C
+            # Control Implementation
+              Istio is configured to protect the confidentiality and integrity of transmitted information across both internal and external networks. This is achieved through Istio's mutual TLS, which encrypts service-to-service communication, ensuring that data in transit is not exposed to the possibility of interception and modification.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+          target:
+            status:
+              state: satisfied
+            target-id: sc-8.1
+            type: objective-id
+          title: 'Validation Result - Control: sc-8.1'
+          uuid: 657a2128-9a73-4501-ad77-2c9ccfcc5f4f
+        - description: |
+            Control Implementation: d2afb4c4-2cd8-5305-a6cc-d1bc7b388d0c / Implemented Requirement: c158b75a-cefc-4794-b124-f1e56ff5646d
+            # Control Implementation
+              Istio implements with global configuration.
+          related-observations:
+            - observation-uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+            - observation-uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+            - observation-uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+            - observation-uuid: 0daed88b-45f0-4cdd-9653-8bc5655bf7dd
+          target:
+            status:
+              state: not-satisfied
+            target-id: sc-8.2
+            type: objective-id
+          title: 'Validation Result - Control: sc-8.2'
+          uuid: 190a8852-474c-42db-bd94-42049f004205
+      observations:
+        - collected: 2024-08-19T21:10:51.029910295Z
+          description: |
+            [TEST]: bf9a66e3-fe4c-48b9-8635-e5999f959c2b - enforce-mtls-strict
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: All PeerAuthentications have mtls mode set to STRICT.
+          uuid: 006090f4-0f72-4f22-88c2-f03e0a0da712
+        - collected: 2024-08-19T21:10:51.029978789Z
+          description: |
+            [TEST]: 74de279f-84c6-4d2d-b8a4-028e3a079271 - communications-terminated-after-inactivity-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: a4201f43-2947-4145-8ca8-eec272c4076c
+        - collected: 2024-08-19T21:10:51.030005469Z
+          description: |
+            [TEST]: 62db1776-e1a9-4d5a-9453-9eff1e15329c - tls-origination-at-egress-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: 444e533a-1c4b-49b9-8371-de4fdd542d03
+        - collected: 2024-08-19T21:10:51.043153506Z
+          description: |
+            [TEST]: 7df8abad-d2e3-4944-a500-68bfe4f8c591 - istio-health-check
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Istiod Deployment is healthy. HPA has sufficient replicas.
+          uuid: bf1d678b-9548-43e4-9e32-37864c014ddb
+        - collected: 2024-08-19T21:10:51.043202893Z
+          description: |
+            [TEST]: ecdb90c7-971a-4442-8f29-a8b0f6076bc9 - egress-gateway-exists-and-configured-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: 35fecee4-19af-4bf6-b68d-c68991b4602e
+        - collected: 2024-08-19T21:10:51.043231029Z
+          description: |
+            [TEST]: 86da680f-882e-4af2-b8be-4adbdac3c220 - external-traffic-managed-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: e730f87d-b76f-4983-85d3-6aa61236fb9a
+        - collected: 2024-08-19T21:10:51.169546186Z
+          description: |
+            [TEST]: 3364aa3a-d75c-4ef4-9ef1-5d179f855097 - all-pods-istio-injected
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: All pods have Istio sidecar proxy.
+                validate.msg_exempt_namespaces: flux-system, istio-operator, istio-system, kube-system, kyverno, metallb-system
+          uuid: 41c865f7-1b99-48db-9f06-ac37fc1219d2
+        - collected: 2024-08-19T21:10:51.180015261Z
+          description: |
+            [TEST]: a1429ddc-8407-4b53-82d5-3a79ddd823dc - istio-rbac-enforcement-check
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Istio RBAC enforced
+                validate.msg_all_auth_policies: istio-system/allow-ingress-gateway-authz-policy, istio-system/allow-nothing-policy, istio-system/shared-grafana-authz-policy, istio-system/shared-monitoring-authz-policy, kiali/allow-intranamespace, kiali/public-ingressgateway-authz-policy, logging/fluentbit-fluentbit-authz-policy, logging/loki-allow-intranamespace, logging/loki-minio-operator-policy, logging/loki-promtail-authz-policy, minio-operator/allow-intranamespace-minio-operator, minio-operator/minio-policy, monitoring/grafana-allow-all-in-namespace, monitoring/grafana-public-ingressgateway-authz-policy, monitoring/kiali-prometheus-authz-policy, monitoring/monitoring-alertmanager-authz-policy, monitoring/monitoring-allow-all-in-namespace, monitoring/monitoring-allow-kube-exporter-port, monitoring/monitoring-prometheus-authz-policy, monitoring/prometheus-public-ingressgateway-authz-policy, monitoring/tempo-prometheus-authz-policy, neuvector/allow-all-in-namespace, neuvector/public-ingressgateway-authz-policy, tempo/allow-tempo-authz, tempo/public-ingressgateway-authz-policy
+          uuid: ee37ac78-6b24-4183-ba4b-0fc3929c3800
+        - collected: 2024-08-19T21:10:51.180076299Z
+          description: |
+            [TEST]: 1fc0f660-0163-4f06-9727-80dfa0110573 - fips-evaluation-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: 62694f36-fa30-48dd-896f-69cefa59bc21
+        - collected: 2024-08-19T21:10:51.185076332Z
+          description: |
+            [TEST]: 4ba0b818-be27-43bb-bbc4-f81a9e6ffaa0 - istio-tracing-logging-support
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Tracing logging supported.
+          uuid: 5cf5410f-9566-4a2a-8521-2dc01c4843f7
+        - collected: 2024-08-19T21:10:51.199165384Z
+          description: |
+            [TEST]: 619577bb-7c90-4fba-bf3a-235c2e1cc75a - default-deny-non-public-features
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                validate.msg: Some namespaces missing authorization policies that default deny: {"minio-operator", "monitoring", "neuvector", "tempo"}.
+                validate.msg_required_namespaces_default_deny: istio-system, minio-operator, monitoring, neuvector, tempo
+          uuid: 0daed88b-45f0-4cdd-9653-8bc5655bf7dd
+        - collected: 2024-08-19T21:10:51.211966797Z
+          description: |
+            [TEST]: d5096763-caf6-4cb6-88c5-cfce802f74fd - all-namespaces-istio-injected
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: All namespaces are Istio-injected
+                validate.msg_exempt_namespaces: bigbang, default, flux-system, istio-operator, istio-system, kube-node-lease, kube-public, kube-system, kyverno, metallb-system
+          uuid: 7acffe4c-2b28-43df-8115-7ab650df42c8
+        - collected: 2024-08-19T21:10:51.217635515Z
+          description: |
+            [TEST]: 93ee87ee-51d3-43b8-a07c-49de104bf72f - check-istio-admin-gateway-and-usage
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                Error running validation: domain GetResources error: gateways.networking.istio.io "admin-ingressgateway" not found
+          uuid: 2e0cf390-e4ad-400e-a4ee-b51c1f268b3a
+        - collected: 2024-08-19T21:10:51.21767547Z
+          description: |
+            [TEST]: 54539f75-2472-4bbf-97cb-f9435fe90810 - authorized-traffic-egress-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: 47db4e84-13a5-4c4c-b2b1-64137f9cf1f0
+        - collected: 2024-08-19T21:10:51.226809201Z
+          description: |
+            [TEST]: c16e5bbd-f6cc-4a23-9862-c76afcb2aa6f - ingress-traffic-encrypted
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: All gateways encrypt ingress traffic.
+                validate.msg_exempted_gateways: istio-system/passthrough
+          uuid: 9ea002fa-846a-4dcb-a9da-b5fddc77616d
+        - collected: 2024-08-19T21:10:51.234711437Z
+          description: |
+            [TEST]: 8f467188-30ff-4843-914c-ecb64610d442 - check-istio-logging-all-traffic
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Istio is logging all traffic.
+          uuid: aa12ff3a-ebef-4028-9a85-6094176cb3b4
+        - collected: 2024-08-19T21:10:51.281771456Z
+          description: |
+            [TEST]: 64905cf3-d60c-455d-be01-dc3092fa5dad - secure-communication-with-istiod
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg_required_namespaces: kiali, kyverno-reporter, logging, minio-operator, monitoring, neuvector, promtail, tempo
+                validate.msg: NetworkPolicies correctly configured for istiod in required namespaces.
+                validate.msg_expected_istiod: Expected Istiod ports: 15012, protocol: TCP.
+          uuid: 01e8faf2-1f5f-43d7-92ec-840161617098
+        - collected: 2024-08-19T21:10:51.287623406Z
+          description: |
+            [TEST]: d2cdc8bb-bce7-4c62-a35d-651180c02962 - gateway-configuration-check
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Only allowed gateways found. All gateway types found.
+                validate.msg_existing_gateways: istio-system/passthrough, istio-system/public
+                validate.msg_allowed_gateways: passthrough, public
+          uuid: f3a26b18-fcd9-48f2-b0dd-ebfb38c50828
+        - collected: 2024-08-19T21:10:51.287679427Z
+          description: |
+            [TEST]: 34d7ad14-04ed-4613-8b83-10829c7c953a - istio-rbac-for-approved-personnel-PLACEHOLDER
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: not-satisfied
+              remarks: |
+                OPA validation not performed: No resources to validate
+          uuid: 5495cb1d-1881-44fa-8d25-500a8d57d546
+        - collected: 2024-08-19T21:10:51.293684132Z
+          description: |
+            [TEST]: 8e8d632e-6aba-4c7e-be31-a7bfb2f7797b - istio-metrics-logging-configured
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: Metrics logging supported.
+          uuid: 28268c1e-1647-46bf-be71-ecf642145c45
+        - collected: 2024-08-19T21:10:51.384943366Z
+          description: |
+            [TEST]: f87242eb-8828-49bf-a7a9-951f9c4de229 - istio-prometheus-annotations-validation
+          methods:
+            - TEST
+          relevant-evidence:
+            - description: |
+                Result: satisfied
+              remarks: |
+                validate.msg: All pods have correct prometheus annotations.
+                validate.msg_exempted_namespaces: flux-system, istio-operator, istio-system, kube-system, kyverno, metallb-system
+          uuid: 34b570ba-cca7-4247-bbee-42b447c74203
+      props:
+        - name: threshold
+          ns: https://docs.lula.dev/oscal/ns
+          value: "true"
+        - name: target
+          ns: https://docs.lula.dev/oscal/ns
+          value: il4
+      reviewed-controls:
+        control-selections:
+          - description: Controls Assessed by Lula
+            include-controls:
+              - control-id: ac-14
+              - control-id: ac-4
+              - control-id: ac-4.21
+              - control-id: ac-4.4
+              - control-id: ac-6.3
+              - control-id: ac-6.9
+              - control-id: au-12
+              - control-id: au-2
+              - control-id: au-3
+              - control-id: au-3.1
+              - control-id: cm-5
+              - control-id: sc-10
+              - control-id: sc-13
+              - control-id: sc-23
+              - control-id: sc-3
+              - control-id: sc-39
+              - control-id: sc-4
+              - control-id: sc-7.20
+              - control-id: sc-7.21
+              - control-id: sc-7.4
+              - control-id: sc-7.8
+              - control-id: sc-8
+              - control-id: sc-8.1
+              - control-id: sc-8.2
+        description: Controls validated
+        remarks: Validation performed may indicate full or partial satisfaction
+      start: 2024-08-19T21:10:51.385607548Z
+      title: Lula Validation Result
+      uuid: 8fbc2621-0a74-4f98-9350-101c2fe59d55
+  uuid: 5f76c6e9-ee2b-454a-9edd-99f8d45af9f1
