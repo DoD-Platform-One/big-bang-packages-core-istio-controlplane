@@ -11,7 +11,7 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ### Upstream Release Notes
 
-- [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
+* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
 * [Application Overview](docs/overview.md)
