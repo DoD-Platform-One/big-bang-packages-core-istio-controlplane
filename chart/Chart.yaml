@@ -39,5 +39,7 @@ annotations:
       image: registry1.dso.mil/ironbank/tetrate/istio/pilot:1.22.4-tetratefips-v0
     - name: base
       image: registry1.dso.mil/ironbank/big-bang/base:2.1.0
+    - name: kubectl
+      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.29.6
   bigbang.dev/upstreamReleaseNotesMarkdown: |
     - [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
