@@ -13,21 +13,26 @@ spec:
   selector:
     {{- $values.selector | default (dict) | toYaml | nindent 4 }}
   servers:
-{{- if (dig "autoHttpRedirect" "enabled" true $values) }}    
+{{- range .servers }}
   - hosts:
-{{- range $servers := $values.servers }}
-{{- range $host := $servers.hosts }}
-{{- if eq $servers.port.protocol "HTTPS" }}
-    - '{{- tpl $host $ }}'
-{{- end }}    
-{{- end }}
+{{- range .hosts }}
+    - "{{ . }}"
 {{- end }}
     port:
-      name: http
-      number: 8080
-      protocol: HTTP
+      name: {{ .port.name }}
+      number: {{ .port.number }}
+      protocol: {{ .port.protocol }}
+{{- if .tls }}
     tls:
-      httpsRedirect: true
+{{- if .tls.httpsRedirect }}
+      httpsRedirect: {{ .tls.httpsRedirect }}
 {{- end }}
-    {{- tpl (toYaml $values.servers) $ | nindent 2 }}
+{{- if .tls.mode }}
+      mode: {{ .tls.mode }}
+{{- end }}
+{{- if .tls.credentialName }}
+      credentialName: {{ .tls.credentialName }}
+{{- end }}
+{{- end }}
+{{- end }}
 {{- end }}
