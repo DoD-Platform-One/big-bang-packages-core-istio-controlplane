@@ -24,8 +24,10 @@ spec:
       protocol: {{ .port.protocol }}
 {{- if .tls }}
     tls:
-{{- if .tls.httpsRedirect }}
-      httpsRedirect: {{ .tls.httpsRedirect }}
+{{- if or ($values.autoHttpRedirect.enabled) (.tls.httpsRedirect)  }}
+      httpsRedirect: true
+{{- else }}
+      httpsRedirect: false
 {{- end }}
 {{- if .tls.mode }}
       mode: {{ .tls.mode }}
