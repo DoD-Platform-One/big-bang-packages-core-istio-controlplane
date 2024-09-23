@@ -22,9 +22,9 @@ spec:
       name: {{ .port.name }}
       number: {{ .port.number }}
       protocol: {{ .port.protocol }}
-{{- if .tls }}
+{{- if or (and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTP")) (.tls) }}
     tls:
-{{- if or ($values.autoHttpRedirect.enabled) (.tls.httpsRedirect)  }}
+{{- if or (and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTP")) (.tls.httpsRedirect) }}
       httpsRedirect: true
 {{- else }}
       httpsRedirect: false
