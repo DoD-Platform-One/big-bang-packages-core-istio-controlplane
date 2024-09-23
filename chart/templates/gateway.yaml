@@ -16,7 +16,7 @@ spec:
 {{- range .servers }}
   - hosts:
 {{- range .hosts }}
-    - "{{ . }}"
+    - "{{ tpl . $ }}"
 {{- end }}
     port:
       name: {{ .port.name }}
