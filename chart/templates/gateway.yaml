@@ -13,30 +13,17 @@ spec:
   selector:
     {{- $values.selector | default (dict) | toYaml | nindent 4 }}
   servers:
+    {{- if $values.autoHttpRedirect.enabled }}
+    - hosts:
+      - "*.{Values.domain}"
+      port:
+        name: http
+        number: 8080
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
+    {{- end }}
 {{- range .servers }}
-  - hosts:
-{{- range .hosts }}
-    - "{{ tpl . $ }}"
-{{- end }}
-{{- if and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTPS") }}
-    port:
-      name: http
-      number: 8080
-      protocol: HTTP
-    tls:
-      httpsRedirect: true
-{{- end }}
-    port:
-      name: {{ .port.name }}
-      number: {{ .port.number }}
-      protocol: {{ .port.protocol }}
-{{- if or (and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTP")) (.tls) }}
-    tls:
-{{- if or (and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTP")) (.tls.httpsRedirect) }}
-      httpsRedirect: true
-{{- else }}
-      httpsRedirect: false
-{{- end }}
-{{- end }}
+- {{ tpl (toYaml .) $ | indent 4 }}
 {{- end }}
 {{- end }}
