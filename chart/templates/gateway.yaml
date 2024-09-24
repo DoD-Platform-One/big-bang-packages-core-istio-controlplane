@@ -18,6 +18,14 @@ spec:
 {{- range .hosts }}
     - "{{ tpl . $ }}"
 {{- end }}
+{{- if and ($values.autoHttpRedirect.enabled) (eq .port.protocol "HTTPS") }}
+    port:
+      name: http
+      number: 8080
+      protocol: HTTP
+    tls:
+      httpsRedirect: true
+{{- end }}
     port:
       name: {{ .port.name }}
       number: {{ .port.number }}
@@ -29,12 +37,8 @@ spec:
 {{- else }}
       httpsRedirect: false
 {{- end }}
-{{- if .tls.mode }}
-      mode: {{ .tls.mode }}
-{{- end }}
-{{- if .tls.credentialName }}
-      credentialName: {{ .tls.credentialName }}
+{{- .tls | toYaml | nindent 6 | trimPrefix "tls:" }}
 {{- end }}
 {{- end }}
-{{- end }}
+{{- tpl toYaml . $ | nindent 2 }}
 {{- end }}
