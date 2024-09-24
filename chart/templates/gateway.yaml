@@ -23,7 +23,5 @@ spec:
       tls:
         httpsRedirect: true
     {{- end }}
-{{- range .servers }}
-- {{ tpl (toYaml .) $ | indent 4 }}
-{{- end }}
+{{- $values.servers | default (dict) | toYaml | nindent 4 }}
 {{- end }}
