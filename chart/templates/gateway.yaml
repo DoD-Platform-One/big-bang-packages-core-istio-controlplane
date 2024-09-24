@@ -37,8 +37,6 @@ spec:
 {{- else }}
       httpsRedirect: false
 {{- end }}
-{{- .tls | toYaml | nindent 6 | trimPrefix "tls:" }}
 {{- end }}
 {{- end }}
-{{- tpl toYaml . $ | nindent 2 }}
 {{- end }}
