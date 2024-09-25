@@ -34,5 +34,5 @@ spec:
       httpsRedirect: true
   {{- end }}
   {{- end }}
-  {{- $values.servers | default (dict) | toYaml | nindent 2 }}
+  {{- tpl (toYaml ($values.servers | default (dict))) $ | nindent 2 }}
 {{- end }}
