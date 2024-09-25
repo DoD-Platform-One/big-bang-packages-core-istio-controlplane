@@ -11,17 +11,28 @@ metadata:
   namespace: {{ $.Release.Namespace }}
 spec:
   selector:
-    {{- $values.selector | default (dict) | toYaml | nindent 4 }}
+  {{- $values.selector | default (dict) | toYaml | nindent 4 }}
   servers:
-    {{- if $values.autoHttpRedirect.enabled }}
-    - hosts:
-      - "*.{Values.domain}"
-      port:
-        name: http
-        number: 8080
-        protocol: HTTP
-      tls:
-        httpsRedirect: true
+  {{- $uniqueHosts := dict }}
+  {{- range $servers := $values.servers }}
+    {{- range $host := .hosts }}
+      {{- $host := . }}
+      {{- if not (hasKey $uniqueHosts $host) }}
+        {{- $uniqueHosts = merge $uniqueHosts (dict $host true) }}
+      {{- end }} 
     {{- end }}
-{{- $values.servers | default (dict) | toYaml | nindent 4 }}
+  {{- end }}
+  {{- range $host, $_ := $uniqueHosts }}
+  {{- if $values.autoHttpRedirect.enabled }}
+  - hosts:
+    - "{{ $host }}"
+    port:
+      name: http
+      number: 8080
+      protocol: HTTP
+    tls:
+      httpsRedirect: true
+  {{- end }}
+  {{- end }}
+  {{- $values.servers | default (dict) | toYaml | nindent 2 }}
 {{- end }}
