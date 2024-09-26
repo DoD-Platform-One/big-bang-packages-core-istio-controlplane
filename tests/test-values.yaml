@@ -23,6 +23,8 @@ gateways:
   twistlock:
     selector:
       app: "twistlock-ingressgateway"
+    autoHttpRedirect:
+      enabled: false
     servers:
     - hosts:
       - "*"
