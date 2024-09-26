@@ -10,6 +10,7 @@ ingressGateways:
     type: "LoadBalancer"
     k8s:
       service:
+        type: LoadBalancer
         ports:
           - name: tcp-health-status
             port: 15021
