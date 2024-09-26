@@ -4,3 +4,29 @@ imagePullSecrets:
 networkPolicies:
   enabled: true
   controlPlaneCidr: 172.16.0.0/12
+
+ingressGateways:
+  twistlock-ingressgateway:
+    type: "LoadBalancer"
+    k8s:
+      service:
+        ports:
+          - name: tcp-health-status
+            port: 15021
+            targetPort: 15021
+            nodePort: 30200
+          - name: tcp-twistlock-wss
+            port: 8084
+            targetPort: 8084
+            nodePort: 30201
+gateways:
+  twistlock:
+    selector:
+      app: "twistlock-ingressgateway"
+    servers:
+    - hosts:
+      - "*"
+      port:
+        name: tcp-twistlock-wss
+        number: 8084
+        protocol: TCP
