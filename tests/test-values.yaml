@@ -20,6 +20,24 @@ ingressGateways:
             port: 8084
             targetPort: 8084
             nodePort: 30201
+  additional-ingressgateway:
+    type: "LoadBalancer"
+    k8s:
+      service:
+        type: LoadBalancer
+        ports:
+          - name: tcp-health-status
+            port: 15021
+            targetPort: 15021
+            nodePort: 30300
+          - name: http-custom
+            port: 8000
+            targetPort: 8000
+            nodePort: 30301
+          - name: https
+            port: 8443
+            targetPort: 8443
+            nodePort: 30302
 gateways:
   twistlock:
     selector:
@@ -33,3 +51,21 @@ gateways:
         name: tcp-twistlock-wss
         number: 8084
         protocol: TCP
+  additional:
+    autoHttpRedirect:
+      enabled: true
+    selector:
+      app: "additional-ingressgateway"
+    servers:
+    - hosts:
+      - "*.someotherrandomurl.com"
+      port:
+        name: http-custom
+        number: 8000
+        protocol: HTTP
+    - hosts:
+      - "*.someotherrandomurl.com"
+      port:
+        name: https
+        number: 8443
+        protocol: HTTPS
