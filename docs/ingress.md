@@ -166,13 +166,13 @@ gateways:
       app: "additional-ingressgateway"
     servers:
       - hosts:
-        - "*.someotherrandomurl.com"
+        - "anotherpackage.{{ .Values.domain }}"
         port:
           name: http-custom
           number: 8000 # this port is purely HTTP with no redirect to HTTPS
           protocol: HTTP
       - hosts:
-        - "*.someotherrandomurl.com"
+        - "anotherpackage.{{ .Values.domain }}"
         port:
           name: http-redirect
           number: 8080
@@ -180,7 +180,7 @@ gateways:
         tls:
           httpsRedirect: true # Manually specifying that this port should redirect all traffic to the HTTPS endpoint
       - hosts:
-        - "*.someotherrandomurl.com"
+        - "anotherpackage.{{ .Values.domain }}"
         port:
           name: https
           number: 8443
