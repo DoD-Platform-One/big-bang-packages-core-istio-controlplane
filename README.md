@@ -11,7 +11,7 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ### Upstream Release Notes
 
-- [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
+* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
 * [Application Overview](docs/overview.md)
@@ -43,7 +43,7 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/COMPONENT_NAME:.Values.tag" |
-| tag | string | `"1.22.5"` | The tag to use for all images |
+| tag | string | `"1.23.2"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
 | tidTag | string | `"1.23.2-tetratefips-v0"` |  |
