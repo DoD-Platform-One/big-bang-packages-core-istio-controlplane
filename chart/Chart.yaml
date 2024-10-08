@@ -24,7 +24,7 @@ annotations:
     - name: pilot
       image: registry1.dso.mil/ironbank/opensource/istio/pilot:1.23.2
     - name: proxyv2
-      image: registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.22.5
+      image: registry1.dso.mil/ironbank/opensource/istio/proxyv2:1.23.2
     - name: install-cni
       condition: openshift
       image: registry1.dso.mil/ironbank/opensource/istio/install-cni:1.23.2
