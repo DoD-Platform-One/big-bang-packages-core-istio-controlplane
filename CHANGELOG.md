@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.23.2-bb.0] - 2024-10-08
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.22.5 to 1.23.2
+- ironbank/opensource/istio/pilot updated from 1.22.5 to 1.23.2
+- ironbank/opensource/istio/proxyv2 updated from 1.22.5 to 1.23.2
+- ironbank/tetrate/istio/install-cni updated from 1.22.5 to 1.23.2
+- ironbank/tetrate/istio/pilot updated from 1.22.5 to 1.23.2
+- ironbank/tetrate/istio/proxyv2 updated from 1.22.5 to 1.23.2
+
 ## [1.22.5-bb.0] - 2024-09-24
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.22.4 to 1.22.5
