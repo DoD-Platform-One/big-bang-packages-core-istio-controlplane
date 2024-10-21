@@ -5,7 +5,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: hsts-headers
+  name: default-security-headers
   namespace: istio-system
 spec:
   workloadSelector:
