@@ -2,7 +2,7 @@
 #
 # modified from initial code here: https://gist.github.com/kabute/ef8e7198031c8a99212a629a139ac83f
 #
-{{- if and .Values.defaultSecurityHeaders.enabled -}}
+{{- if .Values.defaultSecurityHeaders.enabled -}}
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
