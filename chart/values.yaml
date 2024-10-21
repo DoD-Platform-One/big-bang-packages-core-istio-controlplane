@@ -352,3 +352,6 @@ waitJob:
   permissions:
     resources:
      - istio-controlplane
+
+defaultSecurityHeaders:
+  enabled: true
