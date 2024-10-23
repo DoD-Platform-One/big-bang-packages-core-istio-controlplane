@@ -44,9 +44,6 @@ spec:
               if not response_handle:headers():get("X-Frame-Options") then
                 response_handle:headers():add("X-Frame-Options", "SAMEORIGIN");
               end
-              if not response_handle:headers():get("X-XSS-Protection") then
-                response_handle:headers():add("X-XSS-Protection", "1; mode=block");
-              end
               if not response_handle:headers():get("X-Content-Type-Options") then
                 response_handle:headers():add("X-Content-Type-Options", "nosniff");
               end
