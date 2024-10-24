@@ -4,6 +4,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.23.2-bb.1] - 2024-10-24
+### Changed
+- ironbank/opensource/kubernetes/kubectl updated from v1.30.5 to v1.30.6
+
 ## [1.23.2-bb.0] - 2024-10-08
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.22.5 to 1.23.2
