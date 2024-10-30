@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.2-bb.0](https://img.shields.io/badge/Version-1.23.2--bb.0-informational?style=flat-square) ![AppVersion: 1.23.2](https://img.shields.io/badge/AppVersion-1.23.2-informational?style=flat-square)
+![Version: 1.23.2-bb.1](https://img.shields.io/badge/Version-1.23.2--bb.1-informational?style=flat-square) ![AppVersion: 1.23.2](https://img.shields.io/badge/AppVersion-1.23.2-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -120,6 +120,7 @@ helm install istio chart/
 | waitJob.enabled | bool | `true` |  |
 | waitJob.scripts.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.30.5"` |  |
 | waitJob.permissions.resources[0] | string | `"istio-controlplane"` |  |
+| defaultSecurityHeaders.enabled | bool | `true` |  |
 
 ## Contributing
 
