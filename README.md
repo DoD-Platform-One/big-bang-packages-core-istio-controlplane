@@ -1,27 +1,28 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.2-bb.1](https://img.shields.io/badge/Version-1.23.2--bb.1-informational?style=flat-square) ![AppVersion: 1.23.2](https://img.shields.io/badge/AppVersion-1.23.2-informational?style=flat-square)
+![Version: 1.23.3-bb.0](https://img.shields.io/badge/Version-1.23.3--bb.0-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Upstream References
 
-* <https://github.com/istio/istio/tree/master/pilot>
+- <https://github.com/istio/istio/tree/master/pilot>
 
-### Upstream Release Notes
+## Upstream Release Notes
 
-* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
+- [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
-* [Application Overview](docs/overview.md)
-* [Other Documentation](docs/)
+
+- [Application Overview](docs/overview.md)
+- [Other Documentation](docs/)
 
 ## Pre-Requisites
 
-* Kubernetes Cluster deployed
-* Kubernetes config installed in `~/.kube/config`
-* Helm installed
+- Kubernetes Cluster deployed
+- Kubernetes config installed in `~/.kube/config`
+- Helm installed
 
 Kubernetes: `>=1.28.0-0`
 
@@ -31,8 +32,9 @@ https://helm.sh/docs/intro/install/
 
 ## Deployment
 
-* Clone down the repository
-* cd into directory
+- Clone down the repository
+- cd into directory
+
 ```bash
 helm install istio chart/
 ```
@@ -43,10 +45,10 @@ helm install istio chart/
 |-----|------|---------|-------------|
 | profile | string | `"default"` | The istio profile to use |
 | hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` | The hub to use for all images, images are built as ".Values.hub/COMPONENT_NAME:.Values.tag" |
-| tag | string | `"1.23.2"` | The tag to use for all images |
+| tag | string | `"1.23.3"` | The tag to use for all images |
 | enterprise | bool | `false` | Tetrate Istio Distribution - Tetrate provides FIPs verified Istio and Envoy software and support, validated through the FIPs Boring Crypto module. Find out more from Tetrate - https://www.tetrate.io/tetrate-istio-subscription |
 | tidHub | string | `"registry1.dso.mil/ironbank/tetrate/istio"` |  |
-| tidTag | string | `"1.23.2-tetratefips-v0"` |  |
+| tidTag | string | `"1.23.3-tetratefips-v0"` |  |
 | domain | string | `"dev.bigbang.mil"` | The domain to use for the default gateway |
 | mtls.mode | string | `"STRICT"` | STRICT = Allow only mutual TLS traffic, PERMISSIVE = Allow both plain text and mutual TLS traffic |
 | revision | string | `""` | Revision of the Istio control plane |
@@ -92,7 +94,7 @@ helm install istio chart/
 | tracing.sampling | int | `10` | percent of traces to send to jaeger |
 | cni.image.hub | string | `"registry1.dso.mil/ironbank/opensource/istio"` |  |
 | cni.image.name | string | `"install-cni"` |  |
-| cni.image.tag | string | `"1.23.2"` |  |
+| cni.image.tag | string | `"1.23.3"` |  |
 | cni.podAnnotations | object | `{}` | k8s pod annotations. https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ |
 | cni.nodeSelector | object | `{}` | k8s nodeSelector. https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector |
 | cni.affinity | object | `{}` | k8s affinity / anti-affinity. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity |
@@ -118,7 +120,7 @@ helm install istio chart/
 | hardened.customAuthorizationPolicies | list | `[]` |  |
 | hardened.ingressGateway.authzRules[0] | object | `{}` |  |
 | waitJob.enabled | bool | `true` |  |
-| waitJob.scripts.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.30.5"` |  |
+| waitJob.scripts.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.30.6"` |  |
 | waitJob.permissions.resources[0] | string | `"istio-controlplane"` |  |
 | defaultSecurityHeaders.enabled | bool | `true` |  |
 
