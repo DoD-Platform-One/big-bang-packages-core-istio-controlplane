@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.23.3-bb.0] - 2024-11-04
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.23.2 to 1.23.3
+- ironbank/opensource/istio/pilot updated from 1.23.2 to 1.23.3
+- ironbank/opensource/istio/proxyv2 updated from 1.23.2 to 1.23.3
+- ironbank/opensource/kubernetes/kubectl updated from v1.30.5 to v1.30.6
+- ironbank/tetrate/istio/install-cni updated from 1.23.2 to 1.23.3
+- ironbank/tetrate/istio/pilot updated from 1.23.2 to 1.23.3
+- ironbank/tetrate/istio/proxyv2 updated from 1.23.2 to 1.23.3
+
 ## [1.23.2-bb.1] - 2024-10-21
 ### Added
 - added default, global envoy filter for HSTS and other security headers
