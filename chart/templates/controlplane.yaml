@@ -55,8 +55,10 @@ spec:
             kind: Deployment
             name: istiod
             patches:
-              - path: "spec.template.metadata.labels.version"
-                value: {{ .Chart.AppVersion | quote }}
+              - path: "spec.template.metadata.labels"
+                value:
+                  app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+                  app.kubernetes.io/name: "istiod"
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
     cni:
