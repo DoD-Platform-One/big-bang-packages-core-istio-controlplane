@@ -57,9 +57,9 @@ spec:
             patches:
               - path: "spec.template.metadata.labels.version"
                 value: {{ .Chart.AppVersion | quote }}
-              - path: "spec.template.metadata.labels.app.kubernetes.io/name"
+              - path: "spec.template.metadata.labels['app.kubernetes.io/name']"
                 value: "istiod"
-              - path: "spec.template.metadata.labels.app.kubernetes.io/version"
+              - path: "spec.template.metadata.labels['app.kubernetes.io/version']"
                 value: {{ .Chart.AppVersion | quote }}
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
