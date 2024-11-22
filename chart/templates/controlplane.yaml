@@ -50,9 +50,14 @@ spec:
           {{- .Values.istiod.affinity | default (dict) | toYaml | nindent 10 }}
         tolerations:
           {{- .Values.istiod.tolerations | default (list) | toYaml | nindent 10 }}
-        podLabels:
-          app.kubernetes.io/name: istiod
-          app.kubernetes.io/version: {{ $.Chart.AppVersion | quote }}
+        overlays:
+          - apiVersion: apps/v1
+            kind: Deployment
+            name: istiod
+            patches:
+              - path: "spec.template.metadata.labels"
+                value:
+                  app.kubernetes.io/name: istiod
     {{- if .Values.openshift }}
     {{- with .Values.cni }}
     cni:
