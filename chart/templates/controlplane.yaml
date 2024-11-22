@@ -84,6 +84,8 @@ spec:
       label:
         app: {{ $name }}
         istio: ingressgateway
+        app.kubernetes.io/name: {{ $name }}
+        app.kubernetes.io/version: {{ $.Chart.AppVersion | quote }}
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
         {{- end }}
@@ -104,6 +106,8 @@ spec:
       enabled: {{ if eq (toString $values.enabled) "<nil>" }}true{{ else }}{{ $values.enabled }}{{ end }}
       label:
         app: {{ $name }}
+        app.kubernetes.io/name: {{ $name }}
+        app.kubernetes.io/version: {{ $.Chart.AppVersion | quote }}
         istio: egressgateway
         {{- if $values.extraLabels }}
           {{- toYaml $values.extraLabels | nindent 8 }}
