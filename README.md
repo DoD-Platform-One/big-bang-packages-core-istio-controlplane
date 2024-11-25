@@ -11,18 +11,18 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Upstream Release Notes
 
-- [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
+* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
 
-- [Application Overview](docs/overview.md)
-- [Other Documentation](docs/)
+* [Application Overview](docs/overview.md)
+* [Other Documentation](docs/)
 
 ## Pre-Requisites
 
-- Kubernetes Cluster deployed
-- Kubernetes config installed in `~/.kube/config`
-- Helm installed
+* Kubernetes Cluster deployed
+* Kubernetes config installed in `~/.kube/config`
+* Helm installed
 
 Kubernetes: `>=1.28.0-0`
 
@@ -32,8 +32,8 @@ https://helm.sh/docs/intro/install/
 
 ## Deployment
 
-- Clone down the repository
-- cd into directory
+* Clone down the repository
+* cd into directory
 
 ```bash
 helm install istio chart/
