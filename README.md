@@ -1,13 +1,13 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.3-bb.0](https://img.shields.io/badge/Version-1.23.3--bb.0-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square)
+![Version: 1.23.3-bb.1](https://img.shields.io/badge/Version-1.23.3--bb.1-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square) [![Maintenance Track: unknown](https://img.shields.io/badge/Maintenance_Track-unknown-red?style=flat-square)](https://repo1.dso.mil/big-bang/product/bbtoc/-/blob/main/process/Package%20Maintenance%20Tracks.md)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Upstream References
 
-- <https://github.com/istio/istio/tree/master/pilot>
+* <https://github.com/istio/istio/tree/master/pilot>
 
 ## Upstream Release Notes
 
