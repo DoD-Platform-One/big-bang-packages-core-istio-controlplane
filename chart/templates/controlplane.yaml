@@ -55,8 +55,6 @@ spec:
             kind: Deployment
             name: istiod
             patches:
-              - path: "spec.template.metadata.labels.name"
-                value: istiod
               - path: spec.template.metadata.labels.app\.kubernetes\.io/name
                 value: istiod
               - path: spec.template.metadata.labels.app\.kubernetes\.io/version
@@ -95,13 +93,6 @@ spec:
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
-        overlays:
-          - apiVersion: apps/v1
-            kind: Deployment
-            name: {{ $name }}
-            patches:
-              - path: "spec.template.metadata.labels.version"
-                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
     egressGateways:
     {{- range $name, $values := .Values.egressGateways }}
@@ -118,13 +109,6 @@ spec:
         {{- end }}
       k8s:
         {{- toYaml $values.k8s | nindent 8 }}
-        overlays:
-          - apiVersion: apps/v1
-            kind: Deployment
-            name: {{ $name }}
-            patches:
-              - path: "spec.template.metadata.labels.version"
-                value: {{ $.Chart.AppVersion | quote }}
     {{- end }}
   meshConfig:
     accessLogFile: /dev/stdout
