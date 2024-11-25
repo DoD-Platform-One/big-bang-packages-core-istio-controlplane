@@ -1,28 +1,28 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.3-bb.0](https://img.shields.io/badge/Version-1.23.3--bb.0-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square)
+![Version: 1.23.3-bb.1](https://img.shields.io/badge/Version-1.23.3--bb.1-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square) [![Maintenance Track: unknown](https://img.shields.io/badge/Maintenance_Track-unknown-red?style=flat-square)](https://repo1.dso.mil/big-bang/product/bbtoc/-/blob/main/process/Package%20Maintenance%20Tracks.md)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Upstream References
 
-- <https://github.com/istio/istio/tree/master/pilot>
+* <https://github.com/istio/istio/tree/master/pilot>
 
 ## Upstream Release Notes
 
-- [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
+* [Find upstream chart's release notes and CHANGELOG here](https://istio.io/latest/news/releases/)
 
 ## Learn More
 
-- [Application Overview](docs/overview.md)
-- [Other Documentation](docs/)
+* [Application Overview](docs/overview.md)
+* [Other Documentation](docs/)
 
 ## Pre-Requisites
 
-- Kubernetes Cluster deployed
-- Kubernetes config installed in `~/.kube/config`
-- Helm installed
+* Kubernetes Cluster deployed
+* Kubernetes config installed in `~/.kube/config`
+* Helm installed
 
 Kubernetes: `>=1.28.0-0`
 
@@ -32,8 +32,8 @@ https://helm.sh/docs/intro/install/
 
 ## Deployment
 
-- Clone down the repository
-- cd into directory
+* Clone down the repository
+* cd into directory
 
 ```bash
 helm install istio chart/

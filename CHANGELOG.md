@@ -4,6 +4,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.23.3-bb.1] - 2024-11-25
+### Changed
+- Added app.kubernetes.io/name and app.kubernetes.io/version labels to all workloads
+- Removed version label that was added as part of previous Kiali labelling strategy
+
 ## [1.23.3-bb.0] - 2024-11-04
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.23.2 to 1.23.3
