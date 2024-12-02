@@ -17,6 +17,7 @@ dependencies:
     version: "0.5.4"
     repository: "oci://registry1.dso.mil/bigbang"
 annotations:
+  bigbang.dev/maintenanceTrack: bb_integrated
   bigbang.dev/applicationVersions: |
     - Istio: 1.23.3
     - Tetrate Istio Distro: 1.23.3
