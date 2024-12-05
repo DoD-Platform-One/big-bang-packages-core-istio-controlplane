@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.24.1-bb.0] - 2024-12-05
+### Changed
+- ironbank/opensource/istio/install-cni updated from 1.23.3 to 1.24.1
+- ironbank/opensource/istio/pilot updated from 1.23.3 to 1.24.1
+- ironbank/opensource/istio/proxyv2 updated from 1.23.3 to 1.24.1
+- ironbank/opensource/kubernetes/kubectl updated from v1.30.6 to v1.30.7
+- ironbank/tetrate/istio/install-cni updated from 1.23.3 to 1.24.1
+- ironbank/tetrate/istio/pilot updated from 1.23.3 to 1.24.1
+
 ## [1.23.3-bb.1] - 2024-11-25
 ### Changed
 - Added app.kubernetes.io/name and app.kubernetes.io/version labels to all workloads
