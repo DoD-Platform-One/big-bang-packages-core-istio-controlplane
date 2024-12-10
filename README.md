@@ -101,7 +101,7 @@ helm install istio chart/
 | cni.tolerations | list | `[]` | k8s toleration https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
 | meshConfig | object | `{"meshMTLS":{"minProtocolVersion":"TLSV1_2"}}` | Global mesh-wide settings https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#MeshConfig |
 | defaultConfig | object | `{}` | Default Proxy Config for the entire mesh (inserts under meshConfig in IstioOperator resource) |
-| values.global | object | `{"proxy":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
+| values.global | object | `{"proxy":{"resources":{"limits":{"memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}},"proxy_init":{"resources":{"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}}}` | Global IstioOperator values |
 | values.defaultRevision | string | `"default"` | Set defaultRevision name, must be non-empty to deploy validating webhook |
 | values.pilot | object | `{"env":{"ENABLE_NATIVE_SIDECARS":true}}` | Istio pilot values. https://github.com/istio/istio/blob/master/manifests/charts/istio-control/istio-discovery/values.yaml |
 | envoyFilters | list | `[]` | Custom EnvoyFilters. https://istio.io/latest/docs/reference/config/networking/envoy-filter/ |
@@ -114,6 +114,7 @@ helm install istio chart/
 | postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
 | postInstallHook.containerResources.resources.requests.cpu | string | `"100m"` |  |
 | postInstallHook.containerResources.resources.requests.memory | string | `"256Mi"` |  |
+| postInstallHook.containerResources.resources.limits.cpu | string | `"100m"` |  |
 | postInstallHook.containerResources.resources.limits.memory | string | `"256Mi"` |  |
 | hardened.enabled | bool | `false` |  |
 | hardened.customAuthorizationPolicies | list | `[]` |  |
