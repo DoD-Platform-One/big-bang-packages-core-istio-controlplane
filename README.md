@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.3-bb.1](https://img.shields.io/badge/Version-1.23.3--bb.1-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 1.23.3-bb.2](https://img.shields.io/badge/Version-1.23.3--bb.2-informational?style=flat-square) ![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
@@ -114,7 +114,6 @@ helm install istio chart/
 | postInstallHook.containerSecurityContext | object | `{"capabilities":{"drop":["ALL"]}}` | Container security context for readiness check |
 | postInstallHook.containerResources.resources.requests.cpu | string | `"100m"` |  |
 | postInstallHook.containerResources.resources.requests.memory | string | `"256Mi"` |  |
-| postInstallHook.containerResources.resources.limits.cpu | string | `"100m"` |  |
 | postInstallHook.containerResources.resources.limits.memory | string | `"256Mi"` |  |
 | hardened.enabled | bool | `false` |  |
 | hardened.customAuthorizationPolicies | list | `[]` |  |
