@@ -7,7 +7,7 @@ Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
 ## Upstream References
 
-* <https://github.com/istio/istio/tree/master/pilot>
+- <https://github.com/istio/istio/tree/master/pilot>
 
 ## Upstream Release Notes
 
