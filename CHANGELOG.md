@@ -4,7 +4,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
-## [1.23.4-bb.0] - 2024-12-13
+## [1.23.4-bb.0] - 2024-12-19
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.23.3 to 1.23.4
 - ironbank/opensource/istio/pilot updated from 1.23.3 to 1.23.4
