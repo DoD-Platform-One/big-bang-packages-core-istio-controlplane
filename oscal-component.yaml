@@ -1559,7 +1559,7 @@ component-definition:
           uuid: 81f6ec5d-9b8d-408f-8477-f8a04f493690
     metadata:
         last-modified: 2024-12-18T04:50:04.870271419Z
-        oscal-version: 1.1.3
+        oscal-version: 1.1.2
         parties:
             - links:
                 - href: https://p1.dso.mil
