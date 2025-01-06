@@ -4,6 +4,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.23.3-bb.3] - 2025-01-06
+### Changed
+- Update OSCAL to utilize Lula config file & fix templating bug
+
 ## [1.23.3-bb.2] - 2024-12-10
 ### Changed
 - Removed global cpu limit for istio proxy
