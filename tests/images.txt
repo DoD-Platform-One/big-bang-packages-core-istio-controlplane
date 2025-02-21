@@ -1,5 +1,5 @@
-registry1.dso.mil/ironbank/opensource/istio/install-cni:1.23.4
-registry1.dso.mil/ironbank/tetrate/istio/install-cni:1.23.4-tetratefips-v0
-registry1.dso.mil/ironbank/tetrate/istio/proxyv2:1.23.4-tetratefips-v0
-registry1.dso.mil/ironbank/tetrate/istio/pilot:1.23.4-tetratefips-v0
+registry1.dso.mil/ironbank/opensource/istio/install-cni:1.23.5
+registry1.dso.mil/ironbank/tetrate/istio/install-cni:1.23.5-tetratefips-v0
+registry1.dso.mil/ironbank/tetrate/istio/proxyv2:1.23.5-tetratefips-v0
+registry1.dso.mil/ironbank/tetrate/istio/pilot:1.23.5-tetratefips-v0
 registry1.dso.mil/ironbank/big-bang/base:2.1.0
