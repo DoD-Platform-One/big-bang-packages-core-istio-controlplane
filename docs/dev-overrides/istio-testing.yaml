@@ -37,6 +37,15 @@ istioOperator:
   #   tag: null
   #   branch: "renovate/ironbank"
 
+kyverno:
+  enabled: true
+
+kyvernoPolicies:
+  enabled: true
+
+kyvernoReporter:
+  enabled: true
+
 jaeger:
   enabled: true
 
