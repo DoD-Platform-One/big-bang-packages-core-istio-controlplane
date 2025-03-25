@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # istio
 
-![Version: 1.23.5-bb.0](https://img.shields.io/badge/Version-1.23.5--bb.0-informational?style=flat-square) ![AppVersion: 1.23.5](https://img.shields.io/badge/AppVersion-1.23.5-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 1.23.5-bb.1](https://img.shields.io/badge/Version-1.23.5--bb.1-informational?style=flat-square) ![AppVersion: 1.23.5](https://img.shields.io/badge/AppVersion-1.23.5-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 Configurable Deployment of Istio Custom Resources Wrapped Inside a Helm Chart.
 
