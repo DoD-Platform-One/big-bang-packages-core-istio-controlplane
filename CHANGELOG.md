@@ -3,8 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [1.25.1-bb.0] (2025-04-04)
+## [1.23.6-bb.0] (2025-04-15)
 ### Changed
+- ironbank/opensource/istio/install-cni updated from 1.23.5 to 1.23.6
+- ironbank/opensource/istio/pilot updated from 1.23.5 to 1.23.6
+- ironbank/opensource/istio/proxyv2 updated from 1.23.5 to 1.23.6
+- ironbank/opensource/kubernetes/kubectl updated from v1.30.8 to v1.30.10
+- ironbank/tetrate/istio/install-cni updated from 1.23.5 to 1.23.6
+- ironbank/tetrate/istio/pilot updated from 1.23.5 to 1.23.6
+- ironbank/tetrate/istio/proxyv2 updated from 1.23.5 to 1.23.6
+- Updated Gluon to v0.5.15
 
 ## [1.23.5-bb.1] - 2025-03-25
 ### Changed
@@ -12,13 +20,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.23.5-bb.0] - 2025-02-19
 ### Changed
-- ironbank/opensource/istio/install-cni updated from 1.23.4 to 1.23.5
-- ironbank/opensource/istio/pilot updated from 1.23.4 to 1.23.5
-- ironbank/opensource/istio/proxyv2 updated from 1.23.4 to 1.23.5
+- ironbank/opensource/istio/install-cni updated from 1.23.5 to 1.23.6
+- ironbank/opensource/istio/pilot updated from 1.23.5 to 1.23.6
+- ironbank/opensource/istio/proxyv2 updated from 1.23.5 to 1.23.6
 - ironbank/opensource/kubernetes/kubectl updated from v1.30.8 to v1.30.10
-- ironbank/tetrate/istio/install-cni updated from 1.23.4 to 1.23.5
-- ironbank/tetrate/istio/pilot updated from 1.23.4 to 1.23.5
-- ironbank/tetrate/istio/proxyv2 updated from 1.23.4 to 1.23.5
+- ironbank/tetrate/istio/install-cni updated from 1.23.5 to 1.23.6
+- ironbank/tetrate/istio/pilot updated from 1.23.5 to 1.23.6
+- ironbank/tetrate/istio/proxyv2 updated from 1.23.5 to 1.23.6
 - Updated Gluon to v0.5.14
 
 ## [1.23.4-bb.0] - 2025-01-13
