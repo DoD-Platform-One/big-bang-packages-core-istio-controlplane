@@ -10,8 +10,8 @@ metadata:
 data:
   istio-performance-dashboard.json: |
     {{- .Files.Get "dashboards/istio-performance-dashboard.json"  | nindent 4 }}
-  pilot-dashboard.json: |
-    {{- .Files.Get "dashboards/pilot-dashboard.json" | nindent 4 }}
+  pilot-dashboard.gen.json: |
+    {{- .Files.Get "dashboards/pilot-dashboard.gen.json" | nindent 4 }}
 ---
 apiVersion: v1
 kind: ConfigMap
