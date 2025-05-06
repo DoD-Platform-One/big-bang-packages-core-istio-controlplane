@@ -3,6 +3,10 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.23.6-bb.1] 2025-05-06
+### Fixed
+- Resolved issue with "Istio Control Plane Dashboard" not properly loading in Grafana.
+
 ## [1.23.6-bb.0] 2025-04-17
 ### Changed
 - ironbank/opensource/istio/install-cni updated from 1.23.5 to 1.23.6
